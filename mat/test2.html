@@ -12,6 +12,22 @@
       <meta charset="UTF-8">
       
       
+      <script type="text/javascript">
+         
+        function popup1()
+        {
+             // Materialize.toast('I am a toast!', 4000);// 4000 is the duration of the toast
+                 Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000, 'rounded')
+              //$(".button-collapse").sideNav();
+             
+                 $('#sub11').load("sub11.html");
+       }   
+       
+      
+           
+      </script>
+      
+      
     </head>
 
 
@@ -42,7 +58,7 @@
   <!-- Dropdown Structure -->    
   <ul id="dropdown1" class="dropdown-content">
       
-        <li><a href="#!"><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
+      <li><a href="#!"     onclick=" popup1() "    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
    <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
@@ -58,7 +74,7 @@
   
    <ul id="dropdown2" class="dropdown-content">
       
-        <li><a href="#!"><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
+        <li><a href="#!"    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
    <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
@@ -99,7 +115,7 @@
       <ul class="right hide-on-med-and-down">
         
          <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons left">view_week</i> มูลนิธิตะวันฉายฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">view_week</i> มูลนิธิตะวันฉายฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
           
          <li>
@@ -133,11 +149,13 @@
 
 
 
+  <span id="sub11"></span>
 
 
 
 
 
+        
 
 
   
