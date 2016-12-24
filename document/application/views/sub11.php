@@ -73,8 +73,8 @@ $(function(){
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text"  placeholder="เลขทะเบียนส่ง">
-          <label for="icon_prefix">เลขทะเบียนส่ง</label>
+          <input id="icon_prefix" type="text"  placeholder="1.เลขทะเบียนส่ง">
+          <label for="icon_prefix">1.เลขทะเบียนส่ง</label>
           
           
         </div>
@@ -82,28 +82,106 @@ $(function(){
         <div class="input-field col s6">
             
         <!--  <i class="material-icons prefix">phone</i> -->
+            <i class="material-icons prefix">account_circle</i>
             
-          <input id="icon_telephone" type="tel"  placeholder="ที่">
+          <input id="icon_telephone" type="tel"  placeholder="2.ที่">
           
-          <label for="icon_telephone">ที่</label>
+          <label for="icon_telephone">2.ที่</label>
           
         </div>
           
             
           <div class="input-field col s6">
             
-          <i class="material-icons prefix">assignment</i>
+          <i class="material-icons prefix">today</i>
          <!-- <input id="icon_telephone" type="tel" class="validate"> -->
           
           
                    <input type="date"  id="date1" class="datepicker">
         
           
-                   <!--
-          <label for="date1">ลงวันที่</label>
-                   -->
+                   
+          <label for="date1">3.ลงวันที่</label>
+                   
           
         </div>
+          
+          
+          <div class="input-field col s6">
+          <i class="material-icons prefix">toll</i>
+          
+          
+           <input  id="first_name" type="text" class="validate" >
+          
+          <label for="icon_telephone">4.จาก</label>
+        </div>
+          
+          
+          <div class="input-field col s6">
+          <i class="material-icons prefix">toll</i>
+          
+          
+           <input  id="first_name" type="text" class="validate" >
+          
+          <label for="icon_telephone">5.ถึง</label>
+        </div>
+          
+          
+          <div class="input-field col s6">
+          <i class="material-icons prefix">settings</i>
+          
+          
+           <input  id="first_name" type="text" class="validate" >
+          
+          <label for="icon_telephone">6.เรื่อง</label>
+        </div>
+          
+          
+           <div class="input-field col s6">
+          <i class="material-icons prefix">perm_identity</i>
+          
+          
+           <input  id="first_name" type="text" class="validate" >
+          
+          <label for="icon_telephone">7.การปฏิบัติ</label>
+        </div>
+          
+          
+            <div class="input-field col s6">
+          <i class="material-icons prefix">perm_identity</i>
+          
+          
+           <input  id="first_name" type="text" class="validate" >
+          
+          <label for="icon_telephone">8.หมายเหตุ</label>
+        </div>
+          
+          
+          
+          <div class="file-field input-field">
+      <div class="btn">
+          
+        <span>
+                File 
+            <i class="material-icons "  >phonelink_setup</i>
+        
+        </span>
+        
+      
+        
+        <input type="file" multiple>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+      </div>
+    </div>
+          
+          
+         
+  <button class="btn waves-effect waves-light" type="submit" name="action">บันทึก
+    <i class="material-icons md-30">phonelink_ring</i>
+  </button>
+        
           
           
       </div>
