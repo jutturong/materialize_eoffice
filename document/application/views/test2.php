@@ -6,6 +6,7 @@
       
       
            <meta charset="UTF-8">
+           <title><?=$title?></title>
            
            
            
@@ -24,6 +25,78 @@
        }   
        
       
+    //--- modal popup---  
+       $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+               //  $('.modal').modal();
+               
+               
+  $('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      in_duration: 300, // Transition in duration
+      out_duration: 200, // Transition out duration
+      starting_top: '4%', // Starting top style attribute
+      ending_top: '10%', // Ending top style attribute
+      
+      /*
+      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+        alert("Ready");
+        console.log(modal, trigger);
+      },
+      
+      
+      complete: function() { alert('Closed'); } // Callback for Modal close
+      */
+      
+      
+    }
+  );
+      
+      
+      
+      
+  });
+           
+           
+
+
+//---- modal Login System----------
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('#modal2').modal('open');
+  });
+          
+  
+  
+  
+  
+  
+      </script>
+      
+      
+        <script type="text/javascript">
+
+           
+           $(document).ready(function(){
+ 
+                   $('#btn_login').click(function(){
+                               //alert('t');
+                               $.ajax({
+                                   type:'post',
+                                   url:'index.php/welcome/checklogin',
+                                   data: $('#fr_login').serialize(),
+                                   success:function(data)
+                                      {
+                                          //  alert('t');
+                                                 alert(data);
+                                      }
+                               });
+                               
+                       });
+
+           });
+           
            
       </script>
       
@@ -170,6 +243,14 @@
          </li>
          
          
+          <li>
+             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons right">picture_in_picture</i> แสดงผลจากการบันทึกข้อมูล </a>
+         </li>
+         
+         
+         
+          <li><a href="javascript: $('#modal2').modal('open');  "><i class="material-icons left">perm_identity</i>เข้าสู่ระบบ</a></li>
+         
          <li><a href="#"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
          
          
@@ -198,9 +279,120 @@
 
 
 
+  
+  
+  <!-- Modal Trigger -->
+
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal bottom-sheet">
+   
+      <!--
+      <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+      
+      
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+      -->
+      
+      
+      <nav>
+    <div class="nav-wrapper">
+       <!-- 
+      <a href="#" class="brand-logo right">Logo</a>
+        -->
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li>
+              
+             <a href="#!"       ><i class="material-icons left">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
+          
+          </li>
+        <li>
+            
+              <a href="#!"       ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+        </li>
+        <li>
+            
+              <a href="#!"       ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+        
+        </li>
+      </ul>
+        
+        
+        
+        
+    </div>
+  </nav>
+      
+  </div>
+          
         
 
 
+  
+
+
+
+  <!-- Modal Structure   Modal Login System -->
+ <!-- <div id="modal2" class="modal modal-fixed-footer"> -->
+  <div id="modal2" class="modal">
+      
+    <div class="modal-content">
+      <!--<h4>เข้าสู่ระบบ</h4>-->
+      <!-- <p>A bunch of text</p> -->
+      
+      
+      <div class="row">
+    <form class="col s12"   id="fr_login"  method="post"  enctype="multipart/form-data"  novalidate="novalidate" >
+        
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Username" id="us"  name="us"  type="text" class="validate">
+          <label for="us">User name</label>
+        </div>
+          
+
+        
+        
+      <div class="row">
+        <div class="input-field col s6">
+            <input id="ps"  name="ps"  type="password" class="validate" >
+          <label for="ps">Password</label>
+        </div>
+      </div>
+        
+
+        
+         <div class="row">
+              <div class="input-field col s12">
+                  <button class="btn waves-effect waves-light" type="button" name="action"  id="btn_login" >
+                    <i class="material-icons md-30">lock_open</i>
+           </button>
+              </div>
+         </div>   
+        
+  </div>
+        
+            </form>
+
+          
+          
+    </div>
+      
+      <!--
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+    </div>
+      -->
+      
+    
+      
+  </div>
+  </div>        
   
 
 

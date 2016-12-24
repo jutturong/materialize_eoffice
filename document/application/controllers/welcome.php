@@ -17,14 +17,28 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
+             var  $title="ระบบโปรแกรมงานธุรการ";
 	public function index()
 	{
 		//$this->load->view('welcome_message');
-                                $this->load->view("test2");
+                                $data["title"]=$this->title;
+                                $this->load->view("test2",$data);
 	}
+          public function checklogin()
+          {
+                 // echo "T";
+                   echo $us=trim($this->input->get_post("us"));
+                   echo "<br>";
+                   echo  $ps=trim($this->input->get_post("ps"));
+                   echo "<br>";
+                   
+                   
+          }
+          
                 public function  formsub11()
                 {
-                             $this->load->view("sub11");
+                                 $data["title"]=$this->title;
+                             $this->load->view("sub11",$data);
                 }
 }
 

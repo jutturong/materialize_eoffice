@@ -177,11 +177,11 @@ $(function(){
     </div>
           
           
-         
-  <button class="btn waves-effect waves-light" type="submit" name="action">บันทึก
+          <div style="margin-left: 160px;">     
+  <button class="waves-effect waves-light btn-large" type="submit" name="action">SAVE
     <i class="material-icons md-30">phonelink_ring</i>
   </button>
-        
+          </div>
           
           
       </div>
