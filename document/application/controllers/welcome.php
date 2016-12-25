@@ -32,8 +32,10 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		//$this->load->view('welcome_message');
+                                $this->user_model->logout();
                                 $data["title"]=$this->title;
                                 $this->load->view("test2",$data);
+                                
 	}
           public function checklogin()
           {
@@ -94,10 +96,22 @@ class Welcome extends CI_Controller {
                    
           }
           
+          
+              public function  logout()
+              {
+                     $this->user_model->logout();
+              }
+              
+              
+          
                 public function  formsub11()
                 {
-                                 $data["title"]=$this->title;
+                     if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
                              $this->load->view("sub11",$data);
+                     }
+                     
                 }
                 public function  test()
                 {
@@ -116,6 +130,7 @@ class Welcome extends CI_Controller {
                       echo  "<h4>Sorry, the requested URL ".base_url()."<h4>";
                      * 
                      */
+                          
                          $this->user_model->err_model();
                          
                 }

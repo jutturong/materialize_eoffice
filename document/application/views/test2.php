@@ -12,15 +12,16 @@
            
       <script type="text/javascript">
          
-        function popup1()
+        function popup1()  //แสดงรายการรับหนังสือ  มูลนิธิตะวันฉายฯ
         {
              // Materialize.toast('I am a toast!', 4000);// 4000 is the duration of the toast
                 // Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000, 'rounded')
-                     Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
+                   
               //$(".button-collapse").sideNav();
              
                  //$('#sub11').load("sub11.html");
-               
+                 
+                 //Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
                  $('#sub11').load("index.php/welcome/formsub11");
        }   
        
@@ -298,7 +299,7 @@
          
           <li><a href="javascript: $('#modal2').modal('open');  "><i class="material-icons left">perm_identity</i>เข้าสู่ระบบ</a></li>
          
-         <li><a href="#"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
+         <li><a href="<?=base_url()?>"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
          
          
          <!--

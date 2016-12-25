@@ -14,6 +14,7 @@ class User_model extends CI_Model {
         
         public  function  authenlogin() // check login system
         {
+            //  if(    $this->user_model->authenlogin() == 1 )
                      $model_us=$this->session->userdata("sess_us");
                  //echo "<br>";
                     $model_ps = $this->session->userdata("sess_ps");
@@ -30,13 +31,11 @@ class User_model extends CI_Model {
                  }
                  else
                  {
-                     redirect("welcome/err_system");
+                     //redirect("welcome/err_system");
+                        $this->user_model->logout();          
                  }
-                 
-                 
-                 
-                  redirect("welcome/err_system");
-                 
+               
+                   
         }
         
         public function  err_model()
@@ -47,6 +46,21 @@ class User_model extends CI_Model {
                       echo  "<h4>Sorry, the requested URL ".base_url()."<h4>";
         }
         
+        public function  logout() //ปิดออกจากระบบ
+        {
+            //   $this->user_model->logout();
+                  $sess_data=array(
+                                   "sess_us"=>"",
+                                   "sess_ps"=>"",
+                                   "sess_per"=> "",  
+                                    "sess_login"=>0, 
+                             );
+                  
+                  $this->session->unset_userdata($sess_data);
+                  $this->session->sess_destroy();
+                  
+                 // redirect("welcome/index/");
+        }
         
         
         
