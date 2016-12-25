@@ -1,4 +1,13 @@
 <script type="text/javascript">
+      $(document).ready(function(){  
+            Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
     
     
 $(function(){
@@ -11,8 +20,11 @@ $(function(){
 });
 
   
+ 
   
 </script>
+
+
 
 
 <!--  form record-->
