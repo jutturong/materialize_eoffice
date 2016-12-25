@@ -18,6 +18,17 @@ class Welcome extends CI_Controller {
 	 * @see http://codeigniter.com/user_guide/general/urls.html
 	 */
              var  $title="ระบบโปรแกรมงานธุรการ";
+             
+                 public function __construct() {
+                     
+                         
+                           parent::__construct();
+                          // $this->load->model("user_model");
+                          // $this->user_model->test();
+                           
+                 }
+             
+             
 	public function index()
 	{
 		//$this->load->view('welcome_message');
@@ -27,11 +38,59 @@ class Welcome extends CI_Controller {
           public function checklogin()
           {
                  // echo "T";
-                   echo $us=trim($this->input->get_post("us"));
-                   echo "<br>";
-                   echo  $ps=trim($this->input->get_post("ps"));
-                   echo "<br>";
-                   
+                    $us=trim($this->input->get_post("us"));
+                   //echo "<br>";
+                     $ps=trim($this->input->get_post("ps"));
+                   $ps=md5($ps);
+                   //echo $ps;
+                   //echo "<br>";
+                   $tb="tb_user";
+                   $query1=$this->db->get_where($tb,array("username"=>$us,"password"=>$ps));
+                     $num_rows=$query1->num_rows();
+                     $row=$query1->row();
+                      
+                      //echo $check_per;
+                      
+                     if( $num_rows == 1    )
+                     {
+                          //   $query2=$this->db->get_where($tb,array());
+                           //  foreach($row->)
+                         $check_per=$row->id_permission;  //permission database
+                         
+                             $sess_data=array(
+                                   "sess_us"=>$us,
+                                   "sess_ps"=>$ps,
+                                   "sess_per"=> $check_per,  
+                                    "sess_login"=>1, 
+                             );
+                            // echo  "login";
+                             $this->session->set_userdata($sess_data);
+                             $this->session->userdata("sess_login");
+                           //  echo "1";   //รหัสผ่านถูกต้อง 
+                            
+                            
+                             /*
+                             foreach($query1->$result() as $row() )
+                             {
+                                    $rows[]=$row;
+                             }
+                           //  echo json_encode($rows);
+                              * 
+                              */
+                             
+                             foreach ( $query1->result() as $row)
+                             {
+                                   $rows[]=$row;
+                             }
+                                   header("Content-Type: application/json", true);
+                                   echo json_encode($rows);
+                             
+                             
+                     }
+                     else{
+                                   echo "0";  //รหัสผ่านไม่ถูกต้อง
+                     }
+                  
                    
           }
           
@@ -39,6 +98,26 @@ class Welcome extends CI_Controller {
                 {
                                  $data["title"]=$this->title;
                              $this->load->view("sub11",$data);
+                }
+                public function  test()
+                {
+                    #   http://localhost/document/index.php/welcome/test
+                          //$this->load->model("User_model");
+                           $this->user_model->authenlogin();  //check login  from  model
+                }
+                
+                public function  err_system()
+                {
+                    //http://192.168.2.112/document/index.php/welcome/err_system
+                    
+                    /*
+                      echo "<h1>Error: 404 Not Found</h1>";
+                      //echo "<br>";
+                      echo  "<h4>Sorry, the requested URL ".base_url()."<h4>";
+                     * 
+                     */
+                         $this->user_model->err_model();
+                         
                 }
 }
 

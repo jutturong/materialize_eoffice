@@ -77,7 +77,7 @@
       
         <script type="text/javascript">
 
-           
+           //----- login เข้าสู่ระบบ
            $(document).ready(function(){
  
                    $('#btn_login').click(function(){
@@ -88,8 +88,55 @@
                                    data: $('#fr_login').serialize(),
                                    success:function(data)
                                       {
-                                          //  alert('t');
-                                                 alert(data);
+                                                //alert(data);
+                                                
+                                                
+                                                /*
+                                               if( data == '1' )
+                                               {
+                                                       //Materialize.toast('เข้าสู่ระบบ', 4000);
+                                                        var  $toastContent = $('<span>ยินดีต้อนรับเข้าสู่ระบบธุรการ</span>');
+                                                        Materialize.toast($toastContent,4000,'rounded',function(){
+                                                                $('#modal2').modal('close');
+                                                        });
+                                               }
+                                               else if( data == '0' )
+                                               {
+                                                      var $toastContent = $('<span>รหัสผ่านไม่ถูกต้อง</span>');
+                                                     //  Materialize.toast($toastContent, 4000,'rounded') 
+                                                        Materialize.toast($toastContent, 4000,'rounded', function()
+                                                          {  
+                                                                 // alert('กรุณาระบุรหัสผ่านใ้ห้ถูกต้อง')  
+                                                                     Materialize.toast('ระบุรหัสผ่านให้ถูกต้องหรือติดต่้อผู้ดูแลระบบ', 4000) // 4000 is the duration of the toast
+                                                            }  ); // 4000 is the duration of the toast
+                                               }  
+                                               */
+                                                  
+                                                  
+                                               if( data == '0' )
+                                               {
+                                                      var $toastContent = $('<span>รหัสผ่านไม่ถูกต้อง</span>');
+                                                     //  Materialize.toast($toastContent, 4000,'rounded') 
+                                                        Materialize.toast($toastContent, 2000,'rounded', function()
+                                                          {  
+                                                                 // alert('กรุณาระบุรหัสผ่านใ้ห้ถูกต้อง')  
+                                                                     Materialize.toast(' ติดต่อผู้ดูแลระบบ ', 4000 , 'rounded') // 4000 is the duration of the toast
+                                                            }  ); // 4000 is the duration of the toast
+                                               }  
+                                               else{
+                                                   
+                                                         $.each(data,function(v,k){
+                                                                            // alert(k.firstname);
+                                                                            //Materialize.toast('เข้าสู่ระบบ', 4000);
+                                                                       var  $toastContent = $('<span> '   +  k.firstname   +  '  ' +  k.lastname    +   '   :  เข้าสู่ระบบ </span>');
+                                                                       Materialize.toast($toastContent,2000,'rounded',function(){
+                                                                               $('#modal2').modal('close');
+                                                                       });
+                                                             
+                                                         });
+                                                         
+                                               }
+                                               
                                       }
                                });
                                
