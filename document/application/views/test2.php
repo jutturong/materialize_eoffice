@@ -23,7 +23,17 @@
                  
                  //Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
                  $('#sub11').load("index.php/welcome/formsub11");
-       }   
+       } 
+       
+       
+       function  table11() //โหลด table 
+       {
+           // index.php/welcome/subtable11/
+                  
+                $('#sub11').load("index.php/welcome/subtable11");
+                
+                //$('#modal_table11').modal('open');
+       }
        
       
     //--- modal popup---  
@@ -356,7 +366,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
           <li>
               
-             <a href="#!"       ><i class="material-icons left">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
+              <a href="javascript:void(0)"  onclick="table11()"       ><i class="material-icons left">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
           
           </li>
         <li>
@@ -399,7 +409,7 @@
         
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Username" id="us"  name="us"  type="text" class="validate">
+            <input placeholder="Username" id="us"  name="us"  type="text" class="validate"  value="root">
           <label for="us">User name</label>
         </div>
           
@@ -408,7 +418,7 @@
         
       <div class="row">
         <div class="input-field col s6">
-            <input id="ps"  name="ps"  type="password" class="validate" >
+            <input id="ps"  name="ps"  type="password" class="validate"  value="root1234">
           <label for="ps">Password</label>
         </div>
       </div>
@@ -443,6 +453,10 @@
   </div>        
   
 
+ 
+ 
+ 
+ 
 
 
     </body>

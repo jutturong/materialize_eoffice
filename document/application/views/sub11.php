@@ -1,6 +1,15 @@
 <script type="text/javascript">
+    
+    /*
       $(document).ready(function(){  
             Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
+    });
+    */
+    
+    $(function(){
+        
+        Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
+        
     });
 
 </script>
@@ -20,6 +29,28 @@ $(function(){
 });
 
   
+ 
+ $(function(){
+     
+     $('#btn_insert11').click(function(){
+             //  alert('t');
+         $.ajax({
+                                   type:'post',
+                                   url:'index.php/welcome/inserttable1',
+                                   data: $('#fr_sub11').serialize(),
+                                   success:function(data)
+                                      {
+                                                      alert(data);
+                                          
+                                      }
+         
+                    });
+     
+     
+     
+    })
+     
+ });
  
   
 </script>
@@ -78,15 +109,15 @@ $(function(){
 
 
   <div class="row">
-    <form class="col s12">
+      <form class="col s12" id="fr_sub11"  method="post"  enctype="multipart/form-data"  novalidate="novalidate"  >
       <div class="row">
           
           
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text"  placeholder="1.เลขทะเบียนส่ง">
-          <label for="icon_prefix">1.เลขทะเบียนส่ง</label>
+          <input id="registration_receive11" name="registration_receive11"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="0001" />
+          <label for="registration_receive11">1.เลขทะเบียนส่ง</label>
           
           
         </div>
@@ -96,9 +127,9 @@ $(function(){
         <!--  <i class="material-icons prefix">phone</i> -->
             <i class="material-icons prefix">account_circle</i>
             
-          <input id="icon_telephone" type="tel"  placeholder="2.ที่">
+            <input id="at_receive11" name="at_receive11"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
           
-          <label for="icon_telephone">2.ที่</label>
+          <label for="at_receive11">2.ที่</label>
           
         </div>
           
@@ -109,11 +140,11 @@ $(function(){
          <!-- <input id="icon_telephone" type="tel" class="validate"> -->
           
           
-                   <input type="date"  id="date1" class="datepicker">
+          <input type="date"  id="date1_receive11"  name="date1_receive11"  class="datepicker" />
         
           
                    
-          <label for="date1">3.ลงวันที่</label>
+          <!-- <label for="date1">3.ลงวันที่</label>-->
                    
           
         </div>
@@ -123,9 +154,9 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-           <input  id="first_name" type="text" class="validate" >
+          <input  id="from_receive11"  name="from_receive11"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
           
-          <label for="icon_telephone">4.จาก</label>
+          <label for="from_receive11">4.จาก</label>
         </div>
           
           
@@ -133,7 +164,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-           <input  id="first_name" type="text" class="validate" >
+          <input  id="to_receive11"  name="to_receive11"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
           
           <label for="icon_telephone">5.ถึง</label>
         </div>
@@ -143,9 +174,9 @@ $(function(){
           <i class="material-icons prefix">settings</i>
           
           
-           <input  id="first_name" type="text" class="validate" >
+          <input  id="subject_receive11"  name="subject_receive11"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
           
-          <label for="icon_telephone">6.เรื่อง</label>
+          <label for="subject_receive11">6.เรื่อง</label>
         </div>
           
           
@@ -153,9 +184,9 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-           <input  id="first_name" type="text" class="validate" >
+          <input  id="practice_receive11" name="practice_receive11"  type="text" class="validate" value="ทราบ"  />
           
-          <label for="icon_telephone">7.การปฏิบัติ</label>
+          <label for="practice_receive11">7.การปฏิบัติ</label>
         </div>
           
           
@@ -163,37 +194,48 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-           <input  id="first_name" type="text" class="validate" >
+          <input  id="note_receive11"  name="note_receive11"  type="text" class="validate"  value="ทราบและปฏฺิบัติตาม " >
           
-          <label for="icon_telephone">8.หมายเหตุ</label>
+          <label for="note_receive11">8.หมายเหตุ</label>
         </div>
           
           
           
-          <div class="file-field input-field">
-      <div class="btn">
-          
-        <span>
-                File 
-            <i class="material-icons "  >phonelink_setup</i>
-        
-        </span>
-        
-      
-        
-        <input type="file" multiple>
-      </div>
-      <div class="file-path-wrapper">
-        <input class="file-path validate" type="text" placeholder="Upload one or more files">
-      </div>
+          <div class="file-field input-field col s6">
+                        <div class="btn">
+
+
+                                  File 
+                              <i class="material-icons "  >phonelink_setup</i>
+
+
+
+
+
+                              <input type="file"   id="file1_receive11"  name="file1_receive11"     multiple >
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                        </div>
+              
+              
     </div>
           
           
-          <div style="margin-left: 160px;">     
-  <button class="waves-effect waves-light btn-large" type="submit" name="action">SAVE
+          
+          
+          
+          <!--<div class="input-field col s6"> -->
+          <!--  <div style="border-top: 300px;border-top-width:5px; border-right-width:5px; border-bottom-width:5px; border-left-width:5px;">-->
+          <div class="button-collapse col s6">
+                
+            
+              <button class="waves-effect waves-light btn-large" type="button"  id="btn_insert11"  name="btn_insert11" >SAVE
     <i class="material-icons md-30">phonelink_ring</i>
   </button>
-          </div>
+                
+                
+            </div>
           
           
       </div>

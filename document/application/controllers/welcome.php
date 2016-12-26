@@ -113,6 +113,69 @@ class Welcome extends CI_Controller {
                      }
                      
                 }
+                
+                public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
+                {
+                    #    index.php/welcome/subtable11/
+                     if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                            // $this->load->view("sub11",$data);
+                            $this->load->view("table11",$data);
+                     }
+                    
+                }
+                
+                
+                public  function inserttable1()
+                {
+                    #   http://localhost/document/index.php/welcome/inserttable1
+                   
+                     if(    $this->user_model->authenlogin() == 1 )
+                     {
+                         #-- หนังสือรับ หนังสือเ้ข้า  มูลนิธิตะวันฉายฯ
+                       echo  $registration_receive11=trim($this->input->get_post("registration_receive11"));   //เลขทะเบียนส่ง
+                       echo "<br>";
+                       echo  $at_receive11=trim($this->input->get_post("at_receive11"));  //ที่
+                       echo  "<br>";
+                       echo  $date1_receive11=trim($this->input->get_post("date1_receive11")); //ลงวันที่
+                       echo  "<br>";
+                       echo  $from_receive11=trim($this->input->get_post("from_receive11")); //จาก
+                       echo  "<br>";
+                       echo  $to_receive11=trim($this->input->get_post("to_receive11"));  //ถึง
+                       echo  "<br>";
+                       echo  $subject_receive11=trim($this->input->get_post("subject_receive11"));  //เรื่อง
+                       echo  "<br>";
+                       echo  $practice_receive11=trim($this->input->get_post("practice_receive11"));  //การปฏฺิบัติ
+                       echo  "<br>";
+                       echo  $note_receive11=trim($this->input->get_post("note_receive11")); //หมายเหตุ
+                       echo  "<br>";
+                      
+                         // $file1_receive11
+                         /*
+                          $fname =  $_FILES['file_rec']['name'];
+                         $fsize=$_FILES['file_rec']['size'];
+                         $ftmpname=$_FILES['file_rec']['tmp_name'];
+                         $ftypename=$_FILES['file_rec']['type'];
+                                  
+                                   if(   !empty(  $fname   )      )
+                                   {
+                                           $source = $_FILES['file_rec']['tmp_name'];
+                                           $file_rec = $_FILES['file_rec']['tmp_name'];
+                                           $target = "uploadfile/".$_FILES['file_rec']['name'];
+                                           move_uploaded_file( $source, $target );// or die ("Couldn't copy");
+                                          // $size = getImageSize( $target );
+                                   }
+
+                          */
+                       
+                  $_FILES['file1_receive11']['name'];
+                   //   echo  "<br>";
+                         
+                       
+                     }
+                }
+                
                 public function  test()
                 {
                     #   http://localhost/document/index.php/welcome/test
