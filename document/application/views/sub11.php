@@ -52,6 +52,8 @@ $(function(){
 
  });
  
+    });
+ 
   
 </script>
 
@@ -114,6 +116,7 @@ $(function(){
       
       
    <form class="col s12" id="fr_sub11"  name="fr_sub11"   method="post"  accept-charset="UTF-8" enctype="multipart/form-data"  >
+       
       <div class="row">
           
           
