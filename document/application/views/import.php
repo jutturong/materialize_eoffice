@@ -50,6 +50,13 @@
       
       
       
+      <!--  easyui -->
+      <!--
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
+      <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+      -->
+      
+      
       
    
       

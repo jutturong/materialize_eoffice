@@ -169,9 +169,10 @@ class Welcome extends CI_Controller {
 
                           */
                        
-                  $_FILES['file1_receive11']['name'];
+                  //$_FILES['file1_receive11']['name'];
                    //   echo  "<br>";
                          
+                          $file1name = $_FILES['file_upload1']['name'];
                        
                      }
                 }

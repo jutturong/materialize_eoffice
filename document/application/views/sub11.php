@@ -1,16 +1,20 @@
 <script type="text/javascript">
     
-    /*
+    
       $(document).ready(function(){  
             Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
     });
-    */
     
+    
+    
+    /*
     $(function(){
         
         Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
         
     });
+    */
+    
 
 </script>
 
@@ -33,7 +37,7 @@ $(function(){
  $(function(){
      
      $('#btn_insert11').click(function(){
-             //  alert('t');
+
          $.ajax({
                                    type:'post',
                                    url:'index.php/welcome/inserttable1',
@@ -45,11 +49,7 @@ $(function(){
                                       }
          
                     });
-     
-     
-     
-    })
-     
+
  });
  
   
@@ -109,7 +109,11 @@ $(function(){
 
 
   <div class="row">
-      <form class="col s12" id="fr_sub11"  method="post"  enctype="multipart/form-data"  novalidate="novalidate"  >
+      
+   <!--   method="post" action="some_action" enctype="multipart/form-data" -->
+      
+      
+   <form class="col s12" id="fr_sub11"  name="fr_sub11"   method="post"  accept-charset="UTF-8" enctype="multipart/form-data"  >
       <div class="row">
           
           
@@ -212,7 +216,7 @@ $(function(){
 
 
 
-                              <input type="file"   id="file1_receive11"  name="file1_receive11"     multiple >
+                              <input type="file"   id="file_upload1"  name="file_upload1"     multiple >
                         </div>
                         <div class="file-path-wrapper">
                           <input class="file-path validate" type="text" placeholder="Upload one or more files">
@@ -227,6 +231,8 @@ $(function(){
           
           <!--<div class="input-field col s6"> -->
           <!--  <div style="border-top: 300px;border-top-width:5px; border-right-width:5px; border-bottom-width:5px; border-left-width:5px;">-->
+          <!-- <div style="padding:10px  0  10px  0"> </div>  -->
+
           <div class="button-collapse col s6">
                 
             
