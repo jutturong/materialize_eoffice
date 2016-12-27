@@ -25,6 +25,9 @@ class Welcome extends CI_Controller {
                            parent::__construct();
                           // $this->load->model("user_model");
                           // $this->user_model->test();
+                        //  $this->load->helper(array('form', 'url'));
+                           $this->load->helper(array('form', 'url'));
+                           $this->load->helper('file');
                            
                  }
              
@@ -32,11 +35,23 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		//$this->load->view('welcome_message');
-                                $this->user_model->logout();
+                            //    $this->user_model->logout();
                                 $data["title"]=$this->title;
                                 $this->load->view("test2",$data);
                                 
 	}
+        
+                 public  function  homepage()
+                 {
+                                $data["title"]=$this->title;
+                                $this->load->view("test2",$data);
+                 }
+        
+                 public function logout()
+                 {
+                         $this->user_model->logout();
+                         redirect("welcome/index/");
+                 }
           public function checklogin()
           {
                  // echo "T";
@@ -97,10 +112,7 @@ class Welcome extends CI_Controller {
           }
           
           
-              public function  logout()
-              {
-                     $this->user_model->logout();
-              }
+              
               
               
           
@@ -130,26 +142,27 @@ class Welcome extends CI_Controller {
                 public  function inserttable1()
                 {
                     #   http://localhost/document/index.php/welcome/inserttable1
-                   
+                    //header("Content-Type: application/json", true);
+                      header('Content-Type: text/html; charset=UTF-8');
                      if(    $this->user_model->authenlogin() == 1 )
                      {
                          #-- หนังสือรับ หนังสือเ้ข้า  มูลนิธิตะวันฉายฯ
-                       echo  $registration_receive11=trim($this->input->get_post("registration_receive11"));   //เลขทะเบียนส่ง
-                       echo "<br>";
-                       echo  $at_receive11=trim($this->input->get_post("at_receive11"));  //ที่
-                       echo  "<br>";
-                       echo  $date1_receive11=trim($this->input->get_post("date1_receive11")); //ลงวันที่
-                       echo  "<br>";
-                       echo  $from_receive11=trim($this->input->get_post("from_receive11")); //จาก
-                       echo  "<br>";
-                       echo  $to_receive11=trim($this->input->get_post("to_receive11"));  //ถึง
-                       echo  "<br>";
-                       echo  $subject_receive11=trim($this->input->get_post("subject_receive11"));  //เรื่อง
-                       echo  "<br>";
-                       echo  $practice_receive11=trim($this->input->get_post("practice_receive11"));  //การปฏฺิบัติ
-                       echo  "<br>";
-                       echo  $note_receive11=trim($this->input->get_post("note_receive11")); //หมายเหตุ
-                       echo  "<br>";
+                       $registration_receive11=trim($this->input->get_post("registration_receive11"));   //เลขทะเบียนส่ง
+                       //echo "<br>";
+                        $at_receive11=trim($this->input->get_post("at_receive11"));  //ที่
+                     //  echo  "<br>";
+                     $date1_receive11=trim($this->input->get_post("date1_receive11")); //ลงวันที่
+                   //    echo  "<br>";
+                       $from_receive11=trim($this->input->get_post("from_receive11")); //จาก
+                      // echo  "<br>";
+                       $to_receive11=trim($this->input->get_post("to_receive11"));  //ถึง
+                     //  echo  "<br>";
+                        $subject_receive11=trim($this->input->get_post("subject_receive11"));  //เรื่อง
+                      // echo  "<br>";
+                        $practice_receive11=trim($this->input->get_post("practice_receive11"));  //การปฏฺิบัติ
+                      // echo  "<br>";
+                         $note_receive11=trim($this->input->get_post("note_receive11")); //หมายเหตุ
+                       //echo  "<br>";
                       
                          // $file1_receive11
                          /*
@@ -169,10 +182,63 @@ class Welcome extends CI_Controller {
 
                           */
                        
-                  //$_FILES['file1_receive11']['name'];
+                 
                    //   echo  "<br>";
                          
-                          $file1name = $_FILES['file_upload1']['name'];
+                       
+                       print_r($_POST);
+                       
+                       
+                  
+                           
+                       /*
+                        $config['max_size'] = '900';
+                        $this->load->library('upload');
+                       $this->upload->initialize($config);
+                        $this->load->library('upload');
+                        $this->upload->initialize($config);
+                   
+                          //  print_r($_FILES);    
+                            
+                           // echo  $file1name = $_FILES['file_upload1']['name'];
+                            //  $_FILES['file_upload1']['name'];
+                        */
+                       
+                
+                       
+                        
+             //  $file1name = $_FILES['file_upload1']['name'];
+            //   $file1tmp  =$_FILES['file_upload1']["tmp_name"]; // tmp folder
+            //   $file1Type= $_FILES['file_upload1']["type"]; //type of file
+           //    $file1Size= $_FILES['file_upload1']["size"]; //size
+         //      $file1ErrorMsg = $_FILES['file_upload1']["error"]; // 0=false 1=true
+
+ /*                      
+//$config['upload_path'] = './uploads/';
+$config['allowed_types'] = 'gif|jpg|png';
+$config['max_size'] = '100';
+$config['max_width'] = '1024';
+$config['max_height'] = '768';
+
+$this->load->library('upload', $config);
+
+// Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class:
+$this->upload->initialize($config);
+*/
+               
+      // $_FILES["file_upload1"]["name"];
+    
+                         print_r($_FILES); 
+                      // $_FILES['image']['name'];   
+                     //   echo  $file1name = $_FILES['file1']['name'];        
+               
+                           
+                         
+                         //edirect("index.php/welcome/index");
+                        // redirect("welcome");
+                         
+                       // redirect("welcome/homepage");
+                         
                        
                      }
                 }

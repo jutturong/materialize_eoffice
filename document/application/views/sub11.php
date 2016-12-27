@@ -33,14 +33,18 @@ $(function(){
 });
 
   
- 
+/*
  $(function(){
      
      $('#btn_insert11').click(function(){
 
          $.ajax({
                                    type:'post',
-                                   url:'index.php/welcome/inserttable1',
+                                    dataType: 'text',
+
+                          //    mimeTypes:"multipart/form-data",
+                          //   headers:{'Content-Type':'image/png','X-Requested-With':'XMLHttpRequest'},
+                                   url:'<?=base_url()?>index.php/welcome/inserttable1',
                                    data: $('#fr_sub11').serialize(),
                                    success:function(data)
                                       {
@@ -49,15 +53,77 @@ $(function(){
                                       }
          
                     });
+         
+        
+        
+      
+                    
 
  });
  
     });
- 
+*/
+   
+
+
   
 </script>
 
+<script type="text/javascript">
+    $(function(){
+        
+     /*
+          $('#fr_sub11').submit(function(data){
+              
+              
+                $.ajax({
+                                   type:'post',
+                                    dataType: 'text',
+                          //    mimeTypes:"multipart/form-data",
+                          //   headers:{'Content-Type':'image/png','X-Requested-With':'XMLHttpRequest'},
+                                   url:'<?=base_url()?>index.php/welcome/inserttable1',
+                                   data: $('#fr_sub11').serialize(),
+                                   success:function(data)
+                                      {
+                                                      alert(data);
+                                          
+                                      }
+         
+                    });
+              //  return  false;    
+          });
+      */
+     
+         
+    
+    /*
+           $('#fr_sub11').on('submit',function(e){
 
+                var actionurl = e.currentTarget.action;
+
+
+                 $.ajax({
+                url: actionurl,
+                type: 'post',
+                dataType: 'json',
+                data: $('#fr_sub11').serialize(),
+                success: function(data) {
+                   // ... do something with the data...
+                   alert(data);
+                }
+        });
+    
+    
+  $.post( actionurl ,$('#fr_sub11').serialize() , function(data){ alert(data)  } );
+    return false;
+
+           });
+         */
+           
+         
+        
+    });    
+</script>
 
 
 <!--  form record-->
@@ -113,10 +179,15 @@ $(function(){
   <div class="row">
       
    <!--   method="post" action="some_action" enctype="multipart/form-data" -->
-      
-      
-   <form class="col s12" id="fr_sub11"  name="fr_sub11"   method="post"  accept-charset="UTF-8" enctype="multipart/form-data"  >
-       
+     <!--  method="post" enctype="multipart/form-data"  --> 
+     
+    
+     
+      <!--   action="index.php/welcome/inserttable1"   -->
+      <!--      -->
+     <form class="col s12" id="fr_sub11"  action="<?=base_url()?>index.php/welcome/inserttable1"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+    
+    
       <div class="row">
           
           
@@ -214,12 +285,9 @@ $(function(){
 
                                   File 
                               <i class="material-icons "  >phonelink_setup</i>
-
-
-
-
-
-                              <input type="file"   id="file_upload1"  name="file_upload1"     multiple >
+                              <input  type='file'  id="file1"  name="file1"  multiple />
+                              
+                              
                         </div>
                         <div class="file-path-wrapper">
                           <input class="file-path validate" type="text" placeholder="Upload one or more files">
@@ -239,7 +307,7 @@ $(function(){
           <div class="button-collapse col s6">
                 
             
-              <button class="waves-effect waves-light btn-large" type="button"  id="btn_insert11"  name="btn_insert11" >SAVE
+              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_insert11"  name="btn_insert11" >SAVE
     <i class="material-icons md-30">phonelink_ring</i>
   </button>
                 
@@ -248,6 +316,13 @@ $(function(){
           
           
       </div>
+    
+   
     </form>
+    
+    
+   
+    
+  
   </div>
         

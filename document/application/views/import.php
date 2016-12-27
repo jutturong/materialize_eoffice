@@ -37,7 +37,7 @@
       
       
       <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link type="text/css" rel="stylesheet" href="<?=base_url()?>css/materialize.min.css"  media="screen,projection"/>
 
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -46,16 +46,18 @@
       
       <!--Import jQuery before materialize.js-->
       <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <script type="text/javascript" src="js/materialize.min.js"></script>
+      <script type="text/javascript" src="<?=base_url()?>js/materialize.min.js"></script>
       
       
       
       <!--  easyui -->
-      <!--
+     <!--
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
       <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
       -->
       
+      
+      <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel='stylesheet' />
       
       
    

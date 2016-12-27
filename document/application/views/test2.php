@@ -22,7 +22,7 @@
                  //$('#sub11').load("sub11.html");
                  
                  //Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
-                 $('#sub11').load("index.php/welcome/formsub11");
+                 $('#sub11').load("<?=base_url()?>index.php/welcome/formsub11");
        } 
        
        
@@ -30,7 +30,7 @@
        {
            // index.php/welcome/subtable11/
                   
-                $('#sub11').load("index.php/welcome/subtable11");
+                $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
                 
                 //$('#modal_table11').modal('open');
        }
@@ -74,8 +74,9 @@
 
 //---- modal Login System----------
   $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('#modal2').modal('open');
+ 
+      //  $('#modal2').modal('open');
+      
   });
           
   
@@ -95,7 +96,7 @@
                                //alert('t');
                                $.ajax({
                                    type:'post',
-                                   url:'index.php/welcome/checklogin',
+                                   url:'<?=base_url()?>index.php/welcome/checklogin',
                                    data: $('#fr_login').serialize(),
                                    success:function(data)
                                       {
@@ -309,7 +310,7 @@
          
           <li><a href="javascript: $('#modal2').modal('open');  "><i class="material-icons left">perm_identity</i>เข้าสู่ระบบ</a></li>
          
-         <li><a href="<?=base_url()?>"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
+         <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
          
          
          <!--
