@@ -7,6 +7,25 @@
       
            <meta charset="UTF-8">
            <title><?=$title?></title>
+      
+           
+           <script type="text/javascript">
+              $(function(){
+                  var send1='<?php echo $this->uri->segment(3);?>';
+                  //alert( send1 );
+                  //insert_success
+                  if(  send1 == "insert_success"  )
+                  {
+                          
+                                var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');
+                                Materialize.toast($toastContent, 5000,'rounded');
+                                
+                                $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+
+                  }
+                  
+              });    
+           </script>
            
            
            
@@ -24,6 +43,11 @@
                  //Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
                  $('#sub11').load("<?=base_url()?>index.php/welcome/formsub11");
        } 
+       function  fr_receive1()  //form  หนังสือส่ง
+       {
+               //index.php/welcome/formsend11
+                 $('#sub11').load("<?=base_url()?>index.php/welcome/formsend11");
+       }
        
        
        function  table11() //โหลด table 
@@ -212,7 +236,7 @@
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
-  <li><a href="#!"><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
+  <li><a href="#!"   onclick=" fr_receive1()"  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
    <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>

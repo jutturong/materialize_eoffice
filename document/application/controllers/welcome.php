@@ -111,11 +111,7 @@ class Welcome extends CI_Controller {
                    
           }
           
-          
-              
-              
-              
-          
+
                 public function  formsub11()
                 {
                      if(    $this->user_model->authenlogin() == 1 )
@@ -125,6 +121,19 @@ class Welcome extends CI_Controller {
                      }
                      
                 }
+                
+                public function  formsend11() //ทะเบี่ยนหนังสือส่ง
+                {
+                    #  index.php/welcome/formsend11
+                    if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                            // $this->load->view("sub11",$data);
+                             $this->load->view("send11",$data);
+                     }
+                     
+                }
+                
                 
                 public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
                 {
@@ -139,7 +148,7 @@ class Welcome extends CI_Controller {
                 }
                 
                 
-                public  function inserttable1()
+                public  function inserttable1() //บันทึกหนังสือรับ มูลนิธิตะวันฉาย
                 {
                     #   http://localhost/document/index.php/welcome/inserttable1
                     //header("Content-Type: application/json", true);
@@ -237,9 +246,8 @@ $this->upload->initialize($config);
                          //edirect("index.php/welcome/index");
                         // redirect("welcome");
                          
-                       // redirect("welcome/homepage");
-                         
-                       
+                      //  redirect("welcome/homepage/insert_success");
+
                      }
                 }
                 
