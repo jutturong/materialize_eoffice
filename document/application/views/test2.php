@@ -42,7 +42,8 @@
            
            
       <script type="text/javascript">
-         
+        
+         //------------------------ มูลนิธิตะวันฉายฯ------------------------------------  
         function popup1()  //แสดงรายการรับหนังสือ  มูลนิธิตะวันฉายฯ
         {
              // Materialize.toast('I am a toast!', 4000);// 4000 is the duration of the toast
@@ -54,12 +55,33 @@
                  
                  //Materialize.toast('แสดงรายการทะเบียนหนังสือรับ', 3000,'rounded');
                  $('#sub11').load("<?=base_url()?>index.php/welcome/formsub11");
+                 
        } 
+       
+       
+       function  receive11()  //รับ
+       {
+               $('#sub11').load("<?=base_url()?>index.php/welcome/receive11");
+       }
+       
+         function  send11()  //ส่ง
+       {
+               $('#sub11').load("<?=base_url()?>index.php/welcome/send11");
+       }
+       
+       //
+      
+      
+
        function  fr_receive1()  //form  หนังสือส่ง
        {
                //index.php/welcome/formsend11
                  $('#sub11').load("<?=base_url()?>index.php/welcome/formsend11");
        }
+       
+       
+       
+       
        
        
        function  table11() //โหลด table 
@@ -70,6 +92,18 @@
                 
                 //$('#modal_table11').modal('open');
        }
+       
+       
+       //------------------------ ศูนย์การดูแล------------------------------------  
+       function  receive21()  //รับ
+       {
+               $('#sub11').load("<?=base_url()?>index.php/welcome/receive21");
+       }
+        function  send21()  //ส่ง
+       {
+               $('#sub11').load("<?=base_url()?>index.php/welcome/send21");
+       }
+  
        
       
     //--- modal popup---  
@@ -226,7 +260,7 @@
       <i class="large material-icons">mode_edit</i>
     </a>
     <ul>
-        <li><a class="btn-floating red" onclick="popup1()"><i class="material-icons">insert_chart</i></a></li>
+        <li><a class="btn-floating red" onclick="receive11()"><i class="material-icons">insert_chart</i></a></li>
       <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
       <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
       <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
@@ -243,12 +277,12 @@
   <!-- Dropdown Structure -->    
   <ul id="dropdown1" class="dropdown-content">
       
-      <li><a href="#!"     onclick=" popup1() "    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
+      <li><a href="#!"     onclick=" receive11() "    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
    <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
-  <li><a href="#!"   onclick=" fr_receive1()"  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
+  <li><a href="#!"   onclick=" send21() "  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
    <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>
@@ -259,12 +293,12 @@
   
    <ul id="dropdown2" class="dropdown-content">
       
-        <li><a href="#!"    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
+       <li><a href="#!" onclick=" receive21()"><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
    <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
-  <li><a href="#!"><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
+  <li><a href="#!" onclick=" send21()  "><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
    <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>
@@ -325,16 +359,23 @@
       <ul class="nav-wrapper">
       
         
+             <li><a href="javascript: $('#modal2').modal('open');  "><i class="material-icons left">perm_identity</i>เข้าสู่ระบบ</a></li>
+         
+             <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
+         
+         
+         
+         
          <li>
-             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">view_week</i> มูลนิธิตะวันฉายฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">view_week</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
           
          <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">view_week</i> ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">view_week</i> ศูนย์การดูแล  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
           <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">view_week</i> ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">view_week</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
          
@@ -344,9 +385,7 @@
          
          
          
-          <li><a href="javascript: $('#modal2').modal('open');  "><i class="material-icons left">perm_identity</i>เข้าสู่ระบบ</a></li>
-         
-         <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
+       
          
          
          <!--

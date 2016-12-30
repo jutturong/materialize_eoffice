@@ -112,6 +112,52 @@ class Welcome extends CI_Controller {
           }
           
 
+               public function receive11()
+               {
+                   if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                             $this->load->view("receive11",$data);
+                     }
+               }
+               
+                   public function  send11() //ทะเบี่ยนหนังสือส่ง
+                {
+                    #  index.php/welcome/formsend11
+                    if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                            // $this->load->view("sub11",$data);
+                             $this->load->view("send11",$data);
+                     }
+                     
+                }
+                
+              
+                public function receive21()
+               {
+                   if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                             $this->load->view("receive21",$data);
+                     }
+               }
+                
+             public function  send21() //ทะเบี่ยนหนังสือส่ง
+                {
+                    #  index.php/welcome/formsend11
+                    if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                            // $this->load->view("sub11",$data);
+                             $this->load->view("send21",$data);
+                     }
+                     
+                }
+                
+                
+               
+          
                 public function  formsub11()
                 {
                      if(    $this->user_model->authenlogin() == 1 )
@@ -121,6 +167,8 @@ class Welcome extends CI_Controller {
                      }
                      
                 }
+                
+
                 
                 public function  formsend11() //ทะเบี่ยนหนังสือส่ง
                 {
@@ -133,6 +181,23 @@ class Welcome extends CI_Controller {
                      }
                      
                 }
+                
+                
+                
+                
+
+                 public function  formsend21() //ทะเบี่ยนหนังสือส่ง  ศูนย์การดูแลฯ
+                {
+                    #  index.php/welcome/formsend11
+                    if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                            // $this->load->view("sub11",$data);
+                             $this->load->view("send21",$data);
+                     }
+                     
+                }
+                
                 
                 
                 public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
