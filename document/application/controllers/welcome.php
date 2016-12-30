@@ -246,10 +246,20 @@ $this->upload->initialize($config);
                          //edirect("index.php/welcome/index");
                         // redirect("welcome");
                          
-                      //  redirect("welcome/homepage/insert_success");
+                        redirect("welcome/homepage/insert_success");
 
                      }
                 }
+                
+                public  function insert_send11()
+                        {
+                                  header('Content-Type: text/html; charset=UTF-8');
+                                  print_r($_POST);
+                                   print_r($_FILES); 
+                                redirect("welcome/homepage/insert_success_send11");
+                                   
+                    
+                        }
                 
                 public function  test()
                 {

@@ -24,6 +24,18 @@
 
                   }
                   
+                  // redirect("welcome/homepage/insert_success_send11");  //หนังสือส่ง
+                 else  if(  send1 == "insert_success_send11"  )
+                  {
+                          
+                                var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');
+                                Materialize.toast($toastContent, 5000,'rounded');
+                                
+                                $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+                                
+
+                  }
+                  
               });    
            </script>
            

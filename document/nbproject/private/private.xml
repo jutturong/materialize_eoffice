@@ -5,10 +5,11 @@
         <group>
             <file>file:/var/www/html/document/application/views/test2.php</file>
             <file>file:/var/www/html/document/application/config/config.php</file>
+            <file>file:/var/www/html/document/application/views/receive11.php</file>
             <file>file:/var/www/html/document/application/views/sub11.php</file>
+            <file>file:/var/www/html/document/application/views/table11.php</file>
             <file>file:/var/www/html/document/application/controllers/welcome.php</file>
-            <file>file:/var/www/html/document/application/views/import.php</file>
-            <file>file:/var/www/html/document/application/config/autoload.php</file>
+            <file>file:/var/www/html/document/application/views/send11.php</file>
         </group>
     </open-files>
 </project-private>

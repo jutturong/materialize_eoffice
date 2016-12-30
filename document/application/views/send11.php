@@ -185,7 +185,7 @@ $(function(){
      
       <!--   action="index.php/welcome/inserttable1"   -->
       <!--      -->
-     <form class="col s12" id="fr_send11"  action="<?=base_url()?>index.php/welcome/inserttable1"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+     <form class="col s12" id="fr_send11"  action="<?=base_url()?>index.php/welcome/insert_send11"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
     
     
       <div class="row">
