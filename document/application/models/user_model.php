@@ -62,6 +62,18 @@ class User_model extends CI_Model {
                  // redirect("welcome/index/");
         }
         
+        public  function tb_main1($id)  // query ตารางหลัก
+        {
+            
+            if( $id > 0 )
+              {
+                 //  echo "T";
+                   return  $this->db->get_where("tb_main1",array("type_record"=>$id));
+              }
+              
+              
+        }
+        
         
         
   

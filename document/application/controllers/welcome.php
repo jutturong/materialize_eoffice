@@ -232,6 +232,7 @@ class Welcome extends CI_Controller {
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
+                             $data["query1"]=$this->user_model->tb_main1(1);
                             $this->load->view("table11",$data);
                      }
                     
@@ -250,8 +251,8 @@ class Welcome extends CI_Controller {
                        //echo "<br>";
                         $at_receive11=trim($this->input->get_post("at_receive11"));  //ที่       2
                      //  echo  "<br>";
-                       echo   $date1_receive11=trim($this->input->get_post("date1_receive11")); //ลงวันที่           3
-                       echo  "<br>";
+                         $date1_receive11=trim($this->input->get_post("date1_receive11")); //ลงวันที่           3
+                      // echo  "<br>";
                        $from_receive11=trim($this->input->get_post("from_receive11")); //จาก       4
                       // echo  "<br>";
                        $to_receive11=trim($this->input->get_post("to_receive11"));  //ถึง        5
@@ -262,7 +263,11 @@ class Welcome extends CI_Controller {
                       // echo  "<br>";
                          $note_receive11=trim($this->input->get_post("note_receive11")); //หมายเหตุ      8
                        //echo  "<br>";
-                        $type_record=trim($this->input->get_post("receive11")); //ประเภทของตารางที่ทำการบันทึก    9
+                         
+                         
+                        $type_record=trim($this->input->get_post("type_record11")); //ประเภทของตารางที่ทำการบันทึก    9
+                        
+                        
                             // print_r($_POST);               
               //------------------------------- upload file-------------------------------------------
                       // print_r($_FILES)  
@@ -278,28 +283,53 @@ class Welcome extends CI_Controller {
                          
                          if( strlen($file1name)   >  0  &&  $file1name != ""  )
                          {
+                             
+                              
+                                         $data=array(
+                                             "registration"=>$registration_receive11,
+                                             "at"=> $at_receive11,
+                                             "date"=>$date1_receive11,
+                                             "from"=>$from_receive11,
+                                             "to"=> $to_receive11,
+                                            "subject"=>$subject_receive11,
+                                            "practice"=>$practice_receive11,
+                                            "note"=>$note_receive11,
+                                            "type_record"=> $type_record,
+                                            "filename"=>$file1name, 
+                                         );
+                                         
+                                         
+                                         
                                      $cp=copy($file1tmp ,  "upload/". $file1name );
                                      if( $cp )
                                      {
                                          echo 1;
-                                         
-                                         
-                                         $data=array(
-                                             "registration"=>$registration_receive11,
-                                            // "date+
-                                         );
-                                         
-                                         
                                      }
                                      else{
                                          echo 0;
                                      }
-                                     
-                                     
-                                     
-                                     
 
                          }
+                         else
+                         {
+                               $data=array(
+                                             "registration"=>$registration_receive11,
+                                             "at"=> $at_receive11,
+                                             "date"=>$date1_receive11,
+                                             "from"=>$from_receive11,
+                                             "to"=> $to_receive11,
+                                            "subject"=>$subject_receive11,
+                                            "practice"=>$practice_receive11,
+                                            "note"=>$note_receive11,
+                                            "type_record"=> $type_record,
+                                          //  "filename"=>$file1name, 
+                                         );
+                             
+                         }
+
+                                           //FROM `tb_main1` 
+                                         $tb="tb_main1";
+                                         $this->db->insert($tb,$data);
                          
                          
                          
@@ -312,6 +342,10 @@ class Welcome extends CI_Controller {
 
                      }
                 }
+                
+                
+                
+                
                 
                 public  function insert_send11()
                         {

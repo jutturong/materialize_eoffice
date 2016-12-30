@@ -27,7 +27,10 @@ $(function(){
     
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    monday:'Mon',
+  // format:'dd-mm-yyyy',
+    format:'yyyy-mm-dd',
   });
     
 });
@@ -298,7 +301,7 @@ $(function(){
           
           
           
-          <input type="hidden"  id="receive11"  name="receive11"  value="หนังสือรับมูลนิธิฯ"  /> 
+          <input type="hidden"  id="type_record11"  name="type_record11"  value="1"  /> 
           
           
           
