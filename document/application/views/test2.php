@@ -104,6 +104,18 @@
                $('#sub11').load("<?=base_url()?>index.php/welcome/send21");
        }
   
+  
+  //------------------------ ศูนย์วิจัย---------------------
+         function  receive31()  //รับ
+       {
+               $('#sub11').load("<?=base_url()?>index.php/welcome/receive21");
+       }
+        function  send31()  //ส่ง
+       {
+               $('#sub11').load("<?=base_url()?>index.php/welcome/send21");
+       }
+       
+       
        
       
     //--- modal popup---  
@@ -309,12 +321,12 @@
   
      <ul id="dropdown3" class="dropdown-content">
       
-        <li><a href="#!"><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
+        <li><a href="#!"   onclick=" receive31()" ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
    <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
-  <li><a href="#!"><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
+  <li><a href="#!" onclick=" send31()  " ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
    <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>

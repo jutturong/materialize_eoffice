@@ -285,7 +285,7 @@ $(function(){
 
                                   File 
                               <i class="material-icons "  >phonelink_setup</i>
-                              <input  type='file'  id="file1"  name="file1"  multiple />
+                              <input  type='file'  id="file11"  name="file11"  multiple />
                               
                               
                         </div>

@@ -185,7 +185,7 @@ $(function(){
      
       <!--   action="index.php/welcome/inserttable1"   -->
       <!--      -->
-     <form class="col s12" id="fr_sub11"  action="<?=base_url()?>index.php/welcome/inserttable1"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+     <form class="col s12" id="fr_sub11"  action="<?=base_url()?>index.php/welcome/inserttable11"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
     
     
       <div class="row">
@@ -285,7 +285,7 @@ $(function(){
 
                                   File 
                               <i class="material-icons "  >phonelink_setup</i>
-                              <input  type='file'  id="file1"  name="file1"  multiple />
+                              <input  type='file'  id="file11"  name="file11"  multiple />
                               
                               
                         </div>
@@ -297,6 +297,8 @@ $(function(){
     </div>
           
           
+          
+          <input type="hidden"  id="receive11"  name="receive11"  value="หนังสือรับมูลนิธิฯ"  /> 
           
           
           
