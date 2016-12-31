@@ -78,10 +78,38 @@ class User_model extends CI_Model {
         public function count_id($type_document,$type_record)
         {
             $tb="tb_main1";
-            $type_document=1; //หนังสือรับ
-            $type_record=1; //มูลนิธิตะวันฉาย
-            $q=$this->db->get_where($tb,array("type_document"=>1,"type_record"=>1));
-            return  $q->num_rows();
+         //   $type_document=1; //หนังสือรับ
+          //  $type_record=1; //มูลนิธิตะวันฉาย
+            $q=$this->db->get_where($tb,array("type_document"=>$type_document,"type_record"=>$type_record));
+          //  return  $q->num_rows();
+            $number=$q->num_rows();
+            //$number=1;
+                   if(     $number == 0  )
+                     {
+                           $number_add = "0001";
+                     }
+                   else     if(     $number == 1  )
+                     {
+                           $number_add = "0002";
+                     } 
+                   else   if(  strlen($number) ==1   )
+                     {
+                           $number_add = "000".$number;
+                     }
+                    else if(  strlen($number) ==2   )
+                     {
+                           $number_add= "00".$number;
+                     } 
+                      else if(  strlen($number) ==3   )
+                     {
+                          $number_add= "0".$number;
+                     } 
+                     else
+                     {
+                         //echo $id;
+                          $number_add;
+                     }
+             return $number_add;
         }
         
         

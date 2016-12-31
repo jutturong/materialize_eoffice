@@ -117,10 +117,11 @@ class Welcome extends CI_Controller {
                    if(    $this->user_model->authenlogin() == 1 )
                      {
                              $data["title"]=$this->title;
-                               $number=$this->user_model->count_id(1,1);
-                               //echo $number;
-                           //    if( $number )
-                               
+                             
+                             
+                             //  $number=$this->user_model->count_id(1,1);
+                              
+                /*               
                                   //  $id=10;
                                //   $id=100;
                                
@@ -138,10 +139,13 @@ class Welcome extends CI_Controller {
                      } 
                      else
                      {
-                         //echo $id;
+                       
                           $number_add;
                      }
-                             $data["number_add"]=$number_add;     
+                 
+                 */
+                         //    $data["number_add"]=$number_add;     
+                             $data["number_add"]=$this->user_model->count_id(1,1);
                              $this->load->view("receive11",$data);
                      }
                }
@@ -154,6 +158,7 @@ class Welcome extends CI_Controller {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
                             // echo "test";
+                           //  $data["number_add"]=$this->user_model->count_id(1,2);
                              $this->load->view("send11",$data);
                      }
                      
@@ -165,6 +170,7 @@ class Welcome extends CI_Controller {
                    if(    $this->user_model->authenlogin() == 1 )
                      {
                              $data["title"]=$this->title;
+                           // echo   $data["number_add"]=$this->user_model->count_id(1,2);
                              $this->load->view("receive21",$data);
                      }
                }
@@ -188,6 +194,7 @@ class Welcome extends CI_Controller {
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
+                               $data["number_add"]=$this->user_model->count_id(1,2); 
                              $this->load->view("send21",$data);
                      }
                      
