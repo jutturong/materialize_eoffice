@@ -37,15 +37,15 @@
         <table>
         <thead>
           <tr>
-              <th data-field="id">เลขทะเบียนส่ง</th>
-              <th data-field="name">ที่</th>
+              <th data-field="id" >เลขทะเบียนส่ง</th>
+              <th data-field="name"  >ที่</th>
               <th data-field="price">ลงวันที่</th>
                <th data-field="price">จาก</th>
                <th data-field="price">ถึง</th>
                  <th data-field="price">เรื่อง</th>
                    <th data-field="price">การปฏิบัติ</th>
                    <th data-field="price">หมายเหตุ</th>
-                    <th data-field="price">Download เอกสารปะหน้า</th>     
+                    <th data-field="price">ใบปะหน้า </th>     
           </tr>
         </thead>
 
@@ -91,9 +91,28 @@
           <tr>
         <td>
                    <?php
-                     echo $rows->id_main1;
-                      echo  br();
-          ?>
+                     $id=$rows->id_main1;
+                   //  $id=10;
+                  //   $id=100;
+                     if(  strlen($id) ==1   )
+                     {
+                      echo "000".$id;
+                     }
+                    else if(  strlen($id) ==2   )
+                     {
+                      echo "00".$id;
+                     } 
+                      else if(  strlen($id) ==3   )
+                     {
+                      echo "0".$id;
+                     } 
+                     else
+                     {
+                         echo $id;
+                     }
+                   ?>
+                       
+
         </td>
         <td>
             <?php  echo $rows->at; ?>
@@ -113,20 +132,26 @@
         <td>
             <?php  echo $rows->practice; ?>
         </td>
-         <td>
-            <?php  echo $rows->practice; ?>
-        </td>
+        
         <td>
             <?php  echo $rows->note; ?>
         </td>
-        <td>
-            <i class="material-icons">picture_in_picture</i>
+        <td >
+            <?php
+              if( strlen($rows->filename) >  0  )
+              {
+                  ?>
+             <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>">  
+            <i class="material-icons">system_update_alt</i>
+            </a>
+                  <?php
+              }
+            ?>
         </td>
           </tr>
-            <?php
-                      
+            <?php 
                  }
-          ?>
+            ?>
           
           
           

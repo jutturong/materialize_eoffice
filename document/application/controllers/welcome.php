@@ -223,15 +223,7 @@ class Welcome extends CI_Controller {
                      
                 }
                 
-                public  function  testquery()
-                {
-                         // $data["query1"]=$this->user_model->tb_main1(1);
-                          $query=$this->user_model->tb_main1(1);
-                          foreach($query->result() as $rows){
-                              echo $rows->at;
-                              
-                          }
-                }
+               
                 
                 
                 public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
@@ -241,14 +233,14 @@ class Welcome extends CI_Controller {
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
-                            $data["query"]=$this->user_model->tb_main1("1");
+                            $data["query"]=$this->user_model->tb_main1("1","1");
                             $this->load->view("table11",$data);
                      }
                     
                 }
                 
                 
-                public  function inserttable11() //บันทึกหนังสือรับ มูลนิธิตะวันฉาย
+                public  function inserttable11() //บันทึกหนังสือรับ มูลนิธิตะวันฉาย   $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
                 {
                     #   http://localhost/document/index.php/welcome/inserttable1
                     //header("Content-Type: application/json", true);
@@ -276,6 +268,8 @@ class Welcome extends CI_Controller {
                          
                         $type_record=trim($this->input->get_post("type_record11")); //ประเภทของตารางที่ทำการบันทึก    9
                         
+                        $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
+                        
                         
                             // print_r($_POST);               
               //------------------------------- upload file-------------------------------------------
@@ -292,8 +286,7 @@ class Welcome extends CI_Controller {
                          
                          if( strlen($file1name)   >  0  &&  $file1name != ""  )
                          {
-                             
-                              
+
                                          $data=array(
                                              "registration"=>$registration_receive11,
                                              "at"=> $at_receive11,
@@ -305,6 +298,7 @@ class Welcome extends CI_Controller {
                                             "note"=>$note_receive11,
                                             "type_record"=> $type_record,
                                             "filename"=>$file1name, 
+                                             "type_document"=>$type_document,
                                          );
                                          
                                          
@@ -332,6 +326,7 @@ class Welcome extends CI_Controller {
                                             "note"=>$note_receive11,
                                             "type_record"=> $type_record,
                                           //  "filename"=>$file1name, 
+                                            "type_document"=>$type_document,
                                          );
                              
                          }

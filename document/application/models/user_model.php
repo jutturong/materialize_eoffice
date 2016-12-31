@@ -62,7 +62,7 @@ class User_model extends CI_Model {
                  // redirect("welcome/index/");
         }
         
-        public  function tb_main1($id)  // query ตารางหลัก
+        public  function tb_main1($id,$doc)  // query ตารางหลัก
         {
             
             if( $id > 0 )
@@ -70,7 +70,7 @@ class User_model extends CI_Model {
                  //  echo "T";
                    $tb="tb_main1";
                    $this->db->order_by("id_main1","DESC");
-                   return  $this->db->get_where($tb,array("type_record"=>$id));
+                   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
               }
               
               
