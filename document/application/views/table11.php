@@ -44,72 +44,14 @@
                <th data-field="price">ถึง</th>
                  <th data-field="price">เรื่อง</th>
                    <th data-field="price">การปฏิบัติ</th>
-                       <th data-field="price">หมายเหตุ</th>
-                       
+                   <th data-field="price">หมายเหตุ</th>
+                    <th data-field="price">Download เอกสารปะหน้า</th>     
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-                  <td>$0.87</td>
-                         <td>$0.87</td>
-                          <td>$0.87</td>
-                               <td>$0.87</td>
-                  
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-                  <td>$0.87</td>
-                         <td>$0.87</td>
-                          <td>$0.87</td>
-                               <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-            <td>$0.87</td>
-            <td>$0.87</td>
-             <td>$0.87</td>
-                  <td>$0.87</td>
-                  
-          </tr>
-          
-          
-          
-          
-        </tbody>
-      </table>
-    
-    </div>
-    <div id="test2" class="col s12">
-        
-    <table>
-        <thead>
-          <tr>
-              <th data-field="id">เลขทะเบียนส่ง</th>
-              <th data-field="name">ที่</th>
-              <th data-field="price">ลงวันที่</th>
-               <th data-field="price">จาก</th>
-               <th data-field="price">ถึง</th>
-                 <th data-field="price">เรื่อง</th>
-                   <th data-field="price">การปฏิบัติ</th>
-                       <th data-field="price">หมายเหตุ</th>
-                       
-          </tr>
-        </thead>
-
-        
-        
-        
         <tbody>
             
-            <!--
+         <!--   
           <tr>
             <td>Alvin</td>
             <td>Eclair</td>
@@ -139,33 +81,60 @@
                   <td>$0.87</td>
                   
           </tr>
-            -->
-
-          <?php
-          //  $data["query1"]=$this->user_model->tb_main1(1);
-         
-          foreach($query1->result() as $row)
-          {
-                //echo  $registration=$row->registration;
-                //echo br();
-          }
+          -->
           
+          
+          <?php
+             foreach($query->result() as $rows)
+                 {
+                    ?>
+          <tr>
+        <td>
+                   <?php
+                     echo $rows->id_main1;
+                      echo  br();
+          ?>
+        </td>
+        <td>
+            <?php  echo $rows->at; ?>
+        </td>
+        <td>
+            <?php  echo $rows->date;  ?>
+        </td> 
+          <td>
+            <?php  echo $rows->from;  ?>
+        </td> 
+        <td>
+            <?php  echo $rows->to;  ?>
+        </td> 
+        <td>
+            <?php  echo $rows->subject; ?>
+        </td>
+        <td>
+            <?php  echo $rows->practice; ?>
+        </td>
+         <td>
+            <?php  echo $rows->practice; ?>
+        </td>
+        <td>
+            <?php  echo $rows->note; ?>
+        </td>
+        <td>
+            <i class="material-icons">picture_in_picture</i>
+        </td>
+          </tr>
+            <?php
+                      
+                 }
           ?>
           
           
+          
         </tbody>
-        
-        
-        
-        
-        
-        
-        
       </table>
     
-    
     </div>
-    
+ 
     <!--
     <div id="test3" class="col s12">Test 3</div>
     <div id="test4" class="col s12">Test 4</div>

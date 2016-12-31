@@ -223,6 +223,15 @@ class Welcome extends CI_Controller {
                      
                 }
                 
+                public  function  testquery()
+                {
+                         // $data["query1"]=$this->user_model->tb_main1(1);
+                          $query=$this->user_model->tb_main1(1);
+                          foreach($query->result() as $rows){
+                              echo $rows->at;
+                              
+                          }
+                }
                 
                 
                 public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
@@ -232,7 +241,7 @@ class Welcome extends CI_Controller {
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
-                             $data["query1"]=$this->user_model->tb_main1(1);
+                            $data["query"]=$this->user_model->tb_main1("1");
                             $this->load->view("table11",$data);
                      }
                     

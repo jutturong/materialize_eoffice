@@ -68,7 +68,9 @@ class User_model extends CI_Model {
             if( $id > 0 )
               {
                  //  echo "T";
-                   return  $this->db->get_where("tb_main1",array("type_record"=>$id));
+                   $tb="tb_main1";
+                   $this->db->order_by("id_main1","DESC");
+                   return  $this->db->get_where($tb,array("type_record"=>$id));
               }
               
               
