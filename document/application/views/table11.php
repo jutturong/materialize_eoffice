@@ -91,6 +91,7 @@
           <tr>
         <td>
                    <?php
+                   /*
                      $id=$rows->id_main1;
                    //  $id=10;
                   //   $id=100;
@@ -110,6 +111,8 @@
                      {
                          echo $id;
                      }
+                    */ 
+                   echo  $rows->registration;
                    ?>
                        
 

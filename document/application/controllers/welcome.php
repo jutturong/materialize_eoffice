@@ -117,6 +117,31 @@ class Welcome extends CI_Controller {
                    if(    $this->user_model->authenlogin() == 1 )
                      {
                              $data["title"]=$this->title;
+                               $number=$this->user_model->count_id(1,1);
+                               //echo $number;
+                           //    if( $number )
+                               
+                                  //  $id=10;
+                               //   $id=100;
+                               
+                     if(  strlen($number) ==1   )
+                     {
+                           $number_add = "000".$number;
+                     }
+                    else if(  strlen($number) ==2   )
+                     {
+                           $number_add= "00".$number;
+                     } 
+                      else if(  strlen($number) ==3   )
+                     {
+                          $number_add= "0".$number;
+                     } 
+                     else
+                     {
+                         //echo $id;
+                          $number_add;
+                     }
+                             $data["number_add"]=$number_add;     
                              $this->load->view("receive11",$data);
                      }
                }
@@ -128,6 +153,7 @@ class Welcome extends CI_Controller {
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
+                            // echo "test";
                              $this->load->view("send11",$data);
                      }
                      
@@ -222,9 +248,6 @@ class Welcome extends CI_Controller {
                      }
                      
                 }
-                
-               
-                
                 
                 public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
                 {

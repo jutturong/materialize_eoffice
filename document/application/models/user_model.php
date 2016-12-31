@@ -72,10 +72,17 @@ class User_model extends CI_Model {
                    $this->db->order_by("id_main1","DESC");
                    return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
               }
-              
-              
+    
         }
         
+        public function count_id($type_document,$type_record)
+        {
+            $tb="tb_main1";
+            $type_document=1; //หนังสือรับ
+            $type_record=1; //มูลนิธิตะวันฉาย
+            $q=$this->db->get_where($tb,array("type_document"=>1,"type_record"=>1));
+            return  $q->num_rows();
+        }
         
         
   
