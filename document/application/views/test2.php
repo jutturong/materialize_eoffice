@@ -392,7 +392,7 @@
          
          
           <li>
-             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons right">picture_in_picture</i> แสดงผลจากการบันทึกข้อมูล </a>
+             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons right">picture_in_picture</i> แสดงผลการบันทึก</a>
          </li>
          
          

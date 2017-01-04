@@ -18,6 +18,21 @@
 </script>
 
 
+<script type="text/javascript">
+    
+ //  $(function(){
+        
+        function report(page)
+        {
+              //alert(page);
+              window.open(page);
+        }
+        
+//    });
+    
+</script>
+
+
 
 <div class="row">
     <div class="col s12">
@@ -25,8 +40,9 @@
         <li class="tab col s3"><a   class="active"   href="#test1">ทะเบียนหนังสือรับ</a></li>
         <li class="tab col s3"><a  href="#test2">ทะเบียนหนังสือส่ง</a></li>
         
-        <!--
-        <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+        <!-- <li class="tab col s3 disabled">-->
+       <!-- <li class="tab col s3 "><a href="#test3"> ออกรายงาน ( Report ) </a></li> -->
+         <!--
         <li class="tab col s3"><a href="#test4">Test 4</a></li>
         -->
         
@@ -34,6 +50,12 @@
     </div>
     <div id="test1" class="col s12">
       
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php')">
+                 <i class="large material-icons">view_module</i>
+             
+             </a>
+             
+             
         <table>
         <thead>
           <tr>
@@ -241,9 +263,15 @@
     
     </div>
     
+   
     <!--
-    <div id="test4" class="col s12">Test 4</div>
+    <div id="test3" class="col s12">
+    
+         <a class="btn-floating btn-large waves-effect waves-light red"><i class="large material-icons">email</i></a>
+    
+    </div>
     -->
+    
     
   </div>
 
