@@ -25,7 +25,7 @@
                   }
                   
                   // redirect("welcome/homepage/insert_success_send11");  //หนังสือส่ง
-                 else  if(  send1 == "insert_success_send11"  )
+                 else  if(  send1 == "insert_success_send11" ||   send1 =="insert_success_send21"    )
                   {
                           
                                 var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');

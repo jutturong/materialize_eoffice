@@ -70,12 +70,14 @@ class User_model extends CI_Model {
                  //  echo "T";
                    $tb="tb_main1";
                    $this->db->order_by("id_main1","DESC");
+                   
                    return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
               }
     
         }
         
-        public function count_id($type_document,$type_record)
+       // public function count_id($type_document,$type_record)
+        public function count_id($type_record,$type_document)
         {
             $tb="tb_main1";
          //   $type_document=1; //หนังสือรับ
@@ -83,6 +85,7 @@ class User_model extends CI_Model {
             $q=$this->db->get_where($tb,array("type_document"=>$type_document,"type_record"=>$type_record));
           //  return  $q->num_rows();
             $number=$q->num_rows();
+            $number +=1;
             //$number=1;
                    if(     $number == 0  )
                      {
@@ -110,6 +113,7 @@ class User_model extends CI_Model {
                           $number_add;
                      }
              return $number_add;
+            //return     $number+1;
         }
         
         

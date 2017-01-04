@@ -27,7 +27,8 @@ $(function(){
     
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format:'yyyy-mm-dd'
   });
     
 });
@@ -285,7 +286,7 @@ $(function(){
 
                                   File 
                               <i class="material-icons "  >phonelink_setup</i>
-                              <input  type='file'  id="file1"  name="file1"  multiple />
+                              <input  type='file'  id="file21"  name="file21"  multiple />
                               
                               
                         </div>
@@ -297,7 +298,7 @@ $(function(){
     </div>
           
           
-          
+                <input type="hidden"  id="type_record21"  name="type_record21"  value="1"  /> 
           
           
           <!--<div class="input-field col s6"> -->
