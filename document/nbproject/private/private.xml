@@ -5,7 +5,6 @@
         <group>
             <file>file:/var/www/html/document/application/views/test2.php</file>
             <file>file:/var/www/html/document/application/views/receive11.php</file>
-            <file>file:/var/www/html/document/report_pdf/config.php</file>
             <file>file:/var/www/html/document/application/views/table11.php</file>
             <file>file:/var/www/html/document/application/models/user_model.php</file>
             <file>file:/var/www/html/document/application/controllers/welcome.php</file>

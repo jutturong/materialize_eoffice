@@ -252,6 +252,15 @@ function num2thai($number)
 }
 
 
+function  chstr1($t)
+{
+      //return  $t;
+              //  return  substr($t,0,30);
+                $i=30;
+                return   substr_replace($t,"\n",$i);
+}
+
+
 $type_record=$_REQUEST["type_record"];
 $type_document=$_REQUEST["type_document"];
         
