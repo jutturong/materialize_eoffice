@@ -4,6 +4,7 @@
      $m=date("m");
      $m_thai=date_thai($m);
      
+     //--- เดือนไทย----
      function  date_thai($m)
      {
          switch ($m)
@@ -71,25 +72,98 @@
          }
      }
      
-     $id=trim($_REQUEST["id"]);
      
-     if( $id > 0 )
+      //--- เดือนไทย----
+     function  date_thai_cut($m)
      {
-     $tb=" `donation` ";
-     $str="  SELECT * FROM   $tb   WHERE `id_donation`  =  $id  ";
-      $query=  mysql_query($str) or die(" MYSQL false connect!! ");
-      while( $row= mysql_fetch_row( $query) )
-                {
-                      //$name_donation =   $row['name_donation'];
-                        $name_donation=$row[3];
-                        $lastname_donation=$row[4];
-                        $amount=$row[7];
-                        $amount_baht=num2thai($amount);
-                        $amount_read =number_format( $amount );
-                }
+         switch ($m)
+         {
+                case 1:
+             {
+             return "ม.ค.";
+                 break;
+             }
+                 case 2:
+             {
+                 return "ก.พ.";
+                     break;
+             }
+                  case 3:
+             {
+             return "มี.ค.";
+                   break;
+             }
+                  case 4:
+             {
+             return "เม.ย.";
+                   break;
+             }
+                 case 5:
+             {
+             return "พ.ค.";
+                   break;
+             }
+                  case 6:
+             {
+             return "มิ.ย.";
+                   break;
+             }
+                  case 7:
+             {
+             return "ก.ค.";
+                   break;
+             }
+                   case 8:
+             {
+             return "ส.ค.";
+                   break;
+             }
+                   case 9:
+             {
+             return "ก.ย.";
+                   break;
+             }
+                    case 10:
+             {
+             return "ต.ค.";
+                   break;
+             }
+                    case 11:
+             {
+             return "พ.ย.";
+                   break;
+             }
+                   case 12:
+             {
+             return "ธ.ค.";
+                   break;
+             }
+         }
      }
 
+//------- ปี พ.ศ. ไทย     
+ function thai_year($y)
+ {
+     
+                return   $y+543;
+ }
+
  
+ //-------- แยก วัน เดือน ปี ภาษาไทย
+ function  split_dmy_thai($dmy)  // 2016-12-08
+ {
+     if( strlen($dmy) > 0 &&  $dmy != "" )
+     {
+             $ex=explode("-",$dmy);
+            
+              $y=$ex[0]+543; //ปี
+             $m= date_thai_cut( $ex[1] );
+           //  $d=$ex[2];
+             $d=number_format($ex[2]);
+             return  $d." ".$m." ".$y;
+                
+     }
+ }
      
 function num2thai($number)
 {
@@ -176,6 +250,36 @@ function num2thai($number)
                             }
                             return $rstring;
 }
-     
+
+
+$type_record=$_REQUEST["type_record"];
+$type_document=$_REQUEST["type_document"];
+        
+    
+if(  $type_record >= 1  &&  $type_document >= 1 )
+{
+       $tb="tb_main1";
+       $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document   ";
+       $query=mysql_query($str) or die("mysql error ");
+       
+       /*
+       while($row=mysql_fetch_assoc($query))
+               {
+                    $registration=$row["registration"];
+                    $at=$row["at"];
+                    $date=$row["date"];
+                    $from=$row["from"];
+                    $to=$row["to"];
+                    $subject=$row["subject"];
+                    $practice=$row["practice"];
+                    $note=$row["note"];
+                    
+               }
+        * 
+        */
+       
+}
+ 
+        
      
 ?>

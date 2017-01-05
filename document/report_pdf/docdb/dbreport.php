@@ -2,7 +2,7 @@
 //require_once("../config.php");
 require_once("pdf_class.php"); //class PDF
 //require_once("query_diagnosis.php");
-//require_once 'querydb.php';
+require_once 'querydb.php';
 
 ##---- PDF ---
 $pdf=new PDF('L','mm','A4');  //ของเดิม 
@@ -240,7 +240,7 @@ $pdf->SetFont('angsana','',14);
 //  $pdf->MultiCell( 0  , 0 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ));
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
-$pdf->Cell(  0  ,  0 , iconv( 'UTF-8','cp874' , " วันที่.......เดือน.............................พ.ศ. ................. "  ));
+$pdf->Cell(  0  ,  0 , iconv( 'UTF-8','cp874' , " วันที่...".number_format(date("d"))."....เดือน....".date_thai_cut(date("m"))."...พ.ศ. ...".thai_year(date("Y")).".... "  ));
 //------------------ จบบรรทัด-----------------------------------------
 
 
@@ -290,6 +290,8 @@ $pdf->SetFont('angsana','',14);
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
 $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , " จาก "  ),RT,1,'C',false);
+$pdf->setXY( $x1+30+30 + 30  , $y1 + 15 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
 
 $pdf->setXY( $x1+30+30+30+30 , $y1 + 5 );
@@ -299,7 +301,8 @@ $pdf->SetFont('angsana','',14);
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
 $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , " ถึง "  ),RT,1,'C',false);
-
+$pdf->setXY( $x1+30+30 + 30 + 30  , $y1 + 15 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
 
 
@@ -310,7 +313,8 @@ $pdf->SetFont('angsana','',14);
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
 $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' , " เรื่่อง "  ),RT,1,'C',false);
-
+$pdf->setXY( $x1+30+30 + 30 + 30 +30  , $y1 + 15 );
+$pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
 
 $pdf->setXY( $x1+30+30+30+30+30+30+20 , $y1 + 5 );
@@ -320,7 +324,8 @@ $pdf->SetFont('angsana','',14);
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
 $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , " การปฏิบัติ "  ),RT,1,'C',false);
-
+$pdf->setXY( $x1+30+30 + 30 + 30 +30  + 30 + 20 , $y1 + 15 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
 
 $pdf->setXY( $x1+30+30+30+30+30+30+50 , $y1 + 5 );
@@ -330,10 +335,87 @@ $pdf->SetFont('angsana','',14);
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
 $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , " หมายเหตุ "  ),RT,1,'C',false);
+$pdf->setXY( $x1+30+30 + 30 + 30 +30  + 30 + 20 +30 , $y1 + 15 );
+$pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 //------------------จบบรรทัด-----------------------------------------
 
 
 
+//---------------ขึ้นบรรทัดใหม่--------------------------------------
+
+//----------------เลขทะเบียนรับ------
+
+$pdf->SetFont('angsana','',13);
+
+
+/*
+ //--------------เลขทะเบียนรับ--------
+$pdf->setXY( $x1 , $y1 + 25 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , $registration  ),LRB,1,'C',false);
+
+//----------------ที่------
+//$pdf->SetFont('angsana','',13);
+$pdf->setXY( $x1+30 , $y1 + 25 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $at  ),RB,1,'L',false);
+
+//----------------วัน เดือน ปี------
+$pdf->setXY( $x1+60 , $y1 + 25 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $date  ),RB,1,'C',false);
+
+//----------------จาก------
+$pdf->setXY( $x1+90   , $y1 + 25 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $from  ),RB,0,'L',false);
+
+//----------------ถึง------
+$pdf->setXY( $x1+120  , $y1 + 25 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $to  ),RB,1,'L',false);
+
+//----------------เรื่อง------
+$pdf->setXY( $x1+150 , $y1 + 25 );
+$pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  $subject  ),RB,1,'L',false);
+
+//----------------การปฏฺิบัติ------
+$pdf->setXY( $x1+200 , $y1 + 25 );
+$pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $practice  ),RB,1,'L',false);
+
+//----------------หมายเหตุ------
+$pdf->setXY( $x1+230 , $y1 + 25 );
+$pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' ,  $note  ),RB,1,'L',false);
+ * 
+ */
+
+$addi=0;
+ while($row=mysql_fetch_assoc($query))
+ {
+     $addi += 10;
+                    $registration=$row["registration"];
+                    $at=$row["at"];
+                    $date=$row["date"];
+                    $from=$row["from"];
+                    $to=$row["to"];
+                    $subject=$row["subject"];
+                    $practice=$row["practice"];
+                    $note=$row["note"];
+                    
+        
+                     //--------------เลขทะเบียนรับ--------
+                    $pdf->setXY( $x1 , $y1 +15+ $addi  );
+                    $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , $registration  ),LRB,1,'C',false);
+                    
+                    
+                    //----------------ที่------
+                    //$pdf->SetFont('angsana','',13);
+                    $pdf->setXY( $x1+30 , $y1 + 15 + $addi    );
+                    $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $at  ),RB,1,'L',false);
+                    
+                    //----------------วัน เดือน ปี------
+                    $pdf->setXY( $x1+60 , $y1  + 15 + $addi   );
+                   // $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $date  ),RB,1,'C',false);
+                    $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  split_dmy_thai($date)  ),RB,1,'C',false);
+                    
+     
+ }
+//---------------จบบรรทัด--------------------------------------
 
 
 

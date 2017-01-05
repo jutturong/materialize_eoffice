@@ -8,7 +8,7 @@
 
 */
 
- $host="10.87.196.170";
+ $host="localhost";
 	  $us="root";
 	  $ps="1234";
 	  $DB="docdb";
