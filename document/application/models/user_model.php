@@ -117,6 +117,79 @@ class User_model extends CI_Model {
         }
         
         
+      public   function  date_thai_cut($m)
+     {
+         switch ($m)
+         {
+                case 1:
+             {
+             return "ม.ค.";
+                 break;
+             }
+                 case 2:
+             {
+                 return "ก.พ.";
+                     break;
+             }
+                  case 3:
+             {
+             return "มี.ค.";
+                   break;
+             }
+                  case 4:
+             {
+             return "เม.ย.";
+                   break;
+             }
+                 case 5:
+             {
+             return "พ.ค.";
+                   break;
+             }
+                  case 6:
+             {
+             return "มิ.ย.";
+                   break;
+             }
+                  case 7:
+             {
+             return "ก.ค.";
+                   break;
+             }
+                   case 8:
+             {
+             return "ส.ค.";
+                   break;
+             }
+                   case 9:
+             {
+             return "ก.ย.";
+                   break;
+             }
+                    case 10:
+             {
+             return "ต.ค.";
+                   break;
+             }
+                    case 11:
+             {
+             return "พ.ย.";
+                   break;
+             }
+                   case 12:
+             {
+             return "ธ.ค.";
+                   break;
+             }
+         }
+     }
+
+//------- ปี พ.ศ. ไทย     
+public  function thai_year($y)
+ {
+     
+                return   $y+543;
+ }
   
         
 }

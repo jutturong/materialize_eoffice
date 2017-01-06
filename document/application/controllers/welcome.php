@@ -531,7 +531,12 @@ class Welcome extends CI_Controller {
                                 if(   $type_record  == 1  &&    $type_document == 1 )
                                 {
                                        $strExcelFileName="ทะเบียนหนังสือรับ.xls";
-                                }else
+                                }
+                                 else    if(   $type_record  == 1  &&    $type_document == 2 )
+                                {
+                                       $strExcelFileName="ทะเบียนหนังสือส่ง.xls";
+                                }
+                                else
                                 {
                                        $strExcelFileName="ทะเบียนหนังสือ.xls";
                                 }
@@ -548,41 +553,57 @@ class Welcome extends CI_Controller {
                                  $query_excel = $this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>$type_document));
                               //  $this->load->view("export_excel",$data);
                                 
+                                 $size1=3;
+                                 $size2=2;
+                                 
                                 echo "<table border='1'  >";
                                 echo "<tr>";
-                                echo "<td  align='center' > เลขทะเบียนรับ  </td>";
-                                echo "<td  align='center' > ที่  </td>";
-                                echo "<td  align='center' > ลงวันที่  </td>";
-                                echo "<td align='center' > จาก  </td>";
-                                echo "<td  align='center' > ถึง  </td>";
-                                echo "<td align='center' > เรื่อง  </td>";
-                                echo "<td  align='center' > การปฏิบัติ  </td>";
-                                echo "<td align='center' > หมายเหตุ  </td>";
+                                echo "<td  align='center'   ><font face=\"TH Saraban New\" size='".$size1."'> เลข".br()
+                                        . "ทะเบียนรับ  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\"  size='".$size1."'> ที่  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."'> ลงวันที่  </font></td>";
+                                echo "<td align='center' ><font face=\"TH Saraban New\"  size='".$size1."' > จาก  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."' > ถึง  </font></td>";
+                                echo "<td align='center' ><font face=\"TH Saraban New\" size='".$size1."' > เรื่อง  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."' > การปฏิบัติ  </font></td>";
+                                echo "<td align='center' ><font face=\"TH Saraban New\" size='".$size1."' > หมายเหตุ  </font></td>";
                                 echo "</tr>";
                                 foreach(  $query_excel->result() as $row)
                                 {
                                     echo "<tr>";
                                    
                                       echo "<td align='center'>";
+                                      echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
                                       
                                       echo  $registration=$row->registration;
                                      //echo  $this->user_model->count_id($type_record,$type_document);
-                                     
+                                     echo " </font>";
                                      echo "</td>";
                                      
                                      
                                         echo "<td>";
+                                        echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $at=$row->at;
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                            echo "<td>";
-                                     echo  $date=$row->date;
+                                           echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
+                                           
+                                           
+                                    echo   $date=$row->date;
+                                     
+                                     
+                                     
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                      
                                      
                                      echo "<td>";
+                                     echo "<font face=\"TH Saraban New\" size='".$size2."' >";
                                      echo  $from=$row->from;
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                   
@@ -590,19 +611,28 @@ class Welcome extends CI_Controller {
                           
                                      
                                      echo "<td>";
+                                     echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $to=$row->to;
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                       echo "<td>";
+                                      echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $subject=$row->subject;
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                        echo "<td>";
+                                       echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                    //  echo  $practice=$row->practice;
+                                       
+                                        echo " </font>";
                                      echo "</td>";
                                      
                                      echo "<td>";
+                                     echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                   //   echo  $note=$row->note;
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                      echo "</tr>";
