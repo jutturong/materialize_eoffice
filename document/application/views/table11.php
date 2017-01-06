@@ -50,10 +50,20 @@
     </div>
     <div id="test1" class="col s12">
       
+        
+        <!--
         <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php?type_record=1&&type_document=1')">
                  <i class="large material-icons">view_module</i>
              
-             </a>
+        </a>
+        -->
+        
+        
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')">
+                 <i class="large material-icons">view_module</i>
+             
+        </a>
+        
              
              
         <table>

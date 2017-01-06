@@ -518,6 +518,106 @@ class Welcome extends CI_Controller {
                            $this->user_model->authenlogin();  //check login  from  model
                 }
                 
+                
+                public  function  export_excel()
+                {
+                     #   http://localhost/document/index.php/welcome/export_excel
+                        if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                $type_record=trim($this->uri->segment(3));
+                                $type_document=trim($this->uri->segment(4));
+                                
+                                
+                                if(   $type_record  == 1  &&    $type_document == 1 )
+                                {
+                                       $strExcelFileName="ทะเบียนหนังสือรับ.xls";
+                                }else
+                                {
+                                       $strExcelFileName="ทะเบียนหนังสือ.xls";
+                                }
+                                
+                             
+                                header("Content-Type: application/x-msexcel; name=\"$strExcelFileName\"");
+                                header("Content-Disposition: inline; filename=\"$strExcelFileName\"");
+                                header("Pragma:no-cache");
+                                //header('Content-Type: text/html; charset=UTF-8');
+                                
+                               
+                                $tb="tb_main1";
+                              //  $data["query_excel"]= $this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>$type_document));
+                                 $query_excel = $this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>$type_document));
+                              //  $this->load->view("export_excel",$data);
+                                
+                                echo "<table border='1'  >";
+                                echo "<tr>";
+                                echo "<td  align='center' > เลขทะเบียนรับ  </td>";
+                                echo "<td  align='center' > ที่  </td>";
+                                echo "<td  align='center' > ลงวันที่  </td>";
+                                echo "<td align='center' > จาก  </td>";
+                                echo "<td  align='center' > ถึง  </td>";
+                                echo "<td align='center' > เรื่อง  </td>";
+                                echo "<td  align='center' > การปฏิบัติ  </td>";
+                                echo "<td align='center' > หมายเหตุ  </td>";
+                                echo "</tr>";
+                                foreach(  $query_excel->result() as $row)
+                                {
+                                    echo "<tr>";
+                                   
+                                      echo "<td align='center'>";
+                                      
+                                      echo  $registration=$row->registration;
+                                     //echo  $this->user_model->count_id($type_record,$type_document);
+                                     
+                                     echo "</td>";
+                                     
+                                     
+                                        echo "<td>";
+                                     echo  $at=$row->at;
+                                     echo "</td>";
+                                     
+                                           echo "<td>";
+                                     echo  $date=$row->date;
+                                     echo "</td>";
+                                     
+                                     
+                                     
+                                     echo "<td>";
+                                     echo  $from=$row->from;
+                                     echo "</td>";
+                                     
+                                  
+                                     
+                          
+                                     
+                                     echo "<td>";
+                                     echo  $to=$row->to;
+                                     echo "</td>";
+                                     
+                                      echo "<td>";
+                                     echo  $subject=$row->subject;
+                                     echo "</td>";
+                                     
+                                       echo "<td>";
+                                   //  echo  $practice=$row->practice;
+                                     echo "</td>";
+                                     
+                                     echo "<td>";
+                                  //   echo  $note=$row->note;
+                                     echo "</td>";
+                                     
+                                     echo "</tr>";
+                                }
+                                echo "</table>";
+                               
+                                       
+                         }
+                        
+                        
+                    
+                    
+                }
+                
+                
                 public function  err_system()
                 {
                     //http://192.168.2.112/document/index.php/welcome/err_system

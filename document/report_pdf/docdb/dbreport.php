@@ -428,18 +428,22 @@ $addi=0;
                    // $pdf->Ln();
                  //   $pdf->setXY( $x1+70   , $y1  + 15 +10+ $addi   );
                   //  $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,substr( $from  ,0,30  )."-".substr($form,30)  ),RB,0,'L',false);
-                    $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  chstr1($from)  ),RB,0,'L',false);
+                 //   $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  chstr1($from)  ),RB,0,'L',false);
+                     $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','tis620' , substr($from,0,15) ),RB,0,'L',false);
                   //  $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  $from   ),2,1,'L');
                  //  $pdf->MultiCell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  $from  ),1,"L");
                   // $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' , $from    ),0,0,'L');
                  //    $this->Cell($w[2],6,number_format($row[2]),'LR',0,'R');
                   //  $pdf->Ln(10);
+                     
+                 
                     
                      
                    //----------------ถึง------
                     $pdf->setXY( $x1+120  , $y1  + 15 + $addi );
                    // $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  substr($to,0,30)."\n" ) ,RB,1,'L',false);
                     $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,   chstr1($to) ) ,RB,1,'L',false);
+                   //   $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , $to ) ,RB,1,'L',false);
                     
                     //----------------เรื่อง------
                     $pdf->setXY( $x1+150 , $y1  + 15 + $addi  );
