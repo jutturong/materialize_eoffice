@@ -199,6 +199,13 @@
     
     <div id="test2" class="col s12">
         
+                
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')">
+                 <i class="large material-icons">view_module</i>
+             
+        </a>
+        
+        
          <table>
         <thead>
           <tr>
