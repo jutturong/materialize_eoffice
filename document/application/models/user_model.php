@@ -190,6 +190,89 @@ public  function thai_year($y)
      
                 return   $y+543;
  }
+ 
+ 
+ function  show_table() //แสดง รายละเอียดหลังจากทำการบันทึกข้อมูลแล้ว
+ {
+     
+     
+      /*
+     <table>
+ 
+        <thead>
+          <tr>
+              <th data-field="id" >เลขทะเบียนส่ง</th>
+              <th data-field="name"  >ที่</th>
+              <th data-field="price">ลงวันที่</th>
+               <th data-field="price">จาก</th>
+               <th data-field="price">ถึง</th>
+                 <th data-field="price">เรื่อง</th>
+                   <th data-field="price">การปฏิบัติ</th>
+                   <th data-field="price">หมายเหตุ</th>
+                    <th data-field="price">ใบปะหน้า </th>     
+          </tr>
+        </thead>
+
+        <tbody>
+        
+        <?php
+          // public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
+             foreach($query2->result() as $rows)
+                 {
+                    ?>
+        <tr>
+                     <td>
+                   <?php
+                   echo  $rows->registration;
+                   ?>
+                     </td>
+                     <td>
+            <?php  echo $rows->at; ?>
+        </td>
+        <td>
+            <?php  echo $rows->date;  ?>
+        </td> 
+          <td>
+            <?php  echo $rows->from;  ?>
+        </td> 
+        <td>
+            <?php  echo $rows->to;  ?>
+        </td> 
+        <td>
+            <?php  echo $rows->subject; ?>
+        </td>
+        <td>
+            <?php  echo $rows->practice; ?>
+        </td>
+        
+        <td>
+            <?php  echo $rows->note; ?>
+        </td>
+        <td >
+            <?php
+              if( strlen($rows->filename) >  0  )
+              {
+                  ?>
+             <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>">  
+            <i class="material-icons">system_update_alt</i>
+            </a>
+                  <?php
+              }
+            ?>
+        </td>
+                     
+        </tr>    
+        <?php 
+                   }
+            ?>
+        
+           
+        </tbody>
+      </table>
+       * 
+       */
+  }
+  
   
         
 }
