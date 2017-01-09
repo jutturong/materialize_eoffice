@@ -35,6 +35,17 @@
                                 
 
                   }
+                  //insert_success_receive21  //insert_success_send21
+                      else  if(  send1 == "insert_success_receive21"   ||  send1 ==  "insert_success_send21"   )
+                  {
+                          
+                                var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');
+                                Materialize.toast($toastContent, 5000,'rounded');
+                                
+                                $('#sub11').load("<?=base_url()?>index.php/welcome/table2/");
+                                
+
+                  } 
                   
               });    
            </script>
@@ -89,6 +100,16 @@
            // index.php/welcome/subtable11/
                   
                 $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+                
+                //$('#modal_table11').modal('open');
+       }
+       
+       
+         function  table2() //โหลด table 
+       {
+           // index.php/welcome/subtable11/
+                  
+                $('#sub11').load("<?=base_url()?>index.php/welcome/table2");
                 
                 //$('#modal_table11').modal('open');
        }
@@ -239,6 +260,15 @@
            });
            
            
+           //------------- เพิ่มกิจกรรมทางวิชาการ-----------------
+           function add_academic()
+           {
+                  //alert('t');
+                  $('#sub11').load("<?=base_url()?>index.php/welcome/add_academic");
+                 
+           }
+           
+           
       </script>
       
       
@@ -333,6 +363,30 @@
    <li class="divider"></li>
   
    </ul>
+  
+  
+    <ul id="dropdown4" class="dropdown-content">
+      
+        <!--
+        <li><a href="#!"   onclick=" receive31()" ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
+   <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
+    
+  <li class="divider"></li>
+  <li><a href="#!" onclick=" send31()  " ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
+   <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
+   <li class="divider"></li>
+   <li class="divider"></li>
+        -->
+        
+          <li><a href="#!"   onclick="add_academic()" ><i class="material-icons left">sort_by_alpha</i>เพิ่มกิจกรรม</a></li>
+          <li class="divider"></li>
+          <li><a href="#!"   onclick="" ><i class="material-icons left">work</i>แสดงกิจกรรม</a></li>
+  
+   </ul>
+  
+  
    
    
       <!--  mobile menu -->  
@@ -392,9 +446,14 @@
          
          
           <li>
-             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons right">picture_in_picture</i> แสดงผลการบันทึก</a>
+             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons right">vpn_key</i> แสดงผลการบันทึก</a>
          </li>
          
+         
+         
+           <li>
+             <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons right">group_work</i> กิจกรรมทางวิชาการ </a>
+         </li>
          
          
        
@@ -459,7 +518,7 @@
           </li>
         <li>
             
-              <a href="#!"       ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
         </li>
         <li>
             
@@ -542,9 +601,7 @@
   
 
  
- 
- 
- 
+
 
 
     </body>

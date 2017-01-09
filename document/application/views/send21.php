@@ -186,7 +186,7 @@ $(function(){
      
       <!--   action="index.php/welcome/inserttable1"   -->
       <!--      -->
-     <form class="col s12" id="fr_send11"  action="<?=base_url()?>index.php/welcome/insert_send11"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+     <form class="col s12" id="fr_send21"  action="<?=base_url()?>index.php/welcome/inserttable22"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
     
     
       <div class="row">
@@ -195,8 +195,8 @@ $(function(){
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="registration_send11" name="registration_send11"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$number_add?>" />
-          <label for="registration_send11">1.เลขทะเบียนส่ง</label>
+          <input id="registration_send21" name="registration_send21"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$number_add?>" />
+          <label for="registration_send21">1.เลขทะเบียนส่ง</label>
           
           
         </div>
@@ -206,9 +206,9 @@ $(function(){
         <!--  <i class="material-icons prefix">phone</i> -->
             <i class="material-icons prefix">account_circle</i>
             
-            <input id="at_send11" name="at_send11"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
+            <input id="at_send21" name="at_send21"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
           
-          <label for="at_send11">2.ที่</label>
+          <label for="at_send21">2.ที่</label>
           
         </div>
           
@@ -219,7 +219,7 @@ $(function(){
          <!-- <input id="icon_telephone" type="tel" class="validate"> -->
           
           
-          <input type="date"  id="date1_send11"  name="date1_send11"  class="datepicker" />
+          <input type="date"  id="date1_send21"  name="date1_send21"  class="datepicker" />
         
           
                    
@@ -233,9 +233,9 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="from_send11"  name="from_send11"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
+          <input  id="from_send21"  name="from_send21"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
           
-          <label for="from_send11">4.จาก</label>
+          <label for="from_send21">4.จาก</label>
         </div>
           
           
@@ -243,7 +243,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="to_send11"  name="to_send11"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
+          <input  id="to_send21"  name="to_send21"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
           
           <label for="icon_telephone">5.ถึง</label>
         </div>
@@ -253,9 +253,9 @@ $(function(){
           <i class="material-icons prefix">settings</i>
           
           
-          <input  id="subject_send11"  name="subject_send11"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
+          <input  id="subject_send21"  name="subject_send21"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
           
-          <label for="subject_send11">6.เรื่อง</label>
+          <label for="subject_send21">6.เรื่อง</label>
         </div>
           
           
@@ -263,9 +263,9 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="practice_send11" name="practice_send11"  type="text" class="validate" value="ทราบ"  />
+          <input  id="practice_send21" name="practice_send21"  type="text" class="validate" value="ทราบ"  />
           
-          <label for="practice_send11">7.การปฏิบัติ</label>
+          <label for="practice_send21">7.การปฏิบัติ</label>
         </div>
           
           
@@ -273,9 +273,9 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="note_send11"  name="note_send11"  type="text" class="validate"  value="ทราบและปฏฺิบัติตาม " >
+          <input  id="note_send21"  name="note_send21"  type="text" class="validate"  value="ทราบและปฏฺิบัติตาม " >
           
-          <label for="note_send11">8.หมายเหตุ</label>
+          <label for="note_send21">8.หมายเหตุ</label>
         </div>
           
           
@@ -298,7 +298,7 @@ $(function(){
     </div>
           
           
-                <input type="hidden"  id="type_record21"  name="type_record21"  value="1"  /> 
+                <input type="hidden"  id="type_record21"  name="type_record21"  value="3"  /> 
           
           
           <!--<div class="input-field col s6"> -->

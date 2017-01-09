@@ -50,7 +50,7 @@ class Welcome extends CI_Controller {
                  public function logout()
                  {
                          $this->user_model->logout();
-                         redirect("welcome/index/");
+                         redirect("welcome/index/","refresh");
                  }
           public function checklogin()
           {
@@ -170,7 +170,39 @@ class Welcome extends CI_Controller {
                    if(    $this->user_model->authenlogin() == 1 )
                      {
                              $data["title"]=$this->title;
-                           // echo   $data["number_add"]=$this->user_model->count_id(1,2);
+                             //($tb,array("type_document"=>$type_document,"type_record"=>$type_record));
+                              
+                   //-----------------------------------------------------------            
+                   $tb="tb_main1";        
+                   $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>1));
+                    $number = $q_n->num_rows()+1;
+                    if(     $number == 0  )
+                     {
+                           $number_add = "0001";
+                     }
+                   else     if(     $number == 1  )
+                     {
+                           $number_add = "0002";
+                     } 
+                   else   if(  strlen($number) ==1   )
+                     {
+                           $number_add = "000".$number;
+                     }
+                    else if(  strlen($number) ==2   )
+                     {
+                           $number_add= "00".$number;
+                     } 
+                      else if(  strlen($number) ==3   )
+                     {
+                          $number_add= "0".$number;
+                     } 
+                     else
+                     {
+                          $number_add;
+                     }
+                     $data["number_add"]=$number_add;
+                     //-----------------------------------------------------------            
+                               
                              $this->load->view("receive21",$data);
                      }
                }
@@ -194,7 +226,9 @@ class Welcome extends CI_Controller {
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
-                               $data["number_add"]=$this->user_model->count_id(1,2); 
+                             
+                             
+                               $data["number_add"]=$this->user_model->count_id(3,2); 
                                
                                $this->load->view("send21",$data);
                      }
@@ -276,6 +310,25 @@ class Welcome extends CI_Controller {
                             
                      }
                     
+                }
+                
+                public function table2()
+                {
+                     if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                            // $this->load->view("sub11",$data);
+                            $data["query"]=$this->user_model->tb_main1("3","1");
+                            //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
+                          
+                            
+                            $tb="tb_main1";
+                            //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
+                             $data["query2"]=$this->user_model->tb_main1("3","2");
+                            
+                            $this->load->view("table2",$data);
+                            
+                     }
                 }
                 
                 
@@ -379,12 +432,14 @@ class Welcome extends CI_Controller {
              //------------------------------- upload file-------------------------------------------     
                          
                          
-                        redirect("welcome/homepage/insert_success");
+                        redirect("welcome/homepage/insert_success",'refresh');
                          
                          
 
                      }
                 }
+                
+                
                 
                 
                 
@@ -506,10 +561,225 @@ class Welcome extends CI_Controller {
                                           $this->db->insert($tb,$data);
                                                   
                                        
-                                                 redirect("welcome/homepage/insert_success_send21");
+                                                 redirect("welcome/homepage/insert_success_send21",'refresh');
 
                                         }
                         }
+                        
+                        
+                 public   function     inserttable21()
+                 {
+                         header('Content-Type: text/html; charset=UTF-8');
+                                   if(    $this->user_model->authenlogin() == 1 )
+                                   {
+                                        //echo print_r($_POST);  
+                                        //echo  "<hr>";
+                                        #-- หนังสือรับ หนังสือเ้ข้า  มูลนิธิตะวันฉายฯ
+                                                                           $registration_receive21=trim($this->input->get_post("registration_receive21"));   //เลขทะเบียนส่ง   1
+                                                                      // echo "<br>";
+                                                                         $at_receive21=trim($this->input->get_post("at_receive21"));  //ที่       2
+                                                                      // echo  "<br>";
+                                                                       $date1_receive21=trim($this->input->get_post("date1_receive21")); //ลงวันที่           3
+                                                                     //  echo  "<br>";
+                                                                     $from_receive21=trim($this->input->get_post("from_receive21")); //จาก       4
+                                                                      // echo  "<br>";
+                                                                        $to_receive21=trim($this->input->get_post("to_receive21"));  //ถึง        5
+                                                                     //  echo  "<br>";
+                                                                       $subject_receive21=trim($this->input->get_post("subject_receive21"));  //เรื่อง       6
+                                                                     //  echo  "<br>";
+                                                                  $practice_receive21=trim($this->input->get_post("practice_receive21"));  //การปฏฺิบัติ       7
+                                                                    //   echo  "<br>";
+                                                                     $note_receive21=trim($this->input->get_post("note_receive21")); //หมายเหตุ      8
+                                                                      // echo  "<br>";
+                                                                          // <input type="hidden"  id="type_record11"  name="type_record11"  value="1"  /> 
+                                                                       /*
+
+                                                                                          1 	มูลนิธิตะวันฉายฯ
+		                                                      2 	ศูนย์วิจัยผู้่ป่วยปากแหว่งเพดานโหว่ฯ
+	                                                      	3 	ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ 
+                                                                        
+                                                                        */
+                                                                          $type_record=trim($this->input->get_post("type_record21")); //ประเภทของตารางที่ทำการบันทึก    9
+                                                                     //  echo  "<br>";
+                                                                            $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
+                                                                            
+                                                                            
+                                                                      //  print_r($_FILES); 
+                                                                            
+                                                                                        //------------------------------- upload file-------------------------------------------
+                                                                                   // print_r($_FILES)  
+                                                                                       $file1name = $_FILES["file21"]['name'];  // ชื่อของไฟล์      10  
+                                                                                 // echo br();
+                                                                              $file1tmp  =$_FILES['file21']["tmp_name"]; // tmp folder
+                                                                                 //echo br();
+                                                                                    $file1Type= $_FILES['file21']["type"]; //type of file
+                                                                                //  echo br();
+                                                                                   $file1Size= $_FILES['file21']["size"]; //size
+                                                                                 // echo br();
+                                                                                   $file1ErrorMsg = $_FILES['file21']["error"]; // 0=false 1=true   
+                                                                              //   echo br();
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                                 if( strlen($file1name)   >  0  &&  $file1name != ""  )
+                                                                                      {
+
+                                                                                                      $data=array(
+                                                                                                          "registration"=> $registration_receive21,
+                                                                                                          "at"=> $at_receive21,
+                                                                                                          "date"=>$date1_receive21,
+                                                                                                          "from"=>$from_receive21,
+                                                                                                          "to"=> $to_receive21,
+                                                                                                         "subject"=>$subject_receive21,
+                                                                                                         "practice"=>$practice_receive21,
+                                                                                                         "note"=>$note_receive21,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                         "filename"=>$file1name, 
+                                                                                                          "type_document"=>$type_document,
+                                                                                                      );
+
+
+
+                                                                                                  $cp=copy($file1tmp ,  "upload/". $file1name );
+                                                                                                  if( $cp )
+                                                                                                  {
+                                                                                                      echo 1;
+                                                                                                  }
+                                                                                                  else{
+                                                                                                      echo 0;
+                                                                                                  }
+
+                                                                                      }
+                                                                                      else
+                                                                                      {
+                                                                                            $data=array(
+                                                                                                          "registration"=>$registration_receive21,
+                                                                                                          "at"=> $at_receive21,
+                                                                                                          "date"=>$date1_receive21,
+                                                                                                          "from"=>$from_receive21,
+                                                                                                          "to"=> $to_receive21,
+                                                                                                         "subject"=>$subject_receive21,
+                                                                                                         "practice"=>$practice_receive21,
+                                                                                                         "note"=>$note_receive21,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                       //  "filename"=>$file1name, 
+                                                                                                         "type_document"=>$type_document,
+                                                                                                      );
+
+                                                                                      }
+                                                                                      
+                                         
+                                          $tb="tb_main1";
+                                          $this->db->insert($tb,$data);
+                                          
+                                             redirect("welcome/homepage/insert_success_receive21",'refresh');
+                                                                       
+                                    }  
+                 }
+                 
+                   public   function     inserttable22()
+                   {
+                          header('Content-Type: text/html; charset=UTF-8');
+                                   if(    $this->user_model->authenlogin() == 1 )
+                                   {
+                                           //print_r($_POST);
+                                          // echo "<hr>";
+                                          $registration_send21=trim($this->input->get_post("registration_send21"));   //เลขทะเบียนส่ง   1
+                                          //echo br();        
+                                            $at_send21=trim($this->input->get_post("at_send21"));  //ที่       2
+                                         // echo br();      
+                                            $date1_send21=trim($this->input->get_post("date1_send21")); //ลงวันที่           3
+                                         // echo br();      
+                                             $from_send21=trim($this->input->get_post("from_send21")); //จาก       4
+                                         // echo br();     
+                                           $to_send21=trim($this->input->get_post("to_send21"));  //ถึง        5
+                                         // echo br();     
+                                            $subject_send21=trim($this->input->get_post("subject_send21"));  //เรื่อง       6
+                                         // echo br();     
+                                           $practice_send21=trim($this->input->get_post("practice_send21"));  //การปฏฺิบัติ       7
+                                        //  echo br();   
+                                          $note_send21=trim($this->input->get_post("note_send21")); //หมายเหตุ      8
+                                         // echo br();   
+                                                                          // <input type="hidden"  id="type_record11"  name="type_record11"  value="1"  /> 
+                                                                       /*
+
+                                                                                          1 	มูลนิธิตะวันฉายฯ
+		                                                      2 	ศูนย์วิจัยผู้่ป่วยปากแหว่งเพดานโหว่ฯ
+	                                                      	3 	ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ 
+                                                                        
+                                                                        */
+                                                                    $type_record=trim($this->input->get_post("type_record21")); //ประเภทของตารางที่ทำการบันทึก    9
+                                                //    echo  "<br>";
+                                                             $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
+                                                //     echo  "<br>";
+                                                     
+                                                                                         //------------------------------- upload file-------------------------------------------
+                                                                                   // print_r($_FILES)  
+                                                                                   $file1name = $_FILES["file21"]['name'];  // ชื่อของไฟล์      10  
+                                                                                //  echo br();
+                                                                                 $file1tmp  =$_FILES['file21']["tmp_name"]; // tmp folder
+                                                                                //  echo br();
+                                                                                 $file1Type= $_FILES['file21']["type"]; //type of file
+                                                                                //  echo br();
+                                                                                $file1Size= $_FILES['file21']["size"]; //size
+                                                                                //  echo br();
+                                                                                  $file1ErrorMsg = $_FILES['file21']["error"]; // 0=false 1=true   
+                                                                                // echo br();
+                                                                                  
+                                                                                   
+                                                                                 if( strlen($file1name)   >  0  &&  $file1name != ""  )
+                                                                                      {
+
+                                                                                                      $data=array(
+                                                                                                          "registration"=> $registration_send21,
+                                                                                                          "at"=> $at_send21,
+                                                                                                          "date"=>$date1_send21,
+                                                                                                          "from"=>$from_send21,
+                                                                                                          "to"=> $to_send21,
+                                                                                                         "subject"=>$subject_send21,
+                                                                                                         "practice"=>$practice_send21,
+                                                                                                         "note"=>$note_send21,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                         "filename"=>$file1name, 
+                                                                                                          "type_document"=>$type_document,
+                                                                                                      );
+
+
+
+                                                                                                  $cp=copy($file1tmp ,  "upload/". $file1name );
+                                                                                                  if( $cp )
+                                                                                                  {
+                                                                                                      //echo 1;
+                                                                                                  }
+                                                                                                  else{
+                                                                                                     // echo 0;
+                                                                                                  }
+
+                                                                                      }
+                                                                                          else
+                                                                                      {
+                                                                                            $data=array(
+                                                                                                          "registration"=>$registration_send21,
+                                                                                                          "at"=> $at_send21,
+                                                                                                          "date"=>$date1_send21,
+                                                                                                          "from"=>$from_send21,
+                                                                                                          "to"=> $to_send21,
+                                                                                                         "subject"=>$subject_send21,
+                                                                                                         "practice"=>$practice_send21,
+                                                                                                         "note"=>$note_send21,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                       //  "filename"=>$file1name, 
+                                                                                                         "type_document"=>$type_document,
+                                                                                                      );
+
+                                                                                      }
+                                                                                  
+                                                                             $tb="tb_main1";
+                                                                             $this->db->insert($tb,$data);     
+                                                                             redirect("welcome/homepage/insert_success_send21",'refresh');
+                                       
+                                   }
+                   }
                 
                 public function  test()
                 {
@@ -518,6 +788,23 @@ class Welcome extends CI_Controller {
                            $this->user_model->authenlogin();  //check login  from  model
                 }
                 
+                function  add_academic()
+                {
+                         if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                 $data["title"]=$this->title;
+                                 $this->load->view("add_academic");
+                           }
+                }
+                
+                function insert_academic()
+                {
+                       if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                 //print_r($_FILES);
+                                 print_r($_POST);          
+                          }
+                }
                 
                 public  function  export_excel()
                 {
