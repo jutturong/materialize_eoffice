@@ -64,135 +64,77 @@
              
         </a>
         
-             
-             
-        <table>
-        <thead>
-          <tr>
-              <th data-field="id" >เลขทะเบียนส่ง</th>
-              <th data-field="name"  >ที่</th>
-              <th data-field="price">ลงวันที่</th>
-               <th data-field="price">จาก</th>
-               <th data-field="price">ถึง</th>
-                 <th data-field="price">เรื่อง</th>
-                   <th data-field="price">การปฏิบัติ</th>
-                   <th data-field="price">หมายเหตุ</th>
-                    <th data-field="price">ใบปะหน้า </th>     
-          </tr>
-        </thead>
-
-        <tbody>
-            
-         <!--   
-          <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
-                  <td>$0.87</td>
-                         <td>$0.87</td>
-                          <td>$0.87</td>
-                               <td>$0.87</td>
-                  
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-                  <td>$0.87</td>
-                         <td>$0.87</td>
-                          <td>$0.87</td>
-                               <td>$0.87</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-            <td>$0.87</td>
-            <td>$0.87</td>
-             <td>$0.87</td>
-                  <td>$0.87</td>
-                  
-          </tr>
-          -->
-          
-          
-          <?php
-          // public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
-             foreach($query->result() as $rows)
-                 {
-                    ?>
-          <tr>
-        <td>
-                   <?php
-                   /*
-                     $id=$rows->id_main1;
-                   //  $id=10;
-                  //   $id=100;
-                     if(  strlen($id) ==1   )
-                     {
-                      echo "000".$id;
-                     }
-                    else if(  strlen($id) ==2   )
-                     {
-                      echo "00".$id;
-                     } 
-                      else if(  strlen($id) ==3   )
-                     {
-                      echo "0".$id;
-                     } 
-                     else
-                     {
-                         echo $id;
-                     }
-                    */ 
-                   echo  $rows->registration;
-                   ?>
-                       
-
-        </td>
-        <td>
-            <?php  echo $rows->at; ?>
-        </td>
-        <td>
-            <?php  echo $rows->date;  ?>
-        </td> 
-          <td>
-            <?php  echo $rows->from;  ?>
-        </td> 
-        <td>
-            <?php  echo $rows->to;  ?>
-        </td> 
-        <td>
-            <?php  echo $rows->subject; ?>
-        </td>
-        <td>
-            <?php  echo $rows->practice; ?>
-        </td>
+    
         
-        <td>
-            <?php  echo $rows->note; ?>
-        </td>
-        <td >
-            <?php
+         <!--http://materializecss.com/collections.html -->
+  <ul class="collection">
+    <?php
+           foreach($query->result() as $rows)
+                 {
+                                 $id=$rows->id_main1;
+    ?>
+      
+      <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       
+      <span class="title">
+          <?php echo  $rows->registration; ?>
+      </span>
+      <p> 
+               <?php  echo $rows->at; ?>
+               <br>
+               <?php  echo $rows->date;  ?>
+               <br>
+                <?php  echo $rows->from;  ?>
+                  <br>
+                  <?php  echo $rows->to;  ?>
+                   <br>
+                    <?php  echo $rows->subject; ?>
+                     <br>
+                     
+                     
+                     <span class="title">
+                                 <a href="#!"  onclick="dia_delete(<?=$id?>,2)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
+                     </span>    
+                     
+     
+              
+                  <?php
               if( strlen($rows->filename) >  0  )
               {
-                  ?>
-             <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>">  
+     ?>
+      <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
             <i class="material-icons">play_for_work</i>
             </a>
-                  <?php
+    <?php
               }
             ?>
-        </td>
-          </tr>
-            <?php 
-                 }
-            ?>
-          
-          
-          
-        </tbody>
-      </table>
+              
+              
+              
+      </p>
+      
+      
+      
+
+      
+  
+      
+
+      
+      
+      
+    </li>
+    <?php
+                    }
+    ?>
+  </ul>
+  <!--http://materializecss.com/collections.html -->  
+  
+  
+  
+             
+      
     
     </div>
  
@@ -200,83 +142,83 @@
     <div id="test2" class="col s12">
         
                 
-        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')">
+        <a class="btn-floating btn-large waves-effect waves-light red"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"  >
                  <i class="large material-icons">view_module</i>
              
         </a>
         
+     
         
-         <table>
-        <thead>
-          <tr>
-              <th data-field="id" >เลขทะเบียนส่ง</th>
-              <th data-field="name"  >ที่</th>
-              <th data-field="price">ลงวันที่</th>
-               <th data-field="price">จาก</th>
-               <th data-field="price">ถึง</th>
-                 <th data-field="price">เรื่อง</th>
-                   <th data-field="price">การปฏิบัติ</th>
-                   <th data-field="price">หมายเหตุ</th>
-                    <th data-field="price">ใบปะหน้า </th>     
-          </tr>
-        </thead>
-
-        <tbody>
-        
-        <?php
-          // public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
-             foreach($query2->result() as $rows)
+          <!--http://materializecss.com/collections.html -->
+  <ul class="collection">
+    <?php
+           foreach($query2->result() as $rows)
                  {
-                    ?>
-        <tr>
-                     <td>
-                   <?php
-                   echo  $rows->registration;
-                   ?>
-                     </td>
-                     <td>
-            <?php  echo $rows->at; ?>
-        </td>
-        <td>
-            <?php  echo $rows->date;  ?>
-        </td> 
-          <td>
-            <?php  echo $rows->from;  ?>
-        </td> 
-        <td>
-            <?php  echo $rows->to;  ?>
-        </td> 
-        <td>
-            <?php  echo $rows->subject; ?>
-        </td>
-        <td>
-            <?php  echo $rows->practice; ?>
-        </td>
-        
-        <td>
-            <?php  echo $rows->note; ?>
-        </td>
-        <td >
-            <?php
+                          $id=$rows->id_main1;
+    ?>
+      
+      <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       
+      <span class="title">
+          <?php echo  $rows->registration; ?>
+      </span>
+      <p> 
+               <?php  echo $rows->at; ?>
+               <br>
+               <?php  echo $rows->date;  ?>
+               <br>
+                <?php  echo $rows->from;  ?>
+                  <br>
+                  <?php  echo $rows->to;  ?>
+                   <br>
+                    <?php  echo $rows->subject; ?>
+                     <br>
+                     
+                     
+                     <span class="title">
+                                 <a href="#!"   onclick="dia_delete(<?=$id?>,2)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
+                     </span>    
+                     
+     
+              
+                  <?php
               if( strlen($rows->filename) >  0  )
               {
-                  ?>
-             <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>">  
+     ?>
+      <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
             <i class="material-icons">play_for_work</i>
             </a>
-                  <?php
+    <?php
               }
             ?>
-        </td>
-                     
-        </tr>    
-        <?php 
-                   }
-            ?>
+              
+              
+              
+      </p>
+      
+      
+      
+
+      
+  
+      
+
+      
+      
+      
+    </li>
+    <?php
+                    }
+    ?>
+  </ul>
+  <!--http://materializecss.com/collections.html -->    
+  
+  
+  
+  
         
-           
-        </tbody>
-      </table>
+        
     
     </div>
     

@@ -1,9 +1,5 @@
 <script type="text/javascript">
 
-
-    
-    
-    
   $(document).ready(function(){
     $('ul.tabs').tabs();
     
@@ -38,9 +34,6 @@
 
 
 
-
-
-
 <div class="row">
     <div class="col s12">
       <ul class="tabs">
@@ -65,113 +58,20 @@
         </a>
         -->
         
-
-             
-             
         
-        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')">
-                 <i class="large material-icons">view_module</i>
-             
-        </a>
-        
-       
-
-        
-        
-  <!--http://materializecss.com/collections.html -->
-  <ul class="collection">
-    <?php
-           foreach($query->result() as $rows)
-                 {
-                      $id=$rows->id_main1;
-                     // $id=$this->encrypt->encode($id);
-    ?>
-      
-      <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
-       
-      <span class="title">
-          <?php echo  $rows->registration; ?>
-      </span>
-      <p> 
-               <?php  echo $rows->at; ?>
-               <br>
-               <?php  echo $rows->date;  ?>
-               <br>
-                <?php  echo $rows->from;  ?>
-                  <br>
-                  <?php  echo $rows->to;  ?>
-                   <br>
-                    <?php  echo $rows->subject; ?>
-                     <br>
-                     
-                     
-                     <!-- ต้องการลบข้อมูล -->
-                     <span class="title">
-                         <a href="#" class="secondary-content"  onclick="dia_delete(<?=$id?>,1)"><i class="material-icons">power_settings_new</i></a> 
-                         
-                           
-                     </span>    
-                     <!-- ต้องการลบข้อมูล -->
-                   
-                     
-     
-              
-                  <?php
-              if( strlen($rows->filename) >  0  )
-              {
-     ?>
-      <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
-            <i class="material-icons">play_for_work</i>
-            </a>
-
-    <?php
-              }
-            ?>
-              
-              
-              
-      </p>
-      
-      
-      
-
-      
-  
-      
-
-      
-      
-      
-    </li>
-    <?php
-                    }
-    ?>
-  </ul>
-  <!--http://materializecss.com/collections.html -->  
-        
-        
-             
-        
-    
-    </div>
- 
-    
-    <div id="test2" class="col s12">
-        
-                
-        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')">
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')">
+            
                  <i class="large material-icons">view_module</i>
              
         </a>
         
         
-      <!--http://materializecss.com/collections.html -->
+           <!--http://materializecss.com/collections.html -->
   <ul class="collection">
     <?php
            foreach($query2->result() as $rows)
                  {
-                         $id=$rows->id_main1;
+                        $id=$rows->id_main1;
     ?>
       
       <li class="collection-item avatar">
@@ -194,7 +94,7 @@
                      
                      
                      <span class="title">
-                         <a href="#"    class="secondary-content"   onclick="dia_delete(<?=$id?>,'1')"  ><i class="material-icons">power_settings_new</i></a> 
+                                 <a href="#!"  onclick="dia_delete(<?=$id?>,3)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
                      </span>    
                      
      
@@ -230,14 +130,94 @@
     ?>
   </ul>
   <!--http://materializecss.com/collections.html -->    
+  
+  
+  
+             
+             
+       
+    
+    </div>
+ 
+    
+    <div id="test2" class="col s12">
         
+                
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')">
+                 <i class="large material-icons">view_module</i>
+             
+        </a>
+    
+        
+        <!--http://materializecss.com/collections.html -->
+  <ul class="collection">
+    <?php
+           foreach($query->result() as $rows)
+                 {
+                           $id=$rows->id_main1;
+    ?>
+      
+      <li class="collection-item avatar">
+       <i class="material-icons circle">folder</i>
+       
+      <span class="title">
+          <?php echo  $rows->registration; ?>
+      </span>
+      <p> 
+               <?php  echo $rows->at; ?>
+               <br>
+               <?php  echo $rows->date;  ?>
+               <br>
+                <?php  echo $rows->from;  ?>
+                  <br>
+                  <?php  echo $rows->to;  ?>
+                   <br>
+                    <?php  echo $rows->subject; ?>
+                     <br>
+                     
+                     
+                     <span class="title">
+                                 <a href="#!"   onclick="dia_delete(<?=$id?>,3)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
+                     </span>    
+                     
+     
+              
+                  <?php
+              if( strlen($rows->filename) >  0  )
+              {
+     ?>
+      <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
+            <i class="material-icons">play_for_work</i>
+            </a>
+    <?php
+              }
+            ?>
+              
+              
+              
+      </p>
+      
+      
+      
+
+      
+  
+      
+
+      
+      
+      
+    </li>
+    <?php
+                    }
+    ?>
+  </ul>
+  <!--http://materializecss.com/collections.html -->  
+  
+  
+  
         
        
-        
-        
-        
-        
-        
     
     </div>
     
@@ -282,14 +262,6 @@
     </div>
   </div>
   -->
-  
-  
-         
-
-  
-  
-  
-  
   <!-- Modal Structure  table มูลนิธีตะวันฉาย -->
   
   

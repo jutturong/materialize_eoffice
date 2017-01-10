@@ -9,6 +9,41 @@
            <title><?=$title?></title>
       
            
+           
+ <!--  ลบข้อมูลในตาราง -->
+ <script type="text/javascript">
+    function dia_delete(id,page)
+    {
+          $(document).ready(function()
+          {
+                    //    $('.modal').modal();
+                   //  $('#modal_delete').modal('open');
+                 //   $('#modal_delete1').modal('open');
+                  Materialize.toast('Delete function', 1000, 'rounded' ,function()
+                    {
+                          //alert(id);
+                          var  r=confirm("คุณต้องการลบข้อมูลหรือไม่");
+                          if(r==true){
+                                //alert(id);
+                                window.location.assign("<?=base_url()?>index.php/welcome/delete/" + id + "/" + page );
+                                
+                                
+                          }
+                          else
+                          {
+                               //  alert(id);
+                               
+                          }
+                        
+                    });
+          });
+    }
+</script>
+<!--  ลบข้อมูลในตาราง -->
+
+
+    
+           
            <script type="text/javascript">
               $(function(){
                   var send1='<?php echo $this->uri->segment(3);?>';
@@ -43,6 +78,17 @@
                                 Materialize.toast($toastContent, 5000,'rounded');
                                 
                                 $('#sub11').load("<?=base_url()?>index.php/welcome/table2/");
+                                
+
+                  } 
+                  //insert_success_receive31
+                  else  if(  send1 == "insert_success_receive31"   ||  send1 ==  "insert_success_send31"   )
+                  {
+                          
+                                var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');
+                                Materialize.toast($toastContent, 5000,'rounded');
+                                
+                                $('#sub11').load("<?=base_url()?>index.php/welcome/table3/");
                                 
 
                   } 
@@ -114,6 +160,16 @@
                 //$('#modal_table11').modal('open');
        }
        
+         function  table3() //โหลด table 
+       {
+           // index.php/welcome/subtable11/
+                  
+                $('#sub11').load("<?=base_url()?>index.php/welcome/table3");
+                
+                //$('#modal_table11').modal('open');
+       }
+       
+       
        
        //------------------------ ศูนย์การดูแล------------------------------------  
        function  receive21()  //รับ
@@ -129,11 +185,11 @@
   //------------------------ ศูนย์วิจัย---------------------
          function  receive31()  //รับ
        {
-               $('#sub11').load("<?=base_url()?>index.php/welcome/receive21");
+               $('#sub11').load("<?=base_url()?>index.php/welcome/receive31");
        }
         function  send31()  //ส่ง
        {
-               $('#sub11').load("<?=base_url()?>index.php/welcome/send21");
+               $('#sub11').load("<?=base_url()?>index.php/welcome/send31");
        }
        
        
@@ -320,12 +376,12 @@
   <ul id="dropdown1" class="dropdown-content">
       
       <li><a href="#!"     onclick=" receive11() "    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
-   <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')" ><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
   <li><a href="#!"   onclick=" send21() "  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
-   <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')" > <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>
    <li class="divider"></li>
@@ -336,12 +392,12 @@
    <ul id="dropdown2" class="dropdown-content">
       
        <li><a href="#!" onclick=" receive21()"><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
-   <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')"  ><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
   <li><a href="#!" onclick=" send21()  "><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
-   <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"    > <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>
    <li class="divider"></li>
@@ -352,12 +408,12 @@
      <ul id="dropdown3" class="dropdown-content">
       
         <li><a href="#!"   onclick=" receive31()" ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
-   <li><a href="#!"><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')"    ><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
   <li><a href="#!" onclick=" send31()  " ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
-   <li><a href="#!"> <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
+   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')"  > <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>
    <li class="divider"></li>
@@ -382,7 +438,7 @@
         
           <li><a href="#!"   onclick="add_academic()" ><i class="material-icons left">sort_by_alpha</i>เพิ่มกิจกรรม</a></li>
           <li class="divider"></li>
-          <li><a href="#!"   onclick="" ><i class="material-icons left">work</i>แสดงกิจกรรม</a></li>
+          <li><a href="#modal_show_academic"   onclick="" ><i class="material-icons left">work</i>แสดงกิจกรรม</a></li>
   
    </ul>
   
@@ -522,7 +578,7 @@
         </li>
         <li>
             
-              <a href="#!"       ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+              <a href="javascript:void(0)"    onclick="table3()"    ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
         
         </li>
       </ul>
@@ -601,8 +657,112 @@
   
 
  
+ <!--  แสดงกิจกรรมทางวิชาการ -->
+ <script type="text/javascript">
+     
+    $(document).ready(function() 
+    {
+           $('#firstname_academic').material_select(); //ชื่อ-นามสกุล
+           
+           $('#activities').material_select(); //กิจกรรม
+           
+           
+          $('#begin_date').pickadate({
+               // selectMonths:true,
+                   selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 15, // Creates a dropdown of 15 years to control year
+                    monday:'Mon',
+                  // format:'dd-mm-yyyy',
+                    format:'yyyy-mm-dd',
+           });
+           
+           
+           
+           
+    });
+    
+    
 
+           
+           
+           
+ </script>
+ 
+ <!--      class="modal "   -->
+ <div id="modal_show_academic"   class="modal "   >
+     <div class="modal-content" >
+         
+             <div class="input-field col s6">
+                                 <select id="firstname_academic" name="firstname_academic" >
+                                          <option value="" disabled selected>Choose your option</option>
+                                          <option value="1">ศ.บวรศิลป์  เชาว์ชื่น</option>
+                                          <option value="2">สุธีรา-ประดับวงษ์</option>
+                                          <option value="">นงลักษณ์  พรมขอนยาง</option>
+                                          <option value="">ภาวิณี  รูปพรม</option>
+                                          
+                                          <option value="">ศุภชัย วงศ์ชื่น</option>
+                                          <option value="">จัตุรงค์ เจริญฤทธิ์</option>
 
+                                 </select>
+                                           <label> ชื่อ-นามสกุล : </label>
+             </div>
+         
+         
+         
+         <div class="input-field col s6">
+                            <select id="activities" name="activities" >
+                                     <option value="" disabled selected>Choose your option</option>
+                                     <option value="1">วิทยากรในประเทศ</option>
+                                     <option value="2">วิทยากรต่างประเทศ</option>
+                                     <option value="3">ประชุมวิชาการในประเทศ</option>
+                                     <option value="4">ประชุมวิชาการต่างประเทศ</option>
+                                     <option value="5">ประชุมอื่นๆ</option>
+                                     <option value="6">อบรม/ดูงานในประเทศ</option>
+                                     <option value="7">อบรม/ดูงานต่างประเทศ</option>
+                                     <option value="8">บริการวิชาการ</option>
+                                     <option value="9">ศิลปวัฒนธรรม</option>
+                            </select>
+                                      <label> กิจกรรม : </label>
+         </div>
+         
+         
+       
+         <div class="input-field col s6">
+                             <i class="material-icons prefix">today</i>
+                            <input type="date" id="begin_date"  name="begin_date"   class="datepicker"  />   
+                            <!-- <label> ตั้งแต่วันที่ : </label> -->
+           </div>
+         
+         
+             <button class="waves-effect waves-light btn-large" type="submit"  id="btn_academic"  name="btn_academic" >
+                  SEARCH
+                                  <i class="material-icons md-30">assignment_ind</i>
+              </button>
+         
+         
+         
+          
+     </div>
+     
+     
+     
+     
+     
+     <div class="modal-footer">
+         <a href="#" class="modal-action modal-close waves-effect  waves-green btn-flat"  >Close</a>
+     </div>
+ </div>
+ <!--  แสดงกิจกรรมทางวิชาการ -->
 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
     </body>
   </html>

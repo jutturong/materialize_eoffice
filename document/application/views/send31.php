@@ -25,10 +25,27 @@
     
 $(function(){
     
+    
+    /*
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+  */
+ 
+ 
+ $(function(){
+    
+    $('#date1_send31').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format:'yyyy-mm-dd'
+  });
+    
+});
+  
+  
+  
     
 });
 
@@ -185,7 +202,7 @@ $(function(){
      
       <!--   action="index.php/welcome/inserttable1"   -->
       <!--      -->
-     <form class="col s12" id="fr_send11"  action="<?=base_url()?>index.php/welcome/insert_send11"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+     <form class="col s12" id="fr_send31"  action="<?=base_url()?>index.php/welcome/inserttable32"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
     
     
       <div class="row">
@@ -194,8 +211,8 @@ $(function(){
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="registration_send11" name="registration_send11"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="0001" />
-          <label for="registration_send11">1.เลขทะเบียนส่ง</label>
+          <input id="registration_send31" name="registration_send31"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$number_add?>" />
+          <label for="registration_send31">1.เลขทะเบียนส่ง</label>
           
           
         </div>
@@ -205,9 +222,9 @@ $(function(){
         <!--  <i class="material-icons prefix">phone</i> -->
             <i class="material-icons prefix">account_circle</i>
             
-            <input id="at_send11" name="at_send11"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
+            <input id="at_send31" name="at_send31"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
           
-          <label for="at_send11">2.ที่</label>
+          <label for="at_send31">2.ที่</label>
           
         </div>
           
@@ -218,7 +235,7 @@ $(function(){
          <!-- <input id="icon_telephone" type="tel" class="validate"> -->
           
           
-          <input type="date"  id="date1_send11"  name="date1_send11"  class="datepicker" />
+          <input type="date"  id="date1_send31"  name="date1_send31"  class="datepicker" />
         
           
                    
@@ -232,9 +249,9 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="from_send11"  name="from_send11"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
+          <input  id="from_send31"  name="from_send31"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
           
-          <label for="from_send11">4.จาก</label>
+          <label for="from_send31">4.จาก</label>
         </div>
           
           
@@ -242,7 +259,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="to_send11"  name="to_send11"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
+          <input  id="to_send31"  name="to_send31"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
           
           <label for="icon_telephone">5.ถึง</label>
         </div>
@@ -252,9 +269,9 @@ $(function(){
           <i class="material-icons prefix">settings</i>
           
           
-          <input  id="subject_send11"  name="subject_send11"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
+          <input  id="subject_send31"  name="subject_send31"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
           
-          <label for="subject_send11">6.เรื่อง</label>
+          <label for="subject_send31">6.เรื่อง</label>
         </div>
           
           
@@ -262,9 +279,9 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="practice_send11" name="practice_send11"  type="text" class="validate" value="ทราบ"  />
+          <input  id="practice_send31" name="practice_send31"  type="text" class="validate" value="ทราบ"  />
           
-          <label for="practice_send11">7.การปฏิบัติ</label>
+          <label for="practice_send31">7.การปฏิบัติ</label>
         </div>
           
           
@@ -272,9 +289,9 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="note_send11"  name="note_send11"  type="text" class="validate"  value="ทราบและปฏฺิบัติตาม " >
+          <input  id="note_send31"  name="note_send31"  type="text" class="validate"  value="ทราบและปฏฺิบัติตาม " >
           
-          <label for="note_send11">8.หมายเหตุ</label>
+          <label for="note_send31">8.หมายเหตุ</label>
         </div>
           
           
@@ -285,7 +302,7 @@ $(function(){
 
                                   File 
                               <i class="material-icons "  >phonelink_setup</i>
-                              <input  type='file'  id="file1"  name="file1"  multiple />
+                              <input  type='file'  id="file31"  name="file31"  multiple />
                               
                               
                         </div>
@@ -297,7 +314,7 @@ $(function(){
     </div>
           
           
-          
+                 <input type="hidden"  id="type_record31"  name="type_record31"  value="2"  /> 
           
           
           <!--<div class="input-field col s6"> -->

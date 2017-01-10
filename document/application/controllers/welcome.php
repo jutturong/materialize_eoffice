@@ -28,6 +28,7 @@ class Welcome extends CI_Controller {
                         //  $this->load->helper(array('form', 'url'));
                            $this->load->helper(array('form', 'url'));
                            $this->load->helper('file');
+                         //  $this->load->library('encrypt');
                            
                  }
              
@@ -213,6 +214,40 @@ class Welcome extends CI_Controller {
                    if(    $this->user_model->authenlogin() == 1 )
                      {
                              $data["title"]=$this->title;
+                             
+                             
+                  //-----------------------------------------------------------            
+                   $tb="tb_main1";        
+                   $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>1));
+                    $number = $q_n->num_rows()+1;
+                    if(     $number == 0  )
+                     {
+                           $number_add = "0001";
+                     }
+                   else     if(     $number == 1  )
+                     {
+                           $number_add = "0002";
+                     } 
+                   else   if(  strlen($number) ==1   )
+                     {
+                           $number_add = "000".$number;
+                     }
+                    else if(  strlen($number) ==2   )
+                     {
+                           $number_add= "00".$number;
+                     } 
+                      else if(  strlen($number) ==3   )
+                     {
+                          $number_add= "0".$number;
+                     } 
+                     else
+                     {
+                          $number_add;
+                     }
+                     $data["number_add"]=$number_add;
+                     //-----------------------------------------------------------   
+                             
+                             
                              $this->load->view("receive31",$data);
                      }
                }
@@ -228,8 +263,40 @@ class Welcome extends CI_Controller {
                             // $this->load->view("sub11",$data);
                              
                              
-                               $data["number_add"]=$this->user_model->count_id(3,2); 
-                               
+                            
+                  //-----------------------------------------------------------            
+                   $tb="tb_main1";        
+                   $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>2));
+                    $number = $q_n->num_rows()+1;
+                    if(     $number == 0  )
+                     {
+                           $number_add = "0001";
+                     }
+                   else     if(     $number == 1  )
+                     {
+                           $number_add = "0002";
+                     } 
+                   else   if(  strlen($number) ==1   )
+                     {
+                           $number_add = "000".$number;
+                     }
+                    else if(  strlen($number) ==2   )
+                     {
+                           $number_add= "00".$number;
+                     } 
+                      else if(  strlen($number) ==3   )
+                     {
+                          $number_add= "0".$number;
+                     } 
+                     else
+                     {
+                          $number_add;
+                     }
+                     $data["number_add"]=$number_add;
+                     //-----------------------------------------------------------   
+                       // $data["number_add"]=$this->user_model->count_id(3,2); 
+                     
+                     
                                $this->load->view("send21",$data);
                      }
                      
@@ -243,7 +310,40 @@ class Welcome extends CI_Controller {
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
-                             $this->load->view("send21",$data);
+                             
+                             //    $data["number_add"]=$this->user_model->count_id(2,2); 
+                             //-----------------------------------------------------------            
+                   $tb="tb_main1";        
+                   $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
+                    $number = $q_n->num_rows()+1;
+                    if(     $number == 0  )
+                     {
+                           $number_add = "0001";
+                     }
+                   else     if(     $number == 1  )
+                     {
+                           $number_add = "0002";
+                     } 
+                   else   if(  strlen($number) ==1   )
+                     {
+                           $number_add = "000".$number;
+                     }
+                    else if(  strlen($number) ==2   )
+                     {
+                           $number_add= "00".$number;
+                     } 
+                      else if(  strlen($number) ==3   )
+                     {
+                          $number_add= "0".$number;
+                     } 
+                     else
+                     {
+                          $number_add;
+                     }
+                     $data["number_add"]=$number_add;
+                     //-----------------------------------------------------------  
+                             
+                             $this->load->view("send31",$data);
                      }
                      
                 }
@@ -319,12 +419,35 @@ class Welcome extends CI_Controller {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
                             $data["query"]=$this->user_model->tb_main1("3","1");
+                              $this->db->order_by("id_main1","DESC");
                             //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
                           
                             
                             $tb="tb_main1";
                             //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
                              $data["query2"]=$this->user_model->tb_main1("3","2");
+                            
+                            $this->load->view("table2",$data);
+                            
+                     }
+                }
+                
+                 public function table3()
+                {
+                     if(    $this->user_model->authenlogin() == 1 )
+                     {
+                             $data["title"]=$this->title;
+                            // $this->load->view("sub11",$data);
+                         $tb="tb_main1";
+                                
+                          //  $data["query"]=$this->user_model->tb_main1("2","1");
+                            //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
+                          //  $data["query"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>1));
+                               $data["query"]=$this->user_model->tb_main1("2","1");
+                         
+                         //   $data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
+                            // $data["query2"]=$this->user_model->tb_main1("2","2");
+                               $data["query2"]=$this->user_model->tb_main1("2","2");
                             
                             $this->load->view("table2",$data);
                             
@@ -780,7 +903,210 @@ class Welcome extends CI_Controller {
                                        
                                    }
                    }
-                
+                   
+                   
+                   
+                 public   function     inserttable31()
+                   {
+                          header('Content-Type: text/html; charset=UTF-8');
+                                   if(    $this->user_model->authenlogin() == 1 )
+                                   {
+                                          // print_r($_POST);
+                                          //echo "<hr>";
+                                          $registration_receive31=trim($this->input->get_post("registration_receive31"));   //เลขทะเบียนส่ง   1
+                                       //  echo br();        
+                                        $at_receive31=trim($this->input->get_post("at_receive31"));  //ที่       2
+                                       //  echo br();      
+                                        $date1_receive31=trim($this->input->get_post("date1_receive31")); //ลงวันที่           3
+                                         //echo br();      
+                                         $from_receive31=trim($this->input->get_post("from_receive31")); //จาก       4
+                                     //    echo br();     
+                                        $to_receive31=trim($this->input->get_post("to_receive31"));  //ถึง        5
+                                      //   echo br();     
+                                        $subject_receive31=trim($this->input->get_post("subject_receive31"));  //เรื่อง       6
+                                      //   echo br();     
+                                        $practice_receive31=trim($this->input->get_post("practice_receive31"));  //การปฏฺิบัติ       7
+                                      //   echo br();   
+                                        $note_receive31=trim($this->input->get_post("note_receive31")); //หมายเหตุ      8
+                                       //  echo br();  
+                                         
+                                          $type_record=trim($this->input->get_post("type_record31")); //ประเภทของตารางที่ทำการบันทึก    9
+                                      //   echo br();  
+                                          $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
+                                       //  echo br();  
+                                             
+                                         
+                                                                    //------------------------------- upload file-------------------------------------------
+                                                                                   // print_r($_FILES)  
+                                                                                $file1name = $_FILES["file31"]['name'];  // ชื่อของไฟล์      10  
+                                                                            //echo br();
+                                                                            $file1tmp  =$_FILES['file31']["tmp_name"]; // tmp folder
+                                                                            //echo br();
+                                                                               $file1Type= $_FILES['file31']["type"]; //type of file
+                                                                          //  echo br();
+                                                                           $file1Size= $_FILES['file31']["size"]; //size
+                                                                            //echo br();
+                                                                             $file1ErrorMsg = $_FILES['file31']["error"]; // 0=false 1=true   
+                                                                          //  echo br();
+                                                                            
+                                                                            if( strlen($file1name)   >  0  &&  $file1name != ""  )
+                                                                                      {
+
+                                                                                                      $data=array(
+                                                                                                          "registration"=> $registration_receive31,
+                                                                                                          "at"=> $at_receive31,
+                                                                                                          "date"=>$date1_receive31,
+                                                                                                          "from"=>$from_receive31,
+                                                                                                          "to"=> $to_receive31,
+                                                                                                         "subject"=>$subject_receive31,
+                                                                                                         "practice"=>$practice_receive31,
+                                                                                                         "note"=>$note_receive31,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                         "filename"=>$file1name, 
+                                                                                                          "type_document"=>$type_document,
+                                                                                                      );
+
+
+
+                                                                                                  $cp=copy($file1tmp ,  "upload/". $file1name );
+                                                                                                  if( $cp )
+                                                                                                  {
+                                                                                                     //   echo 1;
+                                                                                                  }
+                                                                                                  else{
+                                                                                                      //   echo 0;
+                                                                                                  }
+
+                                                                                      }
+                                                                                        else
+                                                                                      {
+                                                                                            $data=array(
+                                                                                                          "registration"=>$registration_receive31,
+                                                                                                          "at"=> $at_receive31,
+                                                                                                          "date"=>$date1_receive31,
+                                                                                                          "from"=>$from_receive31,
+                                                                                                          "to"=> $to_receive31,
+                                                                                                         "subject"=>$subject_receive31,
+                                                                                                         "practice"=>$practice_receive31,
+                                                                                                         "note"=>$note_receive31,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                       //  "filename"=>$file1name, 
+                                                                                                         "type_document"=>$type_document,
+                                                                                                      );
+
+                                                                                      }
+                                                                                      
+                                                               $tb="tb_main1";
+                                                               $this->db->insert($tb,$data);                          
+                                                               redirect("welcome/homepage/insert_success_receive31",'refresh');                  
+
+                                   }
+      
+                    }
+                    
+                    
+               public   function     inserttable32()
+                   {
+                       header('Content-Type: text/html; charset=UTF-8');
+                                   if(    $this->user_model->authenlogin() == 1 )
+                                   {
+                                          // print_r($_POST);
+                                        //   echo "<hr>";
+                                           //send31
+                                           
+                                            $registration_send31=trim($this->input->get_post("registration_send31"));   //เลขทะเบียนส่ง   1
+                                       // echo br();        
+                                         $at_send31=trim($this->input->get_post("at_send31"));  //ที่       2
+                                        //echo br();      
+                                          $date1_send31=trim($this->input->get_post("date1_send31")); //ลงวันที่           3
+                                       // echo br();      
+                                         $from_send31=trim($this->input->get_post("from_send31")); //จาก       4
+                                        //echo br();     
+                                          $to_send31=trim($this->input->get_post("to_send31"));  //ถึง        5
+                                       // echo br();     
+                                         $subject_send31=trim($this->input->get_post("subject_send31"));  //เรื่อง       6
+                                        //echo br();     
+                                          $practice_send31=trim($this->input->get_post("practice_send31"));  //การปฏฺิบัติ       7
+                                        //echo br();   
+                                         $note_send31=trim($this->input->get_post("note_send31")); //หมายเหตุ      8
+                                        //echo br();  
+                                         
+                                            $type_record=trim($this->input->get_post("type_record31")); //ประเภทของตารางที่ทำการบันทึก    9
+                                         //echo br();  
+                                            $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
+                                         //echo br();  
+                                         
+                                         //print_r($_FILES);
+                                                                       //------------------------------- upload file-------------------------------------------
+                                                                                   // print_r($_FILES)  
+                                                                              $file1name = $_FILES["file31"]['name'];  // ชื่อของไฟล์      10  
+                                                                           //echo br();
+                                                                            $file1tmp  =$_FILES['file31']["tmp_name"]; // tmp folder
+                                                                           //echo br();
+                                                                              $file1Type= $_FILES['file31']["type"]; //type of file
+                                                                          // echo br();
+                                                                            $file1Size= $_FILES['file31']["size"]; //size
+                                                                           //echo br();
+                                                                             $file1ErrorMsg = $_FILES['file31']["error"]; // 0=false 1=true   
+                                                                          //  echo br();
+                                                                            
+                                                                            
+                                                                             if( strlen($file1name)   >  0  &&  $file1name != ""  )
+                                                                                      {
+
+                                                                                                      $data=array(
+                                                                                                          "registration"=> $registration_send31,
+                                                                                                          "at"=> $at_send31,
+                                                                                                          "date"=>$date1_send31,
+                                                                                                          "from"=>$from_send31,
+                                                                                                          "to"=> $to_send31,
+                                                                                                         "subject"=>$subject_send31,
+                                                                                                         "practice"=>$practice_send31,
+                                                                                                         "note"=>$note_send31,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                         "filename"=>$file1name, 
+                                                                                                          "type_document"=>$type_document,
+                                                                                                      );
+
+
+
+                                                                                                  $cp=copy($file1tmp ,  "upload/". $file1name );
+                                                                                                  if( $cp )
+                                                                                                  {
+                                                                                                      // echo 1;
+                                                                                                  }
+                                                                                                  else{
+                                                                                                       //  echo 0;
+                                                                                                  }
+
+                                                                                      }
+                                                                                      else
+                                                                                      {
+                                                                                            $data=array(
+                                                                                                          "registration"=>$registration_send31,
+                                                                                                          "at"=> $at_send31,
+                                                                                                          "date"=>$date1_send31,
+                                                                                                          "from"=>$from_send31,
+                                                                                                          "to"=> $to_send31,
+                                                                                                         "subject"=>$subject_send31,
+                                                                                                         "practice"=>$practice_send31,
+                                                                                                         "note"=>$note_send31,
+                                                                                                         "type_record"=> $type_record,
+                                                                                                       //  "filename"=>$file1name, 
+                                                                                                         "type_document"=>$type_document,
+                                                                                                      );
+
+                                                                                      }
+                                                                                      
+                                                               $tb="tb_main1";
+                                                               $this->db->insert($tb,$data);                          
+                                                               redirect("welcome/homepage/insert_success_send31",'refresh');              
+                                                                            
+                                                                            
+                                       
+                                   }
+                    }
+                    
                 public function  test()
                 {
                     #   http://localhost/document/index.php/welcome/test
@@ -934,6 +1260,73 @@ class Welcome extends CI_Controller {
                     
                 }
                 
+                public function delete()
+                {
+                        if(    $this->user_model->authenlogin() == 1 )
+                          {
+                               $id=$this->uri->segment(3);
+                               // echo br();
+                               $page=$this->uri->segment(4);
+                               // echo br();
+                                
+                                if( $id > 0 )
+                                {
+                                    $tb="tb_main1";
+                                    $this->db->where("id_main1",$id);
+                                    $ck=$this->db->delete($tb);
+                                    //$ck=true;
+                                    
+                                    
+                                    
+                                    
+                                    if($ck)
+                                    {
+                                       // echo 1;
+                                         //  redirect("welcome/homepage/insert_success_send21",'refresh');
+                                          switch($page)
+                                          {
+                                              case 1:  //insert_success_send11
+                                              {
+                                                  
+                                     
+                                                  redirect("welcome/homepage/insert_success_send11",'refresh');
+                                                  break;
+                                              }
+                                              case 2: //insert_success_receive21
+                                              {
+                                                  
+                                                  
+                                                    redirect("welcome/homepage/insert_success_receive21",'refresh');  
+                                                   break;
+                                              }
+                                              case 3:  //insert_success_receive31
+                                              {
+                                                  
+                                                  
+                                                    redirect("welcome/homepage/insert_success_receive31",'refresh');    
+                                                   break;
+                                              }
+                                              default:
+                                              {
+                                                  
+                                              }
+                                              
+                                          }
+                                    }
+                                    else
+                                    {
+                                       // echo 0;
+                                                   redirect("welcome/homepage/insert_success_send11",'refresh');                                        
+                                    }
+                                   
+                                    
+                                
+                                    
+                            
+                          }
+                          
+                      }
+                }
                 
                 public function  err_system()
                 {
