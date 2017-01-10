@@ -298,7 +298,7 @@ $(function(){
     </div>
           
           
-                <input type="hidden"  id="type_record21"  name="type_record21"  value="3"  /> 
+                <input type="hidden"  id="type_record21"  name="type_record21"  value="1"  /> 
           
           
           <!--<div class="input-field col s6"> -->

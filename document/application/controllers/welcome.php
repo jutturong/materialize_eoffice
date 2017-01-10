@@ -408,6 +408,12 @@ class Welcome extends CI_Controller {
                             
                             $this->load->view("table11",$data);
                             
+                            
+                            
+                               //1 มูลนิธิตะวันฉายฯ                       
+                            ///2	ศูนย์วิจัยผู้่ป่วยปากแหว่งเพดานโหว่ฯ
+                            //3 ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ
+                            
                      }
                     
                 }
@@ -428,6 +434,12 @@ class Welcome extends CI_Controller {
                              $data["query2"]=$this->user_model->tb_main1("3","2");
                             
                             $this->load->view("table2",$data);
+                            
+                            
+                          //1 มูลนิธิตะวันฉายฯ                       
+                            ///2	ศูนย์วิจัยผู้่ป่วยปากแหว่งเพดานโหว่ฯ
+                            //3 ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ    
+                            
                             
                      }
                 }
@@ -610,7 +622,7 @@ class Welcome extends CI_Controller {
                                                                             $note_send11=trim($this->input->get_post("note_send11")); //หมายเหตุ      8
                                                                          // echo  "<br>";
                                                                           // <input type="hidden"  id="type_record11"  name="type_record11"  value="1"  /> 
-                                                                            $type_record=trim($this->input->get_post("type_record21")); //ประเภทของตารางที่ทำการบันทึก    9
+                                                                            $type_record=trim($this->input->get_post("type_record11")); //ประเภทของตารางที่ทำการบันทึก    9
                                                                          //echo  "<br>";
                                                                             $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
                                                                        // echo  "<br>";
