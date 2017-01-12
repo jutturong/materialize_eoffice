@@ -2,13 +2,18 @@
 
   $(".button-collapse").sideNav();
     
-    
-    
+  $('ul.tabs').tabs(); 
+  
+  
+ /*   
   $(document).ready(function(){
+      
+      
     $('ul.tabs').tabs();
     
     
   });
+*/
 
 
 /*
@@ -91,7 +96,7 @@
           
           
           <a href="#" data-activates="slide-out" class="button-collapse"> 
-                    <i class="material-icons circle">folder</i>
+                    <i class="material-icons circle">swap_vertical_circle</i>
           </a>
                          
           <!--
@@ -112,18 +117,28 @@
                    <br>
                     <?php  echo $rows->subject; ?>
                      <br>
-                     
+                     <br>
+                      
+                     <!-- form dialog -->
+                    
+                     <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
+                          <i class=" material-icons  ">perm_identity</i>
+                         
+                     </a>
+                    <!-- form dialog -->
 
-   
-                     
+                     <br>
+                     <br>
                      
                      <!-- ต้องการลบข้อมูล -->
                      <span class="title">
-                         <a href="#" class="secondary-content"  onclick="dia_delete(<?=$id?>,1)"><i class="material-icons">power_settings_new</i></a> 
-                         
-                           
+                         <a href="#" class="secondary-content"  onclick="dia_delete(<?=$id?>,1)"><i class="material-icons large ">power_settings_new</i></a> 
                      </span>    
                      <!-- ต้องการลบข้อมูล -->
+                     
+                     
+                     
+                     
                    
                      
      
@@ -133,7 +148,7 @@
               {
      ?>
       <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
-            <i class="material-icons">play_for_work</i>
+            <i class="material-icons large ">play_for_work</i>
             </a>
     
                      
@@ -144,9 +159,9 @@
             
       <div class="background">
           
-         <!--
+        
           <img src="<?=base_url()?>images/office2.jpg"  width="250">
-          -->
+          
         
       </div>
         
@@ -163,8 +178,6 @@
     
     <!--
     <li><a href="#"><i class="material-icons">cloud</i>First </a></li>
-    
-    
     <li><a href="#!">Second Link</a></li>
     <li><div class="divider"></div></li>
     <li><a class="subheader">Subheader</a></li>
@@ -172,7 +185,7 @@
     -->
     
     
-    <form class="col s12" id="fr_send11"  action="<?=base_url()?>index.php/welcome/insert_send11"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+    <form class="col s12" id="fr_send"  action="<?=base_url()?>index.php/welcome/update_main"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
     
     
       <div class="row">
@@ -181,9 +194,11 @@
         <div class="input-field col s12">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="registration_send11" name="registration_send11"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
-          <label for="registration_send11">1.เลขทะเบียนส่ง</label>
+          <input id="registration" name="registration"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
           
+          <!--
+          <label for="registration">1.เลขทะเบียนส่ง</label>
+          -->
           
         </div>
           
@@ -192,9 +207,11 @@
         <!--  <i class="material-icons prefix">phone</i> -->
             <i class="material-icons prefix">account_circle</i>
             
-            <input id="at_send11" name="at_send11"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
+            <input id="at" name="at"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
           
-          <label for="at_send11">2.ที่</label>
+            <!--
+          <label for="at">2.ที่</label>
+            -->
           
         </div>
           
@@ -205,7 +222,7 @@
          <!-- <input id="icon_telephone" type="tel" class="validate"> -->
           
           
-          <input type="date"  id="date1_send11"  name="date1_send11"  class="datepicker"  value="<?=$rows->date?>"/>
+          <input type="date"  id="date1"  name="date1"  class="datepicker"  value="<?=$rows->date?>"/>
         
           
                    
@@ -219,60 +236,69 @@
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="from_send11"  name="from_send11"   type="text" class="validate"  value="<?=$rows->from?>"   />
+          <input  id="from"  name="from"   type="text" class="validate"  value="<?=$rows->from?>"   />
           
-          <label for="from_send11">4.จาก</label>
+          <!--
+          <label for="from">4.จาก</label>
+          -->
+          
         </div>
           
           
-          <div class="input-field col s6">
+          <div class="input-field col s12">
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="to_send11"  name="to_send11"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
+          <input  id="to"  name="to"  type="text" class="validate"  value="<?=$rows->to?>" />
           
-          <label for="icon_telephone">5.ถึง</label>
+          <!--
+          <label for="to">5.ถึง</label>
+          -->
+          
         </div>
           
           
-          <div class="input-field col s6">
+          <div class="input-field col s12">
           <i class="material-icons prefix">settings</i>
           
           
-          <input  id="subject_send11"  name="subject_send11"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
-          
-          <label for="subject_send11">6.เรื่อง</label>
+          <input  id="subject"  name="subject"  type="text" class="validate"  value="<?=$rows->subject?>" />
+          <!--
+          <label for="subject">6.เรื่อง</label>
+          -->
         </div>
           
           
-           <div class="input-field col s6">
+           <div class="input-field col s12">
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="practice_send11" name="practice_send11"  type="text" class="validate"   />
-          
-          <label for="practice_send11">7.การปฏิบัติ</label>
+          <input  id="practice" name="practice"  type="text" class="validate"  value="<?=$rows->practice?>"  />
+          <!--
+          <label for="practice">7.การปฏิบัติ</label>
+          -->
         </div>
           
           
-            <div class="input-field col s6">
+            <div class="input-field col s12">
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="note_send11"  name="note_send11"  type="text" class="validate"   >
-          
-          <label for="note_send11">8.หมายเหตุ</label>
+          <input  id="note"  name="note"  type="text" class="validate" value="<?=$rows->note?>"   >
+          <!--
+          <label for="note">8.หมายเหตุ</label>
+          -->
         </div>
           
           
-          
-          <div class="file-field input-field col s6">
+          <!--
+          <div class="file-field input-field col s12">
                         <div class="btn">
 
 
                                   File 
                               <i class="material-icons "  >phonelink_setup</i>
-                              <input  type='file'  id="file12"  name="file12"  multiple />
+                              <input  type='file'  id="file"  name="file"  multiple />
                               
                               
                         </div>
@@ -281,25 +307,31 @@
                         </div>
               
               
-    </div>
+          </div>
+          -->
           
           
-            <input type="hidden"  id="type_record11"  name="type_record11"  value="1"  /> 
+            <input type="hidden"  id="type_record"  name="type_record"  value="<?=$rows->type_record?>"  /> 
           
           
           <!--<div class="input-field col s6"> -->
           <!--  <div style="border-top: 300px;border-top-width:5px; border-right-width:5px; border-bottom-width:5px; border-left-width:5px;">-->
           <!-- <div style="padding:10px  0  10px  0"> </div>  -->
 
-          <div class="button-collapse col s6">
+         
+        <!--
+         <div class="button-collapse col s12">
                 
             
-              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_insert11"  name="btn_insert11" >SAVE
-    <i class="material-icons md-30">phonelink_ring</i>
-  </button>
+              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_insert"  name="btn_insert" >
+                  SAVE
+                               <i class="material-icons md-30">phonelink_ring</i>
+             </button>
+           
                 
-                
-            </div>
+         </div>
+          -->
+          
           
           
       </div>
@@ -470,7 +502,16 @@
   -->
   
   
-         
+      <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>    
 
   
   
