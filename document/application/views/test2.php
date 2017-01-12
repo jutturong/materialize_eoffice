@@ -8,7 +8,12 @@
            <meta charset="UTF-8">
            <title><?=$title?></title>
       
-           
+   
+        
+          
+            
+            
+            
            
  <!--  ลบข้อมูลในตาราง -->
  <script type="text/javascript">
@@ -385,7 +390,7 @@
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
-  <li><a href="#!"   onclick=" send21() "  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
+  <li><a href="#!"   onclick=" send11() "  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
    <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')" > <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
     <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
    <li class="divider"></li>
@@ -497,14 +502,19 @@
              <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">view_week</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
           
+         
+         
+             <li>
+             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">view_week</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
+         </li>
+         
+         
+         
          <li>
              <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">view_week</i> ศูนย์การดูแล  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
-          <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">view_week</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
-         </li>
-         
+      
          
           <li>
              <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons right">vpn_key</i> แสดงผลการบันทึก</a>
@@ -577,15 +587,19 @@
               <a href="javascript:void(0)"  onclick="table11()"       ><i class="material-icons left">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
           
           </li>
-        <li>
-            
-            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
-        </li>
-        <li>
+          
+          <li>
             
               <a href="javascript:void(0)"    onclick="table3()"    ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
         
         </li>
+        
+        
+        <li>
+            
+            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+        </li>
+        
       </ul>
         
         
@@ -765,7 +779,8 @@
  
 
  
- 
+   
+  
  
  
  

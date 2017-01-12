@@ -418,7 +418,7 @@ class Welcome extends CI_Controller {
                     
                 }
                 
-                public function table2()
+                public function table2() //ศูนย์การดูแล
                 {
                      if(    $this->user_model->authenlogin() == 1 )
                      {
@@ -444,7 +444,7 @@ class Welcome extends CI_Controller {
                      }
                 }
                 
-                 public function table3()
+                 public function table3()  //ศูนย์วิจัย
                 {
                      if(    $this->user_model->authenlogin() == 1 )
                      {
@@ -575,7 +575,17 @@ class Welcome extends CI_Controller {
                 }
                 
                 
-                
+                //---------------- update  table-------------------------------
+                public function update_main()
+                {
+                    header('Content-Type: text/html; charset=UTF-8');
+                     if(    $this->user_model->authenlogin() == 1 )
+                     {
+                              print_r($_POST);
+                              echo "<hr>";
+                         
+                     }              
+                }
                 
                 
                 
@@ -634,15 +644,15 @@ class Welcome extends CI_Controller {
                                                                        
                                                                 //------------------------------- upload file-------------------------------------------
                                                                                    // print_r($_FILES)  
-                                                                                        $file1name = $_FILES["file21"]['name'];  // ชื่อของไฟล์      10  
+                                                                                        $file1name = $_FILES["file12"]['name'];  // ชื่อของไฟล์      10  
                                                                                       //echo br();
-                                                                                      $file1tmp  =$_FILES['file21']["tmp_name"]; // tmp folder
+                                                                                      $file1tmp  =$_FILES['file12']["tmp_name"]; // tmp folder
                                                                                      // echo br();
-                                                                                      $file1Type= $_FILES['file21']["type"]; //type of file
+                                                                                      $file1Type= $_FILES['file12']["type"]; //type of file
                                                                                      // echo br();
-                                                                                      $file1Size= $_FILES['file21']["size"]; //size
+                                                                                      $file1Size= $_FILES['file12']["size"]; //size
                                                                                      // echo br();
-                                                                                        $file1ErrorMsg = $_FILES['file21']["error"]; // 0=false 1=true
+                                                                                        $file1ErrorMsg = $_FILES['file12']["error"]; // 0=false 1=true
                                                                                      // echo br();
                                                                                       
                                                                                       if( strlen($file1name)   >  0  &&  $file1name != ""  )

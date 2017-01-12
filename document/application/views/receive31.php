@@ -281,7 +281,7 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="practice_receive31" name="practice_receive31"  type="text" class="validate" value="ทราบ"  />
+          <input  id="practice_receive31" name="practice_receive31"  type="text" class="validate"   />
           
           <label for="practice_receive31">7.การปฏิบัติ</label>
         </div>
@@ -291,7 +291,7 @@ $(function(){
           <i class="material-icons prefix">perm_identity</i>
           
           
-          <input  id="note_receive31"  name="note_receive31"  type="text" class="validate"  value="ทราบและปฏฺิบัติตาม " >
+          <input  id="note_receive31"  name="note_receive31"  type="text" class="validate"   >
           
           <label for="note_receive31">8.หมายเหตุ</label>
         </div>

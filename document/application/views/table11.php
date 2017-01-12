@@ -1,14 +1,19 @@
 <script type="text/javascript">
 
-
+  $(".button-collapse").sideNav();
     
-    
-    
+  $('ul.tabs').tabs(); 
+  
+  
+ /*   
   $(document).ready(function(){
+      
+      
     $('ul.tabs').tabs();
     
     
   });
+*/
 
 
 /*
@@ -88,7 +93,15 @@
     ?>
       
       <li class="collection-item avatar">
-       <i class="material-icons circle">folder</i>
+          
+          
+          <a href="#" data-activates="slide-out" class="button-collapse"> 
+                    <i class="material-icons circle">folder</i>
+          </a>
+                         
+          <!--
+      <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+                      -->
        
       <span class="title">
           <?php echo  $rows->registration; ?>
@@ -104,6 +117,9 @@
                    <br>
                     <?php  echo $rows->subject; ?>
                      <br>
+                     
+
+   
                      
                      
                      <!-- ต้องการลบข้อมูล -->
@@ -124,7 +140,186 @@
       <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
             <i class="material-icons">play_for_work</i>
             </a>
+    
+                     
+ <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
+ <ul id="slide-out" class="side-nav">
+    <li><div class="userView">
+            
+            
+      <div class="background">
+          
+        
+          <img src="<?=base_url()?>images/office2.jpg"  width="250">
+          
+        
+      </div>
+        
+       <!--     
+      <a href="#!user"><img class="circle" src="<?=base_url()?>images/yuna.jpg"></a>
+      -->
+      <a href="#"><span class="white-text name"></span></a>
+      <a href="#"><span class="white-text email"></span></a>
+           
+      
+    </div>
+    
+    </li>
+    
+    <!--
+    <li><a href="#"><i class="material-icons">cloud</i>First </a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    -->
+    
+    
+    <form class="col s12" id="fr_send"  action="<?=base_url()?>index.php/welcome/update_main"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+    
+    
+      <div class="row">
+          
+          
+        <div class="input-field col s12">
+            
+          <i class="material-icons prefix">account_circle</i>
+          <input id="registration" name="registration"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
+          <label for="registration">1.เลขทะเบียนส่ง</label>
+          
+          
+        </div>
+          
+        <div class="input-field col s12">
+            
+        <!--  <i class="material-icons prefix">phone</i> -->
+            <i class="material-icons prefix">account_circle</i>
+            
+            <input id="at" name="at"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
+          
+          <label for="at">2.ที่</label>
+          
+        </div>
+          
+            
+          <div class="input-field col s12">
+            
+          <i class="material-icons prefix">today</i>
+         <!-- <input id="icon_telephone" type="tel" class="validate"> -->
+          
+          
+          <input type="date"  id="date1"  name="date1"  class="datepicker"  value="<?=$rows->date?>"/>
+        
+          
+                   
+          <!-- <label for="date1">3.ลงวันที่</label>-->
+                   
+          
+        </div>
+          
+          
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          
+          
+          <input  id="from"  name="from"   type="text" class="validate"  value="<?=$rows->from?>"   />
+          
+          <label for="from">4.จาก</label>
+        </div>
+          
+          
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          
+          
+          <input  id="to"  name="to"  type="text" class="validate"  value="<?=$rows->to?>" />
+          
+          <label for="to">5.ถึง</label>
+        </div>
+          
+          
+          <div class="input-field col s12">
+          <i class="material-icons prefix">settings</i>
+          
+          
+          <input  id="subject"  name="subject"  type="text" class="validate"  value="<?=$rows->subject?>" />
+          
+          <label for="subject">6.เรื่อง</label>
+        </div>
+          
+          
+           <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          
+          
+          <input  id="practice" name="practice"  type="text" class="validate"  value="<?=$rows->practice?>"  />
+          
+          <label for="practice">7.การปฏิบัติ</label>
+        </div>
+          
+          
+            <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          
+          
+          <input  id="note"  name="note"  type="text" class="validate" value="<?=$rows->note?>"   >
+          
+          <label for="note">8.หมายเหตุ</label>
+        </div>
+          
+          
+          <!--
+          <div class="file-field input-field col s12">
+                        <div class="btn">
 
+
+                                  File 
+                              <i class="material-icons "  >phonelink_setup</i>
+                              <input  type='file'  id="file"  name="file"  multiple />
+                              
+                              
+                        </div>
+                        <div class="file-path-wrapper">
+                          <input class="file-path validate" type="text" placeholder="Upload one or more files">
+                        </div>
+              
+              
+          </div>
+          -->
+          
+          
+            <input type="hidden"  id="type_record"  name="type_record"  value="<?=$rows->type_record?>"  /> 
+          
+          
+          <!--<div class="input-field col s6"> -->
+          <!--  <div style="border-top: 300px;border-top-width:5px; border-right-width:5px; border-bottom-width:5px; border-left-width:5px;">-->
+          <!-- <div style="padding:10px  0  10px  0"> </div>  -->
+
+         
+        <!--
+         <div class="button-collapse col s12">
+                
+            
+              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_insert"  name="btn_insert" >
+                  SAVE
+                               <i class="material-icons md-30">phonelink_ring</i>
+             </button>
+           
+                
+         </div>
+          -->
+          
+          
+          
+      </div>
+    
+   
+    </form>
+    
+     <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
+     
+     
+     
     <?php
               }
             ?>
@@ -302,3 +497,10 @@
     <li class="waves-effect"><a href="#!">5</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
+  
+  
+  
+ 
+  
+  
+  
