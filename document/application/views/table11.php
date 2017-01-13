@@ -96,7 +96,7 @@
           
           
           <a href="#" data-activates="slide-out" class="button-collapse"> 
-                    <i class="material-icons circle">folder</i>
+                    <i class="material-icons circle">swap_vertical_circle</i>
           </a>
                          
           <!--
@@ -117,18 +117,28 @@
                    <br>
                     <?php  echo $rows->subject; ?>
                      <br>
-                     
+                     <br>
+                      
+                     <!-- form dialog -->
+                    
+                     <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
+                          <i class=" material-icons  ">perm_identity</i>
+                         
+                     </a>
+                    <!-- form dialog -->
 
-   
-                     
+                     <br>
+                     <br>
                      
                      <!-- ต้องการลบข้อมูล -->
                      <span class="title">
-                         <a href="#" class="secondary-content"  onclick="dia_delete(<?=$id?>,1)"><i class="material-icons">power_settings_new</i></a> 
-                         
-                           
+                         <a href="#" class="secondary-content"  onclick="dia_delete(<?=$id?>,1)"><i class="material-icons large ">power_settings_new</i></a> 
                      </span>    
                      <!-- ต้องการลบข้อมูล -->
+                     
+                     
+                     
+                     
                    
                      
      
@@ -138,7 +148,7 @@
               {
      ?>
       <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
-            <i class="material-icons">play_for_work</i>
+            <i class="material-icons large ">play_for_work</i>
             </a>
     
                      
@@ -185,8 +195,10 @@
             
           <i class="material-icons prefix">account_circle</i>
           <input id="registration" name="registration"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
-          <label for="registration">1.เลขทะเบียนส่ง</label>
           
+          <!--
+          <label for="registration">1.เลขทะเบียนส่ง</label>
+          -->
           
         </div>
           
@@ -197,7 +209,9 @@
             
             <input id="at" name="at"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
           
+            <!--
           <label for="at">2.ที่</label>
+            -->
           
         </div>
           
@@ -224,7 +238,10 @@
           
           <input  id="from"  name="from"   type="text" class="validate"  value="<?=$rows->from?>"   />
           
+          <!--
           <label for="from">4.จาก</label>
+          -->
+          
         </div>
           
           
@@ -234,7 +251,10 @@
           
           <input  id="to"  name="to"  type="text" class="validate"  value="<?=$rows->to?>" />
           
+          <!--
           <label for="to">5.ถึง</label>
+          -->
+          
         </div>
           
           
@@ -243,8 +263,9 @@
           
           
           <input  id="subject"  name="subject"  type="text" class="validate"  value="<?=$rows->subject?>" />
-          
+          <!--
           <label for="subject">6.เรื่อง</label>
+          -->
         </div>
           
           
@@ -253,8 +274,9 @@
           
           
           <input  id="practice" name="practice"  type="text" class="validate"  value="<?=$rows->practice?>"  />
-          
+          <!--
           <label for="practice">7.การปฏิบัติ</label>
+          -->
         </div>
           
           
@@ -263,8 +285,9 @@
           
           
           <input  id="note"  name="note"  type="text" class="validate" value="<?=$rows->note?>"   >
-          
+          <!--
           <label for="note">8.หมายเหตุ</label>
+          -->
         </div>
           
           
@@ -479,7 +502,16 @@
   -->
   
   
-         
+      <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>    
 
   
   
