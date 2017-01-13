@@ -613,8 +613,8 @@ class Welcome extends CI_Controller {
                      header('Content-Type: text/html; charset=UTF-8');
                      if(    $this->user_model->authenlogin() == 1 )
                      {
-                              print_r($_POST);
-                              echo "<hr>";
+                              //print_r($_POST);
+                              //echo "<hr>";
                               /*
                                Array ( [id_main1] => 57
                                *  [registration] => 0002
@@ -628,40 +628,40 @@ class Welcome extends CI_Controller {
                                *  [file] => 
                                * [type_record] => ) 
                                */
-                   echo  $id_main1= trim($this->input->get_post("id_main1"));   //เลขทะเบียนส่ง   1      
-                    echo "<br>";
-                   echo   $registration=trim($this->input->get_post("registration"));   //เลขทะเบียนส่ง   1
-                   echo "<br>";
-                   echo     $at=trim($this->input->get_post("at"));  //ที่       2
-                   echo  "<br>";
-                   echo     $date1=trim($this->input->get_post("date1")); //ลงวันที่           3
-                   echo  "<br>";
-                   echo    $from=trim($this->input->get_post("from")); //จาก       4
-                   echo  "<br>";
-                   echo    $to=trim($this->input->get_post("to"));  //ถึง        5
-                   echo  "<br>";
-                   echo     $subject=trim($this->input->get_post("subject"));  //เรื่อง       6
-                   echo  "<br>";
-                   echo     $practice=trim($this->input->get_post("practice"));  //การปฏฺิบัติ       7
-                   echo  "<br>";
-                   echo      $note=trim($this->input->get_post("note")); //หมายเหตุ      8
-                   echo  "<br>";     
+                  $id_main1= trim($this->input->get_post("id_main1"));   //เลขทะเบียนส่ง   1      
+                   // echo "<br>";
+                      $registration=trim($this->input->get_post("registration"));   //เลขทะเบียนส่ง   1
+                  // echo "<br>";
+                 $at=trim($this->input->get_post("at"));  //ที่       2
+                 //  echo  "<br>";
+                       $date1=trim($this->input->get_post("date1")); //ลงวันที่           3
+                  // echo  "<br>";
+                     $from=trim($this->input->get_post("from")); //จาก       4
+                  // echo  "<br>";
+                     $to=trim($this->input->get_post("to"));  //ถึง        5
+                 //  echo  "<br>";
+                       $subject=trim($this->input->get_post("subject"));  //เรื่อง       6
+                  // echo  "<br>";
+                     $practice=trim($this->input->get_post("practice"));  //การปฏฺิบัติ       7
+                  // echo  "<br>";
+                      $note=trim($this->input->get_post("note")); //หมายเหตุ      8
+                   //echo  "<br>";     
                    
            
-                   print_r($_FILES);
-                   echo "<hr>";
+                 //  print_r($_FILES);
+                   //echo "<hr>";
                     //------------------------------- upload file-------------------------------------------
                       // print_r($_FILES)  
-                    echo      $file1name = $_FILES["file"]['name'];  // ชื่อของไฟล์      10
-                    echo br();
-                    echo    $file1tmp  =$_FILES['file']["tmp_name"]; // tmp folder
-                    echo br();
-                    echo      $file1Type= $_FILES['file']["type"]; //type of file
-                    echo br();
-                    echo      $file1Size= $_FILES['file']["size"]; //size
-                    echo br();
-                    echo        $file1ErrorMsg = $_FILES['file']["error"]; // 0=false 1=true 
-                    echo br();
+                       $file1name = $_FILES["file"]['name'];  // ชื่อของไฟล์      10
+                   // echo br();
+                   $file1tmp  =$_FILES['file']["tmp_name"]; // tmp folder
+                   // echo br();
+                    $file1Type= $_FILES['file']["type"]; //type of file
+                   // echo br();
+                       $file1Size= $_FILES['file']["size"]; //size
+                  //  echo br();
+                      $file1ErrorMsg = $_FILES['file']["error"]; // 0=false 1=true 
+                   // echo br();
                    
                    if( strlen($file1name)   >  0  &&  $file1name != ""  )
                          {
@@ -710,14 +710,44 @@ class Welcome extends CI_Controller {
                              
                          }
 
+                     //echo br();    
+                      $page=trim($this->input->get_post("page"));
+                    // echo br();
                                            //FROM `tb_main1` 
                                          $tb="tb_main1";
-                                         //$this->db->where("id_main1",$id_main1);
-                                       //  $this->db->update($tb);
+                                         $this->db->where("id_main1",$id_main1);
+                                         $ck=$this->db->update($tb,$data);
+                                         if( $ck )
+                                         {
+                                           //  echo 1;
+                                             
+                                       
+                                             
+                                             
+                                         }else
+                                         {
+                                             //echo 0;
+                                         }
                                          
-                                         
-                                         
-                                         
+
+                                              switch ($page)
+                                              {
+                                                  case 1:
+                                                  {
+                                                           redirect("welcome/homepage/page1",'refresh');  
+                                                           break;
+                                                  }
+                                                  case 2:
+                                                  {
+                                                       redirect("welcome/homepage/page2",'refresh');  
+                                                       break;
+                                                  }
+                                                  case 3:
+                                                  {
+                                                       redirect("welcome/homepage/page3",'refresh');  
+                                                       break;
+                                                  }
+                                              } 
                                          
                                          
                          

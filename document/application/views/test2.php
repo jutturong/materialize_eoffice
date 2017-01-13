@@ -65,7 +65,7 @@
                   }
                   
                   // redirect("welcome/homepage/insert_success_send11");  //หนังสือส่ง
-                 else  if(  send1 == "insert_success_send11" ||   send1 =="insert_success_send21"    )
+                 else  if(  send1 == "insert_success_send11" ||   send1 =="insert_success_send21"  ||  send1 =='page1' )
                   {
                           
                                 var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');
@@ -76,7 +76,7 @@
 
                   }
                   //insert_success_receive21  //insert_success_send21
-                      else  if(  send1 == "insert_success_receive21"   ||  send1 ==  "insert_success_send21"   )
+                      else  if(  send1 == "insert_success_receive21"   ||  send1 ==  "insert_success_send21"  ||  send1 =='page2'   )
                   {
                           
                                 var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');
@@ -87,7 +87,7 @@
 
                   } 
                   //insert_success_receive31
-                  else  if(  send1 == "insert_success_receive31"   ||  send1 ==  "insert_success_send31"   )
+                  else  if(  send1 == "insert_success_receive31"   ||  send1 ==  "insert_success_send31"   ||  send1 =='page3'    )
                   {
                           
                                 var $toastContent = $('<span>บันทึักข้อมูลสำเร็จ</span>');

@@ -37,6 +37,13 @@
               window.open(page);
         }
         
+        function reload1()
+        {
+               $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+            //   $('#sub11').load("<?=base_url()?>index.php/welcome/" + tb );
+               //  alert('t');
+        }
+        
 //    });
     
 </script>
@@ -79,7 +86,11 @@
              
         </a>
         
-       
+              
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload1() ">
+                 <i class="large material-icons">forward_30</i>
+             
+        </a>
 
         
         
@@ -116,39 +127,40 @@
                   <?php  echo $rows->to;  ?>
                    <br>
                     <?php  echo $rows->subject; ?>
-                     <br>
-                     <br>
+  
                       
-                     <!-- form dialog -->
+    
+                   
+
+               
+                     
+                     <!-- ต้องการลบข้อมูล -->
+                     <span class="title">
+                         <a href="#" class="secondary-content"  onclick="dia_delete(<?=$id?>,1)"><i class="material-icons  ">power_settings_new</i></a> 
+                     </span>    
+                     <!-- ต้องการลบข้อมูล -->
+                     
+                     <br>
+                   
+                   
+                     <!-- update  form  -->
                     
                      <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
                           <i class=" material-icons  ">perm_identity</i>
                          
                      </a>
-                    <!-- form dialog -->
+                   <!-- update  form  -->
+                     
+                   <br>
+                   <br>
 
-                     <br>
-                     <br>
-                     
-                     <!-- ต้องการลบข้อมูล -->
-                     <span class="title">
-                         <a href="#" class="secondary-content"  onclick="dia_delete(<?=$id?>,1)"><i class="material-icons large ">power_settings_new</i></a> 
-                     </span>    
-                     <!-- ต้องการลบข้อมูล -->
-                     
-                     
-                     
-                     
-                   
-                     
-     
               
                   <?php
               if( strlen($rows->filename) >  0  )
               {
-     ?>
+                   ?>
       <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
-            <i class="material-icons large ">play_for_work</i>
+            <i class="material-icons  ">play_for_work</i>
             </a>
     
                      
@@ -383,6 +395,13 @@
              
         </a>
         
+               
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload1() ">
+                 <i class="large material-icons">forward_30</i>
+             
+        </a>
+        
+        
         
       <!--http://materializecss.com/collections.html -->
   <ul class="collection">
@@ -415,7 +434,20 @@
                          <a href="#"    class="secondary-content"   onclick="dia_delete(<?=$id?>,'1')"  ><i class="material-icons">power_settings_new</i></a> 
                      </span>    
                      
-     
+                     
+              
+                  
+                     <!-- update  form  -->
+                    
+                     <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
+                          <i class=" material-icons  ">perm_identity</i>
+                         
+                     </a>
+                   <!-- update  form  -->
+                   <br>
+                   <br>
+             
+                     
               
                   <?php
               if( strlen($rows->filename) >  0  )
