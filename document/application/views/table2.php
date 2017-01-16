@@ -1,7 +1,11 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
-    $('ul.tabs').tabs();
+    
+        $('ul.tabs').tabs();
+        
+        
+        $(".button-collapse").sideNav(); // menu bar ด้านข้าง
     
     
   });
@@ -15,6 +19,16 @@
   });
   */
   
+  
+          function reload2()
+        {
+               //$('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+            //   $('#sub11').load("<?=base_url()?>index.php/welcome/" + tb );
+               //  alert('t');
+                $('#sub11').load("<?=base_url()?>index.php/welcome/table2/");
+        }
+        
+        
 </script>
 
 
@@ -64,7 +78,10 @@
              
         </a>
         
-    
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload2() ">
+                 <i class="large material-icons">forward_30</i>
+             
+        </a>
         
          <!--http://materializecss.com/collections.html -->
   <ul class="collection">
@@ -75,7 +92,16 @@
     ?>
       
       <li class="collection-item avatar">
+          
+          <!--
        <i class="material-icons circle">folder</i>
+          -->
+          
+          <a href="#" data-activates="slide-out21" class="button-collapse"> 
+                    <i class="material-icons circle">swap_vertical_circle</i>
+          </a>
+          
+          
        
       <span class="title">
           <?php echo  $rows->registration; ?>
@@ -95,11 +121,21 @@
                      
                      <span class="title">
                                  <a href="#!"  onclick="dia_delete(<?=$id?>,2)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
-                     </span>    
+                     </span> 
                      
+                  
+                      <!-- update  form  -->
+                    
+                     <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
+                          <i class=" material-icons  ">perm_identity</i>
+                         
+                     </a>
+                   <!-- update  form  -->
+                   <br>
+                
      
               
-                  <?php
+    <?php
               if( strlen($rows->filename) >  0  )
               {
      ?>
@@ -107,23 +143,64 @@
             <i class="material-icons">play_for_work</i>
             </a>
     <?php
-              }
+               }
             ?>
               
-              
+   
+                   
+<!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
+ <ul id="slide-out21" class="side-nav">
+    <li><div class="userView">     
+      <div class="background">
+          <img src="<?=base_url()?>images/office2.jpg"  width="250">
+      </div>
+      <a href="#"><span class="white-text name"></span></a>
+      <a href="#"><span class="white-text email"></span></a>
+    </div>
+    </li>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="registration" name="registration"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="at" name="at"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
+        </div> 
+          <div class="input-field col s12">  
+          <i class="material-icons prefix">today</i>
+          <input type="date"  id="date1"  name="date1"  class="datepicker"  value="<?=$rows->date?>"/>
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          <input  id="from"  name="from"   type="text" class="validate"  value="<?=$rows->from?>"   />
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          <input  id="to"  name="to"  type="text" class="validate"  value="<?=$rows->to?>" />
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">settings</i>
+          <input  id="subject"  name="subject"  type="text" class="validate"  value="<?=$rows->subject?>" />
+        </div>
+           <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          <input  id="practice" name="practice"  type="text" class="validate"  value="<?=$rows->practice?>"  />
+        </div>
+            <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          <input  id="note"  name="note"  type="text" class="validate" value="<?=$rows->note?>"   >
+        </div>
+            <input type="hidden"  id="type_record"  name="type_record"  value="<?=$rows->type_record?>"  /> 
+      </div>
+      
+ </ul>
+ <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->   
               
       </p>
       
       
-      
 
-      
-  
-      
-
-      
-      
-      
     </li>
     <?php
                     }
@@ -147,6 +224,12 @@
              
         </a>
         
+        
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload2() ">
+                 <i class="large material-icons">forward_30</i>
+             
+        </a>
+        
      
         
           <!--http://materializecss.com/collections.html -->
@@ -158,7 +241,14 @@
     ?>
       
       <li class="collection-item avatar">
+          
+         <!-- 
        <i class="material-icons circle">folder</i>
+          -->
+          
+          <a href="#" data-activates="slide-out22" class="button-collapse"> 
+                    <i class="material-icons circle">swap_vertical_circle</i>
+          </a>
        
       <span class="title">
           <?php echo  $rows->registration; ?>
@@ -180,6 +270,18 @@
                                  <a href="#!"   onclick="dia_delete(<?=$id?>,2)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
                      </span>    
                      
+                     
+                       <!-- update  form  -->
+                    
+                     <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
+                          <i class=" material-icons  ">perm_identity</i>
+                         
+                     </a>
+                   <!-- update  form  -->
+                   <br>
+                
+                    
+                     
      
               
                   <?php
@@ -188,26 +290,74 @@
      ?>
       <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
             <i class="material-icons">play_for_work</i>
-            </a>
-    <?php
+            </a>   
+                     
+       <?php
               }
             ?>
-              
-              
-              
+
+           
+  <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
+ <ul id="slide-out22" class="side-nav">
+    <li><div class="userView">     
+      <div class="background">
+          <img src="<?=base_url()?>images/office2.jpg"  width="250">
+      </div>
+      <a href="#"><span class="white-text name"></span></a>
+      <a href="#"><span class="white-text email"></span></a>
+    </div>
+    </li>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="registration" name="registration"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="at" name="at"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
+        </div> 
+          <div class="input-field col s12">  
+          <i class="material-icons prefix">today</i>
+          <input type="date"  id="date1"  name="date1"  class="datepicker"  value="<?=$rows->date?>"/>
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          <input  id="from"  name="from"   type="text" class="validate"  value="<?=$rows->from?>"   />
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          <input  id="to"  name="to"  type="text" class="validate"  value="<?=$rows->to?>" />
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">settings</i>
+          <input  id="subject"  name="subject"  type="text" class="validate"  value="<?=$rows->subject?>" />
+        </div>
+           <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          <input  id="practice" name="practice"  type="text" class="validate"  value="<?=$rows->practice?>"  />
+        </div>
+            <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          <input  id="note"  name="note"  type="text" class="validate" value="<?=$rows->note?>"   >
+        </div>
+            <input type="hidden"  id="type_record"  name="type_record"  value="<?=$rows->type_record?>"  /> 
+      </div>
+      
+ </ul>
+ <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->                  
+                     
+                     
       </p>
-      
-      
-      
 
-      
-  
-      
-
-      
-      
       
     </li>
+    
+    
+    
+    
+ 
+ 
+ 
     <?php
                     }
     ?>

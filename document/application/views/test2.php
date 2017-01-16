@@ -716,11 +716,7 @@
                                           <option value="" disabled selected>Choose your option</option>
                                           <option value="1">ศ.บวรศิลป์  เชาว์ชื่น</option>
                                           <option value="2">สุธีรา-ประดับวงษ์</option>
-                                          <option value="">นงลักษณ์  พรมขอนยาง</option>
-                                          <option value="">ภาวิณี  รูปพรม</option>
-                                          
-                                          <option value="">ศุภชัย วงศ์ชื่น</option>
-                                          <option value="">จัตุรงค์ เจริญฤทธิ์</option>
+                                
 
                                  </select>
                                            <label> ชื่อ-นามสกุล : </label>
