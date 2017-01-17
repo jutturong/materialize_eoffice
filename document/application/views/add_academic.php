@@ -32,42 +32,7 @@
            
     });
     
-    //--------------select db--------------
-    $(function(){
-         // alert('t');
-         var  url='<?=base_url()?>index.php/welcome/call_select_academic';
-        
-    /*
-    $.getJSON(url,function(data)
-          {
-               $.each(data,function(v,k){
-                      alert(k.firstname_academic);
-               });
-          },"json");
-      */
-     
-     $.ajax({
-         type:'POST',
-         //data
-         url:url,
-         dataType:'json',
-         contentType:'application/json',
-         success:function(data){
-                //alert(data.firstname_academic);
-                $.each(data,function(v,k)
-                {
-                    
-                          //alert(k.firstname_academic);
-                          //<option value="1">บวรศิลป์  เชาว์ชื่น</option>
-                          //  $('#firstname_academic').append($('<option><option>'.attr('value',  k.firstname_academic  ).text( k.firstname_academic )   );
-  
-                });
-         },
-          
-     });
-          
-          
-    });
+
     
 </script>
 
@@ -86,8 +51,10 @@
 
                     <div class="input-field col s6">
                                  <select id="firstname_academic" name="firstname_academic" >
+                                          
                                           <option value="" disabled selected>Choose your option</option>
-                                         
+                                            
+                                            
                                           <!--
                                           <option value="1">บวรศิลป์  เชาว์ชื่น</option>
                                           
@@ -151,7 +118,7 @@
                                                 
                                                <option value="31">เบญจพร  นิตินาวาการ</option>
                                              -->
-                                             <?php  // $this->user_model->select_academic();  ?>
+                                             <?php   $this->user_model->select_academic();  ?>
                                                
                                  </select>
                                            <label> ชื่อ-นามสกุล : </label>

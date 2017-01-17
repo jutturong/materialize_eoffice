@@ -1541,6 +1541,14 @@
                     
                 }
                 
+                
+                public function testauto()
+                {
+                     //http://192.168.2.112/document/index.php/welcome/testauto
+                                              $this->load->view("testauto");
+                    
+                }
+                
                 public function  err_system()
                 {
                     //http://192.168.2.112/document/index.php/welcome/err_system

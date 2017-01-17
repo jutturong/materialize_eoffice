@@ -47,13 +47,14 @@
    
        //  ค้นหา  Modal  มูลนิธิตะวันฉายฯ 
       $(document).ready(function(){
-      
-      
              $('#modal_sr').modal();
              
+ 
              
              
-             $('#autocomplete11').autocomplete({
+             /*
+             $('#autocomplete11').autocomplete(
+             {
                  
                         data: {
                                 "Apple": null,
@@ -62,21 +63,47 @@
                                  }
                                                         
         
-        });
-             
+              });
+             */
             
             
-                                                           
+            
               
-               /*
-               var  url='<?=base_url()?>index.php/welcome/auto';
-               $.getJSON(url,function(data){
-                   $.each(data,function(i,k){
-                   });
-               });
-               */
-
-      });
+              
+    
+            
+            
+            
+                     /*
+                      $('#autocomplete11').keyup(function()
+                      {
+                              //alert('t');
+                              $.ajax({
+                                  type:"POST",
+                                  url:"<?=base_url()?>index.php/welcome/auto",
+                                  dataType:"json",
+                                  success:function(data)
+                                     {
+                                           $.each(data,function(k,v){
+                                                   //alert(v.at);
+                                                    $('#tags').append(v.at+'<br/>');
+                                                 // response(v.at);
+                                               
+                                                   
+                                           });
+                                     }
+                                  
+                              });
+                      });
+                     */
+                              
+                     
+                        
+              
+              
+              
+    
+       });
       
       
       
@@ -101,18 +128,7 @@ $(document).ready(function(){
 });
 */
   
-  $(function(){
-      
-      $('#autocomplete11').autocomplete({
-          
-          
 
-                
-                
-    });
-    
-      
-  });
   
   
 
@@ -125,6 +141,12 @@ $(document).ready(function(){
   
 </script>
 <!--  ลบข้อมูลในตาราง -->
+
+
+
+
+
+
 
 
     
@@ -883,8 +905,8 @@ $(document).ready(function(){
                         <div class="input-field col s12">
                           <i class="material-icons prefix">textsms</i>
                           <input type="text" id="autocomplete11" class="autocomplete">
-                          <label for="autocomplete-input">Autocomplete</label>
-                          <div id="suggesstion-box"></div>
+                          <label for="autocomplete11">Autocomplete</label>
+                                 <div id="tags" />
                         </div>
                       </div>
                     </div>
