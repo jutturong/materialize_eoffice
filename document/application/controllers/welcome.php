@@ -1503,6 +1503,44 @@
                       }
                 }
                 
+                
+                public function auto()
+                {
+                    //http://10.87.196.170/document/index.php/welcome/auto 
+                     if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                    $tb="tb_main1";   
+                                    $q=$this->db->get($tb);
+                                    foreach($q->result() as $row)
+                                    {
+                                              $rows[]=$row;
+                                    }
+                                    echo  json_encode($rows);
+                           }
+                    
+                }
+                
+                public function call_select_academic()
+                {
+                    //http://10.87.196.170/document/index.php/welcomecall_select_academic
+                     // if(    $this->user_model->authenlogin() == 1 )
+                       //   {
+                               //  echo  $this->user_model->db_select_academic();          
+                          
+                                       $tb="tb_academic";
+                                        $q=$this->db->get($tb);
+                                         foreach($q->result() as $row)    
+                                         {
+                                               $rows[]=$row;
+                                         }
+                                          echo json_encode($rows);
+                 
+                 
+                 
+                       //    }
+                    
+                }
+                
                 public function  err_system()
                 {
                     //http://192.168.2.112/document/index.php/welcome/err_system

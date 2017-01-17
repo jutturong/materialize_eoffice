@@ -43,6 +43,86 @@
                     });
           });
     }
+    
+   
+       //  ค้นหา  Modal  มูลนิธิตะวันฉายฯ 
+      $(document).ready(function(){
+      
+      
+             $('#modal_sr').modal();
+             
+             
+             
+             $('#autocomplete11').autocomplete({
+                 
+                        data: {
+                                "Apple": null,
+                                "Microsoft": null,
+                                "Google": 'http://placehold.it/250x250'
+                                 }
+                                                        
+        
+        });
+             
+            
+            
+                                                           
+              
+               /*
+               var  url='<?=base_url()?>index.php/welcome/auto';
+               $.getJSON(url,function(data){
+                   $.each(data,function(i,k){
+                   });
+               });
+               */
+
+      });
+      
+      
+      
+
+   /*
+$(document).ready(function(){
+	$("#search-box").keyup(function(){
+		$.ajax({
+		type: "POST",
+		url: "<?=base_url()?>index.php/welcome/auto",
+		data:'keyword='+$(this).val(),
+		beforeSend: function(){
+			$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+		},
+		success: function(data){
+			$("#suggesstion-box").show();
+			$("#suggesstion-box").html(data);
+			$("#search-box").css("background","#FFF");
+		}
+		});
+	});
+});
+*/
+  
+  $(function(){
+      
+      $('#autocomplete11').autocomplete({
+          
+          
+
+                
+                
+    });
+    
+      
+  });
+  
+  
+
+
+
+            
+            
+            
+            
+  
 </script>
 <!--  ลบข้อมูลในตาราง -->
 
@@ -387,7 +467,7 @@
       
       <li><a href="#!"     onclick=" receive11() "    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
    <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')" ><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
-    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
+    <li><a href="#modal_sr"><i class="material-icons left"    >search</i>ค้นหาหนังสือรับ</a></li>
     
   <li class="divider"></li>
   <li><a href="#!"   onclick=" send11() "  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
@@ -714,9 +794,13 @@
              <div class="input-field col s6">
                                  <select id="firstname_academic" name="firstname_academic" >
                                           <option value="" disabled selected>Choose your option</option>
+                                          
+                                          <!--
                                           <option value="1">ศ.บวรศิลป์  เชาว์ชื่น</option>
                                           <option value="2">สุธีรา-ประดับวงษ์</option>
-                                
+                                          -->
+                                          
+                                          <?php   $this->user_model->select_academic();  ?>
 
                                  </select>
                                            <label> ชื่อ-นามสกุล : </label>
@@ -727,6 +811,8 @@
          <div class="input-field col s6">
                             <select id="activities" name="activities" >
                                      <option value="" disabled selected>Choose your option</option>
+                                     
+                                     <!--
                                      <option value="1">วิทยากรในประเทศ</option>
                                      <option value="2">วิทยากรต่างประเทศ</option>
                                      <option value="3">ประชุมวิชาการในประเทศ</option>
@@ -736,6 +822,10 @@
                                      <option value="7">อบรม/ดูงานต่างประเทศ</option>
                                      <option value="8">บริการวิชาการ</option>
                                      <option value="9">ศิลปวัฒนธรรม</option>
+                                     -->
+                                     
+                                      <?php   $this->user_model->select_activities(); ?>
+                                     
                             </select>
                                       <label> กิจกรรม : </label>
          </div>
@@ -771,8 +861,43 @@
 
  
  
- 
- 
+   <!-- ค้นหา  Modal  มูลนิธิตะวันฉายฯ า -->
+  <div id="modal_sr" class="modal">
+    <div class="modal-content">
+      
+          
+          
+      <i class="material-icons  circle">perm_identity</i>
+            
+          
+          ค้นหา มูลนิธิตะวันฉายฯ
+      
+          
+      <!--
+      <p>A bunch of text</p>
+      -->
+      
+       <div class="row">
+                    <div class="col s12">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">textsms</i>
+                          <input type="text" id="autocomplete11" class="autocomplete">
+                          <label for="autocomplete-input">Autocomplete</label>
+                          <div id="suggesstion-box"></div>
+                        </div>
+                      </div>
+                    </div>
+  </div>
+      
+      
+      
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+ <!-- ค้นหา  Modal  มูลนิธิตะวันฉายฯ า -->
 
  
    
