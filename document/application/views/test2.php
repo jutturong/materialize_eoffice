@@ -507,14 +507,14 @@ $(document).ready(function(){
   <!-- Dropdown Structure -->    
   <ul id="dropdown1" class="dropdown-content">
       
-      <li><a href="#!"     onclick=" receive11() "    ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
-   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')" ><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
-    <li><a href="#modal_sr"><i class="material-icons left"    >search</i>ค้นหาหนังสือรับ</a></li>
+      <li><a href="#!"     onclick=" receive11() "    ><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
+   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')" ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+  
     
   <li class="divider"></li>
-  <li><a href="#!"   onclick=" send11() "  ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
-   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')" > <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
-    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
+  <li><a href="#!"   onclick=" send11() "  ><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
+   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')" > <i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+  
    <li class="divider"></li>
    <li class="divider"></li>
    
@@ -523,14 +523,14 @@ $(document).ready(function(){
   
    <ul id="dropdown2" class="dropdown-content">
       
-       <li><a href="#!" onclick=" receive21()"><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
-   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')"  ><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
-    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
+       <li><a href="#!" onclick=" receive21()"><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
+   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')"  ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+    
     
   <li class="divider"></li>
-  <li><a href="#!" onclick=" send21()  "><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
-   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"    > <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
-    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
+  <li><a href="#!" onclick=" send21()  "><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
+   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"    > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+  
    <li class="divider"></li>
    <li class="divider"></li>
   
@@ -539,14 +539,14 @@ $(document).ready(function(){
   
      <ul id="dropdown3" class="dropdown-content">
       
-        <li><a href="#!"   onclick=" receive31()" ><i class="material-icons left">contacts</i>ทะเบียนหนังสือรับ</a></li>
-   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')"    ><i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
-    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือรับ</a></li>
+        <li><a href="#!"   onclick=" receive31()" ><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
+   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')"    ><i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+  
     
   <li class="divider"></li>
-  <li><a href="#!" onclick=" send31()  " ><i class="material-icons left">contacts</i>ทะเบียนหนังสือส่ง</a></li>
-   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')"  > <i class="material-icons left">perm_identity</i> ออกรายงาน</a></li>
-    <li><a href="#!"><i class="material-icons left">search</i>ค้นหาหนังสือส่ง</a></li>
+  <li><a href="#!" onclick=" send31()  " ><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
+   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')"  > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   
    <li class="divider"></li>
    <li class="divider"></li>
   
@@ -621,34 +621,37 @@ $(document).ready(function(){
              <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
          
          
-         
+           
+         <li>
+             <a class="dropdown-button" href="#modal_sr"    ><i class="material-icons left">zoom_in</i> Search </a>
+         </li>
          
          <li>
-             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">view_week</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
           
          
          
              <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">view_week</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">person_pin</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
          
          
          <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">view_week</i> ศูนย์การดูแล  ฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
       
          
           <li>
-             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons right">vpn_key</i> แสดงผลการบันทึก</a>
+             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons left">settings_voice</i> แสดงผลการบันทึก</a>
          </li>
          
          
          
            <li>
-             <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons right">group_work</i> กิจกรรมทางวิชาการ </a>
+             <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons left">offline_pin</i> กิจกรรมทางวิชาการ </a>
          </li>
          
          
@@ -925,10 +928,12 @@ $(document).ready(function(){
       
           
           
-      <i class="material-icons  circle">perm_identity</i>
+     <!-- <i class="material-icons  circle">perm_identity</i>-->
+      
+        <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">zoom_in</i></a>
             
-          
-          ค้นหา มูลนิธิตะวันฉายฯ
+          <?=nbs(5)?>
+          ระบบค้นหาหลัก
       
           
       <!--
@@ -936,23 +941,29 @@ $(document).ready(function(){
       -->
       
        <div class="row">
+           
+                     
                     <div class="col s12">
                       <div class="row">
                         <div class="input-field col s12">
-                          <i class="material-icons prefix">textsms</i>
+                          <i class="material-icons prefix">settings_cell</i>
                           <input type="text" id="autocomplete11" class="autocomplete">
                           <label for="autocomplete11">Autocomplete</label>
                                  <div id="tags" />
                         </div>
                       </div>
                     </div>
-  </div>
+                     </div>
       
       
       
     </div>
+      
+      
+      
+      
     <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#!"  onclick="javascript:  $(function(){ $('#modal_sr').modal('close');  } );  "  class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
     </div>
   </div>
  <!-- ค้นหา  Modal  มูลนิธิตะวันฉายฯ า -->
