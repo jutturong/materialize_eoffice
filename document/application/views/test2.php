@@ -49,25 +49,34 @@
       $(document).ready(function(){
              $('#modal_sr').modal();
              
+             
+                           
  
+             ////http://10.87.196.170/document/index.php/welcome/auto 
+                 var     url="<?=base_url()?>index.php/welcome/auto";
+                 
+               
+                 
              
              
-             /*
+             
+             
              $('#autocomplete11').autocomplete(
              {
-                 
+                  
                         data: {
                                 "Apple": null,
                                 "Microsoft": null,
                                 "Google": 'http://placehold.it/250x250'
                                  }
-                                                        
-        
+  
               });
-             */
+         
             
             
-            
+      
+      
+          
               
               
     

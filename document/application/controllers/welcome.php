@@ -1785,9 +1785,9 @@
                 
                 public function auto()
                 {
-                    //http://10.87.196.170/document/index.php/welcome/auto 
-                     if(    $this->user_model->authenlogin() == 1 )
-                          {
+                    //http://http://192.168.2.112/document/index.php/welcome/auto 
+                    // if(    $this->user_model->authenlogin() == 1 )
+                         // {
                                     $tb="tb_main1";   
                                     $q=$this->db->get($tb);
                                     foreach($q->result() as $row)
@@ -1795,7 +1795,7 @@
                                               $rows[]=$row;
                                     }
                                     echo  json_encode($rows);
-                           }
+                         //  }
                     
                 }
                 
