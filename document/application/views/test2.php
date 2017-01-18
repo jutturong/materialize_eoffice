@@ -820,8 +820,40 @@ $(document).ready(function(){
                     format:'yyyy-mm-dd',
            });
            
+            $('#end_date').pickadate({
+               // selectMonths:true,
+                   selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 15, // Creates a dropdown of 15 years to control year
+                    monday:'Mon',
+                  // format:'dd-mm-yyyy',
+                    format:'yyyy-mm-dd',
+           });
            
+           //-----form search--------
            
+           $('#fr_sr_academic').submit(function(event){
+                   alert('t');
+                   
+                   return false;
+           });
+           
+          
+          /*
+          $('#btn_academic').click(function(){
+                $.ajax({
+                    type:'POST',
+                    data:$('#fr_sr_academic').serialize(),
+                    url:'<?=base_url()?>index.php/welcome/search_main_academic',
+                    //dataType:'json',
+                    //con
+                    success:function(data)
+                    {
+                         // alert(data);
+                    }
+                    
+                });
+          });
+           */
            
     });
     
@@ -834,6 +866,7 @@ $(document).ready(function(){
  
  <!--      class="modal "   -->
  <div id="modal_show_academic"   class="modal "   >
+      <form id="fr_sr_academic" action="<?=base_url()?>index.php/welcome/search_main_academic">
      <div class="modal-content" >
          
              <div class="input-field col s6">
@@ -876,19 +909,27 @@ $(document).ready(function(){
          </div>
          
          
-       
+      
          <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
                             <input type="date" id="begin_date"  name="begin_date"   class="datepicker"  />   
                             <!-- <label> ตั้งแต่วันที่ : </label> -->
            </div>
          
+          <div class="input-field col s6">
+                             <i class="material-icons prefix">today</i>
+                            <input type="date" id="end_date"  name="end_date"   class="datepicker"  />   
+                            <!-- <label> ตั้งแต่วันที่ : </label> -->
+           </div>
          
-             <button class="waves-effect waves-light btn-large" type="submit"  id="btn_academic"  name="btn_academic" >
+         
+         
+         
+         <button class="waves-effect waves-light btn-large" type="button"  id="btn_academic"  name="btn_academic" >
                   SEARCH
                                   <i class="material-icons md-30">assignment_ind</i>
               </button>
-         
+       
          
          
           
@@ -901,6 +942,10 @@ $(document).ready(function(){
      <div class="modal-footer">
          <a href="#" class="modal-action modal-close waves-effect  waves-green btn-flat"  >Close</a>
      </div>
+          
+          
+          </form>
+     
  </div>
  <!--  แสดงกิจกรรมทางวิชาการ -->
 

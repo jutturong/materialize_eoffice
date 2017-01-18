@@ -1485,6 +1485,44 @@
                           }
                 }
                 
+                public  function  search_main_academic()
+                {
+                     #   http://localhost/document/index.php/welcome/search_main_academic
+                      if(    $this->user_model->authenlogin() == 1 )
+                          {
+                          
+                              //  print_r($_POST);
+                             //    echo "<hr>";
+                                 /*
+                                  Array
+(
+    [firstname_academic] => 2
+    [activities] => 2
+    [begin_date] => 2017-01-02
+    [end_date] => 2017-01-13
+)
+                                  */
+                                 
+                                 
+                                   $begin_date=trim($this->input->get_post("begin_date"));
+                                // echo  "<br>";
+                                  $end_date=trim($this->input->get_post("end_date"));
+                                 //echo  "<br>";
+                                 
+                                 $tb="tb_main_academic";
+                                 $this->db->where("begin_date >= ", $begin_date);
+                                 $this->db->where("end_date >= ", $begin_date);
+                                 $data["query"]=$this->db->get($tb);
+                                 
+                               //  $this->load->view();
+                                  //  redirect("welcome/homepage/insert_main_academic",'refresh');   
+                                 
+                                 //  $this->load->view("home_academic",$data);
+                          
+                         }
+                    
+                }
+                
                
                 public  function table_main_academic()
                 {
