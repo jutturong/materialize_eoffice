@@ -1504,20 +1504,34 @@
                                   */
                                  
                                  
-                                   $begin_date=trim($this->input->get_post("begin_date"));
+                                  $begin_date=trim($this->input->get_post("begin_date"));
                                 // echo  "<br>";
                                   $end_date=trim($this->input->get_post("end_date"));
-                                 //echo  "<br>";
+                               //  echo  "<br>";
                                  
                                  $tb="tb_main_academic";
-                                 $this->db->where("begin_date >= ", $begin_date);
-                                 $this->db->where("end_date >= ", $begin_date);
-                                 $data["query"]=$this->db->get($tb);
+                           
+            
                                  
-                               //  $this->load->view();
-                                  //  redirect("welcome/homepage/insert_main_academic",'refresh');   
-                                 
-                                 //  $this->load->view("home_academic",$data);
+                                                          $tbj1="tb_academic"; 
+                                   $tbj2="tb_academic_activities";
+                                   
+                                                  
+                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
+                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
+                                                  
+                                            
+                                                  
+                                                  
+                                                     $this->db->order_by("id_main_academic","DESC");
+                                                     
+                                                              $this->db->where($tb.".begin_date >= ", $begin_date);
+                                                               $this->db->where($tb.".end_date <= ", $end_date);
+                                                     
+                                                     
+                                                  $data["query"]=$this->db->get($tb);
+                                               
+                                                  $this->load->view("home_academic",$data);
                           
                          }
                     

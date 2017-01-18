@@ -570,8 +570,8 @@ $(document).ready(function(){
         
           <li><a href="#!"   onclick="add_academic()" ><i class="material-icons left">sort_by_alpha</i>เพิ่มกิจกรรม</a></li>
           <li class="divider"></li>
-          <li><a href="#modal_show_academic"   onclick="" ><i class="material-icons left">work</i>ค้นหากิจกรรม</a></li>
-           <li><a href="#"   onclick="main_academic()" ><i class="material-icons left">perm_identity</i>แสดงกิจกรรมหลั้ก</a></li>
+          <li><a href="#modal_show_academic"   ><i class="material-icons left">zoom_in</i>ค้นหากิจกรรม</a></li>
+           <li><a href="#"   onclick="main_academic()" ><i class="material-icons left">perm_identity</i>แสดงกิจกรรมหลัก</a></li>
           
         
   
@@ -831,29 +831,28 @@ $(document).ready(function(){
            
            //-----form search--------
            
+           /*
            $('#fr_sr_academic').submit(function(event){
                    alert('t');
                    
                    return false;
            });
-           
-          
-          /*
-          $('#btn_academic').click(function(){
-                $.ajax({
-                    type:'POST',
-                    data:$('#fr_sr_academic').serialize(),
-                    url:'<?=base_url()?>index.php/welcome/search_main_academic',
-                    //dataType:'json',
-                    //con
-                    success:function(data)
-                    {
-                         // alert(data);
-                    }
-                    
-                });
-          });
            */
+          
+          
+          
+          $('#btn_academic').click(function(){
+                   var  url="<?=base_url()?>index.php/welcome/search_main_academic";
+                  $('#sub11').load(url, $('#fr_sr_academic').serialize() , function(data)
+                  {   
+                             Materialize.toast(' แสดงผลการค้นหา ', 4000 , 'rounded') // 4000 is the duration of the toast
+                             $('#modal_show_academic').modal('close');
+                  } );
+          });
+           
+           
+           
+           
            
     });
     
@@ -869,44 +868,13 @@ $(document).ready(function(){
       <form id="fr_sr_academic" action="<?=base_url()?>index.php/welcome/search_main_academic">
      <div class="modal-content" >
          
-             <div class="input-field col s6">
-                                 <select id="firstname_academic" name="firstname_academic" >
-                                          <option value="" disabled selected>Choose your option</option>
-                                          
-                                          <!--
-                                          <option value="1">ศ.บวรศิลป์  เชาว์ชื่น</option>
-                                          <option value="2">สุธีรา-ประดับวงษ์</option>
-                                          -->
-                                          
-                                          <?php   $this->user_model->select_academic();  ?>
-
-                                 </select>
-                                           <label> ชื่อ-นามสกุล : </label>
-             </div>
+         
+         
+ 
          
          
          
-         <div class="input-field col s6">
-                            <select id="activities" name="activities" >
-                                     <option value="" disabled selected>Choose your option</option>
-                                     
-                                     <!--
-                                     <option value="1">วิทยากรในประเทศ</option>
-                                     <option value="2">วิทยากรต่างประเทศ</option>
-                                     <option value="3">ประชุมวิชาการในประเทศ</option>
-                                     <option value="4">ประชุมวิชาการต่างประเทศ</option>
-                                     <option value="5">ประชุมอื่นๆ</option>
-                                     <option value="6">อบรม/ดูงานในประเทศ</option>
-                                     <option value="7">อบรม/ดูงานต่างประเทศ</option>
-                                     <option value="8">บริการวิชาการ</option>
-                                     <option value="9">ศิลปวัฒนธรรม</option>
-                                     -->
-                                     
-                                      <?php   $this->user_model->select_activities(); ?>
-                                     
-                            </select>
-                                      <label> กิจกรรม : </label>
-         </div>
+    
          
          
       
