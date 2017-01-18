@@ -1298,13 +1298,240 @@
                            }
                 }
                 
-                function insert_academic()
+                 function  update_academic()
+                {
+                         if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                $id=trim($this->uri->segment(3));     
+                                $data["id_main_academic"]=$id;
+                                 $tb="tb_main_academic";
+                                 $q=$this->db->get_where($tb,array("id_main_academic"=>$id));
+                                // $row=$q->rows();
+                                 $row=$q->row();
+                                 
+                                   $data["id_firstname_academic"]=$row->id_firstname_academic;   
+                                   
+                                   
+                                   
+                                    $data["id_activities"]=$row->id_activities;   
+                                 
+                                  $data["begin_date"]=$row->begin_date;
+                                  $data["end_date"]=$row->end_date;
+                                  $data["title"]=$row->title;
+                                  $data["place"]=$row->place;
+                                  $data["detail"]=$row->detail;
+                                  $data["expenses"]=$row->expenses;
+                                  
+                                  $data["note"]=$row->note;
+                                  $data["borrow"]=$row->borrow;
+                                  
+                                                  
+                                 //$data["title"]=$this->title;
+                                 $this->load->view("update_academic",$data);
+                           }
+                }
+                
+                function  update_tb_main_academic()
                 {
                        if(    $this->user_model->authenlogin() == 1 )
                           {
+                            header('Content-Type: text/html; charset=UTF-8');
                                  //print_r($_FILES);
-                                 print_r($_POST);          
+                                // print_r($_POST);    
+                                 /*
+                                   Array ( 
+                                  * [firstname_academic] => 4 
+                                  * [activities] => 4 
+                                  * [begin_date] => 2017-01-01 
+                                  * [end_date] => 2017-01-27
+                                  *  [title] => à¸«à¸±à¸§à¸‚à¹‰à¸­ The 12 ht Khon kaen FESS course & The 5th Khon Kaen
+                                  *  [place] => à¸“ à¸«à¹‰à¸­à¸‡à¸›à¸£à¸°à¸Šà¸¸à¸¡à¸¡à¸´à¸•à¸£à¸ à¸²à¸ž à¸Šà¸±à¹‰à¸™ 3
+                                  *  [detail] => International course in advanced endoscopic sinus and skull base surgery: Handson dissection In fresh frozen cadavers 
+                                  * [expenses] => 1200 
+                                  * [borrow] => 1000 
+                                  * [note] => --
+                                  *  [btn_academic] => ) 
+                                  */
+                                //   echo "<hr>";
+                                           $id_main_academic=trim($this->input->get_post("id_main_academic"));
+                                             
+                                if(   $id_main_academic > 0  )       
+                                { 
+                                         $firstname_academic=trim($this->input->get_post("firstname_academic"));   
+
+                                                   $activities=trim($this->input->get_post("activities"));
+
+                                                  $begin_date=trim($this->input->get_post("begin_date"));
+                                                  //  echo "<br>";
+                                                     $end_date=trim($this->input->get_post("end_date"));
+                                                   // echo "<br>";
+                                                     $title=trim($this->input->get_post("title"));
+                                                    //echo "<br>";
+                                                    $place=trim($this->input->get_post("place"));
+                                                    //echo "<br>";
+                                                    $detail=trim($this->input->get_post("detail"));
+                                                    //echo "<br>";   
+                                                    $expenses=trim($this->input->get_post("expenses"));
+                                                   // echo "<br>";   
+                                                     $borrow=trim($this->input->get_post("borrow"));
+                                                   // echo "<br>";   
+                                                    $note=trim($this->input->get_post("note"));
+                                                  //  echo "<br>";   
+
+
+
+                                                    $data=array(
+                                                        "id_firstname_academic"=>$firstname_academic,  //1
+                                                       "id_activities"=>$activities,      //2
+                                                        "begin_date"=>$begin_date,   //3
+                                                        "end_date"=>$end_date,   //4
+                                                        "title"=>$title,   //5
+                                                        "place"=>$place,   //6
+                                                        "detail"=>$detail,    //7
+                                                        "expenses"=>$expenses,   //8
+                                                       "borrow"=>$borrow,   //9
+                                                       "note"=>$note,   //9
+                                                    );
+
+                                                       $tb="tb_main_academic";
+                                                       $this->db->where("id_main_academic",$id_main_academic);
+                                                       $ck=$this->db->update($tb,$data);       
+                                                       if( $ck )
+                                                       {
+                                                           //echo 1;
+                                                       }
+                                                       else if( !$ck )
+                                                       {
+                                                           //echo 0;
+                                                       }
+                                        redirect("welcome/homepage/insert_main_academic",'refresh');   
+                                }
+                         }
+                }
+                
+                function insert_academic()  //บันทึกกิจกรรมทางวิชาการ
+                {
+                       if(    $this->user_model->authenlogin() == 1 )
+                          {
+                               header('Content-Type: text/html; charset=UTF-8');
+                                 //print_r($_FILES);
+                                // print_r($_POST);    
+                                 /*
+                                   Array ( 
+                                  * [firstname_academic] => 4 
+                                  * [activities] => 4 
+                                  * [begin_date] => 2017-01-01 
+                                  * [end_date] => 2017-01-27
+                                  *  [title] => à¸«à¸±à¸§à¸‚à¹‰à¸­ The 12 ht Khon kaen FESS course & The 5th Khon Kaen
+                                  *  [place] => à¸“ à¸«à¹‰à¸­à¸‡à¸›à¸£à¸°à¸Šà¸¸à¸¡à¸¡à¸´à¸•à¸£à¸ à¸²à¸ž à¸Šà¸±à¹‰à¸™ 3
+                                  *  [detail] => International course in advanced endoscopic sinus and skull base surgery: Handson dissection In fresh frozen cadavers 
+                                  * [expenses] => 1200 
+                                  * [borrow] => 1000 
+                                  * [note] => --
+                                  *  [btn_academic] => ) 
+                                  */
+                                //   echo "<hr>";
+                                     $firstname_academic=trim($this->input->get_post("firstname_academic"));   
+                                 //  echo "<br>";
+                                    $activities=trim($this->input->get_post("activities"));
+                                  // echo "<br>";
+                                   $begin_date=trim($this->input->get_post("begin_date"));
+                                 //  echo "<br>";
+                                    $end_date=trim($this->input->get_post("end_date"));
+                                  // echo "<br>";
+                                    $title=trim($this->input->get_post("title"));
+                                   //echo "<br>";
+                                   $place=trim($this->input->get_post("place"));
+                                   //echo "<br>";
+                                   $detail=trim($this->input->get_post("detail"));
+                                   //echo "<br>";   
+                                   $expenses=trim($this->input->get_post("expenses"));
+                                  // echo "<br>";   
+                                    $borrow=trim($this->input->get_post("borrow"));
+                                  // echo "<br>";   
+                                   $note=trim($this->input->get_post("note"));
+                                 //  echo "<br>";   
+                                   
+                                   $tb="tb_main_academic";
+                                   
+                                   $data=array(
+                                       
+                                       "id_firstname_academic"=>$firstname_academic,  //1
+                                       "id_activities"=>$activities,      //2
+                                       "begin_date"=>$begin_date,   //3
+                                       "end_date"=>$end_date,   //4
+                                       "title"=>$title,   //5
+                                       "place"=>$place,   //6
+                                       "detail"=>$detail,    //7
+                                       "expenses"=>$expenses,   //8
+                                       "borrow"=>$borrow,   //9
+                                       "note"=>$note,   //9
+                                       
+                                   );
+                                   
+                                   $ck = $this->db->insert($tb,$data);
+                                  // $ck=true;
+                                   if( $ck )
+                                   {
+                                      // echo 1;
+                                   }
+                                   elseif( !$ck )
+                                   {
+                                       //echo 0;
+                                   }
+                                   
+                                     redirect("welcome/homepage/insert_main_academic",'refresh');   
+                                   
                           }
+                }
+                
+               
+                public  function table_main_academic()
+                {
+                      #   http://localhost/document/index.php/welcome/table_main_academic
+                     //     $tb="tb_main_academic";
+                     if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                   $tb="tb_main_academic";
+                                   $tbj1="tb_academic"; 
+                                   $tbj2="tb_academic_activities";
+                                   
+                                                  
+                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
+                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
+                                                  
+                                                  $this->db->order_by("id_main_academic","DESC");
+                                                  $data["query"]=$this->db->get($tb);
+                                                  $this->load->view("home_academic",$data);
+                                                  
+                           }
+                }
+                
+                public function  del_main_academic()
+                {
+                     if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                   $tb="tb_main_academic";
+                                   //$tbj1="tb_academic"; 
+                                $id=trim($this->uri->segment(3));    
+                             if( $id > 0)
+                             {
+                                            $this->db->where("id_main_academic",$id);
+                                            $ck = $this->db->delete($tb);
+                                            if( $ck )
+                                            {
+                                               // echo 1;
+                                            }
+                                            else
+                                            {
+                                               // echo 0;
+                                            }
+                             }    
+                                
+                                
+                               redirect("welcome/homepage/insert_main_academic",'refresh');     
+                                                  
+                           }
                 }
                 
                 public  function  export_excel()
@@ -1520,26 +1747,7 @@
                     
                 }
                 
-                public function call_select_academic()
-                {
-                    //http://10.87.196.170/document/index.php/welcomecall_select_academic
-                     // if(    $this->user_model->authenlogin() == 1 )
-                       //   {
-                               //  echo  $this->user_model->db_select_academic();          
-                          
-                                       $tb="tb_academic";
-                                        $q=$this->db->get($tb);
-                                         foreach($q->result() as $row)    
-                                         {
-                                               $rows[]=$row;
-                                         }
-                                          echo json_encode($rows);
-                 
-                 
-                 
-                       //    }
-                    
-                }
+               
                 
                 
                 public function testauto()

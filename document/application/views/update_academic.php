@@ -44,12 +44,17 @@
  <div class="row">
       
 
-     <form class="col s12" id="fr_sub11"  action="<?=base_url()?>index.php/welcome/insert_academic"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
+     <form class="col s12" id="fr_sub11"  action="<?=base_url()?>index.php/welcome/update_tb_main_academic"    accept-charset="UTF-8" method="post" enctype="multipart/form-data"  >
     
     
       <div class="row">
+          
+          <input type="hidden"  name="id_main_academic"  id="id_main_academic"  value="<?=$id_main_academic?>"    />
 
                     <div class="input-field col s6">
+                        
+                     
+                        
                                  <select id="firstname_academic" name="firstname_academic" >
                                           
                                           <option value="" disabled selected>Choose your option</option>
@@ -118,7 +123,8 @@
                                                 
                                                <option value="31">เบญจพร  นิตินาวาการ</option>
                                              -->
-                                             <?php   $this->user_model->select_academic();  ?>
+                                             <?php   //$this->user_model->select_academic();  ?>
+                                             <?php    $this->user_model->update_select_academic($id_firstname_academic);  ?>
                                                
                                  </select>
                                            <label> ชื่อ-นามสกุล : </label>
@@ -127,7 +133,7 @@
                   <div class="input-field col s6">
                             <select id="activities" name="activities" >
                                      <option value="" disabled selected>Choose your option</option>
-                                            <?php   $this->user_model->select_activities(); ?>
+                                            <?php   $this->user_model->update_select_activities($id_activities); ?>
                             </select>
                                       <label> กิจกรรม : </label>
                  </div>
@@ -135,62 +141,62 @@
           
            <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
-                            <input type="date" id="begin_date"  name="begin_date"   class="datepicker"  />   
+                             <input type="date" id="begin_date"  name="begin_date"   class="datepicker"  value="<?=@$begin_date?>" />   
                             <!-- <label> ตั้งแต่วันที่ : </label> -->
            </div>
           
            <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
-                            <input type="date" id="end_date"  name="end_date"   class="datepicker"  />   
+                             <input type="date" id="end_date"  name="end_date"   class="datepicker" value="<?=@$end_date?>"  />   
                             <!-- <label> ตั้งแต่วันที่ : </label> -->
            </div>
 
           
         <div class="input-field col s6">
                      <i class="material-icons prefix">account_circle</i>
-                    <input id="title" name="title"  type="text"  placeholder="หัวข้อ"  value="" />
-                    <label for="title">หัวข้อ</label>
+                    <input id="title" name="title"  type="text"  placeholder="หัวข้อ"  value="<?=@$title?>" />
+                   <!-- <label for="title">หัวข้อ</label> -->
         </div>
           
            <div class="input-field col s6">
                      <i class="material-icons prefix">account_circle</i>
-                    <input id="place" name="place"  type="text"  placeholder="สถานที่"  value="" />
-                    <label for="place">สถานที่</label>
+                    <input id="place" name="place"  type="text"  placeholder="สถานที่"  value="<?=@$place?>" />
+                   <!-- <label for="place">สถานที่</label> -->
         </div>
           
           
           <div class="input-field col s6">
                      <i class="material-icons prefix">account_circle</i>
-                    <input id="detail" name="detail"  type="text"  placeholder="รายละเอียด"  value="" />
-                    <label for="detail">รายละเอียด</label>
+                    <input id="detail" name="detail"  type="text"  placeholder="รายละเอียด"  value="<?=@$detail?>" />
+                   <!-- <label for="detail">รายละเอียด</label>-->
          </div>
           
           
          <div class="input-field col s6">
                      <i class="material-icons prefix">account_circle</i>
-                    <input id="expenses" name="expenses"  type="text"  placeholder="ค่าใช้จ่าย"  value="" />
-                    <label for="expenses">ค่าใช้จ่าย</label>
+                    <input id="expenses" name="expenses"  type="text"  placeholder="ค่าใช้จ่าย"  value="<?=@$expenses?>" />
+                   <!-- <label for="expenses">ค่าใช้จ่าย</label>-->
          </div>
           
           
          <div class="input-field col s6">
                      <i class="material-icons prefix">account_circle</i>
-                    <input id="borrow" name="borrow"  type="text"  placeholder="เงินยืม"  value="" />
-                    <label for="borrow">เงินยืม </label>
+                    <input id="borrow" name="borrow"  type="text"  placeholder="เงินยืม"  value="<?=@$borrow?>" />
+                  <!--  <label for="borrow">เงินยืม </label> -->
          </div>
           
           
          <div class="input-field col s6">
                      <i class="material-icons prefix">account_circle</i>
-                    <input id="note" name="note"  type="text"  placeholder="หมายเหตุ"  value="" />
-                    <label for="note">หมายเหตุ </label>
+                    <input id="note" name="note"  type="text"  placeholder="หมายเหตุ"  value="<?=@$note?>" />
+                  <!--  <label for="note">หมายเหตุ </label> -->
          </div>
           
           
           <div class="button-collapse col s6">
                 
             
-              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_academic"  name="btn_academic" >SAVE
+              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_academic"  name="btn_academic" >UPDATE
                                   <i class="material-icons md-30">phonelink_ring</i>
               </button>
                 

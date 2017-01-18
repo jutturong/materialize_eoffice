@@ -199,6 +199,13 @@ $(document).ready(function(){
                                 
 
                   } 
+                  else  if(  send1 == "insert_main_academic"  )//หน้าหลักกิจกรรมทางวิชาการ
+                  {
+                               $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
+                  }
+                  
+                  
+                  // $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
                   
               });    
            </script>
@@ -431,6 +438,19 @@ $(document).ready(function(){
                   $('#sub11').load("<?=base_url()?>index.php/welcome/add_academic");
                  
            }
+            function update_academic(id)
+           {
+                  //alert('t');
+                  $('#sub11').load("<?=base_url()?>index.php/welcome/update_academic/" + id );
+                 
+           }
+           
+           
+           
+           function   main_academic()
+           {
+                 $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
+           }
            
            
       </script>
@@ -550,7 +570,10 @@ $(document).ready(function(){
         
           <li><a href="#!"   onclick="add_academic()" ><i class="material-icons left">sort_by_alpha</i>เพิ่มกิจกรรม</a></li>
           <li class="divider"></li>
-          <li><a href="#modal_show_academic"   onclick="" ><i class="material-icons left">work</i>แสดงกิจกรรม</a></li>
+          <li><a href="#modal_show_academic"   onclick="" ><i class="material-icons left">work</i>ค้นหากิจกรรม</a></li>
+           <li><a href="#"   onclick="main_academic()" ><i class="material-icons left">perm_identity</i>แสดงกิจกรรมหลั้ก</a></li>
+          
+        
   
    </ul>
   

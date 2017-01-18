@@ -289,10 +289,45 @@ public  function thai_year($y)
                     
   }
   
+  function update_select_academic($id)
+  {
+                if( $id > 0 )
+                {
+                        $tb="tb_academic";
+                        $q=$this->db->get_where($tb,array("id_academic"=>$id));
+                        $row=$q->row();
+                        $id_academic=$row->id_academic;
+                       $firstname_academic=$row->firstname_academic;
+                       $lastname_academic=$row->lastname_academic;
+                       echo   "<option value=\"$id_academic\"  selected>".$firstname_academic.nbs(3).$lastname_academic."</option>";
+                     
+                       /*
+                       $q2=$this->db->where_not_in($tb,array("id_academic"=>$id));
+                       foreach($q2->result() as $row)
+                       {
+                                             $id_academic=$row->id_academic;
+                                              $firstname_academic=$row->firstname_academic;
+                                              $lastname_academic=$row->lastname_academic;
+                                              echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic</option>";
+                       }
+                       */
+                       
+                         $this->db->where_not_in(array("id_academic"=>$id));
+                         $q2=$this->db->get($tb);
+                         foreach($q2->result() as $row)
+                       {
+                                             $id_academic=$row->id_academic;
+                                              $firstname_academic=$row->firstname_academic;
+                                              $lastname_academic=$row->lastname_academic;
+                                              echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic</option>";
+                       }
+                       
+                }
+  }
   function  select_academic() //ชื่อ นามสกุล กิจกรรมทางวิชาการ
   {
-      ?>
-                <option value="1">บวรศิลป์  เชาว์ชื่น</option>
+                /*
+                                          <option value="1">บวรศิลป์  เชาว์ชื่น</option>
                                           
                                           <option value="2">ไชยวิทย์  ธนไพศาล</option>
                                           
@@ -353,14 +388,51 @@ public  function thai_year($y)
                                                 <option value="30">ดวงใจ  สุคนธมาน</option>
                                                 
                                                <option value="31">เบญจพร  นิตินาวาการ</option>
-      <?php
+              */
+                             $tb="tb_academic";
+                             $q=$this->db->get($tb);
+                              foreach($q->result() as $row)    
+                                          {
+                                              $id_academic=$row->id_academic;
+                                              $firstname_academic=$row->firstname_academic;
+                                              $lastname_academic=$row->lastname_academic;
+                                              echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic</option>";
+                                          }
+                                          
+                                          
   }
   
   
+   function update_select_activities($id)
+  {
+                if( $id > 0 )
+                {
+                         $tb="tb_academic_activities";
+                        $q=$this->db->get_where($tb,array("id_academic_activities"=>$id));
+                        $row=$q->row();
+                        
+                    $id_academic_activities=$row->id_academic_activities;
+                    $detail_academic_activities=$row->detail_academic_activities;
+                    echo "<option value=\"$id_academic_activities\"  selected >$detail_academic_activities</option>";
+                    
+
+                         $this->db->where_not_in(array("id_academic_activities"=>$id));
+                         $q2=$this->db->get($tb);
+                         foreach($q2->result() as $row)
+                       {
+                                 $id_academic_activities=$row->id_academic_activities;
+                                 $detail_academic_activities=$row->detail_academic_activities;
+                                 echo "<option value=\"$id_academic_activities\">$detail_academic_activities</option>";
+                       }
+                       
+                       
+                }
+  }
   
   function  select_activities() // select  กิจกรรมทางวิชาการ
   {
-      ?>
+     
+                /*
                                      <option value="1">วิทยากรในประเทศ</option>
                                      <option value="2">วิทยากรต่างประเทศ</option>
                                      <option value="3">ประชุมวิชาการในประเทศ</option>
@@ -370,7 +442,18 @@ public  function thai_year($y)
                                      <option value="7">อบรม/ดูงานต่างประเทศ</option>
                                      <option value="8">บริการวิชาการ</option>
                                      <option value="9">ศิลปวัฒนธรรม</option>
-      <?php                                         
+                 * 
+                 */
+                //    tb_academic_activities
+                $tb="tb_academic_activities";
+                $q=$this->db->get($tb);
+                foreach($q->result()as $row)
+                {
+                    $id_academic_activities=$row->id_academic_activities;
+                    $detail_academic_activities=$row->detail_academic_activities;
+                    echo "<option value=\"$id_academic_activities\">$detail_academic_activities</option>";
+                }
+                                           
   }
   
         
