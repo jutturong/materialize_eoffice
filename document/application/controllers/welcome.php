@@ -386,7 +386,7 @@
                             // $this->load->view("sub11",$data);
                             $data["query"]=$this->user_model->tb_main1("1","1");
                             //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
-                          
+                         
                             
                             $tb="tb_main1";
                             //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
@@ -1537,7 +1537,103 @@
                     
                 }
                 
-               
+                public  function  search_tb_main1()
+                {
+                     #http://localhost/document/index.php/welcome/search_tb_main1
+                    if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                   $data["title"]=$this->title;     
+                                   $tb="tb_main1";
+                                   $begin_date_main=trim($this->input->get_post("begin_date_main"));   
+                                   //echo br();
+                                   $end_date_main=trim($this->input->get_post("end_date_main"));   
+                                   //echo br();
+                                   $type_record=trim($this->input->get_post("type_record")); 
+                                 //  echo br();
+
+                                 
+                                switch($type_record)  
+                                {
+                                    case 1:  //subtable11()
+                                    {
+                                    $this->db->order_by("id_main1","DESC");
+                                    $this->db->where("date >=  ", $begin_date_main );
+                                    $this->db->where("date <=  ", $end_date_main );
+                                    $this->db->where("type_record", $type_record );
+                                    $this->db->where("type_document",1 );
+                                                   
+                                     //   $data["query"]=$this->user_model->tb_main1("1","1");
+                                     //   $data["query"] = $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>1));
+                                      $data["query"] =$this->db->get($tb);
+                                      
+                                    $this->db->order_by("id_main1","DESC");
+                                    $this->db->where("date >=  ", $begin_date_main );
+                                    $this->db->where("date <=  ", $end_date_main );
+                                    $this->db->where("type_record", $type_record );
+                                    $this->db->where("type_document",2 );
+                                    $data["query2"]=$this->db->get($tb);
+                                    
+                                    
+                                   $this->load->view("table11",$data);
+                                     
+                                           break;
+                                    }
+                                    case 2: // table2()
+                                    {
+                                            $this->db->order_by("id_main1","DESC");
+                                             $this->db->where("date >=  ", $begin_date_main );
+                                             $this->db->where("date <=  ", $end_date_main );
+                                             $this->db->where("type_record", $type_record );
+                                             $this->db->where("type_document",1 );
+                                             $data["query"] =$this->db->get($tb);
+                                             //$data["query"]=$this->user_model->tb_main1("3","1");
+
+                                               $this->db->order_by("id_main1","DESC");
+                                                $this->db->where("date >=  ", $begin_date_main );
+                                                $this->db->where("date <=  ", $end_date_main );
+                                                $this->db->where("type_record", $type_record );
+                                                $this->db->where("type_document",2 );
+                                               $data["query2"]=$this->db->get($tb);
+                                               // $data["query2"]=$this->user_model->tb_main1("3","2");    
+                                               
+                                             $this->load->view("table11",$data);
+                                             break;
+                                    }
+                                    case 3:  //table3() 
+                                    {
+                                        
+                                    //  $data["query"]=$this->user_model->tb_main1("2","1");
+                                         $this->db->order_by("id_main1","DESC");
+                                             $this->db->where("date >=  ", $begin_date_main );
+                                             $this->db->where("date <=  ", $end_date_main );
+                                             $this->db->where("type_record", $type_record );
+                                             $this->db->where("type_document",1 );
+                                             $data["query"] =$this->db->get($tb);
+                                        
+                                        
+                                        
+                                    //   $data["query2"]=$this->user_model->tb_main1("2","2");
+                                                       $this->db->order_by("id_main1","DESC");
+                                                $this->db->where("date >=  ", $begin_date_main );
+                                                $this->db->where("date <=  ", $end_date_main );
+                                                $this->db->where("type_record", $type_record );
+                                                $this->db->where("type_document",2 );
+                                               $data["query2"]=$this->db->get($tb);
+                                        
+                                         $this->load->view("table11",$data);
+                                        break;  
+                                    }
+                                }   
+                                    
+                                     
+                                     
+                                    
+                                  
+                          }
+                    
+                }
+                
+                
                 public  function table_main_academic()
                 {
                       #   http://localhost/document/index.php/welcome/table_main_academic
@@ -1553,7 +1649,7 @@
                                                   $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
                                                   
                                                   $this->db->order_by("id_main_academic","DESC");
-                                                  $data["query"]=$this->db->get($tb);
+                                                  $data["query"]=$this->db->get($tb,5);
                                                   $this->load->view("home_academic",$data);
                                                   
                            }

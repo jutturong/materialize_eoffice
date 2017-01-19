@@ -811,7 +811,97 @@ $(document).ready(function(){
   </div>
   </div>        
   
+ 
+ 
+ <!--  รายการค้นหาหลัก -->
+ <script type="text/javascript">
+     
 
+
+                // alert('t');
+                 
+                 /*
+                  $.ajax({
+                      type:'POST',
+                      data: $('#fr_sr_main1').serialize(),
+                      url:'<?=base_url()?>index.php/welcome/search_tb_main1',
+                      dataType:'json',
+                      contentType:'application/json',
+                      success:function(data)
+                        {
+                              alert(data);
+                        }
+                      
+                   });
+         */
+            
+            
+            
+            /*
+            $.getJSON("<?=base_url()?>index.php/welcome/search_tb_main1",  { data: $('#fr_sr_main1').serialize()  }   ,function(data)
+             {
+                 alert(data);
+             },"json");
+               */
+                  
+                  
+                  
+         //$('#fr_sr_main1').submit(function(){  return false; });
+        
+       
+
+  $(function()
+     {
+         
+         
+         /*
+                $('#btn_sr_main1').click(function()
+                {
+                     var  url='<?=base_url()?>index.php/welcome/search_tb_main1';
+                    
+                    
+                    
+                       $('#sub11').load(url, $('#main_from').serialize() , function(data)
+                            {   
+                                     //  Materialize.toast(' แสดงผลการค้นหา ', 4000 , 'rounded') // 4000 is the duration of the toast
+                                     //  $('#modal_show_academic').modal('close');
+                                           alert(data);
+                            } );
+
+
+
+                });
+           */
+              
+              
+              $('#main_from').submit(function(event)
+              { 
+                       //alert('t'); 
+                            var  url='<?=base_url()?>index.php/welcome/search_tb_main1';
+                            $('#sub11').load(url,  $('#main_from').serialize()   ,function(data)
+                                { 
+                                      // alert(data);  
+                                      Materialize.toast(' แสดงผลการค้นหา ', 4000 , 'rounded') // 4000 is the duration of the toast
+                                      //$('#modal_sr').modal('close');
+                                });
+               
+                       return false;
+               });
+       
+     });
+     
+       
+    
+    
+      $(document).ready(function() 
+      {
+                       $('select').material_select();
+      });
+     
+     
+ 
+ </script>
+ 
  
  <!--  แสดงกิจกรรมทางวิชาการ -->
  <script type="text/javascript">
@@ -831,6 +921,30 @@ $(document).ready(function(){
                   // format:'dd-mm-yyyy',
                     format:'yyyy-mm-dd',
            });
+           
+           
+           
+           
+                $('#begin_date_main').pickadate({
+               // selectMonths:true,
+                   selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 15, // Creates a dropdown of 15 years to control year
+                    monday:'Mon',
+                  // format:'dd-mm-yyyy',
+                    format:'yyyy-mm-dd',
+           });
+           
+           
+           $('#end_date_main').pickadate({
+               // selectMonths:true,
+                   selectMonths: true, // Creates a dropdown to control month
+                    selectYears: 15, // Creates a dropdown of 15 years to control year
+                    monday:'Mon',
+                  // format:'dd-mm-yyyy',
+                    format:'yyyy-mm-dd',
+           });
+           
+           
            
             $('#end_date').pickadate({
                // selectMonths:true,
@@ -875,21 +989,23 @@ $(document).ready(function(){
            
  </script>
  
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
  <!--      class="modal "   -->
  <div id="modal_show_academic"   class="modal "   >
       <form id="fr_sr_academic" action="<?=base_url()?>index.php/welcome/search_main_academic">
      <div class="modal-content" >
          
-         
-         
- 
-         
-         
-         
-    
-         
-         
-      
+
          <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
                             <input type="date" id="begin_date"  name="begin_date"   class="datepicker"  />   
@@ -931,8 +1047,11 @@ $(document).ready(function(){
 
  
  
-   <!-- ค้นหา  Modal  มูลนิธิตะวันฉายฯ า -->
+   <!--  Modal   การค้นหาหลัก -->
   <div id="modal_sr" class="modal">
+       <!--  #http://localhost/document/index.php/welcome/search_tb_main1 -->
+       <form    id="main_from"     action="<?=base_url()?>index.php/welcome/search_tb_main1"   >
+          
     <div class="modal-content">
       
           
@@ -942,7 +1061,7 @@ $(document).ready(function(){
         <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">zoom_in</i></a>
             
           <?=nbs(5)?>
-          ระบบค้นหาหลัก
+          Main Search
       
           
       <!--
@@ -951,7 +1070,7 @@ $(document).ready(function(){
       
        <div class="row">
            
-                     
+                     <!--
                     <div class="col s12">
                       <div class="row">
                         <div class="input-field col s12">
@@ -963,17 +1082,89 @@ $(document).ready(function(){
                       </div>
                     </div>
                      </div>
+                     -->
+           
+                     <div class="col s6">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">today</i>
+                          
+                          <input type="date" class="datepicker" id="begin_date_main"  name="begin_date_main"  />
+                                 
+                                 
+                        </div>
+                      </div>
+                    </div>
+                     
+                     
+                      <div class="col s6">
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">today</i>
+                          
+                          <input type="date" class="datepicker" id="end_date_main"   name="end_date_main"  />
+                                 
+                                 
+                        </div>
+                      </div>
+                    </div>
+                     
+
+                     
+      <div class="col s6">               
+                     <p>
+                         <input name="type_record" type="radio" id="type_record1"    value="1"  />
+      <label for="type_record1">มูลนิธิตะวันฉาย ฯ</label>
+    </p>
+    <p>
+      <input name="type_record" type="radio" id="type_record2"   value="2"  />
+      <label for="type_record2">ศูนย์วิจัย ฯ</label>
+    </p>
+    <p>
+        <input class="with-gap" name="type_record" type="radio" id="type_record3"  value="3" />
+      <label for="type_record3">ศูนย์การดูแล ฯ</label>
+    </p>
+    
+
+    
+     </div> 
+
+           
+     </div>
       
       
       
     </div>
       
-      
-      
-      
+
     <div class="modal-footer">
-        <a href="#!"  onclick="javascript:  $(function(){ $('#modal_sr').modal('close');  } );  "  class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        
+     
+        <!--
+        <a class="waves-effect waves-light btn-large"  onclick="javascript:  $(function(){ $('#modal_sr').modal('close');  } );  "  ><i class="material-icons left">mic_off</i>Close</a>
+        -->
+        
+        
+        <!--
+        <a href="#!"    class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        -->
+        
+        <!--
+        <a class="waves-effect waves-light btn-large"   onclick="action_main1()"  ><i class="material-icons left">person_pin</i>Search</a>
+        -->
+        
+        <button class="btn waves-effect waves-light btn-large" type="submit" name="action"   id="btn_sr_main1"   >Search
+                     <i class="material-icons right">person_pin</i>
+       </button>
+        
+       <a class="waves-effect waves-light btn-large"  onclick="javascript:  $(function(){ $('#modal_sr').modal('close');  } );  "  ><i class="material-icons left">mic_off</i>Close</a>
+    
+    
     </div>
+      
+      
+      </form> 
+      
   </div>
  <!-- ค้นหา  Modal  มูลนิธิตะวันฉายฯ า -->
 

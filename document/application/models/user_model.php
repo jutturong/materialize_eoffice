@@ -73,7 +73,7 @@ class User_model extends CI_Model {
                    
                    $this->db->order_by("id_main1","DESC");
                    
-                   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
+                   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc),10);
               }
     
         }
