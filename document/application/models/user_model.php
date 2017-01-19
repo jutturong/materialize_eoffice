@@ -456,6 +456,51 @@ public  function thai_year($y)
                                            
   }
   
+  function call_all_page($tb,$limit) //แสดงการแบ่งหน้า
+  {
+                       //  $tb="tb_main_academic";
+                       //  $limit=2;
+                         
+                         $q=$this->db->get($tb);
+                         $all_rows=  $q->num_rows();
+                
+                          
+                               $call=$all_rows/$limit;
+                              $max_page=round($call,0);
+                             // br();
+                              
+                        
+                              
+                           echo     "<ul class=\"pagination\">";
+                           echo    "<li class=\"disabled\"><a href=\"#!\"  onclick=\"page_main_academic(0)\" ><i class=\"material-icons\">chevron_left</i></a></li>";         
+                                       
+                        for($i=0;$i<=$call;$i++)
+                        {
+                                 $page_plus= $i+1;                     
+/*
+    
+   
+  
+    <li class="waves-effect"><a href="#"  onclick="page_main_academic(3)">3</a></li>
+    <li class="waves-effect"><a href="#"  onclick="page_main_academic(4)">4</a></li>
+    <li class="waves-effect"><a href="#"   onclick="page_main_academic(5)">5</a></li>
+    
+*/
+                              // echo  "<li class=\"active\"><a href=\"#\"  onclick=\"page_main_academic(".$page_plus.")\">1</a></li>";
+                                 if(  $page_plus == 1  )
+                                 {
+                                         echo     "<li class=\"active\"><a href=\"#\"   onclick=\"page_main_academic(".$page_plus.")\">".$page_plus."</a></li>";
+                                 }
+                                 else
+                                 {
+                                          echo     "<li class=\"waves-effect\"><a href=\"#\"   onclick=\"page_main_academic(".$page_plus.")\">".$page_plus."</a></li>";
+                                 }
+         
+                        }
+                        echo "<li class=\"waves-effect\"><a href=\"#!\"  onclick=\"page_main_academic(".$max_page.")\"  ><i class=\"material-icons\">chevron_right</i></a></li>";
+                        echo   "</ul>";
+  }
+  
         
 }
 

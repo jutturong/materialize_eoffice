@@ -4,7 +4,7 @@
     {
 
              var  $title="ระบบโปรแกรมงานธุรการ";
-             var  $limit=2;
+             var  $limit=3;
              
                  public function __construct() {
                      
@@ -1670,7 +1670,7 @@
                                    
                                                  $page=$this->uri->segment(3);
                                               //   http://10.87.196.170/document/index.php/welcome/homepage/page_table_main_academic/1
-                                 
+                                  
                                           
                                                   
                                                   $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
@@ -1681,6 +1681,7 @@
                                                   
                                                   
                                                   
+                                                /*  
                                                      //$query = $this->db->get('mytable', 10, 20);    
                                                   if( $page == 1 )
                                                   {
@@ -1689,22 +1690,27 @@
                                                   }
                                                   else  if( $page ==  2  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,$this->limit,6);
+                                                        //$data["query"]=$this->db->get($tb,$this->limit,6);
+                                                         $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
+                                                        
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');     
                                                   }
                                                   else  if( $page ==  3  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,$this->limit,11);
+                                                       // $data["query"]=$this->db->get($tb,$this->limit,11);
+                                                         $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');     
                                                   }
                                                    else  if( $page ==  4  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,$this->limit,16);
+                                                         // $data["query"]=$this->db->get($tb,$this->limit,16);
+                                                            $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
                                                       //   redirect("welcome/homepage/insert_main_academic",'refresh');   
                                                   }
                                                   else  if( $page ==  5  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,$this->limit,21);
+                                                      //  $data["query"]=$this->db->get($tb,$this->limit,21);
+                                                          $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');   
                                                   }
                                                   else{
@@ -1712,6 +1718,18 @@
                                                         $data["query"]=$this->db->get($tb,$this->limit); 
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');   
                                                   }
+                                                  */
+                                                  
+                                                  
+                                                    if(  $page   > 1  )
+                                                    {
+                                                           $cal_limit=$page-1*$this->limit  + 2;
+                                                           $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
+                                                    }else{
+                                                            $data["query"]=$this->db->get($tb,$this->limit); 
+                                                    }
+
+                                    
                                                   
                                                     // $this->load->view("home_academic",$data);     
                                                      //http://10.87.196.170/document/index.php/welcome/homepage/insert_main_academic
@@ -1720,6 +1738,8 @@
                            }
                 }
                 
+                
+   
                 
                 public function  del_main_academic()
                 {

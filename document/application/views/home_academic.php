@@ -154,9 +154,9 @@
 
 
 
-
+<!--
  <ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="disabled"><a href="#!"  onclick="page_main_academic(0)" ><i class="material-icons">chevron_left</i></a></li>
     <li class="active"><a href="#"  onclick="page_main_academic(1)">1</a></li>
     <li class="waves-effect"><a href="#"   onclick="page_main_academic(2)">2</a></li>
     <li class="waves-effect"><a href="#"  onclick="page_main_academic(3)">3</a></li>
@@ -164,3 +164,6 @@
     <li class="waves-effect"><a href="#"   onclick="page_main_academic(5)">5</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
+-->
+
+       <?=$this->user_model->call_all_page("tb_main_academic",$this->limit)?>
