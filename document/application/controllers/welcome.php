@@ -4,7 +4,7 @@
     {
 
              var  $title="ระบบโปรแกรมงานธุรการ";
-             var  $limit=5;
+             var  $limit=2;
              
                  public function __construct() {
                      
@@ -1650,7 +1650,7 @@
                                                   $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
                                                   
                                                   $this->db->order_by("id_main_academic","DESC");
-                                                  $data["query"]=$this->db->get($tb,5);
+                                                  $data["query"]=$this->db->get($tb,$this->limit);
                                                   $this->load->view("home_academic",$data);
                                                   
                            }
@@ -1684,32 +1684,32 @@
                                                      //$query = $this->db->get('mytable', 10, 20);    
                                                   if( $page == 1 )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,5,0);
+                                                        $data["query"]=$this->db->get($tb,$this->limit,0);
                                                         //redirect("welcome/homepage/insert_main_academic",'refresh');     
                                                   }
                                                   else  if( $page ==  2  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,5,6);
+                                                        $data["query"]=$this->db->get($tb,$this->limit,6);
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');     
                                                   }
                                                   else  if( $page ==  3  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,5,11);
+                                                        $data["query"]=$this->db->get($tb,$this->limit,11);
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');     
                                                   }
                                                    else  if( $page ==  4  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,5,16);
+                                                        $data["query"]=$this->db->get($tb,$this->limit,16);
                                                       //   redirect("welcome/homepage/insert_main_academic",'refresh');   
                                                   }
                                                   else  if( $page ==  5  )
                                                   {
-                                                        $data["query"]=$this->db->get($tb,5,21);
+                                                        $data["query"]=$this->db->get($tb,$this->limit,21);
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');   
                                                   }
                                                   else{
                                                       
-                                                        $data["query"]=$this->db->get($tb,5); 
+                                                        $data["query"]=$this->db->get($tb,$this->limit); 
                                                        //  redirect("welcome/homepage/insert_main_academic",'refresh');   
                                                   }
                                                   
