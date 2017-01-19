@@ -157,10 +157,10 @@
 
  <ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="active"><a href="#"  onclick="page_main_academic(1)">1</a></li>
+    <li class="waves-effect"><a href="#"   onclick="page_main_academic(2)">2</a></li>
+    <li class="waves-effect"><a href="#"  onclick="page_main_academic(3)">3</a></li>
+    <li class="waves-effect"><a href="#"  onclick="page_main_academic(4)">4</a></li>
+    <li class="waves-effect"><a href="#"   onclick="page_main_academic(5)">5</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>

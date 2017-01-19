@@ -462,6 +462,13 @@ $(document).ready(function(){
            }
            
            
+            function   page_main_academic(page)
+           {
+                 $('#sub11').load("<?=base_url()?>index.php/welcome/page_table_main_academic/"  +  page  );
+           }
+           
+           
+           
       </script>
       
       

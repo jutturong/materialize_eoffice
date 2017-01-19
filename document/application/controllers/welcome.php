@@ -4,6 +4,7 @@
     {
 
              var  $title="ระบบโปรแกรมงานธุรการ";
+             var  $limit=5;
              
                  public function __construct() {
                      
@@ -1654,6 +1655,71 @@
                                                   
                            }
                 }
+                
+                
+                public  function page_table_main_academic()
+                {
+                     #http://localhost/document/index.php/welcome/page_table_main_academic/1
+                     //     $tb="tb_main_academic";
+                     if(    $this->user_model->authenlogin() == 1 )
+                          {
+                                   $tb="tb_main_academic";
+                                   $tbj1="tb_academic"; 
+                                   $tbj2="tb_academic_activities";
+                                   
+                                   
+                                                 $page=$this->uri->segment(3);
+                                              //   http://10.87.196.170/document/index.php/welcome/homepage/page_table_main_academic/1
+                                 
+                                          
+                                                  
+                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
+                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
+                                                  
+                                                  $this->db->order_by("id_main_academic","DESC");
+                                                  
+                                                  
+                                                  
+                                                  
+                                                     //$query = $this->db->get('mytable', 10, 20);    
+                                                  if( $page == 1 )
+                                                  {
+                                                        $data["query"]=$this->db->get($tb,5,0);
+                                                        //redirect("welcome/homepage/insert_main_academic",'refresh');     
+                                                  }
+                                                  else  if( $page ==  2  )
+                                                  {
+                                                        $data["query"]=$this->db->get($tb,5,6);
+                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');     
+                                                  }
+                                                  else  if( $page ==  3  )
+                                                  {
+                                                        $data["query"]=$this->db->get($tb,5,11);
+                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');     
+                                                  }
+                                                   else  if( $page ==  4  )
+                                                  {
+                                                        $data["query"]=$this->db->get($tb,5,16);
+                                                      //   redirect("welcome/homepage/insert_main_academic",'refresh');   
+                                                  }
+                                                  else  if( $page ==  5  )
+                                                  {
+                                                        $data["query"]=$this->db->get($tb,5,21);
+                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');   
+                                                  }
+                                                  else{
+                                                      
+                                                        $data["query"]=$this->db->get($tb,5); 
+                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');   
+                                                  }
+                                                  
+                                                    // $this->load->view("home_academic",$data);     
+                                                     //http://10.87.196.170/document/index.php/welcome/homepage/insert_main_academic
+                                                    //  redirect("welcome/homepage/insert_main_academic",'refresh');     
+                                                   $this->load->view("home_academic",$data);
+                           }
+                }
+                
                 
                 public function  del_main_academic()
                 {
