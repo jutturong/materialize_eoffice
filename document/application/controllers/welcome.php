@@ -4,7 +4,7 @@
     {
 
              var  $title="ระบบโปรแกรมงานธุรการ";
-             var  $limit=3;
+             var  $limit=2;
              
                  public function __construct() {
                      
@@ -404,6 +404,34 @@
                      }
                     
                 }
+                
+                public  function  page_main1()
+                {
+                    // http://10.87.196.170/document/index.php/welcome/homepage/page_main1/2
+                    if(    $this->user_model->authenlogin() == 1 )
+                     {
+                            $data["title"]=$this->title;
+                            $page=$this->uri->segment(3);
+                            $tb="tb_main1";
+                            
+                              if(  $page   > 1  )
+                                 {
+                                         $cal_limit=$page-1*$this->limit  + 2;
+                                      //   $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
+                                                 //  $data["query"]=$this->user_model->tb_main1("1","1");
+                                         $data["query"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>1),$this->limit,$cal_limit);
+                                       
+                                         $data["query2"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>2),$this->limit,$cal_limit);
+                                  }else
+                                  {
+                                       $data["query"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>1),$this->limit);
+                                        $data["query2"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>2),$this->limit);
+                                  }
+                                  
+                           $this->load->view("table11",$data);      
+                      }                            
+                }
+                
                 
                 public function table2() //ศูนย์การดูแล
                 {

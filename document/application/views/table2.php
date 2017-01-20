@@ -415,7 +415,7 @@
   -->
   <!-- Modal Structure  table มูลนิธีตะวันฉาย -->
   
-  
+  <!--
   <ul class="pagination">
     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
     <li class="active"><a href="#!">1</a></li>
@@ -425,6 +425,6 @@
     <li class="waves-effect"><a href="#!">5</a></li>
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
+  -->
   
-  
-  
+    <?=$this->user_model->call_page_main1("tb_main1",$this->limit)?>

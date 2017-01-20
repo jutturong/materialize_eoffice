@@ -467,6 +467,13 @@ $(document).ready(function(){
                  $('#sub11').load("<?=base_url()?>index.php/welcome/page_table_main_academic/"  +  page  );
            }
            
+           function  page_main1(url) //แบ่งหน้า page
+           {
+                   //alert(url);
+                  $('#sub11').load(url);
+              
+           }
+           
            
            
       </script>
