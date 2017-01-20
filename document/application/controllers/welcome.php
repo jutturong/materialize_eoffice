@@ -4,7 +4,7 @@
     {
 
              var  $title="ระบบโปรแกรมงานธุรการ";
-             var  $limit=5;
+             var  $limit=2;
              
                  public function __construct() {
                      
@@ -431,6 +431,61 @@
                            $this->load->view("table11",$data);      
                       }                            
                 }
+                
+                  public  function  page_main2()
+                {
+                    // http://10.87.196.170/document/index.php/welcome/homepage/page_main1/2
+                    if(    $this->user_model->authenlogin() == 1 )
+                     {
+                            $data["title"]=$this->title;
+                            $page=$this->uri->segment(3);
+                            $tb="tb_main1";
+                            
+                              if(  $page   > 1  )
+                                 {
+                                         $cal_limit=$page-1*$this->limit  + 2;
+                                      //   $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
+                                                 //  $data["query"]=$this->user_model->tb_main1("1","1");
+                                         $data["query"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>1),$this->limit,$cal_limit);
+                                       
+                                         $data["query2"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>2),$this->limit,$cal_limit);
+                                  }else
+                                  {
+                                       $data["query"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>1),$this->limit);
+                                        $data["query2"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>2),$this->limit);
+                                  }
+                                  
+                           $this->load->view("table11",$data);      
+                      }                            
+                }
+                
+                   public  function  page_main3()
+                {
+                    // http://10.87.196.170/document/index.php/welcome/homepage/page_main1/2
+                    if(    $this->user_model->authenlogin() == 1 )
+                     {
+                            $data["title"]=$this->title;
+                            $page=$this->uri->segment(3);
+                            $tb="tb_main1";
+                            
+                              if(  $page   > 1  )
+                                 {
+                                         $cal_limit=$page-1*$this->limit  + 2;
+                                      //   $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
+                                                 //  $data["query"]=$this->user_model->tb_main1("1","1");
+                                         $data["query"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>1),$this->limit,$cal_limit);
+                                       
+                                         $data["query2"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>2),$this->limit,$cal_limit);
+                                  }else
+                                  {
+                                       $data["query"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>1),$this->limit);
+                                        $data["query2"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>2),$this->limit);
+                                  }
+                                  
+                           $this->load->view("table11",$data);      
+                      }                            
+                }
+                
                 
                 
                 public function table2() //ศูนย์การดูแล
@@ -1201,8 +1256,17 @@
                                                                                       }
                                                                                       
                                                                $tb="tb_main1";
-                                                               $this->db->insert($tb,$data);                          
-                                                               redirect("welcome/homepage/insert_success_receive31",'refresh');                  
+                                                               $ck=$this->db->insert($tb,$data);                          
+                                                               if( $ck )
+                                                               {   
+                                                                    //echo 1; 
+                                                                     redirect("welcome/homepage/insert_success_receive31",'refresh');     
+                                                               }
+                                                               else
+                                                               {
+                                                                    // echo 0;
+                                                               }
+                                            redirect("welcome/homepage/insert_success_receive31",'refresh');                               
 
                                    }
       

@@ -308,7 +308,11 @@
     <?php
               }
             ?>
-              
+                </ul>
+  <!--http://materializecss.com/collections.html -->  
+               <?php   $this->user_model->call_page_main31("tb_main1",$this->limit,base_url()."index.php/welcome/page_main3");  ?>  
+  
+  
    
                    <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
  <ul id="slide-out32" class="side-nav">
@@ -380,7 +384,7 @@
   
   
   
-        
+                       <?php   $this->user_model->call_page_main32("tb_main1",$this->limit,base_url()."index.php/welcome/page_main3");  ?>  
        
     
     </div>
@@ -439,4 +443,5 @@
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
   -->
+  
   <?=$this->user_model->call_page_main1("tb_main1",$this->limit)?>
