@@ -4,7 +4,7 @@
     {
 
              var  $title="ระบบโปรแกรมงานธุรการ";
-             var  $limit=2;
+             var  $limit=3;
              
                  public function __construct() {
                      
@@ -146,7 +146,7 @@
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
                             // echo "test";
-                           //  $data["number_add"]=$this->user_model->count_id(1,2);
+                              $data["number_add"]=$this->user_model->count_id(1,2);
                              $this->load->view("send11",$data);
                      }
                      
@@ -160,7 +160,8 @@
                              $data["title"]=$this->title;
                              //($tb,array("type_document"=>$type_document,"type_record"=>$type_record));
                               
-                   //-----------------------------------------------------------            
+                   //-----------------------------------------------------------      
+                             /*
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>1));
                     $number = $q_n->num_rows()+1;
@@ -190,7 +191,10 @@
                      }
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------            
-                               
+                          */
+                             
+                             $data["number_add"]=$this->user_model->count_id(3,1);
+                             
                              $this->load->view("receive21",$data);
                      }
                }
@@ -203,7 +207,8 @@
                              $data["title"]=$this->title;
                              
                              
-                  //-----------------------------------------------------------            
+                  //-----------------------------------------------------------  
+                             /*
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>1));
                     $number = $q_n->num_rows()+1;
@@ -231,9 +236,13 @@
                      {
                           $number_add;
                      }
+                     
+                     
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------   
+                             */
                              
+                             $data["number_add"]=$this->user_model->count_id(2,1);
                              
                              $this->load->view("receive31",$data);
                      }
@@ -251,7 +260,8 @@
                              
                              
                             
-                  //-----------------------------------------------------------            
+                  //-----------------------------------------------------------     
+                             /*
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>2));
                     $number = $q_n->num_rows()+1;
@@ -282,7 +292,8 @@
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------   
                        // $data["number_add"]=$this->user_model->count_id(3,2); 
-                     
+                     */
+                             $data["number_add"]=$this->user_model->count_id(3,2);
                      
                                $this->load->view("send21",$data);
                      }
@@ -299,7 +310,9 @@
                             // $this->load->view("sub11",$data);
                              
                              //    $data["number_add"]=$this->user_model->count_id(2,2); 
-                             //-----------------------------------------------------------            
+                             //-----------------------------------------------------------  
+                             
+                             /*
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
                     $number = $q_n->num_rows()+1;
@@ -329,7 +342,9 @@
                      }
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------  
+                          */
                              
+                              $data["number_add"]=$this->user_model->count_id(2,2);
                              $this->load->view("send31",$data);
                      }
                      
@@ -1622,7 +1637,7 @@
                                                                $this->db->where($tb.".end_date <= ", $end_date);
                                                      
                                                      
-                                                  $data["query"]=$this->db->get($tb);
+                                                  $data["query"]=$this->db->get($tb,$this->limit);
                                                
                                                   $this->load->view("home_academic",$data);
                           
@@ -1657,14 +1672,14 @@
                                                    
                                      //   $data["query"]=$this->user_model->tb_main1("1","1");
                                      //   $data["query"] = $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>1));
-                                      $data["query"] =$this->db->get($tb);
+                                      $data["query"] =$this->db->get($tb,$this->limit);
                                       
                                     $this->db->order_by("id_main1","DESC");
                                     $this->db->where("date >=  ", $begin_date_main );
                                     $this->db->where("date <=  ", $end_date_main );
                                     $this->db->where("type_record", $type_record );
                                     $this->db->where("type_document",2 );
-                                    $data["query2"]=$this->db->get($tb);
+                                    $data["query2"]=$this->db->get($tb,$this->limit);
                                     
                                     
                                    $this->load->view("table11",$data);
@@ -1678,7 +1693,7 @@
                                              $this->db->where("date <=  ", $end_date_main );
                                              $this->db->where("type_record", $type_record );
                                              $this->db->where("type_document",1 );
-                                             $data["query"] =$this->db->get($tb);
+                                             $data["query"] =$this->db->get($tb,$this->limit);
                                              //$data["query"]=$this->user_model->tb_main1("3","1");
 
                                                $this->db->order_by("id_main1","DESC");
@@ -1686,7 +1701,7 @@
                                                 $this->db->where("date <=  ", $end_date_main );
                                                 $this->db->where("type_record", $type_record );
                                                 $this->db->where("type_document",2 );
-                                               $data["query2"]=$this->db->get($tb);
+                                               $data["query2"]=$this->db->get($tb,$this->limit);
                                                // $data["query2"]=$this->user_model->tb_main1("3","2");    
                                                
                                              $this->load->view("table11",$data);
@@ -1701,7 +1716,7 @@
                                              $this->db->where("date <=  ", $end_date_main );
                                              $this->db->where("type_record", $type_record );
                                              $this->db->where("type_document",1 );
-                                             $data["query"] =$this->db->get($tb);
+                                             $data["query"] =$this->db->get($tb,$this->limit);
                                         
                                         
                                         
@@ -1711,7 +1726,7 @@
                                                 $this->db->where("date <=  ", $end_date_main );
                                                 $this->db->where("type_record", $type_record );
                                                 $this->db->where("type_document",2 );
-                                               $data["query2"]=$this->db->get($tb);
+                                               $data["query2"]=$this->db->get($tb,$this->limit);
                                         
                                          $this->load->view("table11",$data);
                                         break;  

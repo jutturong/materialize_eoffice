@@ -183,6 +183,9 @@ $(document).ready(function(){
                                 Materialize.toast($toastContent, 5000,'rounded');
                                 
                                 $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+                             
+
+
                                 
 
                   }
@@ -261,6 +264,7 @@ $(document).ready(function(){
            // index.php/welcome/subtable11/
                   
                 $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+              
                 
                 //$('#modal_table11').modal('open');
        }
@@ -271,6 +275,7 @@ $(document).ready(function(){
            // index.php/welcome/subtable11/
                   
                 $('#sub11').load("<?=base_url()?>index.php/welcome/table2");
+               
                 
                 //$('#modal_table11').modal('open');
        }
@@ -280,6 +285,7 @@ $(document).ready(function(){
            // index.php/welcome/subtable11/
                   
                 $('#sub11').load("<?=base_url()?>index.php/welcome/table3");
+               
                 
                 //$('#modal_table11').modal('open');
        }

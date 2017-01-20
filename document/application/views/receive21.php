@@ -213,7 +213,7 @@ $(function(){
         <!--  <i class="material-icons prefix">phone</i> -->
             <i class="material-icons prefix">account_circle</i>
             
-            <input id="at_receive21" name="at_receive21"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
+            <input id="at_receive21" name="at_receive21"  type="text"  placeholder="2.ที่"   />
           
           <label for="at_receive21">2.ที่</label>
           
@@ -240,7 +240,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="from_receive21"  name="from_receive21"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
+          <input  id="from_receive21"  name="from_receive21"   type="text" class="validate"     />
           
           <label for="from_receive21">4.จาก</label>
         </div>
@@ -250,7 +250,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="to_receive21"  name="to_receive21"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
+          <input  id="to_receive21"  name="to_receive21"  type="text" class="validate"   />
           
           <label for="icon_telephone">5.ถึง</label>
         </div>
@@ -260,7 +260,7 @@ $(function(){
           <i class="material-icons prefix">settings</i>
           
           
-          <input  id="subject_receive21"  name="subject_receive21"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
+          <input  id="subject_receive21"  name="subject_receive21"  type="text" class="validate"  />
           
           <label for="subject_receive21">6.เรื่อง</label>
         </div>

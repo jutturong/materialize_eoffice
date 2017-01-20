@@ -206,7 +206,7 @@ $(function(){
         <!--  <i class="material-icons prefix">phone</i> -->
             <i class="material-icons prefix">account_circle</i>
             
-            <input id="at_send21" name="at_send21"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
+            <input id="at_send21" name="at_send21"  type="text"  placeholder="2.ที่"   />
           
           <label for="at_send21">2.ที่</label>
           
@@ -233,7 +233,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="from_send21"  name="from_send21"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
+          <input  id="from_send21"  name="from_send21"   type="text" class="validate"   />
           
           <label for="from_send21">4.จาก</label>
         </div>
@@ -243,7 +243,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="to_send21"  name="to_send21"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
+          <input  id="to_send21"  name="to_send21"  type="text" class="validate"   />
           
           <label for="icon_telephone">5.ถึง</label>
         </div>
@@ -253,7 +253,7 @@ $(function(){
           <i class="material-icons prefix">settings</i>
           
           
-          <input  id="subject_send21"  name="subject_send21"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
+          <input  id="subject_send21"  name="subject_send21"  type="text" class="validate" />
           
           <label for="subject_send21">6.เรื่อง</label>
         </div>
