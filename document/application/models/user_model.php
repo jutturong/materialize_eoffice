@@ -500,35 +500,18 @@ public  function thai_year($y)
   
   function call_page_main11($tb,$limit,$url) //หนังสือรับ มูลนิธิฯ
   {
-                             //  $tb="tb_main_academic";
-                       //  $limit=2;
-      
                          $q=$this->db->get_where($tb,array("type_record"=>1,"type_document"=>1));
                          $all_rows=  $q->num_rows();
-                //echo br();
-                        $call=$all_rows/$limit;
+                        $call=$all_rows/$this->limit;
                        $max_page=round($call,0);
-                    // echo br();
+
                           echo     "<ul class=\"pagination\">";
                            echo    "<li class=\"disabled\"><a href=\"#!\"  onclick=\"#\" ><i class=\"material-icons\">chevron_left</i></a></li>";         
                                        
                         for($i=1;$i<=$max_page;$i++)
                         {
                                  $page_plus= $i;                     
-/*
-    
-   
-  
-    <li class="waves-effect"><a href="#"  onclick="page_main_academic(3)">3</a></li>
-    <li class="waves-effect"><a href="#"  onclick="page_main_academic(4)">4</a></li>
-    <li class="waves-effect"><a href="#"   onclick="page_main_academic(5)">5</a></li>
-    
-*/
-                                 
-                                        //http://10.87.196.170/document/index.php/welcome/homepage/page_main1/2
-                        $url_plus= $url."/".$page_plus;
-                        
-                        
+                                $url_plus= $url."/".$page_plus;
                               // echo  "<li class=\"active\"><a href=\"#\"  onclick=\"page_main_academic(".$page_plus.")\">1</a></li>";
                                  if(  $page_plus == 1  )
                                  {
@@ -538,15 +521,39 @@ public  function thai_year($y)
                                  {
                                           echo     "<li class=\"waves-effect\"><a href=\"#\"   onclick=\"page_main1('".$url_plus."')\">".$page_plus."</a></li>";
                                  }
-         
                         }
-                        
-                 
-                        
                         echo "<li class=\"waves-effect\"><a href=\"#!\"  onclick=\"page_main1('".$url_plus."')\"  ><i class=\"material-icons\">chevron_right</i></a></li>";
                         echo   "</ul>";
-      
   }
+  
+   function call_page_main12($tb,$limit,$url) //หนังสือรับ มูลนิธิฯ
+  {
+                         $q=$this->db->get_where($tb,array("type_record"=>1,"type_document"=>2));
+                         $all_rows=  $q->num_rows();
+                        $call=$all_rows/$limit;
+                       $max_page=round($call,0);
+
+                          echo     "<ul class=\"pagination\">";
+                           echo    "<li class=\"disabled\"><a href=\"#!\"  onclick=\"#\" ><i class=\"material-icons\">chevron_left</i></a></li>";         
+                                       
+                        for($i=1;$i<=$max_page;$i++)
+                        {
+                                 $page_plus= $i;                     
+                        $url_plus= $url."/".$page_plus;
+                              // echo  "<li class=\"active\"><a href=\"#\"  onclick=\"page_main_academic(".$page_plus.")\">1</a></li>";
+                                 if(  $page_plus == 1  )
+                                 {
+                                         echo     "<li class=\"active\"><a href=\"#\"   onclick=\"page_main1('".$url_plus."')\">".$page_plus."</a></li>";
+                                 }
+                                 else
+                                 {
+                                          echo     "<li class=\"waves-effect\"><a href=\"#\"   onclick=\"page_main1('".$url_plus."')\">".$page_plus."</a></li>";
+                                 }
+                        }
+                        echo "<li class=\"waves-effect\"><a href=\"#!\"  onclick=\"page_main1('".$url_plus."')\"  ><i class=\"material-icons\">chevron_right</i></a></li>";
+                        echo   "</ul>";
+  }
+  
   
         
 }

@@ -1,9 +1,13 @@
 <script type="text/javascript">
 
-  $(".button-collapse").sideNav();
-    
-  $('ul.tabs').tabs(); 
+  $(document).ready(function(){
+               $("#slide-out").sideNav();
+               $("#slide-out12").sideNav();
   
+    
+                $('ul.tabs').tabs(); 
+  
+    });
   
  /*   
   $(document).ready(function(){
@@ -227,9 +231,9 @@
     ?>
 
         
-        
+  </ul>    
              
-        
+         <?php  $this->user_model->call_page_main11("tb_main1",$this->limit,base_url()."index.php/welcome/page_main1");  ?> 
     
     </div>
  
@@ -396,7 +400,7 @@
         
         
         
-        
+          <?php  $this->user_model->call_page_main12("tb_main1",$this->limit,base_url()."index.php/welcome/page_main1");  ?>
         
     
     </div>
@@ -473,7 +477,7 @@
   </ul>
   -->
   
-  <?php  $this->user_model->call_page_main11("tb_main1",$this->limit,base_url()."index.php/welcome/page_main1");  ?>
+
   
   
  

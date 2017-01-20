@@ -439,6 +439,4 @@
     <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
   </ul>
   -->
-  
-  
   <?=$this->user_model->call_page_main1("tb_main1",$this->limit)?>

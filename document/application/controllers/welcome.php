@@ -4,7 +4,7 @@
     {
 
              var  $title="ระบบโปรแกรมงานธุรการ";
-             var  $limit=2;
+             var  $limit=5;
              
                  public function __construct() {
                      
@@ -465,16 +465,16 @@
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
-                         $tb="tb_main1";
+                             $tb="tb_main1";
                                 
-                          //  $data["query"]=$this->user_model->tb_main1("2","1");
+                            $data["query"]=$this->user_model->tb_main1("2","1");
                             //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
                           //  $data["query"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>1));
-                               $data["query"]=$this->user_model->tb_main1("2","1");
+                            //   $data["query"]=$this->user_model->tb_main1("2","1");
                          
-                         //   $data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
-                            // $data["query2"]=$this->user_model->tb_main1("2","2");
-                               $data["query2"]=$this->user_model->tb_main1("2","2");
+                       //     $data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
+                         //    $data["query2"]=$this->user_model->tb_main1("2","2");
+                             $data["query2"]=$this->user_model->tb_main1("2","2");
                             
                             $this->load->view("table2",$data);
                             
