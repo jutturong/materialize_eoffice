@@ -84,23 +84,26 @@ class User_model extends CI_Model {
             $tb="tb_main1";
          //   $type_document=1; //หนังสือรับ
           //  $type_record=1; //มูลนิธิตะวันฉาย
-            $q=$this->db->get_where($tb,array("type_document"=>$type_document,"type_record"=>$type_record));
+            $this->db->order_by("id_main1","DESC");
+            $q=$this->db->get_where($tb,array("type_document"=>$type_document,"type_record"=>$type_record),1);
           //  return  $q->num_rows();
             
             $row=$q->row();
             
             $number=$q->num_rows();
+            
+            
                 if(  $number  == 0   )
                 {
                    $number_add = "0001";
                 }
                 else{
                     
-                     $registration=$row->registration;
+                     $registration=  $row->registration;
                     // $registration=1000;  //test
                      
-                     $number_add=  $registration + 1;
-            
+                     $number_add=  (int)$registration + 1;
+                    // return $number_add;
                    if(     $registration  >= 0  &&   $registration < 9 )
                      {
                           
@@ -128,7 +131,7 @@ class User_model extends CI_Model {
                      
                 }
                 
-                return  $number_add;
+                         return  $number_add;
            
            
            /*

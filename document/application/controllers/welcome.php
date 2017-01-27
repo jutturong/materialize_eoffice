@@ -169,6 +169,7 @@
                             //  $data["number_add"]=$this->user_model->count_id(1,2);
                               /*-------------1.เลขทะเบียนส่ง----------  */
                                $tb="tb_main1";
+                               $this->db->order_by("id_main1","DESC");
                                $q_n=$this->db->get_where($tb,array("type_record"=>1,"type_document"=>2));
                                $row=$q_n->row();
                                $num_row_ck=$q_n->num_rows();
@@ -176,7 +177,7 @@
                                {
                                $registration_ck = $row->registration;
                                $ex=explode("/",$registration_ck);
-                               $sum_regis=$ex[1]+1;
+                               $sum_regis=(int)$ex[1]+1;
                                  $data["number_add"]="ตวฉ/".$sum_regis ;
                                }
                                else
@@ -335,7 +336,8 @@
                             //  $data["number_add"]=$this->user_model->count_id(3,2);
                                     /*-------------1.เลขทะเบียนส่ง----------  */
                                $tb="tb_main1";
-                               $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>2));
+                               $this->db->order_by("id_main1","DESC");
+                               $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>2),1);
                                $row=$q_n->row();
                                $num_rows_ck= $q_n->num_rows();
                                if(  $num_rows_ck  > 0 )
@@ -407,15 +409,20 @@
                               
                              /*-------------1.เลขทะเบียนส่ง----------  */
                                $tb="tb_main1";
-                               $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
+                               $this->db->order_by("id_main1","DESC");
+                               $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2),1);
                                $row=$q_n->row();
                                $num_rows_ck= $q_n->num_rows();
                                if(  $num_rows_ck  > 0 )
                                {
                                $registration_ck = $row->registration;
                                $ex=explode("/",$registration_ck);
-                               $sum_regis=$ex[1]+1;
-                                 $data["number_add"]="ศธ0514.7.1.2.3.4.1/".$sum_regis ;
+                               
+                                  $sum_regis= (int)$ex[1];
+                                 //  echo br();
+                                   $sum_regis_int= $sum_regis+1;
+                               
+                                      $data["number_add"]="ศธ0514.7.1.2.3.4.1/". $sum_regis_int ;
                                }
                                else
                                {

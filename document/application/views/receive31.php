@@ -214,8 +214,9 @@ $(function(){
             
           <i class="material-icons prefix">account_circle</i>
           <input id="registration_receive31" name="registration_receive31"  type="text"  placeholder="1.เลขทะเบียนรับ"  value="<?=$number_add?>" />
+         <!--
           <label for="registration_receive31">1.เลขทะเบียนรับ</label>
-          
+          -->
           
         </div>
           
