@@ -86,56 +86,113 @@ class User_model extends CI_Model {
           //  $type_record=1; //มูลนิธิตะวันฉาย
             $q=$this->db->get_where($tb,array("type_document"=>$type_document,"type_record"=>$type_record));
           //  return  $q->num_rows();
-           $number=$q->num_rows();
+            
+            $row=$q->row();
+            
+            $number=$q->num_rows();
+                if(  $number  == 0   )
+                {
+                   $number_add = "0001";
+                }
+                else{
+                    
+                     $registration=$row->registration;
+                    // $registration=1000;  //test
+                     
+                     $number_add=  $registration + 1;
+            
+                   if(     $registration  >= 0  &&   $registration < 9 )
+                     {
+                          
+                           //$number_add = "0002";
+                         //0000
+                           $number_add="000".$number_add;
+                     } 
+                     else  if(      $registration  >=  9  &&   $registration < 99  )
+                     {
+                          //0000
+                           //$number_add = "0002";
+                           $number_add="00".$number_add;
+                     }
+                     else  if(      $registration  >=  99  &&   $registration < 999  )
+                     {
+                          //0000
+                           //$number_add = "0002";
+                           $number_add="0".$number_add;
+                     }
+                    else
+                     {
+                             $number_add= $number_add;
+                     }
+                     
+                     
+                }
+                
+                return  $number_add;
+           
+           
+           /*
+           $number=1;
+           
+           if($number > 0)
+           {
+                 $registration=$row->registration;
+                
+           }
 
-           // $number=99859;
+            
                 
                    if(     $number == 0  )
                      {
-                           $number_add = "0001";
+                
+                             $number_add = "0001";
                      }
                    else     if(     $number == 1  )
                      {
-                           $number_add = "0002";
+                           $registration_add= + $registration;
+                           //$number_add = "0002";
+                           $number_add="000".$registration_add;
                      } 
                    else   if(  strlen($number) ==1   )
                      {
                             $number++;
-                           $number_add = "000".$number;
+                            
+                          // $number_add = "000".$number;
+                            $registration_add= + $registration;
+                           $number_add="000".$registration_add;
+                            
                      }
                     else if(  strlen($number) ==2   )
                      {
                            $number++;
-                           $number_add= "00".$number;
+                         //  $number_add= "00".$number;
+                           $registration_add= + $registration;
+                           $number_add="00".$registration_add;
                      } 
                       else if(  strlen($number) ==3   )
                      {
                            $number++;
-                          $number_add= "0".$number;
+                         // $number_add= "0".$number;
+                                $registration_add= + $registration;
+                               $number_add="0".$registration_add;
                      } 
                      else
                      {
                          //echo $id;
-                          $number++;
-                          $number_add= $number;
+                       //   $number++;
+                            $registration_add= + $registration;
+                        //  $number_add= $number;
+                             $number_add= $registration_add;
                      }
                    
            
-           /*
-             if(     $number == 0  )
-                     {
-                           $number_add = "0001";
-                     }
-                else
-                     {
-                         //echo $id;
-                          $number_add;
-                     }
-               */
+
            
                      
-              return $number_add;
-            //return     $number+1;
+                //  return $number_add;
+                    return  $registration;
+                    */
+                    
         }
         
         

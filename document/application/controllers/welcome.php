@@ -133,7 +133,25 @@
                  
                  */
                          //    $data["number_add"]=$number_add;     
-                             $data["number_add"]=$this->user_model->count_id(1,1);
+                             
+                            // $data["number_add"]=$this->user_model->count_id(1,1);
+                             
+                           /*-------------1.เลขทะเบียนส่ง----------  */
+                             /*
+                               $tb="tb_main1";
+                               $q_n=$this->db->get_where($tb,array("type_record"=>1,"type_document"=>1));
+                               $row=$q_n->row();
+                              * 
+                              */
+                          //    $num_rows_ck= $q_n->num_rows();
+                               
+                             
+                               
+                              /*-------------1.เลขทะเบียนส่ง----------  */  
+                              $data["number_add"]=$this->user_model->count_id(1,1);
+                               
+                               
+                             
                              $this->load->view("receive11",$data);
                      }
                }
