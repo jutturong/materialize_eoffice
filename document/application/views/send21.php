@@ -195,15 +195,19 @@ $(function(){
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="registration_send21" name="registration_send21"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$number_add?>" />
+          <input id="registration_send21" name="registration_send21"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=@$number_add?>" />
+          <!--
           <label for="registration_send21">1.เลขทะเบียนส่ง</label>
-          
+          -->
           
         </div>
           
+          
+          <!--  <i class="material-icons prefix">phone</i> -->
+          <!--
         <div class="input-field col s6">
             
-        <!--  <i class="material-icons prefix">phone</i> -->
+       
             <i class="material-icons prefix">account_circle</i>
             
             <input id="at_send21" name="at_send21"  type="text"  placeholder="2.ที่"   />
@@ -211,7 +215,7 @@ $(function(){
           <label for="at_send21">2.ที่</label>
           
         </div>
-          
+          -->
             
           <div class="input-field col s6">
             

@@ -197,9 +197,11 @@ $(function(){
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="registration_send11" name="registration_send11"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$number_add?>" />
+          <!-- placeholder="1.เลขทะเบียนส่ง" -->
+          <input id="registration_send11" name="registration_send11"  type="text"    value="<?=@$number_add?>" />
+          <!--
           <label for="registration_send11">1.เลขทะเบียนส่ง</label>
-          
+          -->
           
         </div>
           

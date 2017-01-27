@@ -211,22 +211,18 @@ $(function(){
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="registration_send31" name="registration_send31"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$number_add?>" />
-          <label for="registration_send31">1.เลขทะเบียนส่ง</label>
+          <input id="registration_send31" name="registration_send31"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=@$number_add?>" />
+          <!--<label for="registration_send31">1.เลขทะเบียนส่ง</label>-->
           
           
         </div>
           
-        <div class="input-field col s6">
-            
-        <!--  <i class="material-icons prefix">phone</i> -->
-            <i class="material-icons prefix">account_circle</i>
-            
-            <input id="at_send31" name="at_send31"  type="text"  placeholder="2.ที่"   />
+         <!--     
+                    <div class="input-field col s6">  <i class="material-icons prefix">phone</i>  <i class="material-icons prefix">account_circle</i> placeholder="2.ที่"  <label for="at_send31">2.ที่</label>
+                    <input id="at_send31" name="at_send31"  type="text"   disabled="disabled"   />
+                    </div>
+          -->
           
-          <label for="at_send31">2.ที่</label>
-          
-        </div>
           
             
           <div class="input-field col s6">

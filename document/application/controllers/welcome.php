@@ -146,7 +146,27 @@
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
                             // echo "test";
-                              $data["number_add"]=$this->user_model->count_id(1,2);
+                             
+                             
+                            //  $data["number_add"]=$this->user_model->count_id(1,2);
+                              /*-------------1.เลขทะเบียนส่ง----------  */
+                               $tb="tb_main1";
+                               $q_n=$this->db->get_where($tb,array("type_record"=>1,"type_document"=>2));
+                               $row=$q_n->row();
+                               $num_row_ck=$q_n->num_rows();
+                               if(  $num_row_ck > 0 )
+                               {
+                               $registration_ck = $row->registration;
+                               $ex=explode("/",$registration_ck);
+                               $sum_regis=$ex[1]+1;
+                                 $data["number_add"]="ตวฉ/".$sum_regis ;
+                               }
+                               else
+                               {
+                                  $data["number_add"]="ตวฉ/";
+                               }
+                              /*-------------1.เลขทะเบียนส่ง----------  */
+                               
                              $this->load->view("send11",$data);
                      }
                      
@@ -293,7 +313,28 @@
                      //-----------------------------------------------------------   
                        // $data["number_add"]=$this->user_model->count_id(3,2); 
                      */
-                             $data["number_add"]=$this->user_model->count_id(3,2);
+                             
+                            //  $data["number_add"]=$this->user_model->count_id(3,2);
+                                    /*-------------1.เลขทะเบียนส่ง----------  */
+                               $tb="tb_main1";
+                               $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>2));
+                               $row=$q_n->row();
+                               $num_rows_ck= $q_n->num_rows();
+                               if(  $num_rows_ck  > 0 )
+                               {
+                               $registration_ck = $row->registration;
+                               $ex=explode("/",$registration_ck);
+                               $sum_regis=$ex[1]+1;
+                                 $data["number_add"]="ศธ0514.7.1.2.3.4.1/".$sum_regis ;
+                               }
+                               else
+                               {
+                                  $data["number_add"]="ศธ0514.7.1.2.3.4.1/";
+                               }
+                               
+                              /*-------------1.เลขทะเบียนส่ง----------  */
+                             
+                             
                      
                                $this->load->view("send21",$data);
                      }
@@ -344,8 +385,28 @@
                      //-----------------------------------------------------------  
                           */
                              
-                              $data["number_add"]=$this->user_model->count_id(2,2);
-                             $this->load->view("send31",$data);
+                           //   $data["number_add"]=$this->user_model->count_id(2,2);
+                              
+                             /*-------------1.เลขทะเบียนส่ง----------  */
+                               $tb="tb_main1";
+                               $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
+                               $row=$q_n->row();
+                               $num_rows_ck= $q_n->num_rows();
+                               if(  $num_rows_ck  > 0 )
+                               {
+                               $registration_ck = $row->registration;
+                               $ex=explode("/",$registration_ck);
+                               $sum_regis=$ex[1]+1;
+                                 $data["number_add"]="ศธ0514.7.1.2.3.4.1/".$sum_regis ;
+                               }
+                               else
+                               {
+                                  $data["number_add"]="ศธ0514.7.1.2.3.4.1/";
+                               }
+                               
+                              /*-------------1.เลขทะเบียนส่ง----------  */
+                               
+                               $this->load->view("send31",$data);
                      }
                      
                 }
@@ -1637,7 +1698,8 @@
                                                                $this->db->where($tb.".end_date <= ", $end_date);
                                                      
                                                      
-                                                  $data["query"]=$this->db->get($tb,$this->limit);
+                                                //  $data["query"]=$this->db->get($tb,$this->limit);
+                                                  $data["query"]=$this->db->get($tb);
                                                
                                                   $this->load->view("home_academic",$data);
                           
@@ -1672,14 +1734,16 @@
                                                    
                                      //   $data["query"]=$this->user_model->tb_main1("1","1");
                                      //   $data["query"] = $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>1));
-                                      $data["query"] =$this->db->get($tb,$this->limit);
+                                    //  $data["query"] =$this->db->get($tb,$this->limit);
+                                       $data["query"] =$this->db->get($tb);
                                       
                                     $this->db->order_by("id_main1","DESC");
                                     $this->db->where("date >=  ", $begin_date_main );
                                     $this->db->where("date <=  ", $end_date_main );
                                     $this->db->where("type_record", $type_record );
                                     $this->db->where("type_document",2 );
-                                    $data["query2"]=$this->db->get($tb,$this->limit);
+                                 //  $data["query2"]=$this->db->get($tb,$this->limit);
+                                       $data["query2"]=$this->db->get($tb);
                                     
                                     
                                    $this->load->view("table11",$data);
@@ -1693,7 +1757,8 @@
                                              $this->db->where("date <=  ", $end_date_main );
                                              $this->db->where("type_record", $type_record );
                                              $this->db->where("type_document",1 );
-                                             $data["query"] =$this->db->get($tb,$this->limit);
+                                           //  $data["query"] =$this->db->get($tb,$this->limit);
+                                                   $data["query"] =$this->db->get($tb);
                                              //$data["query"]=$this->user_model->tb_main1("3","1");
 
                                                $this->db->order_by("id_main1","DESC");
@@ -1701,7 +1766,8 @@
                                                 $this->db->where("date <=  ", $end_date_main );
                                                 $this->db->where("type_record", $type_record );
                                                 $this->db->where("type_document",2 );
-                                               $data["query2"]=$this->db->get($tb,$this->limit);
+                                              // $data["query2"]=$this->db->get($tb,$this->limit);
+                                                  $data["query2"]=$this->db->get($tb);
                                                // $data["query2"]=$this->user_model->tb_main1("3","2");    
                                                
                                              $this->load->view("table11",$data);
@@ -1716,8 +1782,8 @@
                                              $this->db->where("date <=  ", $end_date_main );
                                              $this->db->where("type_record", $type_record );
                                              $this->db->where("type_document",1 );
-                                             $data["query"] =$this->db->get($tb,$this->limit);
-                                        
+                                           //  $data["query"] =$this->db->get($tb,$this->limit);
+                                         $data["query"] =$this->db->get($tb);
                                         
                                         
                                     //   $data["query2"]=$this->user_model->tb_main1("2","2");
@@ -1726,7 +1792,8 @@
                                                 $this->db->where("date <=  ", $end_date_main );
                                                 $this->db->where("type_record", $type_record );
                                                 $this->db->where("type_document",2 );
-                                               $data["query2"]=$this->db->get($tb,$this->limit);
+                                           //    $data["query2"]=$this->db->get($tb,$this->limit);
+                                                $data["query2"]=$this->db->get($tb);
                                         
                                          $this->load->view("table11",$data);
                                         break;  
