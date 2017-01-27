@@ -345,11 +345,11 @@
                                $registration_ck = $row->registration;
                                $ex=explode("/",$registration_ck);
                                $sum_regis=$ex[1]+1;
-                                 $data["number_add"]="ศธ0514.7.1.2.3.4.1/".$sum_regis ;
+                                 $data["number_add"]="ศธ0514.7.1.2.3.4/".$sum_regis ;
                                }
                                else
                                {
-                                  $data["number_add"]="ศธ0514.7.1.2.3.4.1/";
+                                  $data["number_add"]="ศธ0514.7.1.2.3.4/";
                                }
                                
                               /*-------------1.เลขทะเบียนส่ง----------  */
@@ -1697,18 +1697,21 @@
 )
                                   */
                                  
+                          
+                         $firstname_academic = trim($this->input->get_post("firstname_academic"));
+                          // echo br();
                                  
                                   $begin_date=trim($this->input->get_post("begin_date"));
                                 // echo  "<br>";
                                   $end_date=trim($this->input->get_post("end_date"));
                                //  echo  "<br>";
                                  
-                                 $tb="tb_main_academic";
+                                               $tb="tb_main_academic";
                            
             
                                  
                                                           $tbj1="tb_academic"; 
-                                   $tbj2="tb_academic_activities";
+                                                          $tbj2="tb_academic_activities";
                                    
                                                   
                                                   $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
@@ -1718,15 +1721,43 @@
                                                   
                                                   
                                                      $this->db->order_by("id_main_academic","DESC");
-                                                     
+                                                  
+                                                  if(  $firstname_academic > 0    &&    $begin_date == ""   &&  $end_date  ==  ""  )
+                                                  {
+                                                           //   $this->db->where($tb.".begin_date >= ", $begin_date);
+                                                           //    $this->db->where($tb.".end_date <= ", $end_date);
+                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
+                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
+   
+                                                               $data["query"]=$this->db->get($tb);
+                                                               $this->load->view("home_academic",$data);
+                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
+                                                  }
+                                                   else if(  $firstname_academic > 0    &&    $begin_date != ""   &&  $end_date  !=  ""  )
+                                                  {
+                                                               $this->db->where($tb.".begin_date >= ", $begin_date);
+                                                               $this->db->where($tb.".end_date <= ", $end_date);
+                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
+                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
+                                                              $data["query"]=$this->db->get($tb);
+                                                              // $data["query"]=$this->db->get_where($tb,array($tb.".id_firstname_academic"=>$firstname_academic));
+                                                               $this->load->view("home_academic",$data);
+                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
+                                                  }
+                                                  
+                                               else  if( $begin_date != ""   &&  $end_date != ""  &&    $firstname_academic == "" )
+                                                  { 
                                                               $this->db->where($tb.".begin_date >= ", $begin_date);
                                                                $this->db->where($tb.".end_date <= ", $end_date);
-                                                     
-                                                     
-                                                //  $data["query"]=$this->db->get($tb,$this->limit);
-                                                  $data["query"]=$this->db->get($tb);
-                                               
-                                                  $this->load->view("home_academic",$data);
+                                                            //  $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
+                                                              
+                                                               $data["query"]=$this->db->get($tb);
+                                                               $this->load->view("home_academic",$data);
+                                                              // $data["query"]=$this->db->get($tb,$this->limit);
+                                                  }
+                                                 
+                                                  
+               
                           
                          }
                     
@@ -1975,7 +2006,7 @@
                                 $type_record=trim($this->uri->segment(3));
                                 $type_document=trim($this->uri->segment(4));
                                 
-                                
+                                /*
                                 if(   $type_record  == 1  &&    $type_document == 1 )
                                 {
                                        $strExcelFileName="ทะเบียนหนังสือรับ.xls";
@@ -1988,10 +2019,13 @@
                                 {
                                        $strExcelFileName="ทะเบียนหนังสือ.xls";
                                 }
+                                */
                                 
+                                 $strExcelFileName="document".date("Y-m-d H:i:s O").".xls";
                              
                                 header("Content-Type: application/x-msexcel; name=\"$strExcelFileName\"");
                                 header("Content-Disposition: inline; filename=\"$strExcelFileName\"");
+                              //  header('Content-type: text/plain; charset=utf-8');
                                 header("Pragma:no-cache");
                                 //header('Content-Type: text/html; charset=UTF-8');
                                 
@@ -2006,22 +2040,23 @@
                                  
                                 echo "<table border='1'  >";
                                 echo "<tr>";
-                                echo "<td  align='center'   ><font face=\"TH Saraban New\" size='".$size1."'> เลข".br()
+                                //TH Saraban New
+                                echo "<td  align='center'   ><font face=\"\" size='".$size1."'> เลข".br()
                                         . "ทะเบียนรับ  </font></td>";
-                                echo "<td  align='center' ><font face=\"TH Saraban New\"  size='".$size1."'> ที่  </font></td>";
-                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."'> ลงวันที่  </font></td>";
-                                echo "<td align='center' ><font face=\"TH Saraban New\"  size='".$size1."' > จาก  </font></td>";
-                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."' > ถึง  </font></td>";
-                                echo "<td align='center' ><font face=\"TH Saraban New\" size='".$size1."' > เรื่อง  </font></td>";
-                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."' > การปฏิบัติ  </font></td>";
-                                echo "<td align='center' ><font face=\"TH Saraban New\" size='".$size1."' > หมายเหตุ  </font></td>";
+                                echo "<td  align='center' ><font face=\"\"  size='".$size1."'> ที่  </font></td>";
+                                echo "<td  align='center' ><font face=\"\" size='".$size1."'> ลงวันที่  </font></td>";
+                                echo "<td align='center' ><font face=\"\"  size='".$size1."' > จาก  </font></td>";
+                                echo "<td  align='center' ><font face=\"\" size='".$size1."' > ถึง  </font></td>";
+                                echo "<td align='center' ><font face=\"\" size='".$size1."' > เรื่อง  </font></td>";
+                                echo "<td  align='center' ><font face=\"\" size='".$size1."' > การปฏิบัติ  </font></td>";
+                                echo "<td align='center' ><font face=\"\" size='".$size1."' > หมายเหตุ  </font></td>";
                                 echo "</tr>";
                                 foreach(  $query_excel->result() as $row)
                                 {
                                     echo "<tr>";
                                    
                                       echo "<td align='center'>";
-                                      echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
+                                      //echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
                                       
                                       echo  $registration=$row->registration;
                                      //echo  $this->user_model->count_id($type_record,$type_document);
@@ -2030,13 +2065,13 @@
                                      
                                      
                                         echo "<td>";
-                                        echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                       // echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $at=$row->at;
                                       echo " </font>";
                                      echo "</td>";
                                      
                                            echo "<td>";
-                                           echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
+                                        //   echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
                                            
                                            
                                     echo   $date=$row->date;
@@ -2049,7 +2084,7 @@
                                      
                                      
                                      echo "<td>";
-                                     echo "<font face=\"TH Saraban New\" size='".$size2."' >";
+                                  //   echo "<font face=\"TH Saraban New\" size='".$size2."' >";
                                      echo  $from=$row->from;
                                       echo " </font>";
                                      echo "</td>";
@@ -2059,26 +2094,26 @@
                           
                                      
                                      echo "<td>";
-                                     echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                  //   echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $to=$row->to;
                                       echo " </font>";
                                      echo "</td>";
                                      
                                       echo "<td>";
-                                      echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                    //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $subject=$row->subject;
                                       echo " </font>";
                                      echo "</td>";
                                      
                                        echo "<td>";
-                                       echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                     //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                    //  echo  $practice=$row->practice;
                                        
                                         echo " </font>";
                                      echo "</td>";
                                      
                                      echo "<td>";
-                                     echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                   //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                   //   echo  $note=$row->note;
                                       echo " </font>";
                                      echo "</td>";

@@ -537,12 +537,12 @@ $(document).ready(function(){
   <ul id="dropdown1" class="dropdown-content">
       
       <li><a href="#!"     onclick=" receive11() "    ><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
-   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')" ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+      <li><a href="#!"  target="_blank"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')" ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
   
     
   <li class="divider"></li>
   <li><a href="#!"   onclick=" send11() "  ><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
-   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')" > <i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   <li><a href="#!"  target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')" > <i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
   
    <li class="divider"></li>
    <li class="divider"></li>
@@ -553,12 +553,12 @@ $(document).ready(function(){
    <ul id="dropdown2" class="dropdown-content">
       
        <li><a href="#!" onclick=" receive21()"><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
-   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')"  ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   <li><a href="#!" target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')"  ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
     
     
   <li class="divider"></li>
   <li><a href="#!" onclick=" send21()  "><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
-   <li><a href="#!"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"    > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   <li><a href="#!"  target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"    > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
   
    <li class="divider"></li>
    <li class="divider"></li>
@@ -569,12 +569,12 @@ $(document).ready(function(){
      <ul id="dropdown3" class="dropdown-content">
       
         <li><a href="#!"   onclick=" receive31()" ><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
-   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')"    ><i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   <li><a href="#!"    target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')"    ><i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
   
     
   <li class="divider"></li>
   <li><a href="#!" onclick=" send31()  " ><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
-   <li><a href="#!"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')"  > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   <li><a href="#!" target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')"  > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
    
    <li class="divider"></li>
    <li class="divider"></li>
@@ -1025,6 +1025,16 @@ $(document).ready(function(){
       <form id="fr_sr_academic" action="<?=base_url()?>index.php/welcome/search_main_academic">
      <div class="modal-content" >
          
+         
+         <div class="input-field col s6">
+                                 <select id="firstname_academic" name="firstname_academic" >
+                                          
+                                          <option value="" disabled selected>Choose your option</option>
+                                             <?php   $this->user_model->select_academic();  ?>
+                                               
+                                 </select>
+                                           <label> ชื่อ-นามสกุล : </label>
+          </div>
 
          <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
@@ -1044,7 +1054,12 @@ $(document).ready(function(){
          <button class="waves-effect waves-light btn-large" type="button"  id="btn_academic"  name="btn_academic" >
                   SEARCH
                                   <i class="material-icons md-30">assignment_ind</i>
-              </button>
+         </button>
+         
+         <button class="waves-effect waves-light btn-large" type="reset"  id="btn_academic"  name="btn_academic" >
+                  CLEAR
+                                  <i class="material-icons md-30">tab_unselected</i>
+         </button>
        
          
          
