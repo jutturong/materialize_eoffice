@@ -649,7 +649,7 @@ $(document).ready(function(){
          
              <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
          
-         
+              <li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>หนังสือเวียน</a></li>
            
          <li>
              <a class="dropdown-button" href="#modal_sr"    ><i class="material-icons left">zoom_in</i> Search </a>
@@ -1205,6 +1205,58 @@ $(document).ready(function(){
 
  
    
+ 
+ 
+   <!-- dialog หนังสือเวียน -->
+  <div id="modal_circular" class="modal">
+    <div class="modal-content">
+        
+
+      
+        
+        <div class="input-field col s6">
+    <select>
+        
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+      
+      
+      
+      
+    </select>
+    <i class="small material-icons">insert_chart</i><label>เลขที่ </label>
+  </div>
+        
+        
+        
+      
+       <div class="input-field col s6">
+    
+           
+            <select multiple>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+           
+           
+    <i class="small material-icons">insert_chart</i><label>หน่วยงานที่ต้องการเวียนหนังสือ </label>
+  </div>
+      
+      
+      
+    </div>
+      
+      
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+      
+      
+  </div>
   
  
  
