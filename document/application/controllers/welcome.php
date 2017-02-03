@@ -2022,14 +2022,22 @@
                                 */
                                 
                                  $strExcelFileName="document".date("Y-m-d H:i:s O").".xls";
-                             
-                                header("Content-Type: application/x-msexcel; name=\"$strExcelFileName\"");
+                              //  header("Content-Type: application/vnd.ms-excel");
+                            //    header("Content-Type: application/x-msexcel; name=\"$strExcelFileName\"  ; content=\"text/html;charset=utf-8\"  ");
+                                
+                                
+                                header("Content-type: application/vnd.ms-excel ;  name=\"$strExcelFileName\"  ; content=\"text/html;charset=utf-8\" ");
+                                
                                 header("Content-Disposition: inline; filename=\"$strExcelFileName\"");
                               //  header('Content-type: text/plain; charset=utf-8');
                                 header("Pragma:no-cache");
-                                //header('Content-Type: text/html; charset=UTF-8');
+                             //   header('Content-Type: text/html; charset=UTF-8');
                                 
+                               // echo "<meta http-equiv=\”Content-type\” content=\”text/html;charset=tis-620\″ />";
                                
+                               //<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+                                
+                                
                                 $tb="tb_main1";
                               //  $data["query_excel"]= $this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>$type_document));
                                  $query_excel = $this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>$type_document));
@@ -2038,25 +2046,30 @@
                                  $size1=3;
                                  $size2=2;
                                  
-                                echo "<table border='1'  >";
+
+                                 
+                   
+
+                                 
+                                echo "<table x:str  border='1'  >";
                                 echo "<tr>";
                                 //TH Saraban New
-                                echo "<td  align='center'   ><font face=\"\" size='".$size1."'> เลข".br()
+                                echo "<td  align='center'   ><font face=\"TH Saraban New\" size='".$size1."'> เลข".br()
                                         . "ทะเบียนรับ  </font></td>";
-                                echo "<td  align='center' ><font face=\"\"  size='".$size1."'> ที่  </font></td>";
-                                echo "<td  align='center' ><font face=\"\" size='".$size1."'> ลงวันที่  </font></td>";
-                                echo "<td align='center' ><font face=\"\"  size='".$size1."' > จาก  </font></td>";
-                                echo "<td  align='center' ><font face=\"\" size='".$size1."' > ถึง  </font></td>";
-                                echo "<td align='center' ><font face=\"\" size='".$size1."' > เรื่อง  </font></td>";
-                                echo "<td  align='center' ><font face=\"\" size='".$size1."' > การปฏิบัติ  </font></td>";
-                                echo "<td align='center' ><font face=\"\" size='".$size1."' > หมายเหตุ  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\"  size='".$size1."'> ที่  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."'> ลงวันที่  </font></td>";
+                                echo "<td align='center' ><font face=\"TH Saraban New\"  size='".$size1."' > จาก  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."' > ถึง  </font></td>";
+                                echo "<td align='center' ><font face=\"TH Saraban New\" size='".$size1."' > เรื่อง  </font></td>";
+                                echo "<td  align='center' ><font face=\"TH Saraban New\" size='".$size1."' > การปฏิบัติ  </font></td>";
+                                echo "<td align='center' ><font face=\"TH Saraban New\" size='".$size1."' > หมายเหตุ  </font></td>";
                                 echo "</tr>";
                                 foreach(  $query_excel->result() as $row)
                                 {
                                     echo "<tr>";
                                    
                                       echo "<td align='center'>";
-                                      //echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
+                                     echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
                                       
                                       echo  $registration=$row->registration;
                                      //echo  $this->user_model->count_id($type_record,$type_document);
@@ -2065,26 +2078,26 @@
                                      
                                      
                                         echo "<td>";
-                                       // echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                        echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $at=$row->at;
                                       echo " </font>";
                                      echo "</td>";
                                      
                                            echo "<td>";
-                                        //   echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
+                                          echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
                                            
                                            
                                     echo   $date=$row->date;
                                      
                                      
                                      
-                                      echo " </font>";
+                                     echo " </font>";
                                      echo "</td>";
                                      
                                      
                                      
                                      echo "<td>";
-                                  //   echo "<font face=\"TH Saraban New\" size='".$size2."' >";
+                                     echo "<font face=\"TH Saraban New\" size='".$size2."' >";
                                      echo  $from=$row->from;
                                       echo " </font>";
                                      echo "</td>";
@@ -2094,13 +2107,13 @@
                           
                                      
                                      echo "<td>";
-                                  //   echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                    echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $to=$row->to;
-                                      echo " </font>";
+                                    echo " </font>";
                                      echo "</td>";
                                      
                                       echo "<td>";
-                                    //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                      echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $subject=$row->subject;
                                       echo " </font>";
                                      echo "</td>";
@@ -2109,19 +2122,20 @@
                                      //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                    //  echo  $practice=$row->practice;
                                        
-                                        echo " </font>";
+                                      //  echo " </font>";
                                      echo "</td>";
                                      
                                      echo "<td>";
                                    //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                   //   echo  $note=$row->note;
-                                      echo " </font>";
+                                   //   echo " </font>";
                                      echo "</td>";
                                      
                                      echo "</tr>";
                                 }
                                 echo "</table>";
                                
+
                                        
                          }
                         

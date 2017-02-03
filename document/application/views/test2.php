@@ -138,16 +138,8 @@ $(document).ready(function(){
 */
   
 
-  
-  
+            
 
-
-
-            
-            
-            
-            
-  
 </script>
 <!--  ลบข้อมูลในตาราง -->
 
@@ -537,12 +529,17 @@ $(document).ready(function(){
   <ul id="dropdown1" class="dropdown-content">
       
       <li><a href="#!"     onclick=" receive11() "    ><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
-      <li><a href="#!"  target="_blank"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')" ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+      <li><a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=1&type_document=1"  target="_blank"    ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
   
     
   <li class="divider"></li>
   <li><a href="#!"   onclick=" send11() "  ><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
-   <li><a href="#!"  target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')" > <i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   <li>
+       <a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=1&type_document=1"  target="_blank"   >
+          
+           
+           <i class="material-icons left">tab_unselected</i> ออกรายงาน</a>
+   </li>
   
    <li class="divider"></li>
    <li class="divider"></li>
@@ -553,12 +550,13 @@ $(document).ready(function(){
    <ul id="dropdown2" class="dropdown-content">
       
        <li><a href="#!" onclick=" receive21()"><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
-   <li><a href="#!" target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')"  ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+   <li><a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=3&type_document=1" target="_blank"    ><i class="material-icons left">tab_unselected</i> ออกรายงาน</a></li>
     
     
   <li class="divider"></li>
   <li><a href="#!" onclick=" send21()  "><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
-   <li><a href="#!"  target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"    > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+  <!--onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')" -->
+   <li><a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=3&type_document=1"  target="_blank"     > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
   
    <li class="divider"></li>
    <li class="divider"></li>
@@ -569,12 +567,14 @@ $(document).ready(function(){
      <ul id="dropdown3" class="dropdown-content">
       
         <li><a href="#!"   onclick=" receive31()" ><i class="tiny material-icons left">voicemail</i>หนังสือรับ</a></li>
-   <li><a href="#!"    target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')"    ><i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+        <!--onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')"  -->
+   <li><a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=1"    target="_blank"    ><i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
   
     
   <li class="divider"></li>
   <li><a href="#!" onclick=" send31()  " ><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
-   <li><a href="#!" target="_blank"  onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')"  > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
+  <!-- onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')" -->
+   <li><a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=2" target="_blank"  > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
    
    <li class="divider"></li>
    <li class="divider"></li>
