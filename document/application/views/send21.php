@@ -25,11 +25,20 @@
     
 $(function(){
     
-    $('.datepicker').pickadate({
+    //$('#date1_send31').val("<?php  echo date("Y-m-d");  ?>");
+    //date1_send21
+    
+    
+    //$('.datepicker').pickadate({
+        $('#date1_send21').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year
     format:'yyyy-mm-dd'
   });
+  
+    $('#date1_send21').val("<?php  echo date("Y-m-d");  ?>");
+  
+  
     
 });
 

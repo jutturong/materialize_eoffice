@@ -32,6 +32,7 @@
                  public  function  homepage()
                  {
                                 $data["title"]=$this->title;
+                              
                                 $this->load->view("test2",$data);
                  }
         

@@ -31,8 +31,13 @@ $(function(){
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year
     format:'yyyy-mm-dd',
-  });
     
+  });
+  
+  
+  //  echo  $data["cur_date"]=date("Y-m-d");
+     $('#date1_send11').val("<?php  echo date("Y-m-d");  ?>");
+     
 });
 
   

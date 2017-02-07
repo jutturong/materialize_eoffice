@@ -263,12 +263,13 @@ function  chstr1($t)
 
 $type_record=$_REQUEST["type_record"];
 $type_document=$_REQUEST["type_document"];
-        
+  
+//$cur_date=date("Y-m-d");    and   `date` = '$cur_date' 
     
 if(  $type_record >= 1  &&  $type_document >= 1 )
 {
        $tb="tb_main1";
-       $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document   ";
+       $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document      ";
        $query=mysql_query($str) or die("mysql error ");
        
        /*

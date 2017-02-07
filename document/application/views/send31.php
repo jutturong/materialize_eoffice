@@ -42,6 +42,9 @@ $(function(){
     format:'yyyy-mm-dd'
   });
     
+    $('#date1_send31').val("<?php  echo date("Y-m-d");  ?>");
+    
+    
 });
   
   

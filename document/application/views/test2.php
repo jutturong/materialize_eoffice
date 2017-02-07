@@ -541,8 +541,14 @@ $(document).ready(function(){
            <i class="material-icons left">tab_unselected</i> ออกรายงาน</a>
    </li>
   
+   <!--
+    <li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>ถึง(หนังสือเวียน)</a></li>
+   -->
+    
+    <!--
    <li class="divider"></li>
    <li class="divider"></li>
+    -->
    
 
 </ul>
@@ -557,7 +563,7 @@ $(document).ready(function(){
   <li><a href="#!" onclick=" send21()  "><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
   <!--onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')" -->
    <li><a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=3&type_document=1"  target="_blank"     > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
-  
+   <!-- <li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>ถึง(หนังสือเวียน)</a></li> -->
    <li class="divider"></li>
    <li class="divider"></li>
   
@@ -575,7 +581,7 @@ $(document).ready(function(){
   <li><a href="#!" onclick=" send31()  " ><i class="tiny material-icons left">voicemail</i>หนังสือส่ง</a></li>
   <!-- onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')" -->
    <li><a href="<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=2" target="_blank"  > <i class="tiny material-icons left">tab_unselected</i> ออกรายงาน</a></li>
-   
+  <!-- <li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>ถึง(หนังสือเวียน)</a></li> -->
    <li class="divider"></li>
    <li class="divider"></li>
   
@@ -649,7 +655,7 @@ $(document).ready(function(){
          
              <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
          
-              <li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>หนังสือเวียน</a></li>
+              <!--<li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>หนังสือเวียน</a></li>-->
            
          <li>
              <a class="dropdown-button" href="#modal_sr"    ><i class="material-icons left">zoom_in</i> Search </a>
@@ -1207,7 +1213,7 @@ $(document).ready(function(){
    
  
  
-   <!-- dialog หนังสือเวียน -->
+  <!-- dialog หนังสือเวียน -->
   <div id="modal_circular" class="modal">
     <div class="modal-content">
         
@@ -1215,19 +1221,10 @@ $(document).ready(function(){
       
         
         <div class="input-field col s6">
-    <select>
-        
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-      
-      
-      
-      
-    </select>
-    <i class="small material-icons">insert_chart</i><label>เลขที่ </label>
-  </div>
+          <i class="material-icons prefix">picture_in_picture</i>
+          <input id="at_circle" name="at_circle" type="text" class="validate">
+          <!--<label for="icon_prefix">First Name</label>-->
+        </div>
         
         
         
@@ -1237,16 +1234,61 @@ $(document).ready(function(){
            
             <select multiple>
       <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
+      <option value="1">คณะบดีคณะแพทยศาสตร์</option>
+      <option value="2">หัวหน้าภาควิชา โสต สอ นาสิกฯ</option>
+      <option value="3">หัวหน้าภาควิชาสูติ-นรีเวช</option>
+      <option value="4">หัวหน้าภาควิชารังสีวิทยา</option>
+      <option value="5">หัวหน้าภาควิชากุมารเวชศาสตร์</option>
+      <option value="6">หัวหน้าภาควิชาจิตเวชศาสตร์</option>
+      <option value="7">หัวหน้าภาควิชาวิสัญญ์วิทยา</option>
+      <option value="8">หัวหน้าภาควิชาศัลยศาสตร์</option>
+      <option value="9">ผู้อำนวยการโรงพยาบาลศรีนครินทร์</option>
+      <option value="10">รองผู้อำนวยการฝ่ายบริการทางการแพทย์</option>
+      <option value="11">รองผู้อำนวยการฝ่ายสารสนเทศ</option>
+      <option value="12">รองผู้อำนวยการฝ่ายแผนและบริหารความเสี่ยง</option>
+      <option value="13">รองผู้อำนวยการฝ่ายพัฒนาคุณภาพโรงพยาบาล</option>
+      <option value="14">หัวหน้างานบริการพยาบาล</option>
+      <option value="15">ผู้ตรวจการแผนการพยาบาลศัลยกรรมและออร์โธปิดิกส์</option>
+      <option value="16">ผู้ตรวจการแผนกการพยาบาลห้องผ่าตัด</option>
+       <option value="17">หัวหน้าผู้ป่วยนอก</option>
+       <option value="18">ผู้ตรวจการแผนกการพยาบาลสูติ-นรีเวชกรรม</option>
+       <option value="19">ผู้ตรวจการแผนกการพยาบาลกุมารเวชกรรม</option>
+       <option value="20">ผู้ตรวจการแผนกการพยาบาลศัลยกรรม</option>
+       <option value="21">หัวหน้างานสังคมสงเคราะห์</option>
+       <option value="22">คณะบดีคณะทันตแพทยศาสตร์</option>
+        <option value="23">ผู้อำนวยการโรงพยาบาลทันตกรรม</option>
+        <option value="24">หัวหน้าภาควิชาทันตกรรมจัดฟัน</option>
+         <option value="25">หัวหน้าภาควิชาทันตกรรมสำหรับเด็ก</option>
+          <option value="26">หัวหน้าภาควิชาศัลยศาสตร์ช่องปากและกระดูกขากรรไกร</option>
+           <option value="27">รศ.กมลวรรณ  เจนวิถีสุข</option>
     </select>
            
            
-    <i class="small material-icons">insert_chart</i><label>หน่วยงานที่ต้องการเวียนหนังสือ </label>
+   <!-- <i class="small material-icons">insert_chart</i><label>หน่วยงานที่ต้องการเวียนหนังสือ </label>-->
   </div>
       
-      
+             <div class="input-field col s6">
+    
+           
+            <select multiple>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">คณะแพทยศาสตร์</option>
+      <option value="2">โรงพยาบาลศรีนครินทร์</option>
+      <option value="3">คณะทันตแพทยศาสตร์</option>
+      <option value="4">ภาควิชาศัลยศาสตร์</option>
+       <option value="5">งานนโยบายและแผน</option>
+        <option value="6">รองคณบดีฝ่ายวางแผนฯ</option>
+          <option value="7">คณะสาธารณสุขศาสตร์</option>
+          <option value="8">บัณฑิตวิทยาลัย</option>
+            <option value="9">สำนักงานอธิการบดี</option>
+    </select>
+           
+           
+   <!-- <i class="small material-icons">insert_chart</i><label>หน่วยงานที่ต้องการเวียนหนังสือ </label>-->
+  </div>
+        
+        
+        
       
     </div>
       
@@ -1257,7 +1299,7 @@ $(document).ready(function(){
       
       
   </div>
-  
+     <!-- dialog หนังสือเวียน -->
  
  
  
