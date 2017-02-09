@@ -4,6 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/document/application/views/test2.php</file>
+            <file>file:/var/www/html/document/application/views/table11.php</file>
+            <file>file:/var/www/html/document/report_pdf/docdb/queryheader.php</file>
+            <file>file:/var/www/html/document/report_pdf/docdb/report_circle.php</file>
+            <file>file:/var/www/html/document/application/views/table2.php</file>
+            <file>file:/var/www/html/document/report_pdf/docdb/querydb.php</file>
+            <file>file:/var/www/html/document/report_pdf/docdb/dbreport.php</file>
         </group>
     </open-files>
 </project-private>

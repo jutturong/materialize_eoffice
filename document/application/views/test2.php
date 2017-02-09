@@ -1214,90 +1214,303 @@ $(document).ready(function(){
  
  
   <!-- dialog หนังสือเวียน -->
+  
   <div id="modal_circular" class="modal">
+      <!--   <?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=2  -->
+      <!--  action="<?=base_url()?>report_pdf/docdb/queryheader.php"  -->
+      
+      <!--  http://10.87.196.170/document/report_pdf/docdb/queryheader.php   -->
+      <!--  report_pdf/docdb/report_circle.php  -->
+      <!--  report_pdf/docdb/queryheader.php  -->
+      <form  id="fr_header_report" class="col s12"  action="<?=base_url()?>report_pdf/docdb/report_circle.php"   method="post"  enctype="multipart/form-data"  novalidate="novalidate"    >   
     <div class="modal-content">
         
 
       
-        
+       
         <div class="input-field col s6">
           <i class="material-icons prefix">picture_in_picture</i>
           <input id="at_circle" name="at_circle" type="text" class="validate">
           <!--<label for="icon_prefix">First Name</label>-->
+          
+          <input type="hidden"  id="id_main1"  name="id_main1"  />
+          
         </div>
         
+
+        <!--  1  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name1" name="head_name1">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory1"  name="factory1"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  1  -->
+         
+         <!--  2  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name2" name="head_name2">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory2"  name="factory2"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  2  -->
         
+             <!--  3  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name3" name="head_name3">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory3"  name="factory3"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  3  -->         
+         
+         
+          <!--  4  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name4" name="head_name4">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory4"  name="factory4"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  4  -->   
+         
+         
+           <!--  5  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name5" name="head_name5">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory5"  name="factory5"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  5  --> 
+         
         
-      
-       <div class="input-field col s6">
-    
-           
-            <select multiple>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">คณะบดีคณะแพทยศาสตร์</option>
-      <option value="2">หัวหน้าภาควิชา โสต สอ นาสิกฯ</option>
-      <option value="3">หัวหน้าภาควิชาสูติ-นรีเวช</option>
-      <option value="4">หัวหน้าภาควิชารังสีวิทยา</option>
-      <option value="5">หัวหน้าภาควิชากุมารเวชศาสตร์</option>
-      <option value="6">หัวหน้าภาควิชาจิตเวชศาสตร์</option>
-      <option value="7">หัวหน้าภาควิชาวิสัญญ์วิทยา</option>
-      <option value="8">หัวหน้าภาควิชาศัลยศาสตร์</option>
-      <option value="9">ผู้อำนวยการโรงพยาบาลศรีนครินทร์</option>
-      <option value="10">รองผู้อำนวยการฝ่ายบริการทางการแพทย์</option>
-      <option value="11">รองผู้อำนวยการฝ่ายสารสนเทศ</option>
-      <option value="12">รองผู้อำนวยการฝ่ายแผนและบริหารความเสี่ยง</option>
-      <option value="13">รองผู้อำนวยการฝ่ายพัฒนาคุณภาพโรงพยาบาล</option>
-      <option value="14">หัวหน้างานบริการพยาบาล</option>
-      <option value="15">ผู้ตรวจการแผนการพยาบาลศัลยกรรมและออร์โธปิดิกส์</option>
-      <option value="16">ผู้ตรวจการแผนกการพยาบาลห้องผ่าตัด</option>
-       <option value="17">หัวหน้าผู้ป่วยนอก</option>
-       <option value="18">ผู้ตรวจการแผนกการพยาบาลสูติ-นรีเวชกรรม</option>
-       <option value="19">ผู้ตรวจการแผนกการพยาบาลกุมารเวชกรรม</option>
-       <option value="20">ผู้ตรวจการแผนกการพยาบาลศัลยกรรม</option>
-       <option value="21">หัวหน้างานสังคมสงเคราะห์</option>
-       <option value="22">คณะบดีคณะทันตแพทยศาสตร์</option>
-        <option value="23">ผู้อำนวยการโรงพยาบาลทันตกรรม</option>
-        <option value="24">หัวหน้าภาควิชาทันตกรรมจัดฟัน</option>
-         <option value="25">หัวหน้าภาควิชาทันตกรรมสำหรับเด็ก</option>
-          <option value="26">หัวหน้าภาควิชาศัลยศาสตร์ช่องปากและกระดูกขากรรไกร</option>
-           <option value="27">รศ.กมลวรรณ  เจนวิถีสุข</option>
-    </select>
-           
-           
-   <!-- <i class="small material-icons">insert_chart</i><label>หน่วยงานที่ต้องการเวียนหนังสือ </label>-->
-  </div>
-      
-             <div class="input-field col s6">
-    
-           
-            <select multiple>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">คณะแพทยศาสตร์</option>
-      <option value="2">โรงพยาบาลศรีนครินทร์</option>
-      <option value="3">คณะทันตแพทยศาสตร์</option>
-      <option value="4">ภาควิชาศัลยศาสตร์</option>
-       <option value="5">งานนโยบายและแผน</option>
-        <option value="6">รองคณบดีฝ่ายวางแผนฯ</option>
-          <option value="7">คณะสาธารณสุขศาสตร์</option>
-          <option value="8">บัณฑิตวิทยาลัย</option>
-            <option value="9">สำนักงานอธิการบดี</option>
-    </select>
-           
-           
-   <!-- <i class="small material-icons">insert_chart</i><label>หน่วยงานที่ต้องการเวียนหนังสือ </label>-->
-  </div>
+          <!--  6  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name6" name="head_name6">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory6"  name="factory6"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  6  --> 
+         
+         
+         <!--  7  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name7" name="head_name7">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory7"  name="factory7"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  7  -->
         
+         
+           <!--  8  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name8" name="head_name8">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory8"  name="factory8"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  8  -->
+         
+         
+          <!--  9  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name9" name="head_name9">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory9"  name="factory9"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  9  -->
+              
         
-        
-      
+          <!--  10  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name10" name="head_name10">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory10"  name="factory10"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  10  -->
+         
+                   <!--  11  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name11" name="head_name11">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory11"  name="factory11"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  11  -->
+         
+         
+                            <!--  12  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name12" name="head_name12">
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory12"  name="factory12"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_header()?>   
+        </select>
+        </div>
+      </div>
+         <!--  12  -->
+         
+         
+  
     </div>
       
+    
       
     <div class="modal-footer">
+        
+       <!-- 
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+       
+       <?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=2
+       
+       
+       -->
+       
+       <!-- <?=base_url()?>report_pdf/docdb/queryheader.php -->
+       <!--
+       <a class="waves-effect waves-light btn-large" onclick=" javascript:  $('#fr_header_report').form('submit',function(data){  alert(data);  });  " >
+      <i class="material-icons">add</i>
+            Report
+      </a>
+       -->
+       
+       
+       <button type="submit"  class="waves-effect waves-light btn-large" >
+            <i class="material-icons">add</i>
+            Report
+       </button>
+     
+       
+       <a class="btn-large " onclick=" javascript: $(function(){  $('#modal_circular').modal('close');  })  " ><i class="large material-icons">power_settings_new</i>Close</a>
+       
+      
     </div>
       
-      
+          </form>
   </div>
      <!-- dialog หนังสือเวียน -->
  

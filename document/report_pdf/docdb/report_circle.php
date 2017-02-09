@@ -7,7 +7,8 @@
 
 require_once("pdf_class.php"); //class PDF
 //require_once("query_diagnosis.php");
-require_once 'querydb.php';
+//require_once 'querydb.php';
+require_once'queryheader.php';
 
 ##---- PDF ---
 $pdf=new PDF('L','mm','A4');  //ของเดิม 
@@ -235,7 +236,7 @@ $pdf->SetFont('angsana','I',16);
 //  $pdf->MultiCell( 0  , 0 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ));
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
-$pdf->Cell(  0  ,  0 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือส่ง "  ));
+$pdf->Cell(  0  ,  0 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือส่งออกเลขที่  ".$at_circle  ));
 
 
 
@@ -258,14 +259,14 @@ $pdf->SetFont('angsana','',14);
 //  $pdf->MultiCell( 0  , 0 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ));
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
-$pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' , " เลข "  ),LRT,1,'C',false);
+$pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , " ลำดับที่ "  ),LRT,1,'C',false);
 $pdf->setXY( $x1 , $y1 + 15 );
-$pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' , " ทะเบียนส่ง "  ),LRB ,1,'C',false);
+$pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),LRB ,1,'C',false);
 
 
 
 
-$pdf->setXY( $x1+40 , $y1 + 5 );
+$pdf->setXY( $x1+20 , $y1 + 5 );
 $pdf->SetFont('angsana','',14);
 
 
@@ -273,12 +274,12 @@ $pdf->SetFont('angsana','',14);
 //  $pdf->MultiCell( 0  , 0 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ));
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
-$pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' , " ถึง "  ),RT,1,'C',false);
-$pdf->setXY( $x1+40 , $y1 + 15 );
-$pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
+$pdf->Cell(  100  ,  10 , iconv( 'UTF-8','cp874' , " รายชื่อ "  ),RT,1,'C',false);
+$pdf->setXY( $x1+20 , $y1 + 15 );
+$pdf->Cell(  100  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
 
-$pdf->setXY( $x1+30+20+50 , $y1 + 5 );
+$pdf->setXY( $x1+20+100 , $y1 + 5 );
 $pdf->SetFont('angsana','',14);
 
 
@@ -323,13 +324,13 @@ $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
 
 
-$pdf->setXY( $x1+30+20+50 , $y1 + 5 );
+$pdf->setXY(  $x1+20+100 , $y1 + 5 );
 $pdf->SetFont('angsana','',14);
 
 //  $pdf->MultiCell( 0  , 0 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ));
 //$pdf->Cell( 30  , 10 , iconv( 'UTF-8','cp874' , 'เลขที่ ส่ง' ),LBRT,1,'C',false);
 //  $pdf->Cell( 50  , 10 , iconv( 'UTF-8','cp874' , " ทะเบียนหนังสือรับ "  ) ,LBRT,1,'C' ,false  );
-$pdf->Cell(  100  ,  10 , iconv( 'UTF-8','cp874' , " เรื่่อง "  ),RT,1,'C',false);
+$pdf->Cell(  80  ,  10 , iconv( 'UTF-8','cp874' , " หน่วยงาน "  ),RT,1,'C',false);
 $pdf->setXY( $x1+30+20+50 , $y1 + 15 );
 $pdf->Cell(  100  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
@@ -365,7 +366,7 @@ $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false);
 
 //----------------เลขทะเบียนรับ------
 
-$pdf->SetFont('angsana','',12);
+//$pdf->SetFont('angsana','',12);
 
 
 /*
@@ -404,6 +405,11 @@ $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' ,  $note  ),RB,1,'L',false);
  * 
  */
 
+
+
+
+
+/*
 $addi=0;
  while($row=mysql_fetch_assoc($query))
  {
@@ -416,11 +422,7 @@ $addi=0;
                     $subject=$row["subject"];
                     
                                         
-           //   $content = '<table border="0" cellspacing="0" cellpadding="2"> '. $subject .'  </table>';
-           //  $content = stripslashes($content);
-             //$content = AdjustHTML($content);
-              
-             //  $content= substr( $subject, 0,   );
+      
                     $content=substr($subject,0,10);
                     
                     $practice=$row["practice"];
@@ -436,14 +438,9 @@ $addi=0;
                     
                   
                     //----------------ถึง------
-                    //$pdf->SetFont('angsana','',13);
+                 
                     $pdf->setXY( $x1+40 , $y1 + 15 + $addi    );
-                 //  $pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' ,  $to  ),RB,1,'L',false);
                    
-                 //   $pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' , strlen($to) ),RB,2,'L',false);
-                   // $pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' , substr($to,0,200)  ),RB,2,'L',false);
-                     //  $pdf->Cell(60,10, iconv( 'UTF-8','cp874' , mb_substr($to, 0,46,'UTF-8')."ฯ" ) ,'LRBT', 2);
-                    
                     
                     if( strlen($to) < 47 )
                      {
@@ -451,148 +448,147 @@ $addi=0;
                      }
                      else
                      {
-                          //$pdf->Cell(60,10, iconv( 'UTF-8','cp874' , mb_substr($to, 0,46,'UTF-8')."ฯ" ) ,'LRBT', 2);
-                           $pdf->Cell(60,10, iconv( 'UTF-8','cp874' , mb_substr($to, 0,46,'UTF-8') ) ,'LRBT', 2);
+                            $pdf->Cell(60,10, iconv( 'UTF-8','cp874' , mb_substr($to, 0,46,'UTF-8') ) ,'LRBT', 2);
                      }
                      
-                    
-                    /*
-                   if(  strlen($to)  < 49 )
-                   {
-                       $pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' ,  $to  ),RB,1,'L',false);
-                   }
-                   else{
-                       
-                      // $pdf->setXY( $x1 , $y1 +15+ $addi+$addi  );
-                       //$pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' , ''  ),LBR,1,'C',false);
-                       
-                       
-                       $pdf->Cell(60,10, iconv( 'UTF-8','cp874' , mb_substr($to, 0,49,'UTF-8') ) ,'LRT', 2);
-                       
-                       // $pdf->setXY( $x1 , $y1 +15+ $addi  );
-                       $pdf->Cell(60,10, iconv( 'UTF-8','cp874' ,  mb_substr($to, 49 , strlen($to) ,'UTF-8') ) ,'LRB', 2);
-                       
-                       
-                   }
-                   */
-                   
-                   
-             
-                     
-                    
-                    //$pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' ,  strlen($to)  ),RB,1,'L',false);
-                    
-                    /*
-                    if( strlen($to)  <= 120 )
-                    {
-                        $pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' ,  strlen($to)  ),RB,1,'L',false);
-                    }
-                 
-                    else{
-                         $pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' ,  strlen($to)  ),RB,1,'L',false);
-                    }
-                   */
-                    
-                    
-                    //  $pdf->Cell(  60  ,  10 , iconv( 'UTF-8','cp874' ,  substr(  $to , -20  ) ),RB,1,'L',false);
-                   
-                    
-                 /*  
-                    //----------------วัน เดือน ปี------
-                    $pdf->setXY( $x1+50+50 , $y1  + 15 + $addi   );
-                   // $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  $date  ),RB,1,'C',false);
-                    $pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' ,  split_dmy_thai($date)  ),RB,1,'C',false);
-                   //$pdf->Ln();
-                  */  
-                    
-                    
-                    
-              /*      
-                    //----------------จาก------
-                    $pdf->setXY( $x1+70   , $y1  + 15 + $addi   );
-                   // $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' , addcslashes($from  , "\n" )  ),RB,0,'L',false);
-                   // $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' , str_replace($from,"ร","\n")  ),RB,0,'L',false);
-                    
-                   // $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' , $from    ),RB,1,'L',false);
-                   // $pdf->Ln();
-                 //   $pdf->setXY( $x1+70   , $y1  + 15 +10+ $addi   );
-                  //  $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,substr( $from  ,0,30  )."-".substr($form,30)  ),RB,0,'L',false);
-                 //   $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  chstr1($from)  ),RB,0,'L',false);
-                     $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','tis620' , substr($from,0,15) ),RB,0,'L',false);
-                  //  $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  $from   ),2,1,'L');
-                 //  $pdf->MultiCell(  50  ,  10 , iconv( 'UTF-8','cp874' ,  $from  ),1,"L");
-                  // $pdf->Cell(  50  ,  10 , iconv( 'UTF-8','cp874' , $from    ),0,0,'L');
-                 //    $this->Cell($w[2],6,number_format($row[2]),'LR',0,'R');
-                  //  $pdf->Ln(10);
-                 */    
-                 
-                    
-                 /*    
-                   //----------------ถึง------
-                    $pdf->setXY( $x1+120  , $y1  + 15 + $addi );
-                   // $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,  substr($to,0,30)."\n" ) ,RB,1,'L',false);
-                    $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' ,   chstr1($to) ) ,RB,1,'L',false);
-                   //   $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , $to ) ,RB,1,'L',false);
-                  */
-                    
-                    
-                    //----------------เรื่อง------
-                        
-                    
 
                    $pdf->setXY($x1+30+20+50 , $y1  + 15 + $addi  );
-                  //  $pdf->Cell(  100 ,  10 , iconv( 'UTF-8','cp874' ,  $subject  ),RB,1,'L',false);
-                 //  $pdf->Cell(  100 ,  10 , iconv( 'UTF-8','cp874' ,  strlen($subject)  ),RB,1,'L',false);   
-                //mb_substr($subject, 0,144,'UTF-8')
-                //   $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , $subject  ) ,  'LRTB', 2);         
-                 $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , mb_substr($subject, 0 , 75   ,'UTF-8')  ) ,  'LRBT', 2);           
-                   /*        
-                    if(   strlen($subject )  <=  75  )
-                    {
-                          
-                            $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , $subject  ) ,  'LRTB', 2);
-                    }
+                  $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , mb_substr($subject, 0 , 75   ,'UTF-8')  ) ,  'LRBT', 2);           
                 
-                    else
-                    {
-                           $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , mb_substr($subject, 0 ,  75  ,'UTF-8')   ) ,  '', 2);
-                         // $pdf->setXY($x1+30+20+50 , $y1  + 15 + $addi+ $addi  );
-                         //  $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , 'test' ) ,  '', 2);
-                            
-                         // $pdf->Cell(100,10, iconv( 'UTF-8','cp874' ,  mb_substr($subject, 144 , strlen($subject)  ,'UTF-8')   ) ,'LRB', 2);
-                           //$pdf->setXY($x1+30+20+50 , $y1  + 15 + $addi +  $addi  );
-                          // $pdf->Cell(100,10, iconv( 'UTF-8','cp874' ,  mb_substr($subject, 75, strlen($subject)  ,'UTF-8')   ) ,'LRB', 2);
-                          //  $pdf->setXY($x1+30+20+50 , $y1  + 15 + $addi + $addi  );
-                          //  $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , mb_substr($subject, 76 , strlen($subject)   ,'UTF-8')  ) ,  'LRT', 2);
-                    }
-                */
                     
                     
                     //----------------ผู้รับ------
                     $pdf->setXY(  $x1+30+20+50 + 100 , $y1  + 15 + $addi );
-                  //  $pdf->Cell(  30  ,  10 , iconv( 'UTF-8','cp874' , $practice ),RB,1,'L',false);
-                     $pdf->Cell(  25  ,  10 , iconv( 'UTF-8','cp874' , '' ),RB,1,'L',false);
+                      $pdf->Cell(  25  ,  10 , iconv( 'UTF-8','cp874' , '' ),RB,1,'L',false);
                     
                     
                     
                     //----------------หมายเหตุ------
                     $pdf->setXY( $x1+30+20+50 + 100 + 25 , $y1  + 15 + $addi);
-                    //$pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' ,  substr( $note ,0,30)  ),RB,1,'L',false);
                     $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' ,  $note  ),RB,1,'L',false);
-                    
-                //    $pdf->setXY( $x1+230 , $y1  + 15 + 10 + $addi);
-                //    $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' ,  " " ),RB,1,'L',false); 
-                    
-                    
-                    
+              
                     
                     
 
  }
+ 
+ 
 //---------------จบบรรทัด--------------------------------------
+*/
 
 
+/*
+//--------------------- เนื้อหา-------------------------------------------
+      $pdf->SetFont('angsana','',12);
+       //--------------เลขทะเบียนรับ--------
+     
+      $pdf->setXY( $x1 , $y1 +15+ 10  );
+      
+      
+      $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , "1"  ),LBR,1,'C',false);
 
+      //------------ รายชื่อ-----------------
+      $pdf->setXY( $x1+20, $y1 +15+ 10  );
+      $pdf->Cell(100,10, iconv( 'UTF-8','cp874' , $head_name1_list  ) ,  'LRBT', 2);  
+                  
+     //------------ หน่วยงาน-----------------           
+      $pdf->setXY( $x1+20 + 100 , $y1 +15+ 10   );
+      $pdf->Cell(80,10, iconv( 'UTF-8','cp874' ,  $factory1_list  ) ,  'LRBT', 2);         
+              
+       //------------ ผู้รับ-----------------   
+      $pdf->setXY( $x1+20 + 100 + 80 , $y1 +15+ 10   );
+      $pdf->Cell(  25  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false); 
+      
+       //------------ หมายเหตุ-----------------   
+        $pdf->setXY( $x1+20 + 100 + 80 + 25 , $y1 +15+ 10   );
+        $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false); 
+ //--------------------- เนื้อหา-------------------------------------------       
+     */
+
+
+/*
+    //$z=10;
+    $pdf->SetFont('angsana','',12);
+    $n=0;
+   for($i=0;$i<=27;$i++)
+   {
+          
+         //  if(    $factory_list[$i]   !=  ""     )
+        //   {
+              $z+=10;
+              $n++;
+            
+              $pdf->setXY( $x1 , $y1 +15+ $z  );
+              $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , $n  ),LBR,1,'C',false);
+           
+              
+                  //------------ รายชื่อ-----------------
+              $pdf->setXY( $x1+20, $y1 +15+ $z  );
+              
+              $pdf->Cell(100,10, iconv( 'UTF-8','cp874' ,  $head_name_list[$i]  ) ,  'LRBT', 2);  
+              
+              
+                //------------ หน่วยงาน-----------------     
+               $pdf->setXY( $x1+20 + 100 , $y1 +15+  $z  );
+               $pdf->Cell(80,10, iconv( 'UTF-8','cp874' ,  $factory_list[$i]  ) ,  'LRBT', 2);    
+               
+               //------------ ผู้รับ-----------------   
+               $pdf->setXY( $x1+20 + 100 + 80 , $y1 +15+ $z  );
+               $pdf->Cell(  25  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false); 
+               
+               //------------ หมายเหตุ-----------------   
+                $pdf->setXY( $x1+20 + 100 + 80 + 25 , $y1 +15+ $z    );
+                $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false); 
+         //  }    
+   }
+   */
+   
+    // where   `id_main1`=$id_main1
+      $strreport="SELECT    *   FROM    `tb_circle`  "
+              . "  left  join    `tb_header`  on  `tb_circle`.`id_header`=`tb_header`.`id_header`   "
+              . "  left  join     `tb_factory`  on   `tb_circle`.`id_factory`=`tb_factory`.`id_factory`    "
+              . "    "
+              . "WHERE   `tb_circle`.`id_main1`=$id_main1    ";  
+      $query_str=mysql_query($strreport );
+      //$z=10;
+       $n=0;
+      while($row=mysql_fetch_assoc($query_str))
+      {
+          
+              $z+=10;
+              $n++;
+              
+              $name_header=$row["name_header"];
+              $name_factory=$row["name_factory"];
+              
+              $pdf->setXY( $x1 , $y1 +15+ $z  );
+              $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , $n  ),LBR,1,'C',false);
+              
+              
+                 //------------ รายชื่อ-----------------
+              $pdf->setXY( $x1+20, $y1 +15+ $z  );
+              
+              $pdf->Cell(100,10, iconv( 'UTF-8','cp874' ,  $name_header  ) ,  'LRBT', 2);  
+              
+               //------------ หน่วยงาน-----------------     
+               $pdf->setXY( $x1+20 + 100 , $y1 +15+  $z  );
+               $pdf->Cell(80,10, iconv( 'UTF-8','cp874' ,  $name_factory  ) ,  'LRBT', 2);    
+               
+               
+                //------------ ผู้รับ-----------------   
+               $pdf->setXY( $x1+20 + 100 + 80 , $y1 +15+ $z  );
+               $pdf->Cell(  25  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false); 
+               
+               //------------ หมายเหตุ-----------------   
+                $pdf->setXY( $x1+20 + 100 + 80 + 25 , $y1 +15+ $z    );
+                $pdf->Cell(  20  ,  10 , iconv( 'UTF-8','cp874' , "  "  ),RB,1,'C',false); 
+              
+              
+      }
+
+
+        
+        
       $pdf->Output();
      
      ?>

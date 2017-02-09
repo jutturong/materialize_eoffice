@@ -778,6 +778,40 @@ public  function thai_year($y)
                    }   
   }
   
+  
+  function  select_factory()
+  {
+             $tb_factory="tb_factory";
+                  $query_factory=$this->db->get($tb_factory);
+                  foreach($query_factory->result() as $row)
+                  {
+                       $id_factory=$row->id_factory;
+                       $name_factory=$row->name_factory;
+                          ?>
+                                   <option value="<?=$id_factory?>"><?=$name_factory?></option>
+                          <?php
+                  }
+                       
+  }
+  
+  function  select_header()
+  {
+        $tbcheckbox1="tb_header";
+                $tb_header=$this->db->get( $tbcheckbox1);
+                //$i=0;
+                foreach($tb_header->result() as $row)
+                {
+                   //$i++;
+                    $id_header=$row->id_header; 
+                    $name_header=$row->name_header;
+                      ?>
+        
+                             <option value="<?=$id_header?>"><?=$name_header?></option>
+                             
+                      <?php
+                }
+  }
+  
         
 }
 

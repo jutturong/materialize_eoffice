@@ -494,6 +494,9 @@
                             $tb="tb_main1";
                             //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
                              $data["query2"]=$this->user_model->tb_main1("1","2");
+                             
+                             
+                     
                             
                             $this->load->view("table11",$data);
                             

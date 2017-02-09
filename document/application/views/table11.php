@@ -158,6 +158,7 @@
                    <script type="text/javascript">
                       $(function(){
                             $('#at_circle').val('<?=$rows->at?>');
+                            $('#id_main1').val('<?=$rows->id_main1?>');
                       });
                    </script>
                    
