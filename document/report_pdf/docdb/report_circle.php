@@ -548,7 +548,7 @@ $addi=0;
               . "  left  join    `tb_header`  on  `tb_circle`.`id_header`=`tb_header`.`id_header`   "
               . "  left  join     `tb_factory`  on   `tb_circle`.`id_factory`=`tb_factory`.`id_factory`    "
               . "    "
-              . "WHERE   `tb_circle`.`id_main1`=$id_main1    ";  
+              . "WHERE   `tb_circle`.`id_main1`=$id_main1   and  `dmy_record`='$dmy_record'  ";  
       $query_str=mysql_query($strreport );
       //$z=10;
        $n=0;

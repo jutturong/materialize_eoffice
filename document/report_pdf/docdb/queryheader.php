@@ -324,8 +324,26 @@ function  chstr1($t)
     $head_name12=trim($_REQUEST["head_name12"]);
 
       
+    $head_name13=trim($_REQUEST["head_name13"]);
 
+    
+    $head_name14=trim($_REQUEST["head_name14"]);
+    
+    
+     $head_name15=trim($_REQUEST["head_name15"]);
      
+     
+     $head_name16=trim($_REQUEST["head_name16"]);
+     
+     
+      $head_name17=trim($_REQUEST["head_name17"]);
+      
+      
+       $head_name18=trim($_REQUEST["head_name18"]);
+       
+         $head_name19=trim($_REQUEST["head_name19"]); 
+       
+      $head_name20=trim($_REQUEST["head_name20"]); 
        
        //$head_name_list=array($head_name1_list,$head_name2_list ,  $head_name3_list ,  $head_name4_list,  $head_name5_list ,   $head_name6_list  , $head_name7_list , $head_name8_list ,   $head_name9_list   );
     //   $head_name_arr=array($head_name1,$head_name2,$head_name3,$head_name4,$head_name5,$head_name6,$head_name7,$head_name8,$head_name9,$head_name10,$head_name11,$head_name12,$head_name13,$head_name14,$head_name15,$head_name16,$head_name17,$head_name18,$head_name19,$head_name20,$head_name21,$head_name22,$head_name23,$head_name24,$head_name25,$head_name26,$head_name27  );
@@ -366,7 +384,25 @@ function  chstr1($t)
         
            $factory11=trim($_REQUEST["factory11"]);   
            
-          $factory12=trim($_REQUEST["factory11"]);   
+           
+          $factory12=trim($_REQUEST["factory12"]);   
+          
+          
+            $factory13=trim($_REQUEST["factory13"]);   
+            
+               $factory14=trim($_REQUEST["factory14"]);  
+               
+               $factory15=trim($_REQUEST["factory15"]);       
+               
+                $factory16=trim($_REQUEST["factory16"]);     
+                
+                $factory17=trim($_REQUEST["factory17"]);    
+                
+                 $factory18=trim($_REQUEST["factory18"]); 
+                 
+                $factory19=trim($_REQUEST["factory19"]); 
+                
+                $factory20=trim($_REQUEST["factory20"]); 
        
        //$factory_list=array($factory1_list,  $factory2_list,$factory3_list,  $factory4_list ,   $factory5_list ,   $factory6_list , $factory7_list ,  $factory8_list , $factory9_list  );
    
@@ -376,9 +412,9 @@ function  chstr1($t)
      
    
          
-                $head_name_arr=array($head_name1,$head_name2,$head_name3,$head_name4,$head_name5,$head_name6,$head_name7,$head_name8,$head_name9,$head_name10,$head_name11,$head_name12  );
+                $head_name_arr=array($head_name1,$head_name2,$head_name3,$head_name4,$head_name5,$head_name6,$head_name7,$head_name8,$head_name9,$head_name10,$head_name11,$head_name12,$head_name13,$head_name14,$head_name15,$head_name16,$head_name17,$head_name18,$head_name19,$head_name20  );
           
-               $factory_arr=array($factory1,$factory2,$factory3,$factory4,$factory5,$factory6,$factory7,$factory8,$factory9,$factory10, $factory11,$factory12 );
+               $factory_arr=array($factory1,$factory2,$factory3,$factory4,$factory5,$factory6,$factory7,$factory8,$factory9,$factory10, $factory11,$factory12,$factory13,$factory14,$factory15,$factory16,$factory17,$factory18,$factory19,$factory20 );
                
                
        
@@ -407,13 +443,15 @@ WHERE `id_factory` =$id
     
                
               $tb_main="tb_circle";
-                for($i=0;$i<=12;$i++)
+              
+              $dmy_record=date("Y-m-d");
+                for($i=0;$i<=21;$i++)
                 {
                     
                      
                      if(   $head_name_arr[$i]  != ""   &&   $factory_arr[$i]  != ''  ) 
                      {
-                                                    $strinsert=" insert    into    $tb_main  values(NULL,'$head_name_arr[$i]','$factory_arr[$i]','$id_main1'  );";
+                                                    $strinsert=" insert    into    $tb_main  values(NULL,'$head_name_arr[$i]','$factory_arr[$i]','$id_main1','$dmy_record'  );";
                                                    //echo "<br>";
                                                     mysql_query($strinsert);        
                      }

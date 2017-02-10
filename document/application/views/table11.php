@@ -152,16 +152,20 @@
                          
                      </a>
                    <!-- update  form  -->
+                   
+                   
+                   <!-- หนังสือเวียน -->
                    <?=nbs(2)?>
                    <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   "><i class="large material-icons">perm_media</i></a>
                    
                    <script type="text/javascript">
                       $(function(){
                             $('#at_circle').val('<?=$rows->at?>');
+                            // $('#at_circle').val('test');
                             $('#id_main1').val('<?=$rows->id_main1?>');
                       });
                    </script>
-                   
+                   <!-- หนังสือเวียน -->
                    
                    
                      
@@ -325,6 +329,23 @@
                          
                      </a>
                    <!-- update  form  -->
+                   
+                   
+                    <!-- หนังสือเวียน -->
+                   <?=nbs(2)?>
+                   <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   "><i class="large material-icons">perm_media</i></a>
+                   
+                   <script type="text/javascript">
+                      $(function(){
+                            $('#at_circle').val('<?=$rows->at?>');
+                            $('#id_main1').val('<?=$rows->id_main1?>');
+                      });
+                   </script>
+                   <!-- หนังสือเวียน -->
+                   
+                   
+                   
+                   
                    <br>
                    <br>
              

@@ -1230,7 +1230,7 @@ $(document).ready(function(){
        
         <div class="input-field col s6">
           <i class="material-icons prefix">picture_in_picture</i>
-          <input id="at_circle" name="at_circle" type="text" class="validate">
+          <input    id="at_circle" name="at_circle"  class="validate">
           <!--<label for="icon_prefix">First Name</label>-->
           
           <input type="hidden"  id="id_main1"  name="id_main1"  />
@@ -1244,14 +1244,14 @@ $(document).ready(function(){
             
             <select   id="head_name1" name="head_name1">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                 <?=$this->user_model->select_header()?>   
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory1"  name="factory1"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                <?=$this->user_model->select_factory()?>   
         </select>
         </div>
       </div>
@@ -1263,14 +1263,18 @@ $(document).ready(function(){
             
             <select   id="head_name2" name="head_name2">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                 <?=$this->user_model->select_header()?>   
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory2"  name="factory2"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                
+              
+                 <?=$this->user_model->select_factory()?>   
         </select>
         </div>
       </div>
@@ -1282,14 +1286,20 @@ $(document).ready(function(){
             
             <select   id="head_name3" name="head_name3">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+               
+                  <?=$this->user_model->select_header()?>   
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory3"  name="factory3"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                
+               <?=$this->user_model->select_factory()?>  
+                
+                
         </select>
         </div>
       </div>
@@ -1302,14 +1312,20 @@ $(document).ready(function(){
             
             <select   id="head_name4" name="head_name4">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                
+                    <?=$this->user_model->select_header()?>   
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory4"  name="factory4"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                
+             <?=$this->user_model->select_factory()?>  
+                
+                
         </select>
         </div>
       </div>
@@ -1322,14 +1338,22 @@ $(document).ready(function(){
             
             <select   id="head_name5" name="head_name5">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                 <?=$this->user_model->select_header()?> 
+             
+                
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory5"  name="factory5"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                
+                   <?=$this->user_model->select_factory()?>   
+               
+                
+                
         </select>
         </div>
       </div>
@@ -1342,14 +1366,24 @@ $(document).ready(function(){
             
             <select   id="head_name6" name="head_name6">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                
+                
+                 <?=$this->user_model->select_header()?>   
+                
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory6"  name="factory6"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                
+                <?=$this->user_model->select_factory()?>   
+               
+                
+                
+                
         </select>
         </div>
       </div>
@@ -1362,14 +1396,21 @@ $(document).ready(function(){
             
             <select   id="head_name7" name="head_name7">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                
+                
+                 <?=$this->user_model->select_header()?>   
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory7"  name="factory7"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                 <?=$this->user_model->select_factory()?>  
+               
+                
+                
         </select>
         </div>
       </div>
@@ -1382,14 +1423,22 @@ $(document).ready(function(){
             
             <select   id="head_name8" name="head_name8">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                
+                
+                 <?=$this->user_model->select_header()?>
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory8"  name="factory8"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                
+                <?=$this->user_model->select_factory()?>   
+                  
+                
+                
         </select>
         </div>
       </div>
@@ -1402,14 +1451,21 @@ $(document).ready(function(){
             
             <select   id="head_name9" name="head_name9">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                 
+                  <?=$this->user_model->select_header()?>   
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory9"  name="factory9"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                <?=$this->user_model->select_factory()?>  
+                
+              
+                
+                
         </select>
         </div>
       </div>
@@ -1422,14 +1478,23 @@ $(document).ready(function(){
             
             <select   id="head_name10" name="head_name10">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                
+                
+                   <?=$this->user_model->select_header()?>
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory10"  name="factory10"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                 <?=$this->user_model->select_factory()?>  
+                
+             
+                
+                
+                
         </select>
         </div>
       </div>
@@ -1441,41 +1506,282 @@ $(document).ready(function(){
             
             <select   id="head_name11" name="head_name11">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                
+                  <?=$this->user_model->select_header()?>   
+                
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory11"  name="factory11"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                <?=$this->user_model->select_factory()?> 
+                
+              
+                
+                
+                
         </select>
         </div>
       </div>
          <!--  11  -->
          
          
-                            <!--  12  -->
+     <!--  12  -->
      <div class="row">
         <div class="input-field col s6">
             
             <select   id="head_name12" name="head_name12">
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_factory()?>   
+                
+                
+                
+                <?=$this->user_model->select_header()?>
+                
+                
         </select>  
         </div>
         <div class="input-field col s6">
             
             <select  id="factory12"  name="factory12"  >
                 <option value="" disabled selected>Choose your option</option>
-                <?=$this->user_model->select_header()?>   
+                <?=$this->user_model->select_factory()?>   
+                
+                
+                
+                
+                
         </select>
         </div>
       </div>
          <!--  12  -->
          
+           <!--  13  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name13" name="head_name13">
+                <option value="" disabled selected>Choose your option</option>
+                
+               
+                <?=$this->user_model->select_header()?>   
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory13"  name="factory13"  >
+                <option value="" disabled selected>Choose your option</option>
+                 <?=$this->user_model->select_factory()?>   
+                
+                
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  13  -->
          
+          <!--  14  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name14" name="head_name14">
+                <option value="" disabled selected>Choose your option</option>
+                
+               
+                 <?=$this->user_model->select_header()?>   
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory14"  name="factory14"  >
+                <option value="" disabled selected>Choose your option</option>
+                 <?=$this->user_model->select_factory()?>   
+                
+               
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  14  -->
+         
+          <!--  15  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name15" name="head_name15">
+                <option value="" disabled selected>Choose your option</option>
+                
+                
+                
+                 <?=$this->user_model->select_header()?>   
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory15"  name="factory15"  >
+                <option value="" disabled selected>Choose your option</option>+
+                 <?=$this->user_model->select_factory()?> 
+                
+               
+                
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  15  -->
   
+         
+          <!--  16  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name16" name="head_name16">
+                <option value="" disabled selected>Choose your option</option>
+                
+                 <?=$this->user_model->select_header()?>  
+                  
+                
+                
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory16"  name="factory16"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?> 
+                
+                
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  16  -->
+         
+           <!--  17  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name17" name="head_name17">
+                <option value="" disabled selected>Choose your option</option>
+                
+                
+              
+                
+                <?=$this->user_model->select_header()?>  
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory17"  name="factory17"  >
+                <option value="" disabled selected>Choose your option</option>
+                  <?=$this->user_model->select_factory()?>   
+                
+                 
+                
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  17  -->
+         
+         <!--  18  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name18" name="head_name18">
+                <option value="" disabled selected>Choose your option</option>
+                
+                
+                
+                   <?=$this->user_model->select_header()?>  
+                
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory18"  name="factory18"  >
+                <option value="" disabled selected>Choose your option</option>
+                 <?=$this->user_model->select_factory()?>  
+                
+              
+                
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  18  -->
+         
+            <!--  19  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name19" name="head_name19">
+                <option value="" disabled selected>Choose your option</option>
+                
+                
+                  <?=$this->user_model->select_header()?>   
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory19"  name="factory19"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?>   
+                
+              
+                
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  19  -->
+         
+         
+          <!--  20  -->
+     <div class="row">
+        <div class="input-field col s6">
+            
+            <select   id="head_name20" name="head_name20">
+                <option value="" disabled selected>Choose your option</option>
+                
+                
+                  
+                 <?=$this->user_model->select_header()?>  
+                
+                
+        </select>  
+        </div>
+        <div class="input-field col s6">
+            
+            <select  id="factory20"  name="factory20"  >
+                <option value="" disabled selected>Choose your option</option>
+                <?=$this->user_model->select_factory()?> 
+                
+                
+                
+                
+                
+        </select>
+        </div>
+      </div>
+         <!--  20  -->
+         
     </div>
       
     
