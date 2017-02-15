@@ -133,6 +133,9 @@
                  </div>
           
           
+          
+          
+          
            <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
                             <input type="date" id="begin_date"  name="begin_date"   class="datepicker"  />   
@@ -144,6 +147,20 @@
                             <input type="date" id="end_date"  name="end_date"   class="datepicker"  />   
                             <!-- <label> ตั้งแต่วันที่ : </label> -->
            </div>
+          
+          
+          <div class="input-field col s6">
+          <i class="material-icons prefix">restore</i>
+          <input id="begin_time"  name="begin_time"  type="tel" class="validate"  data-length="10" />
+          <label for="begin_time">Start 00:00:00</label>
+        </div>
+          
+          
+            <div class="input-field col s6">
+          <i class="material-icons prefix">restore</i>
+          <input id="end_time"  name="end_time"  type="tel" class="validate"  data-length="10"   />
+          <label for="end_time">Finish 00:00:00</label>
+        </div>
 
           
         <div class="input-field col s6">

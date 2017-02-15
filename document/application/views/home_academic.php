@@ -63,6 +63,9 @@
                   $borrow=$row->borrow;
                   $note=$row->note;
                   
+                  $begin_time=$row->begin_time;
+                  $end_time=$row->end_time;
+                  
  ?>
 
 
@@ -94,6 +97,10 @@
           
           ตั้งแต่ - ถึง :   <?php  echo  nbs().$begin_date.nbs(5).$end_date;  ?>       
           <br>
+          
+          เวลา  : <?php echo nbs().$begin_time."-".$end_time; ?>
+          <br/>
+          
            หัวข้อ : <?=$title?>
       </p>
       <p>

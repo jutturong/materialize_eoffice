@@ -1523,6 +1523,11 @@
                                   $data["note"]=$row->note;
                                   $data["borrow"]=$row->borrow;
                                   
+                                  $data["begin_time"]=$row->begin_time;
+                                  
+                                  $data["end_time"]=$row->end_time;
+                                  
+                                  
                                                   
                                  //$data["title"]=$this->title;
                                  $this->load->view("update_academic",$data);
@@ -1576,6 +1581,10 @@
                                                     $note=trim($this->input->get_post("note"));
                                                   //  echo "<br>";   
 
+                                                    
+                                                    $begin_time=trim($this->input->get_post("begin_time"));
+                                                    
+                                                    $end_time=trim($this->input->get_post("end_time"));
 
 
                                                     $data=array(
@@ -1589,6 +1598,9 @@
                                                         "expenses"=>$expenses,   //8
                                                        "borrow"=>$borrow,   //9
                                                        "note"=>$note,   //9
+                                                        "begin_time"=>$begin_time,
+                                                        "end_time"=>$end_time,
+                                                        
                                                     );
 
                                                        $tb="tb_main_academic";
@@ -1648,7 +1660,12 @@
                                     $borrow=trim($this->input->get_post("borrow"));
                                   // echo "<br>";   
                                    $note=trim($this->input->get_post("note"));
-                                 //  echo "<br>";   
+                                 //  echo "<br>";  
+                                   
+                                   
+                                   $begin_time=trim($this->input->get_post("begin_time"));
+                                   
+                                   $end_time=trim($this->input->get_post("end_time"));
                                    
                                    $tb="tb_main_academic";
                                    
@@ -1664,6 +1681,8 @@
                                        "expenses"=>$expenses,   //8
                                        "borrow"=>$borrow,   //9
                                        "note"=>$note,   //9
+                                       "begin_time"=>$begin_time,
+                                       "end_time"=> $end_time,
                                        
                                    );
                                    
