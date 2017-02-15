@@ -156,16 +156,17 @@
            <div class="input-field col s6">
           <i class="material-icons prefix">restore</i>
           <input id="begin_time"  name="begin_time"  type="tel" class="validate"  data-length="10"  value="<?=@$begin_time?>" />
-          <label for="begin_time">Start 00:00:00</label>
+          <label for="begin_time">เวลานัดหมาย</label>
         </div>
           
           
+          <!--
             <div class="input-field col s6">
           <i class="material-icons prefix">restore</i>
           <input id="end_time"  name="end_time"  type="tel" class="validate"  data-length="10"  value="<?=@$end_time?>"   />
           <label for="end_time">Finish 00:00:00</label>
         </div>
-          
+          -->
           
           
           

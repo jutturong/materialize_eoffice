@@ -1584,7 +1584,7 @@
                                                     
                                                     $begin_time=trim($this->input->get_post("begin_time"));
                                                     
-                                                    $end_time=trim($this->input->get_post("end_time"));
+                                                 //   $end_time=trim($this->input->get_post("end_time"));
 
 
                                                     $data=array(
@@ -1599,7 +1599,7 @@
                                                        "borrow"=>$borrow,   //9
                                                        "note"=>$note,   //9
                                                         "begin_time"=>$begin_time,
-                                                        "end_time"=>$end_time,
+                                                    //    "end_time"=>$end_time,
                                                         
                                                     );
 
@@ -1665,7 +1665,7 @@
                                    
                                    $begin_time=trim($this->input->get_post("begin_time"));
                                    
-                                   $end_time=trim($this->input->get_post("end_time"));
+                               //    $end_time=trim($this->input->get_post("end_time"));
                                    
                                    $tb="tb_main_academic";
                                    
@@ -1682,7 +1682,7 @@
                                        "borrow"=>$borrow,   //9
                                        "note"=>$note,   //9
                                        "begin_time"=>$begin_time,
-                                       "end_time"=> $end_time,
+                                   //   "end_time"=> $end_time,
                                        
                                    );
                                    

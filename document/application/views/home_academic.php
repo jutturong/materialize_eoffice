@@ -98,7 +98,7 @@
           ตั้งแต่ - ถึง :   <?php  echo  nbs().$begin_date.nbs(5).$end_date;  ?>       
           <br>
           
-          เวลา  : <?php echo nbs().$begin_time."-".$end_time; ?>
+          เวลานัดหมาย  : <?php echo nbs().$begin_time ?>
           <br/>
           
            หัวข้อ : <?=$title?>
