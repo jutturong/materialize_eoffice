@@ -673,6 +673,11 @@
                         $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
                         
                         
+                        //inserttable11
+                        
+                        $date1_receive11_time=trim($this->input->get_post("date1_receive11_time")); //วันที่ทำการบันทึก
+                        
+                        
                             // print_r($_POST);               
               //------------------------------- upload file-------------------------------------------
                       // print_r($_FILES)  
@@ -701,6 +706,7 @@
                                             "type_record"=> $type_record,
                                             "filename"=>$file1name, 
                                              "type_document"=>$type_document,
+                                             "date_record"=> $date1_receive11_time,  //วันที่ทำการบันทึกข้อมูล
                                          );
                                          
                                          
@@ -729,6 +735,7 @@
                                             "type_record"=> $type_record,
                                           //  "filename"=>$file1name, 
                                             "type_document"=>$type_document,
+                                            "date_record"=> $date1_receive11_time,  //วันที่ทำการบันทึกข้อมูล
                                          );
                              
                          }
@@ -979,6 +986,7 @@
                                                                             $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
                                                                        // echo  "<br>";
                                                                         
+                                                                          $date1_send11_time=trim($this->input->get_post("date1_send11_time")); 
                                                                    
                                                                         
                                                                      
@@ -1012,6 +1020,7 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
+                                                                                                          "date_record"=> $date1_send11_time, //วันที่ทำการบันทึกข้อมูล
                                                                                                       );
 
 
@@ -1040,6 +1049,7 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
+                                                                                                         "date_record"=> $date1_send11_time, //วันที่ทำการบันทึกข้อมูล
                                                                                                       );
 
                                                                                       }
@@ -1299,6 +1309,9 @@
                                           $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
                                        //  echo br();  
                                              
+                                          $date1_receive31_time=trim($this->input->get_post("date1_receive31_time"));
+                                          
+                                          
                                          
                                                                     //------------------------------- upload file-------------------------------------------
                                                                                    // print_r($_FILES)  
@@ -1328,6 +1341,9 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
+                                                                                                          
+                                                                                                          "date_record"=> $date1_receive31_time,  //วันที่ทำการบันทึกข้อมูล
+                                                                                                          
                                                                                                       );
 
 
@@ -1356,6 +1372,10 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
+                                                                                                
+                                                                                                         "date_record"=> $date1_receive31_time,  //วันที่ทำการบันทึกข้อมูล
+                                                                                                
+                                                                                                
                                                                                                       );
 
                                                                                       }

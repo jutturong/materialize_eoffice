@@ -105,18 +105,18 @@
           
        
       <span class="title">
-          <?php echo  $rows->registration; ?>
+          เลขทะเบี่ยนรับ : <?php echo  $rows->registration; ?>
       </span>
       <p> 
-               <?php  echo $rows->at; ?>
+          ที่่ : <?php  echo $rows->at; ?>
                <br>
-               <?php  echo $rows->date;  ?>
+          ลงวันที่ : <?php  echo $rows->date;  ?>
                <br>
-                <?php  echo $rows->from;  ?>
+          จาก : <?php  echo $rows->from;  ?>
                   <br>
-                  <?php  echo $rows->to;  ?>
+          ถึง : <?php  echo $rows->to;  ?>
                    <br>
-                    <?php  echo $rows->subject; ?>
+          เรื่อง : <?php  echo $rows->subject; ?>
                      <br>
                      
                      
@@ -128,14 +128,18 @@
                       <!-- update  form  -->
                     
                      <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
-                          <i class=" material-icons  ">perm_identity</i>
+                          <i class=" material-icons  ">picture_in_picture</i> Update Data
+                          
                          
                      </a>
                    <!-- update  form  -->
                    
                     <!-- หนังสือเวียน -->
                    <?=nbs(2)?>
-                   <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   "><i class="large material-icons">perm_media</i></a>
+                   <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   ">
+                       <i class="large material-icons">picture_in_picture</i> หนังสือเวียน
+                   
+                   </a>
                    
                    <script type="text/javascript">
                       $(function(){
@@ -147,7 +151,7 @@
                    
                    
                    <br>
-                
+                   <br>
      
               
     <?php
@@ -155,7 +159,7 @@
               {
      ?>
       <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
-            <i class="material-icons">play_for_work</i>
+            <i class="material-icons">system_update_alt</i>
             </a>
     <?php
                }
@@ -267,18 +271,18 @@
           </a>
        
       <span class="title">
-          <?php echo  $rows->registration; ?>
+          เลขทะเบี่ยนรับ : <?php echo  $rows->registration; ?>
       </span>
       <p> 
-               <?php  echo $rows->at; ?>
+          ที่ : <?php  echo $rows->at; ?>
                <br>
-               <?php  echo $rows->date;  ?>
+          ลงวันที่ : <?php  echo $rows->date;  ?>
                <br>
-                <?php  echo $rows->from;  ?>
+          จาก : <?php  echo $rows->from;  ?>
                   <br>
-                  <?php  echo $rows->to;  ?>
+          ถึง : <?php  echo $rows->to;  ?>
                    <br>
-                    <?php  echo $rows->subject; ?>
+          เรื่อง : <?php  echo $rows->subject; ?>
                      <br>
                      
                      
@@ -290,14 +294,15 @@
                        <!-- update  form  -->
                     
                      <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
-                          <i class=" material-icons  ">perm_identity</i>
+                          <i class=" material-icons  ">picture_in_picture</i> Update Data
                          
                      </a>
                    <!-- update  form  -->
                    
                       <!-- หนังสือเวียน -->
                    <?=nbs(2)?>
-                   <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   "><i class="large material-icons">perm_media</i></a>
+                   <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   ">
+                       <i class="large material-icons">picture_in_picture</i> หนังสือเวียน</a>  
                    
                    <script type="text/javascript">
                       $(function(){
@@ -307,19 +312,16 @@
                    </script>
                    <!-- หนังสือเวียน -->
                    
-                   
                    <br>
-                
-                    
-                     
-     
-              
+                   <br>
+
+                   <!--  download file -->
                   <?php
               if( strlen($rows->filename) >  0  )
               {
      ?>
       <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
-            <i class="material-icons">play_for_work</i>
+            <i class="material-icons">system_update_alt</i>
             </a>   
                      
        <?php

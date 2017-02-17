@@ -374,13 +374,25 @@ public  function thai_year($y)
                 if( $id > 0 )
                 {
                         $tb="tb_academic";
+                        $this->db->order_by("id_academic","ASC");
                         $q=$this->db->get_where($tb,array("id_academic"=>$id));
                         $row=$q->row();
                         $id_academic=$row->id_academic;
                        $firstname_academic=$row->firstname_academic;
                        $lastname_academic=$row->lastname_academic;
-                       echo   "<option value=\"$id_academic\"  selected>".$firstname_academic.nbs(3).$lastname_academic."</option>";
-                     
+                       $detail_header=$row->detail_header;
+                       
+                       
+                       if(  $detail_header != ""  )
+                       {
+                             echo   "<option value=\"$id_academic\"  selected>".$firstname_academic.nbs(3).$lastname_academic.nbs(3).$detail_header."</option>";
+                       }
+                       else
+                       {
+                             echo   "<option value=\"$id_academic\"  selected>".$firstname_academic.nbs(3).$lastname_academic."</option>";
+                       }
+                       
+                       
                        /*
                        $q2=$this->db->where_not_in($tb,array("id_academic"=>$id));
                        foreach($q2->result() as $row)
@@ -393,13 +405,24 @@ public  function thai_year($y)
                        */
                        
                          $this->db->where_not_in(array("id_academic"=>$id));
+                          $this->db->order_by("id_academic","ASC");
                          $q2=$this->db->get($tb);
                          foreach($q2->result() as $row)
                        {
                                              $id_academic=$row->id_academic;
                                               $firstname_academic=$row->firstname_academic;
                                               $lastname_academic=$row->lastname_academic;
-                                              echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic</option>";
+                                              $detail_header=$row->detail_header;
+                                              
+                                                if(  $detail_header != ""  )
+                                                {
+                                                     echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic  $detail_header</option>";
+                                                }
+                                                else
+                                                {
+                                                     echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic  </option>";
+                                                }
+                                             
                        }
                        
                 }
@@ -470,13 +493,23 @@ public  function thai_year($y)
                                                <option value="31">เบญจพร  นิตินาวาการ</option>
               */
                              $tb="tb_academic";
+                             $this->db->order_by("id_academic","ASC");
                              $q=$this->db->get($tb);
                               foreach($q->result() as $row)    
                                           {
                                               $id_academic=$row->id_academic;
                                               $firstname_academic=$row->firstname_academic;
                                               $lastname_academic=$row->lastname_academic;
-                                              echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic</option>";
+                                              $detail_header=$row->detail_header;
+                                              if(  $detail_header != ""  )
+                                              {
+                                                  echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic  ( $detail_header ) </option>";
+                                              }
+                                              else
+                                              {
+                                                   echo "<option value=\"$id_academic\">$firstname_academic  $lastname_academic   </option>";
+                                              }
+                                              
                                           }
                                           
                                           
@@ -796,7 +829,8 @@ public  function thai_year($y)
   
   function  select_header()
   {
-        $tbcheckbox1="tb_header";
+                $tbcheckbox1="tb_header";
+              //  $this->db->order_by("id_academic","ASC");
                 $tb_header=$this->db->get( $tbcheckbox1);
                 //$i=0;
                 foreach($tb_header->result() as $row)
@@ -804,9 +838,10 @@ public  function thai_year($y)
                    //$i++;
                     $id_header=$row->id_header; 
                     $name_header=$row->name_header;
+                   // $detail_header=$row->detail_header;
                       ?>
         
-                             <option value="<?=$id_header?>"><?=$name_header?></option>
+                             <option value="<?=$id_header?>"  ><?=$name_header?></option>
                              
                       <?php
                 }

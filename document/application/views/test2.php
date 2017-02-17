@@ -11,7 +11,7 @@
    
         
           
-            
+     
             
             
            
@@ -481,7 +481,7 @@ $(document).ready(function(){
 
 
 
-    <body>
+    <body  onload="javascript:   $('#modal2').modal('open');  ">
 
 
 
@@ -651,9 +651,12 @@ $(document).ready(function(){
       <ul class="nav-wrapper">
       
         
+          <!--
              <li><a href="javascript: $('#modal2').modal('open');  "><i class="material-icons left">perm_identity</i>เข้าสู่ระบบ</a></li>
+            --> 
+             
          
-             <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
+          
          
               <!--<li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>หนังสือเวียน</a></li>-->
            
@@ -674,7 +677,7 @@ $(document).ready(function(){
          
          
          <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล  ฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And  Excellent <i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
       
@@ -686,13 +689,12 @@ $(document).ready(function(){
          
          
            <li>
-             <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons left">offline_pin</i> กิจกรรมทางวิชาการ </a>
+             <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons left">offline_pin</i> ตารางงานผู้บริหาร </a>
          </li>
          
-         
-       
-         
-         
+            <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
+            
+            
          <!--
         <li>
             <a href="sass.html"><i class="material-icons left">search</i>Link with Left Icon</a>
@@ -745,23 +747,32 @@ $(document).ready(function(){
       <a href="#" class="brand-logo right">Logo</a>
         -->
       <ul id="nav-mobile" class="left hide-on-med-and-down">
+          
+          
+         <li>
+            
+            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+        </li>
+         
+        
+         <li>
+            
+              <a href="javascript:void(0)"    onclick="table3()"    ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+        
+        </li>
+          
           <li>
               
               <a href="javascript:void(0)"  onclick="table11()"       ><i class="material-icons left">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
           
           </li>
           
-          <li>
-            
-              <a href="javascript:void(0)"    onclick="table3()"    ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
-        
-        </li>
+         
         
         
-        <li>
-            
-            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
-        </li>
+      
+        
+        
         
       </ul>
         
@@ -785,8 +796,10 @@ $(document).ready(function(){
   <div id="modal2" class="modal">
       
     <div class="modal-content">
-      <!--<h4>เข้าสู่ระบบ</h4>-->
-      <!-- <p>A bunch of text</p> -->
+      <h4>
+               <i class="large material-icons">vpn_key</i>
+                  ยินดีต้อนรับเข้าสู่ระบบโปรแกรมธุรการ</h4>
+      <!--<p>โปรแกรมธุรการ</p>--> 
       
       
       <div class="row">
@@ -812,8 +825,12 @@ $(document).ready(function(){
         
          <div class="row">
               <div class="input-field col s12">
-                  <button class="btn waves-effect waves-light" type="button" name="action"  id="btn_login" >
-                    <i class="material-icons md-30">lock_open</i>
+                  
+                  <?=nbs(70)?>
+                  <button class=" btn waves-effect waves-light" type="button" name="action"  id="btn_login" >
+                    <i class="large material-icons md-30">lock_open</i>
+                    
+                    
            </button>
               </div>
          </div>   
