@@ -6,7 +6,9 @@
              var  $title="ระบบโปรแกรมงานธุรการ";
              var  $limit=3;
              
-                 public function __construct() {
+             
+                 
+             public function __construct() {
                      
                          
                            parent::__construct();
@@ -987,6 +989,8 @@
                                                                        // echo  "<br>";
                                                                         
                                                                           $date1_send11_time=trim($this->input->get_post("date1_send11_time")); 
+                                                                          
+                                                                          
                                                                    
                                                                         
                                                                      
@@ -1099,6 +1103,8 @@
                                                                           $type_record=trim($this->input->get_post("type_record21")); //ประเภทของตารางที่ทำการบันทึก    9
                                                                      //  echo  "<br>";
                                                                             $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
+                                                                      
+                                                                         $date1_receive21_time=trim($this->input->get_post("date1_receive21_time")); //ประเภทของตารางที่ทำการบันทึก    9    
                                                                             
                                                                             
                                                                       //  print_r($_FILES); 
@@ -1133,6 +1139,7 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
+                                                                                                          "date_record"=> $date1_receive21_time,
                                                                                                       );
 
 
@@ -1161,6 +1168,7 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
+                                                                                                        "date_record"=> $date1_receive21_time,
                                                                                                       );
 
                                                                                       }
@@ -1209,6 +1217,8 @@
                                                 //    echo  "<br>";
                                                              $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
                                                 //     echo  "<br>";
+                                                             
+                                                                 $date1_record21_time=trim($this->input->get_post("date1_record21_time"));
                                                      
                                                                                          //------------------------------- upload file-------------------------------------------
                                                                                    // print_r($_FILES)  
@@ -1239,6 +1249,7 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
+                                                                                                          "date_record"=>  $date1_record21_time,
                                                                                                       );
 
 
@@ -1267,6 +1278,7 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
+                                                                                                           "date_record"=>  $date1_record21_time,
                                                                                                       );
 
                                                                                       }
@@ -1429,6 +1441,10 @@
                                             $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
                                          //echo br();  
                                          
+                                            
+                                           $date1_send31_time=trim($this->input->get_post("date1_send31_time")); //ประเภทของตารางที่ทำการบันทึก    9 
+                                            
+                                            
                                          //print_r($_FILES);
                                                                        //------------------------------- upload file-------------------------------------------
                                                                                    // print_r($_FILES)  
@@ -1459,6 +1475,8 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
+                                                                                                          "date_record"=>$date1_send31_time,
+                                                                                                          
                                                                                                       );
 
 
@@ -1487,6 +1505,7 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
+                                                                                                          "date_record"=>$date1_send31_time,
                                                                                                       );
 
                                                                                       }
@@ -2272,9 +2291,23 @@
                     
                 }
                 
-               
                 
+                //---- ระบบปฏิทินออนไลน์ --------------------
+                 public function calendar()
+                {
+                     #http://10.87.196.170/document/index.php/welcome/calendar
+                     // if(    $this->user_model->authenlogin() == 1 )
+                     //     {
+                          
+                                   $data["title"]=$this->title;   
+                                   $tb="tb_main_academic";
+                                   $data["q"]=$this->db->get($tb);
+                                   
+                                   $this->load->view("calendar1",$data);   
+                      //    }
+                }
                 
+
                 public function testauto()
                 {
                      //http://192.168.2.112/document/index.php/welcome/testauto
@@ -2282,6 +2315,8 @@
                     
                 }
                 
+                
+              
                 public function  err_system()
                 {
                     //http://192.168.2.112/document/index.php/welcome/err_system
@@ -2296,6 +2331,9 @@
                          $this->user_model->err_model();
                          
                 }
+                
+                
+                
 }
 
 /* End of file welcome.php */

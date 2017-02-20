@@ -10,10 +10,6 @@
       
    
         
-          
-     
-            
-            
            
  <!--  ลบข้อมูลในตาราง -->
  <script type="text/javascript">
@@ -454,16 +450,21 @@ $(document).ready(function(){
            
            
            
-           function   main_academic()
+           function   main_academic() //ตารางหลักกิจกรรม
            {
-                 $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
+                  //$('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
+                 
+                   $('#sub11').load("<?=base_url()?>index.php/welcome/calendar"  );
            }
            
            
             function   page_main_academic(page)
            {
-                 $('#sub11').load("<?=base_url()?>index.php/welcome/page_table_main_academic/"  +  page  );
+                  $('#sub11').load("<?=base_url()?>index.php/welcome/page_table_main_academic/"  +  page  );
+
            }
+           
+           
            
            function  page_main1(url) //แบ่งหน้า page
            {
@@ -606,7 +607,11 @@ $(document).ready(function(){
           <li><a href="#!"   onclick="add_academic()" ><i class="material-icons left">sort_by_alpha</i>เพิ่มกิจกรรม</a></li>
           <li class="divider"></li>
           <li><a href="#modal_show_academic"   ><i class="material-icons left">zoom_in</i>ค้นหากิจกรรม</a></li>
+          
+          
            <li><a href="#"   onclick="main_academic()" ><i class="material-icons left">perm_identity</i>แสดงกิจกรรมหลัก</a></li>
+           
+           
           
         
   
@@ -664,26 +669,34 @@ $(document).ready(function(){
              <a class="dropdown-button" href="#modal_sr"    ><i class="material-icons left">zoom_in</i> Search </a>
          </li>
          
-         <li>
-             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
+         
+           <li >
+             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And  Excellent <i class="material-icons right">arrow_drop_down</i></a>
          </li>
-          
          
          
-             <li>
+           <li>
              <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">person_pin</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
          
          
          <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And  Excellent <i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
+          
+         
+         
+           
+         
+         
+         
+       
          
       
          
           <li>
-             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons left">settings_voice</i> แสดงผลการบันทึก</a>
+             <a class="dropdown-button" href="#modal1" data-activates=""><i class="material-icons left">print</i> แสดงผลการบันทึก</a>
          </li>
          
          
@@ -749,24 +762,32 @@ $(document).ready(function(){
       <ul id="nav-mobile" class="left hide-on-med-and-down">
           
           
-         <li>
+           <li  >
             
             <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
         </li>
-         
         
-         <li>
+            <li>
             
               <a href="javascript:void(0)"    onclick="table3()"    ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
         
         </li>
-          
-          <li>
+        
+          <li >
               
               <a href="javascript:void(0)"  onclick="table11()"       ><i class="material-icons left">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
           
           </li>
           
+          
+          
+          
+         
+         
+        
+       
+          
+   
          
         
         

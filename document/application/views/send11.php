@@ -36,7 +36,16 @@ $(function(){
   
   
   //  echo  $data["cur_date"]=date("Y-m-d");
-     $('#date1_send11').val("<?php  echo date("Y-m-d");  ?>");
+     $('#date1_send11_time').val("<?php  echo date("Y-m-d");  ?>");
+     
+    
+        $('#date1_send11_time').pickadate({    
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format:'yyyy-mm-dd',
+    
+  });
+     
      
 });
 
@@ -333,6 +342,26 @@ $(function(){
                    
           
         </div>
+          
+          
+          
+          
+          <div class="input-field col s6">
+            
+          <i class="material-icons prefix">open_in_browser</i>
+         <!-- <input id="icon_telephone" type="tel" class="validate"> -->
+          
+          
+          <input type="date"  id="date1_send11_time"  name="date1_send11_time"  class="datepicker" />
+        
+          
+                   
+          <label for="date1_send11_time">วันที่ทำการบันทึก</label>
+                   
+          
+        </div>
+          
+          
           
           
           

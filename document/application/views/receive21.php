@@ -37,6 +37,22 @@ $(function(){
     
     
   });
+  
+  
+  
+      $('#date1_receive21_time').pickadate({
+   // selectMonths: true, // Creates a dropdown to control month
+ //   selectYears: 15 // Creates a dropdown of 15 years to control year
+    
+        selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    monday:'Mon',
+  // format:'dd-mm-yyyy',
+    format:'yyyy-mm-dd',
+    
+    
+  });
+  
     
 });
 
@@ -307,6 +323,22 @@ $(function(){
           
           
                     <input type="hidden"  id="type_record21"  name="type_record21"  value="3"  /> 
+                    
+                    
+         <div class="input-field col s6">
+            
+          <i class="material-icons prefix">open_in_browser</i>
+         <!-- <input id="icon_telephone" type="tel" class="validate"> -->
+          
+          
+          <input type="date"  id="date1_receive21_time"  name="date1_receive21_time"  class="datepicker" />
+        
+          
+                   
+          <label for="date1_receive21_time">วันที่ทำการบันทึก</label>
+                   
+          
+        </div>
           
           
           <!--<div class="input-field col s6"> -->

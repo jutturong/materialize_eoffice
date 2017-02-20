@@ -1,8 +1,20 @@
+
+    <script src="<?=base_url()?>responsive-calendar/0.9/js/jquery.js"></script>
+    <script src="<?=base_url()?>responsive-calendar/0.9/js/bootstrap.min.js"></script>
+    <script src="<?=base_url()?>responsive-calendar/0.9/js/responsive-calendar.js"></script>
+    
+      
+    
+
+
 <script type="text/javascript">
    $(document).ready(function(){
        //$('.collapsible').collapsible();
        // $(".button-collapse").sideNav();
   });
+  
+  
+  
   
   
  function dia_delete2(id)
@@ -33,6 +45,10 @@
     }
 
 </script>
+
+
+
+
 
 
 <br/>
@@ -174,3 +190,7 @@
 -->
 
        <?=$this->user_model->call_all_page("tb_main_academic",$this->limit)?>
+
+
+
+

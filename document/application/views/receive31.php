@@ -81,6 +81,22 @@ $(function(){
     
     
   });
+  
+  
+  //date1_receive31_time
+  
+      $('#date1_receive31_time').pickadate({
+   // selectMonths: true, // Creates a dropdown to control month
+ //   selectYears: 15 // Creates a dropdown of 15 years to control year
+    
+        selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    monday:'Mon',
+  // format:'dd-mm-yyyy',
+    format:'yyyy-mm-dd',
+    
+    
+  });
     
 });
 
