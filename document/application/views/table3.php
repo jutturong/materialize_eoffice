@@ -46,6 +46,26 @@
 </script>
 
 
+<script type="text/javascript" >
+    
+        $(document).ready(function() 
+        {
+       
+           
+              $('#date_table').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 ,// Creates a dropdown of 15 years to control year
+    format:'yyyy-mm-dd',
+    
+  });
+  
+
+  
+  
+       });
+       
+    </script>
+
 
 <div class="row">
     <div class="col s12">
@@ -73,11 +93,13 @@
         
         
        <!-- <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')">-->
-               <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=1')"> 
+               <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2'     )"> 
             
                  <i class="large material-icons">view_module</i>
              
         </a>
+        
+   
         
         
         <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload3() ">
@@ -252,14 +274,25 @@
     
     <div id="test2" class="col s12">
         
-                
-        <!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')">-->
-              <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=2')"> 
-                 <i class="large material-icons">view_module</i>
+  
              
+        <!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')">-->
+              <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=2&type_document=1&select_date='  +  $('#date_table').val()   )"> 
+                 <i class="large material-icons">view_module</i>
+               
         </a>
+                   
+         
+       
+            <br/>
+            <br/>
+            <label >วันที่ส่งออก </label>
+           
+             <input type="date"  id="date_table"  name="date_table"  class="datepicker" class="validate" >
+            
+           
         
-        
+           
         <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload3() ">
                  <i class="large material-icons">forward_30</i>
         </a>

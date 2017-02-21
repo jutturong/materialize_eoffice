@@ -53,7 +53,29 @@
 </script>
 
 
-
+<script type="text/javascript" >
+    
+        $(document).ready(function() 
+        {
+       
+           
+              $('#date_table').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 ,// Creates a dropdown of 15 years to control year
+    format:'yyyy-mm-dd',
+    
+  });
+  
+  /*
+     selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format:'yyyy-mm-dd'
+   */
+  
+  
+       });
+       
+    </script>
 
 
 
@@ -92,7 +114,10 @@
              
         </a>
         
-              
+       
+
+        
+        
         <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload1() ">
                  <i class="large material-icons">forward_30</i>
              
@@ -264,12 +289,21 @@
         
                 
         <!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')">-->
-              <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=1&type_document=2')"> 
+              <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=1&type_document=2&select_date='  +  $('#date_table').val()    )"> 
+                  
+                       
+                          
+                          
                  <i class="large material-icons">view_module</i>
              
         </a>
-        
-               
+                       <br/>
+                       <br/>
+                     <label >วันที่ส่งออก </label>
+                  <input type="date"  id="date_table"  name="date_table"  class="datepicker">
+                
+                 
+                  
         <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload1() ">
                  <i class="large material-icons">forward_30</i>
              

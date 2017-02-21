@@ -115,6 +115,11 @@
     </script>
     -->
   
+    
+
+    
+    
+    
 <script type="text/javascript"> 
           
           
@@ -144,7 +149,11 @@
          $(document).ready(function () { 
                      var  sr_time='<?=date("Y-m")?>';  
                      $(".responsive-calendar").responsiveCalendar({  
+                     //   $("#calendar").responsiveCalendar({   
+                         
                                  time: sr_time ,   
+                                  left:   'title',
+    
                                   events:
                                     {
 
@@ -169,19 +178,37 @@
                                                     $qn=$this->db->get($tbrow,array("begin_date"=>$begin_date));
                                                     $num_q=  $qn->num_rows();
                                                       ?>
-                                                               "<?=$begin_date?>": {"number":  <?=$num_q?>  , "url": "#" ,       },                 
+                                                               "<?=$begin_date?>": {"number":  <?=$num_q?>  , "url": "#" ,   },                 
                                                       <?php
                                         }
                                  ?>
                                         
 
-                                      }
+                                      },
+                                    
+                                      
                     
                       });
                       
+                   
+              $(".responsive-calendar").click(function()
+              {
+                  
+                 // $(function(){
                       
+                        //alert('t'); 
+                     //   $('#modal_calendar').modal();
+                   
+                                    
+
+                //  });
+                 
+  
+  
+  
+  
+               });
                     
-                      
                       
          });
   
@@ -192,9 +219,22 @@
     
      
      
-     
+     <!--
      <div id='calendar'></div>
-    
+     -->
+             
+      <div id="modal_calendar" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+     
+     
   </body>
   
   

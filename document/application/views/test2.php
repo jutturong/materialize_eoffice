@@ -481,8 +481,8 @@ $(document).ready(function(){
     </head>
 
 
-
-    <body  onload="javascript:   $('#modal2').modal('open');  ">
+      <!--  onload="javascript:   $('#modal2').modal('open');  "  -->
+    <body  >
 
 
 
@@ -705,6 +705,7 @@ $(document).ready(function(){
              <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons left">offline_pin</i> ตารางงานผู้บริหาร </a>
          </li>
          
+         <li><a href=" javascript:void(0)  "  onclick="    $('#modal2').modal('open');  "><i class="material-icons left">phonelink_lock</i> เข้าสู่ระบบ </a></li>
             <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
             
             
