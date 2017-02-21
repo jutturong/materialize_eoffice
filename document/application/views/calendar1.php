@@ -55,7 +55,7 @@
             -->
             
                    <h4>
-                              <?php   //echo  date("Y-m");    ?>
+                            <?=nbs(2)?><?php   echo  date("Y-m-d");    ?><?=nbs(2)?>
                    </h4>
             
             <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
@@ -114,61 +114,86 @@
       });
     </script>
     -->
-    
-    <?php
-        foreach($q->result() as $row)
-        {
-               echo   $begin_date=$row->begin_date;
-               echo br();
-           
-                $end_date=$row->end_date;
-              
-              ?>
-      <script type="text/javascript"> 
+  
+<script type="text/javascript"> 
           
+          
+         /*
           $(document).ready(function () {
-            var  sr_time='<?=date("Y-m")?>';
-            var  begin_date='<?=$begin_date?>';
-            
-        $(".responsive-calendar").responsiveCalendar({
-          //  time: '2017-02',
-          
+               var  sr_time='<?=date("Y-m")?>';      
+                $(".responsive-calendar").responsiveCalendar({
+                   //  time: '2017-02',
            time: sr_time ,
-           
           events:
                   {
                       
-            /*
-            "2017-02-26": {"number": 1, "url": "http://w3widgets.com"}, 
-            "2017-02-03":{"number": 1}, 
+            "2017-02-02": {"number": 1, "url": "http://w3widgets.com" , }, 
+           "2017-02-03":{"number": 1 , dayClick:function(){ alert('t'); }  }, 
               "2017-02-04":{"number": 2}, 
               "2017-02-08": {"number": 5, "badgeClass": "badge-warning", "url": "http://www.sanook.com"},
-            "2017-03-12": {}
-            */
-    
-                    "<?php echo $begin_date; ?>" : {"number": 1, "url": "http://w3widgets.com"}, 
-                   // "2017-02-08": {"number": 2, "badgeClass": "badge-warning", "url": "http://www.sanook.com"},
-                       
-                      
+           "2017-03-12": {}
 
                     }
-            
-           
-            
-        
+
+                         });
         });
+        */
+           
+           
+                   
+         $(document).ready(function () { 
+                     var  sr_time='<?=date("Y-m")?>';  
+                     $(".responsive-calendar").responsiveCalendar({  
+                                 time: sr_time ,   
+                                  events:
+                                    {
+
+                            /*
+                               "2017-02-01": {"number": 1, "url": "http://w3widgets.com" , }, 
+                              "2017-02-02": {"number": 1, "url": "http://w3widgets.com" , }, 
+                             "2017-02-03":{"number": 1 , dayClick:function(){ alert('t'); }  }, 
+                                "2017-02-04":{"number": 2}, 
+                                "2017-02-08": {"number": 5, "badgeClass": "badge-warning", "url": "http://www.sanook.com"},
+                             "2017-03-12": {},
+                            */ 
+                             
+                              <?php
+                                        $tbrow="tb_main_academic";
+                                        foreach($q->result() as $row)
+                                        {
+                                                 $begin_date=$row->begin_date;
+                                                 // echo br();
+                                                 $end_date=$row->end_date;
+                                                //echo br();
+                                                    
+                                                    $qn=$this->db->get($tbrow,array("begin_date"=>$begin_date));
+                                                    $num_q=  $qn->num_rows();
+                                                      ?>
+                                                               "<?=$begin_date?>": {"number":  <?=$num_q?>  , "url": "#" ,       },                 
+                                                      <?php
+                                        }
+                                 ?>
+                                        
+
+                                      }
+                    
+                      });
+                      
+                      
+                    
+                      
+                      
+         });
+  
+</script>  
+      
         
-      });
-          
-     </script>
-             <?php
-        }
-    ?>
+   
     
      
      
      
-     <span id="sub_calendar1"></span>
+     <div id='calendar'></div>
     
   </body>
   

@@ -265,11 +265,13 @@ $type_record=$_REQUEST["type_record"];
 $type_document=$_REQUEST["type_document"];
   
 $cur_date=date("Y-m-d");  
+$mak_date="2017-02-20";
     
 if(  $type_record >= 1  &&  $type_document >= 1 )
 {
        $tb="tb_main1";
-       $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` = '$cur_date'      ";
+     //  $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` = '$cur_date'      ";
+       $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$mak_date'      ";
        $query=mysql_query($str) or die("mysql error ");
        
        /*

@@ -8,10 +8,12 @@
             <file>file:/var/www/html/document/application/controllers/welcome.php</file>
             <file>file:/var/www/html/document/application/views/send11.php</file>
             <file>file:/var/www/html/document/application/views/receive21.php</file>
+            <file>file:/var/www/html/document/application/views/calendar1.php</file>
             <file>file:/var/www/html/document/application/views/send21.php</file>
             <file>file:/var/www/html/document/application/views/import.php</file>
             <file>file:/var/www/html/document/application/views/send31.php</file>
             <file>file:/var/www/html/document/application/views/receive31.php</file>
+            <file>file:/var/www/html/document/application/views/home_academic.php</file>
         </group>
     </open-files>
 </project-private>
