@@ -204,12 +204,30 @@ $(document).ready(function(){
                                $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
                   }
                   
+                  else if( send1 = "man_calendar"  ) //หน้าปฏิทินหลัก
+                  {
+                        //http://10.87.196.170/document/index.php/welcome/calendar
+                        $('#sub11').load("<?=base_url()?>index.php/welcome/calendar");
+                  }
                   
                   // $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
                   
               });    
            </script>
+       
            
+           <script type="text/javascript">
+   function  search_calendar1()  //ค้นหา
+   {
+           //alert('t');
+            //http://localhost/document/index.php/welcome/search_main_calendar
+              $('#sub11').load("<?=base_url()?>index.php/welcome/search_main_calendar/" , { "firstname_academic" : $('#firstname_academic').val()   }  );
+           
+           return false;
+           
+   }
+
+</script>
            
            
       <script type="text/javascript">
@@ -461,6 +479,7 @@ $(document).ready(function(){
             function   page_main_academic(page)
            {
                   $('#sub11').load("<?=base_url()?>index.php/welcome/page_table_main_academic/"  +  page  );
+                  
 
            }
            
@@ -485,6 +504,12 @@ $(document).ready(function(){
     <body  >
 
 
+        
+
+        
+        
+        
+        
 
       
       <!--  search 
@@ -606,6 +631,7 @@ $(document).ready(function(){
         
           <li><a href="#!"   onclick="add_academic()" ><i class="material-icons left">sort_by_alpha</i>เพิ่มกิจกรรม</a></li>
           <li class="divider"></li>
+          
           <li><a href="#modal_show_academic"   ><i class="material-icons left">zoom_in</i>ค้นหากิจกรรม</a></li>
           
           
@@ -705,7 +731,7 @@ $(document).ready(function(){
              <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons left">offline_pin</i> ตารางงานผู้บริหาร </a>
          </li>
          
-         <li><a href=" javascript:void(0)  "  onclick="    $('#modal2').modal('open');  "><i class="material-icons left">phonelink_lock</i> เข้าสู่ระบบ </a></li>
+         <li><a href="#"  onclick=" javascript: $('#modal2').modal('open');  "><i class="material-icons left">phonelink_lock</i> เข้าสู่ระบบ </a></li>
             <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
             
             
@@ -727,14 +753,10 @@ $(document).ready(function(){
         
 
 
-
+<!-- load content -->
   <span id="sub11"></span>
 
 
-
-
-
-  
   
   <!-- Modal Trigger -->
 
@@ -1037,7 +1059,7 @@ $(document).ready(function(){
                   $('#sub11').load(url, $('#fr_sr_academic').serialize() , function(data)
                   {   
                              Materialize.toast(' แสดงผลการค้นหา ', 4000 , 'rounded') // 4000 is the duration of the toast
-                             $('#modal_show_academic').modal('close');
+                            // $('#modal_show_academic').modal('close');
                   } );
           });
            
@@ -1067,7 +1089,8 @@ $(document).ready(function(){
  
  <!--      class="modal "   -->
  <div id="modal_show_academic"   class="modal "   >
-      <form id="fr_sr_academic" action="<?=base_url()?>index.php/welcome/search_main_academic">
+     <!-- <form id="fr_sr_academic" action="<?=base_url()?>index.php/welcome/search_main_academic"> -->
+           <form id="fr_sr_academic"  >
      <div class="modal-content" >
          
          
@@ -1081,24 +1104,26 @@ $(document).ready(function(){
                                            <label> ชื่อ-นามสกุล : </label>
           </div>
 
+         
+         <!--
          <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
                             <input type="date" id="begin_date"  name="begin_date"   class="datepicker"  />   
-                            <!-- <label> ตั้งแต่วันที่ : </label> -->
+                          
            </div>
          
           <div class="input-field col s6">
                              <i class="material-icons prefix">today</i>
                             <input type="date" id="end_date"  name="end_date"   class="datepicker"  />   
-                            <!-- <label> ตั้งแต่วันที่ : </label> -->
+                            
            </div>
+          -->
          
          
          
-         
-         <button class="waves-effect waves-light btn-large" type="button"  id="btn_academic"  name="btn_academic" >
+         <button class="waves-effect waves-light btn-large" type="button"   onclick=" search_calendar1() "   id="btn_academic"  name="btn_academic" >
                   SEARCH
-                                  <i class="material-icons md-30">assignment_ind</i>
+         <i class="material-icons md-30">assignment_ind</i>
          </button>
          
          <button class="waves-effect waves-light btn-large" type="reset"  id="btn_academic"  name="btn_academic" >
@@ -1860,6 +1885,11 @@ $(document).ready(function(){
      <!-- dialog หนังสือเวียน -->
  
  
+     
+             
+      
+     
+     
  
     </body>
   </html>

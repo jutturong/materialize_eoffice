@@ -1,3 +1,7 @@
+<?php $this->load->view("import")?>
+  <?php    header('Content-Type: text/html; charset=UTF-8');  ?>
+
+
 <script type="text/javascript">
     
       $(document).ready(function(){  
@@ -214,7 +218,8 @@
           <div class="button-collapse col s6">
                 
             
-              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_academic"  name="btn_academic" >UPDATE
+              <button class="waves-effect waves-light btn-large" type="submit"  id="btn_academic"  name="btn_academic" >
+                                  UPDATE
                                   <i class="material-icons md-30">phonelink_ring</i>
               </button>
                 

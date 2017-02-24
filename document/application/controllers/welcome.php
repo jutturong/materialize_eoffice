@@ -153,7 +153,25 @@
                               /*-------------1.เลขทะเบียนส่ง----------  */  
                               $data["number_add"]=$this->user_model->count_id(1,1);
                                
-                               
+                           ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย ฯ > หนังสือรับ 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php    
                              
                              $this->load->view("receive11",$data);
                      }
@@ -188,6 +206,27 @@
                                   $data["number_add"]="ตวฉ/";
                                }
                               /*-------------1.เลขทะเบียนส่ง----------  */
+                               
+                                  ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย ฯ > หนังสือส่ง 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php    
+                               
                                
                              $this->load->view("send11",$data);
                      }
@@ -234,6 +273,26 @@
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------            
                           */
+                             
+                             ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And Excellent > หนังสือรับ 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php
                              
                              $data["number_add"]=$this->user_model->count_id(3,1);
                              
@@ -285,6 +344,27 @@
                              */
                              
                              $data["number_add"]=$this->user_model->count_id(2,1);
+                             
+      ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> ศูนย์วิจัย ฯ  > หนังสือรับ 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php                       
+                             
                              
                              $this->load->view("receive31",$data);
                      }
@@ -357,7 +437,25 @@
                                
                               /*-------------1.เลขทะเบียนส่ง----------  */
                              
+                               ?>
                              
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                              <i class="material-icons left">person_pin</i>ศูนย์การดูแล ฯ And Excellent > หนังสือส่ง
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php
                      
                                $this->load->view("send21",$data);
                      }
@@ -434,6 +532,26 @@
                                
                               /*-------------1.เลขทะเบียนส่ง----------  */
                                
+                               ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> ศูนย์วิจัย ฯ > หนังสือส่ง
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php
+                               
                                $this->load->view("send31",$data);
                      }
                      
@@ -498,7 +616,25 @@
                              $data["query2"]=$this->user_model->tb_main1("1","2");
                              
                              
-                     
+                        ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> แสดงผลการบันทึก > มูลนิธิตะวันฉายฯ 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php 
                             
                             $this->load->view("table11",$data);
                             
@@ -610,6 +746,27 @@
                             //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
                              $data["query2"]=$this->user_model->tb_main1("3","2");
                             
+                             
+                                ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> แสดงผลการบันทึก > ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php    
+                             
                             $this->load->view("table2",$data);
                             
                             
@@ -638,6 +795,26 @@
                          //    $data["query2"]=$this->user_model->tb_main1("2","2");
                              $data["query2"]=$this->user_model->tb_main1("2","2");
                             
+                             ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> แสดงผลการบันทึก > ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php       
+                             
                             $this->load->view("table2",$data);
                             
                      }
@@ -1531,6 +1708,27 @@
                          if(    $this->user_model->authenlogin() == 1 )
                           {
                                  $data["title"]=$this->title;
+                                 
+                                 
+                                            ?>                  
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > เพิ่มกิจกรรม 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php  
+                       
                                  $this->load->view("add_academic");
                            }
                 }
@@ -1736,9 +1934,107 @@
                                        //echo 0;
                                    }
                                    
-                                     redirect("welcome/homepage/insert_main_academic",'refresh');   
-                                   
+                                   // index.php/welcome/index/man_calendar
+                                     //redirect("welcome/homepage/insert_main_academic",'refresh');   
+                                    redirect("welcome/index/man_calendar",'refresh');   
                           }
+                }
+                
+                
+                public  function  search_main_calendar()    #   http://localhost/document/index.php/welcome/search_main_calendar
+                {
+                    if(    $this->user_model->authenlogin() == 1    )
+                          {
+                                        echo  $firstname_academic = trim($this->input->get_post("firstname_academic"));
+                                        echo br();
+                        
+                                     //   echo   $firstname_academic =trim($this->uri->segment(3));       
+                                     //   echo br();          
+                        
+                                          $tb="tb_main_academic";
+                                          
+                                          
+                                                          $tbj1="tb_academic"; 
+                                                          $tbj2="tb_academic_activities";
+                                   
+                                                  
+                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
+                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
+                                                  
+                                                    $this->db->order_by("id_main_academic","DESC");
+                                                   // $data["query"]=$this->db->get($tb,$this->limit);
+                                                    //$q-
+                                                    
+                                                    
+                                                    
+                                                    
+                                          
+                          } 
+                    
+                    
+                    /*
+                       $firstname_academic = trim($this->input->get_post("firstname_academic"));
+                          // echo br();
+                                 
+                                  $begin_date=trim($this->input->get_post("begin_date"));
+                                // echo  "<br>";
+                                  $end_date=trim($this->input->get_post("end_date"));
+                               //  echo  "<br>";
+                                 
+                                               $tb="tb_main_academic";
+                           
+            
+                                 
+                                                          $tbj1="tb_academic"; 
+                                                          $tbj2="tb_academic_activities";
+                                   
+                                                  
+                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
+                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
+                                                  
+                                            
+                                                  
+                                                  
+                                                     $this->db->order_by("id_main_academic","DESC");
+                                                  
+                                                  if(  $firstname_academic > 0    &&    $begin_date == ""   &&  $end_date  ==  ""  )
+                                                  {
+                                                           //   $this->db->where($tb.".begin_date >= ", $begin_date);
+                                                           //    $this->db->where($tb.".end_date <= ", $end_date);
+                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
+                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
+   
+                                                               $data["query"]=$this->db->get($tb);
+                                                               $this->load->view("home_academic",$data);
+                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
+                                                  }
+                                                   else if(  $firstname_academic > 0    &&    $begin_date != ""   &&  $end_date  !=  ""  )
+                                                  {
+                                                               $this->db->where($tb.".begin_date >= ", $begin_date);
+                                                               $this->db->where($tb.".end_date <= ", $end_date);
+                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
+                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
+                                                              $data["query"]=$this->db->get($tb);
+                                                              // $data["query"]=$this->db->get_where($tb,array($tb.".id_firstname_academic"=>$firstname_academic));
+                                                               $this->load->view("home_academic",$data);
+                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
+                                                  }
+                                                  
+                                               else  if( $begin_date != ""   &&  $end_date != ""  &&    $firstname_academic == "" )
+                                                  { 
+                                                              $this->db->where($tb.".begin_date >= ", $begin_date);
+                                                               $this->db->where($tb.".end_date <= ", $end_date);
+                                                            //  $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
+                                                              
+                                                               $data["query"]=$this->db->get($tb);
+                                                               $this->load->view("home_academic",$data);
+                                                              // $data["query"]=$this->db->get($tb,$this->limit);
+                                                  }
+                     */
+                    
+                    
+                    
+                    
                 }
                 
                 public  function  search_main_academic()
@@ -2292,19 +2588,80 @@
                 }
                 
                 
-                //---- ระบบปฏิทินออนไลน์ --------------------
+                //---- ระบบปฏิทินกิจกรรม--------------------
                  public function calendar()
                 {
                      #http://10.87.196.170/document/index.php/welcome/calendar
-                     // if(    $this->user_model->authenlogin() == 1 )
-                     //     {
+                      if(    $this->user_model->authenlogin() == 1 )
+                         {
                           
                                    $data["title"]=$this->title;   
                                    $tb="tb_main_academic";
                                    $data["q"]=$this->db->get($tb);
                                    
+                                   
+                                    ?>                  
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > แสดงกิจกรรมหลัก 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php  
+                       
+                       
                                    $this->load->view("calendar1",$data);   
-                      //    }
+                         }
+                }
+                
+                public  function  detail_calendar()  #http://10.87.196.170/document/index.php/welcome/detail_calendar
+                {
+                     if(    $this->user_model->authenlogin() == 1 )
+                         {
+                                     $tb="tb_main_academic";         
+                                     $begin_date=trim($this->uri->segment(3));      
+                                    //echo br();
+                                     //id_academic
+                                     //id_firstname_academic
+                                     
+                                     $tbj1="tb_academic";
+                                              $this->db->join(  $tbj1  , $tb.".id_firstname_academic=".$tbj1.".id_academic"  ,  "left" );
+                                    $data["date_q"]=$this->db->get_where($tb,array("begin_date"=>$begin_date));
+                                    
+                                    
+                                    ?>                  
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > แสดงกิจกรรม
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php    
+                       
+                                    
+                                    $this->load->view("calendar2",$data);
+                                    
+                          }
                 }
                 
 

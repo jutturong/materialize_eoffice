@@ -1,11 +1,8 @@
 <!--  คู่มือการใช้งาน  http://w3widgets.com/responsive-calendar/#presentation   -->
 
-<script type="text/javascript"  >
-    $(function(){
-                       //sub_calendar1
-                     //  $('#sub_calendar1').load("<?=base_url()?>index.php/welcome/table_main_academic");
-            });
-</script>
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,23 +39,47 @@
   <br/>
   
   <body>
+      
+      
+       
+
     <div class="container">
       <!-- Responsive calendar - START -->
     	<div class="responsive-calendar">
         <div class="controls">
-            <a class="pull-left" data-go="prev"><div class="btn btn-primary">Prev</div></a>
+            <a class="pull-left" data-go="prev">    <div class="btn btn-primary">
+                    <i class="material-icons left">fast_rewind</i> Prev</div></a>
             
             <!--
             <h4>
                 <span data-head-year></span> <span data-head-month></span>
+              <?=nbs(2)?><?php   echo  date("d");    ?><?=nbs(2)?>
             </h4>
             -->
             
-                   <h4>
-                            <?=nbs(2)?><?php   echo  date("Y-m-d");    ?><?=nbs(2)?>
-                   </h4>
+              
             
-            <a class="pull-right" data-go="next"><div class="btn btn-primary">Next</div></a>
+                         <!--   <a class="btn-large disabled">       </a> -->
+                         <h4>
+                             <?=nbs(2)?>
+                             <i class="material-icons">av_timer</i>  <?php   echo  date("d/m/Y");    ?>
+                             <?=nbs(2)?>
+                         </h4>
+            
+            <a class="pull-right" data-go="next"><div class="btn btn-primary"><i class="material-icons left">fast_forward</i>Next</div></a>
+            
+                    
+            
+            
+                    
+            
+                                 
+            
+            
+                         
+            
+            
+                     
             
             
         </div>
@@ -144,16 +165,45 @@
         });
         */
            
-           
+         
+         
+  /*        
+ function dia_delete2(id)
+    {
+          $(document).ready(function()
+          {
+                    //    $('.modal').modal();
+                   //  $('#modal_delete').modal('open');
+                 //   $('#modal_delete1').modal('open');
+                  Materialize.toast('Delete function', 1000, 'rounded' ,function()
+                    {
+                          //alert(id);
+                          var  r=confirm("คุณต้องการลบข้อมูลหรือไม่");
+                          if(r==true){
+                                //alert(id);
+                                window.location.assign("<?=base_url()?>index.php/welcome/del_main_academic/" + id + "/");
+                                
+                                
+                          }
+                          else
+                          {
+                               //  alert(id);
+                               
+                          }
+                        
+                    });
+          });
+    }
+    */
+    
+    
                    
          $(document).ready(function () { 
                      var  sr_time='<?=date("Y-m")?>';  
                      $(".responsive-calendar").responsiveCalendar({  
                      //   $("#calendar").responsiveCalendar({   
-                         
-                                 time: sr_time ,   
+                                  time: sr_time ,   
                                   left:   'title',
-    
                                   events:
                                     {
 
@@ -165,32 +215,84 @@
                                 "2017-02-08": {"number": 5, "badgeClass": "badge-warning", "url": "http://www.sanook.com"},
                              "2017-03-12": {},
                             */ 
+                   
+                   // "url" : '<?=base_url()?>index.php/welcome/detail_calendar/',  
                              
                               <?php
                                         $tbrow="tb_main_academic";
                                         foreach($q->result() as $row)
                                         {
+                                                 
                                                  $begin_date=$row->begin_date;
                                                  // echo br();
                                                  $end_date=$row->end_date;
                                                 //echo br();
                                                     
-                                                    $qn=$this->db->get($tbrow,array("begin_date"=>$begin_date));
+                                                    $qn=$this->db->get_where($tbrow,array("begin_date"=>$begin_date));
                                                     $num_q=  $qn->num_rows();
                                                       ?>
-                                                               "<?=$begin_date?>": {"number":  <?=$num_q?>  , "url": "#" ,   },                 
+                                                               "<?=$begin_date?>": 
+                                                                    {"number":  <?=$num_q?>   ,  "url" : '<?=base_url()?>index.php/welcome/detail_calendar/<?=$begin_date?>'    ,  
+                                                                                                               
+    
+                                                                   },                 
                                                       <?php
                                         }
                                  ?>
                                         
 
                                       },
-                                    
+                                              
+                                   
+                                    onDayClick: function(events) 
+                                   { 
+                                            // alert('Day was clicked')
+                                            //  alert(events);
+                                           //modal_calendar1
+                                           
+                                              // $('#modal_calendar1').modal('open');
+
+                                           
+                                         //  $(document).ready(function()
+                                           //  {
+                                                  
+                                                          // $('#modal_calendar1').modal('open');
+                                            // });  
+                                           
+                                         //    var  url=  '<?=base_url()?>index.php/welcome/detail_calendar/'';
+                                         //    window.open('<?=base_url()?>index.php/welcome/detail_calendar/','','width=500,height=500');
+
+                                   }
+                                   ,
+                                        
+                                                
+                                           /*
+                                   onActiveDayHover:function(events)
+                                   {
+                                          //alert('Day was clicked');
+                                           <?php
+                                                 $tbrow2="tb_main_academic";
+                                                 foreach($q->result() as $row)
+                                                 {
+                                                
+                                                 $begin_date=$row->begin_date;
+                                                 // echo br();
+                                                 $end_date=$row->end_date;
+                                                //echo br();
+                                                      ?>
+                                                            alert('<?=$begin_date?>');
+                                                      <?php
+                                                 }
+                                           ?>
+                                   }
+                                                       */
                                       
                     
                       });
-                      
-                   
+               
+               
+            
+                 /*  
               $(".responsive-calendar").click(function()
               {
                   
@@ -199,41 +301,28 @@
                         //alert('t'); 
                      //   $('#modal_calendar').modal();
                    
-                                    
-
                 //  });
-                 
-  
-  
-  
-  
+
                });
-                    
+               */
+               
+               
+               
+                    /*              
+                   $(".responsive-calendar").responsiveCalendar({ 
+                         onDayClick: function(events) { alert('Day was clicked') }
+                   });
+                  */
+                 
                       
          });
   
 </script>  
       
         
-   
-    
-     
-     
-     <!--
-     <div id='calendar'></div>
-     -->
-             
-      <div id="modal_calendar" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
 
-     
+  
+        
      
   </body>
   
