@@ -32,7 +32,11 @@
     
     
     <!-- Respomsive slider -->
-     <link href="<?=base_url()?>responsive-calendar/0.9/css/responsive-calendar.css" rel="stylesheet">
+   
+      <script src="<?=base_url()?>responsive-calendar/0.9/js/responsive-calendar.js"></script>
+     <link href="<?=base_url()?>responsive-calendar/0.9/css/responsive-calendar.css" rel="stylesheet" media="screen">
+     
+     
      
      
       <script type="text/javascript">
@@ -286,9 +290,11 @@
                                                     $num_q=  $qn->num_rows();
                                                       ?>
                                                                "<?=$begin_date?>": 
-                                                                    {"number":  <?=$num_q?>   ,  "url" : '<?=base_url()?>index.php/welcome/detail_calendar/<?=$begin_date?>'    ,  
-                                                                                                               
-    
+                                                                    {"number":  <?=$num_q?>   , 
+                                                                     // "badgeClass": "badge-warning" ,
+                                                                    //  "class": "active special" ,  
+                                                                    //  "badgeClass": "badge-error",
+                                                                      "url" : '<?=base_url()?>index.php/welcome/detail_calendar/<?=$begin_date?>'   , 
                                                                    },                 
                                                       <?php
                                         }
@@ -298,7 +304,7 @@
                                       },
                                               
                                    
-                                    onDayClick: function(events) 
+                                    onDayHover: function(events) 
                                    { 
                                             // alert('Day was clicked')
                                             //  alert(events);
@@ -315,6 +321,7 @@
                                            
                                          //    var  url=  '<?=base_url()?>index.php/welcome/detail_calendar/'';
                                          //    window.open('<?=base_url()?>index.php/welcome/detail_calendar/','','width=500,height=500');
+                                         
 
                                    }
                                    ,
