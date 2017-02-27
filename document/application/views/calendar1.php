@@ -4,6 +4,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -33,12 +34,65 @@
     <!-- Respomsive slider -->
      <link href="<?=base_url()?>responsive-calendar/0.9/css/responsive-calendar.css" rel="stylesheet">
      
+     
+      <script type="text/javascript">
+     
+                $(document).ready(function() 
+                {
+                       $('#firstname_academic_sr').material_select(); //ชื่อ-นามสกุล
+
+                });
+                
+              
+    
+    function  search_calendar1()  //ค้นหา
+   {
+            // alert('t');
+             // alert( $('#firstname_academic_sr').val()  );
+            //http://localhost/document/index.php/welcome/search_main_calendar
+             $('#sub11').load("<?=base_url()?>index.php/welcome/search_main_calendar/"  +  $('#firstname_academic_sr').val()  , { "firstname_academic" :  $('#firstname_academic_sr').val()   }  );
+           
+              return false;
+           
+   }
+
+    
+       </script>  
+  
+  
+  
+     
   </head>
   
   <br/>
   <br/>
   
   <body>
+      
+   
+      
+     <!-- 
+  <div class="row">
+    <form class="col s12">
+        
+      <div class="row">
+          
+
+        <div class="input-field col s6">
+            <select id="firstname_academic_sr" name="firstname_academic_sr" onchange=" search_calendar1()  " >
+                        <option value="" disabled selected>Choose your option</option>
+                        <?php   $this->user_model->select_academic();  ?>
+                   </select>
+                   <label> ชื่อ-นามสกุล : </label>
+        </div>
+
+          
+      </div>
+        
+
+    </form>
+  </div>
+     --> 
       
       
        
@@ -321,7 +375,6 @@
       
         
 
-  
         
      
   </body>

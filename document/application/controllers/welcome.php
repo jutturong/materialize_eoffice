@@ -1945,30 +1945,51 @@
                 {
                     if(    $this->user_model->authenlogin() == 1    )
                           {
-                                        echo  $firstname_academic = trim($this->input->get_post("firstname_academic"));
-                                        echo br();
+                                       // echo  $firstname_academic = trim($this->input->get_post("firstname_academic"));
+                                     //   echo br();
                         
-                                     //   echo   $firstname_academic =trim($this->uri->segment(3));       
-                                     //   echo br();          
+                                     $firstname_academic =  $this->uri->segment(3);
+                                     //echo br();          
                         
-                                          $tb="tb_main_academic";
+                                                  $tb="tb_main_academic";
                                           
                                           
-                                                          $tbj1="tb_academic"; 
-                                                          $tbj2="tb_academic_activities";
+                                                  //       $tbj1="tb_academic"; 
+                                                   //       $tbj2="tb_academic_activities";
                                    
                                                   
-                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
-                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
+                                          //        $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
+                                         //         $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
                                                   
-                                                    $this->db->order_by("id_main_academic","DESC");
-                                                   // $data["query"]=$this->db->get($tb,$this->limit);
-                                                    //$q-
-                                                    
-                                                    
-                                                    
-                                                    
-                                          
+                                           //         $this->db->order_by("id_main_academic","DESC");
+                                                  
+                                                  
+                                                  
+                                                         ?>                  
+                                                                <div class="row">
+                                                                            <div class="col s12 m12">
+                                                                              <div class="card blue-grey darken-1">
+                                                                                <div class="card-content white-text">
+
+                                                                                  <p>
+                                                                                     <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > ค้นหากิจกรรม 
+                                                                                  </p>
+
+                                                                                </div>
+
+
+
+                                                                              </div>
+                                                                            </div>
+                                                              </div>
+                                                        <?php  
+                                                        
+                                                  
+                                                  
+                                                    $data["q"]=$this->db->get_where($tb,array("id_firstname_academic"=> $firstname_academic  ));
+                                                     $this->load->view("calendar1",$data);          
+                                                     
+                                                     
                           } 
                     
                     
@@ -2623,6 +2644,9 @@
                                    $this->load->view("calendar1",$data);   
                          }
                 }
+                
+                
+                
                 
                 public  function  detail_calendar()  #http://10.87.196.170/document/index.php/welcome/detail_calendar
                 {

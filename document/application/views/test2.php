@@ -140,14 +140,6 @@ $(document).ready(function(){
 <!--  ลบข้อมูลในตาราง -->
 
 
-
-
-
-
-
-
-    
-           
            <script type="text/javascript">
               $(function(){
                   var send1='<?php echo $this->uri->segment(3);?>';
@@ -171,11 +163,7 @@ $(document).ready(function(){
                                 Materialize.toast($toastContent, 5000,'rounded');
                                 
                                 $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
-                             
-
-
-                                
-
+ 
                   }
                   //insert_success_receive21  //insert_success_send21
                       else  if(  send1 == "insert_success_receive21"   ||  send1 ==  "insert_success_send21"  ||  send1 =='page2'   )
@@ -204,11 +192,16 @@ $(document).ready(function(){
                                $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
                   }
                   
-                  else if( send1 = "man_calendar"  ) //หน้าปฏิทินหลัก
+                  else if( send1 == "man_calendar"  ) //หน้าปฏิทินหลัก
                   {
                         //http://10.87.196.170/document/index.php/welcome/calendar
                         $('#sub11').load("<?=base_url()?>index.php/welcome/calendar");
                   }
+                  /*
+                  else if (  send1 == ""  ) {
+                      $('#sub11').load("");
+                  }
+*/
                   
                   // $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
                   
@@ -217,15 +210,28 @@ $(document).ready(function(){
        
            
            <script type="text/javascript">
+               
    function  search_calendar1()  //ค้นหา
    {
-           //alert('t');
+             // alert('t');
+               
+              
             //http://localhost/document/index.php/welcome/search_main_calendar
-              $('#sub11').load("<?=base_url()?>index.php/welcome/search_main_calendar/" , { "firstname_academic" : $('#firstname_academic').val()   }  );
-           
-           return false;
-           
+              // alert(  $('#firstname_academic').val()   );
+               // var   url= '<?=base_url()?>index.php/welcome/search_main_calendar/' +  $('#firstname_academic').val();
+                //alert(url);
+                
+                 // alert(  '<?=base_url()?>index.php/welcome/search_main_calendar/' +  $('#firstname_academic').val()  );
+                
+                
+                 $('#sub11').load("<?=base_url()?>index.php/welcome/search_main_calendar/"  +  $('#firstname_academic_sr').val()    );
+              
+            //   $('#sub11').load(url);
+              
+               //  return false;
    }
+   
+   
 
 </script>
            
@@ -995,7 +1001,9 @@ $(document).ready(function(){
      
     $(document).ready(function() 
     {
-           $('#firstname_academic').material_select(); //ชื่อ-นามสกุล
+           $('#firstname_academic_sr').material_select(); //ชื่อ-นามสกุล
+           
+           
            
            $('#activities').material_select(); //กิจกรรม
            
@@ -1070,9 +1078,6 @@ $(document).ready(function(){
     });
     
     
-
-           
-           
            
  </script>
  
@@ -1090,12 +1095,12 @@ $(document).ready(function(){
  <!--      class="modal "   -->
  <div id="modal_show_academic"   class="modal "   >
      <!-- <form id="fr_sr_academic" action="<?=base_url()?>index.php/welcome/search_main_academic"> -->
-           <form id="fr_sr_academic"  >
+         
      <div class="modal-content" >
          
          
          <div class="input-field col s6">
-                                 <select id="firstname_academic" name="firstname_academic" >
+             <select id="firstname_academic_sr" name="firstname_academic_sr"  onchange="search_calendar1() " >
                                           
                                           <option value="" disabled selected>Choose your option</option>
                                              <?php   $this->user_model->select_academic();  ?>
@@ -1121,7 +1126,8 @@ $(document).ready(function(){
          
          
          
-         <button class="waves-effect waves-light btn-large" type="button"   onclick=" search_calendar1() "   id="btn_academic"  name="btn_academic" >
+          <!--
+         <button class="waves-effect waves-light btn-large" type="button"   onclick="search_calendar1()"   id="btn_academic"  name="btn_academic" >
                   SEARCH
          <i class="material-icons md-30">assignment_ind</i>
          </button>
@@ -1130,7 +1136,7 @@ $(document).ready(function(){
                   CLEAR
                                   <i class="material-icons md-30">tab_unselected</i>
          </button>
-       
+          -->
          
          
           
@@ -1141,11 +1147,11 @@ $(document).ready(function(){
      
      
      <div class="modal-footer">
-         <a href="#" class="modal-action modal-close waves-effect  waves-green btn-flat"  >Close</a>
+         <a href="#" class="modal-action modal-close waves-effect  waves-green btn-flat"  > ปิด (Close) </a>
      </div>
           
           
-          </form>
+        
      
  </div>
  <!--  แสดงกิจกรรมทางวิชาการ -->
