@@ -31,8 +31,22 @@ $(function(){
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15, // Creates a dropdown of 15 years to control year
     format:'yyyy-mm-dd',
-  });
     
+  });
+  
+  
+  //  echo  $data["cur_date"]=date("Y-m-d");
+     $('#date1_send11_time').val("<?php  echo date("Y-m-d");  ?>");
+     
+    
+        $('#date1_send11_time').pickadate({    
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format:'yyyy-mm-dd',
+    
+  });
+     
+     
 });
 
   
@@ -197,22 +211,29 @@ $(function(){
         <div class="input-field col s6">
             
           <i class="material-icons prefix">account_circle</i>
-          <input id="registration_send11" name="registration_send11"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="0001" />
+          <!-- placeholder="1.เลขทะเบียนส่ง" -->
+          <input id="registration_send11" name="registration_send11"  type="text"    value="<?=@$number_add?>" />
+          <!--
           <label for="registration_send11">1.เลขทะเบียนส่ง</label>
-          
+          -->
           
         </div>
           
+          
+         <!--  <i class="material-icons prefix">phone</i> -->
+          <!--
         <div class="input-field col s6">
             
-        <!--  <i class="material-icons prefix">phone</i> -->
+    
             <i class="material-icons prefix">account_circle</i>
             
-            <input id="at_send11" name="at_send11"  type="text"  placeholder="2.ที่"  value="ศธ 0514.1.61.3/ว 3136" />
+            <input id="at_send11" name="at_send11"  type="text"  placeholder="2.ที่"   />
           
           <label for="at_send11">2.ที่</label>
           
         </div>
+          -->
+          
           
             
           <div class="input-field col s6">
@@ -235,7 +256,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="from_send11"  name="from_send11"   type="text" class="validate"  value="รองอธิการบดีฝ่ายวิจัยและการถ่ายทอดเทคโนโลยี"   />
+          <input  id="from_send11"  name="from_send11"   type="text" class="validate"    />
           
           <label for="from_send11">4.จาก</label>
         </div>
@@ -245,7 +266,7 @@ $(function(){
           <i class="material-icons prefix">toll</i>
           
           
-          <input  id="to_send11"  name="to_send11"  type="text" class="validate"  value="ผู้อำนวยการมูลนิธิตะวันฉายฯ" />
+          <input  id="to_send11"  name="to_send11"  type="text" class="validate"   />
           
           <label for="icon_telephone">5.ถึง</label>
         </div>
@@ -255,7 +276,7 @@ $(function(){
           <i class="material-icons prefix">settings</i>
           
           
-          <input  id="subject_send11"  name="subject_send11"  type="text" class="validate"  value="แจ้งผลการอนุมัติงบประมาณ ปีงบประมาณ 2560 และขอเชิญประชุม" />
+          <input  id="subject_send11"  name="subject_send11"  type="text" class="validate"   />
           
           <label for="subject_send11">6.เรื่อง</label>
         </div>
@@ -307,6 +328,43 @@ $(function(){
           <!--  <div style="border-top: 300px;border-top-width:5px; border-right-width:5px; border-bottom-width:5px; border-left-width:5px;">-->
           <!-- <div style="padding:10px  0  10px  0"> </div>  -->
 
+           <div class="input-field col s6">
+            
+          <i class="material-icons prefix">open_in_browser</i>
+         <!-- <input id="icon_telephone" type="tel" class="validate"> -->
+          
+          
+          <input type="date"  id="date1_send11_time"  name="date1_send11_time"  class="datepicker" />
+        
+          
+                   
+          <label for="date1_send11_time">วันที่ทำการบันทึก</label>
+                   
+          
+        </div>
+          
+          
+          
+          
+          <div class="input-field col s6">
+            
+          <i class="material-icons prefix">open_in_browser</i>
+         <!-- <input id="icon_telephone" type="tel" class="validate"> -->
+          
+          
+          <input type="date"  id="date1_send11_time"  name="date1_send11_time"  class="datepicker" />
+        
+          
+                   
+          <label for="date1_send11_time">วันที่ทำการบันทึก</label>
+                   
+          
+        </div>
+          
+          
+          
+          
+          
           <div class="button-collapse col s6">
                 
             
