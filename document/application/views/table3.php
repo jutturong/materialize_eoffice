@@ -1,9 +1,12 @@
 <script type="text/javascript">
 
   $(document).ready(function(){
-    $('ul.tabs').tabs();
     
-     $(".button-collapse").sideNav(); // menu bar ด้านข้าง
+        $('ul.tabs').tabs();
+        
+        
+        $(".button-collapse").sideNav(); // menu bar ด้านข้าง
+    
     
   });
 
@@ -15,10 +18,9 @@
          $('#modal_table11').modal('open');
   });
   */
- 
- 
- 
-   function reload3()
+  
+  
+          function reload2()
         {
                //$('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
             //   $('#sub11').load("<?=base_url()?>index.php/welcome/" + tb );
@@ -26,8 +28,7 @@
                 $('#sub11').load("<?=base_url()?>index.php/welcome/table3/");
         }
         
- 
-  
+        
 </script>
 
 
@@ -67,6 +68,7 @@
     </script>
 
 
+
 <div class="row">
     <div class="col s12">
       <ul class="tabs">
@@ -92,45 +94,39 @@
         -->
         
         
-       <!-- <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/1')">-->
-               <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2'     )"> 
-            
+        <!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')">-->
+         <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php?type_record=2&type_document=1')"> 
                  <i class="large material-icons">view_module</i>
              
         </a>
         
-   
+    
         
         
-        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload3() ">
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload2() ">
                  <i class="large material-icons">forward_30</i>
              
         </a>
         
-        
-           <!--http://materializecss.com/collections.html -->
+         <!--http://materializecss.com/collections.html -->
   <ul class="collection">
     <?php
            foreach($query->result() as $rows)
                  {
-                        $id=$rows->id_main1;
+                                 $id=$rows->id_main1;
     ?>
       
       <li class="collection-item avatar">
           
-        <!--  
+          <!--
        <i class="material-icons circle">folder</i>
-        -->
-        
-        <!--
-           <a href="#" data-activates="slide-out" class="button-collapse"> 
+          -->
+          
+          <a href="#" data-activates="slide-out21" class="button-collapse"> 
                     <i class="material-icons circle">swap_vertical_circle</i>
           </a>
-        -->
-        
-        <a href="#" data-activates="slide-out31" class="button-collapse"> 
-                    <i class="material-icons circle">swap_vertical_circle</i>
-          </a>
+          
+          
        
       <span class="title">
           เลขทะเบี่ยนรับ : <?php echo  $rows->registration; ?>
@@ -138,7 +134,7 @@
       <p> 
           ที่่ : <?php  echo $rows->at; ?>
                <br>
-          ลงวันที่่ : <?php  echo $rows->date;  ?>
+          ลงวันที่ : <?php  echo $rows->date;  ?>
                <br>
           จาก : <?php  echo $rows->from;  ?>
                   <br>
@@ -149,200 +145,15 @@
                      
                      
                      <span class="title">
-                                 <a href="#!"  onclick="dia_delete(<?=$id?>,3)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
-                     </span>    
+                                 <a href="#!"  onclick="dia_delete(<?=$id?>,2)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
+                     </span> 
                      
-                     
-                     
-                        <!-- update  form  -->
+                  
+                      <!-- update  form  -->
                     
                      <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
                           <i class=" material-icons  ">picture_in_picture</i> Update Data
-                         
-                     </a>
-                   <!-- update  form  -->
-                   
-                    <!-- หนังสือเวียน -->
-                   <?=nbs(2)?>
-                   <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   ">
-                       <i class="large material-icons">picture_in_picture</i>  หนังสือเวียน
-                   
-                   </a>
-                   
-                   <script type="text/javascript">
-                      $(function(){
-                            $('#at_circle').val('<?=$rows->at?>');
-                            $('#id_main1').val('<?=$rows->id_main1?>');
-                      });
-                   </script>
-                   <!-- หนังสือเวียน -->
-                   
-                   
-                   <br>
-                     
-     
-              <!--  Download file -->
-                  <?php
-              if( strlen($rows->filename) >  0  )
-              {
-     ?>
-      <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
-            <i class="material-icons">system_update_alt</i>
-            </a>
-    <?php
-              }
-            ?>
-              
-    
-  <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
- <ul id="slide-out31" class="side-nav">
-    <li><div class="userView">     
-      <div class="background">
-          <img src="<?=base_url()?>images/office2.jpg"  width="250">
-      </div>
-      <a href="#"><span class="white-text name"></span></a>
-      <a href="#"><span class="white-text email"></span></a>
-    </div>
-    </li>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="registration" name="registration"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
-        </div>
-        <div class="input-field col s12">
-            <i class="material-icons prefix">account_circle</i>
-            <input id="at" name="at"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
-        </div> 
-          <div class="input-field col s12">  
-          <i class="material-icons prefix">today</i>
-          <input type="date"  id="date1"  name="date1"  class="datepicker"  value="<?=$rows->date?>"/>
-        </div>
-          <div class="input-field col s12">
-          <i class="material-icons prefix">toll</i>
-          <input  id="from"  name="from"   type="text" class="validate"  value="<?=$rows->from?>"   />
-        </div>
-          <div class="input-field col s12">
-          <i class="material-icons prefix">toll</i>
-          <input  id="to"  name="to"  type="text" class="validate"  value="<?=$rows->to?>" />
-        </div>
-          <div class="input-field col s12">
-          <i class="material-icons prefix">settings</i>
-          <input  id="subject"  name="subject"  type="text" class="validate"  value="<?=$rows->subject?>" />
-        </div>
-           <div class="input-field col s12">
-          <i class="material-icons prefix">perm_identity</i>
-          <input  id="practice" name="practice"  type="text" class="validate"  value="<?=$rows->practice?>"  />
-        </div>
-            <div class="input-field col s12">
-          <i class="material-icons prefix">perm_identity</i>
-          <input  id="note"  name="note"  type="text" class="validate" value="<?=$rows->note?>"   >
-        </div>
-            <input type="hidden"  id="type_record"  name="type_record"  value="<?=$rows->type_record?>"  /> 
-      </div>
-      
- </ul>
- <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->   
- 
-              
-      </p>
-      
-      
-      
-
-      
-  
-      
-
-      
-      
-      
-    </li>
-    <?php
-                    }
-    ?>
-  </ul>
-  <!--http://materializecss.com/collections.html -->    
-  
-  
-  
-             
-             
-       
-    
-    </div>
- 
-    
-    <div id="test2" class="col s12">
-        
-  
-             
-        <!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/2/2')">-->
-              <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=2&type_document=2&type_document=1&select_date='  +  $('#date_table').val()   )"> 
-                 <i class="large material-icons">view_module</i>
-               
-        </a>
-                   
-         
-       
-            <br/>
-            <br/>
-            <label >วันที่ส่งออก </label>
-           
-             <input type="date"  id="date_table"  name="date_table"  class="datepicker" class="validate" >
-            
-           
-        
-           
-        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload3() ">
-                 <i class="large material-icons">forward_30</i>
-        </a>
-    
-        
-        <!--http://materializecss.com/collections.html -->
-  <ul class="collection">
-    <?php
-           foreach($query2->result() as $rows)
-                 {
-                           $id=$rows->id_main1;
-    ?>
-      
-      <li class="collection-item avatar">
-         
-          <!--
-       <i class="material-icons circle">folder</i>
-           -->
-           
-           
-           <a href="#" data-activates="slide-out32" class="button-collapse"> 
-                    <i class="material-icons circle">swap_vertical_circle</i>
-          </a>
-       
-      <span class="title">
-          เลขทะเบียนรับ : <?php echo  $rows->registration; ?>
-      </span>
-      <p> 
-           ที่ : <?php  echo $rows->at; ?>
-               <br>
-           ลงวันที่ : <?php  echo $rows->date;  ?>
-               <br>
-           จาก : <?php  echo $rows->from;  ?>
-                  <br>
-           ถึง : <?php  echo $rows->to;  ?>
-                   <br>
-           เรื่อง : <?php  echo $rows->subject; ?>
-                     <br>
-                     
-                     
-                     <span class="title">
-                                 <a href="#!"   onclick="dia_delete(<?=$id?>,3)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
-                     </span>    
-                     
-     
-                     
-                   <!-- update  form  -->
-                    
-                     <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
-                          <i class=" material-icons  ">picture_in_picture</i> Update Data
+                          
                          
                      </a>
                    <!-- update  form  -->
@@ -364,10 +175,10 @@
                    
                    
                    <br>
-                     
-                   
-              <!--  Download file -->
-              <?php
+                   <br>
+     
+              
+    <?php
               if( strlen($rows->filename) >  0  )
               {
      ?>
@@ -375,19 +186,13 @@
             <i class="material-icons">system_update_alt</i>
             </a>
     <?php
-              }
+               }
             ?>
-                   
-                   
-                   
-                </ul>
-  <!--http://materializecss.com/collections.html -->  
-               <?php   $this->user_model->call_page_main31("tb_main1",$this->limit,base_url()."index.php/welcome/page_main3");  ?>  
-  
-  
+              
    
-                   <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
- <ul id="slide-out32" class="side-nav">
+                   
+<!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
+ <ul id="slide-out21" class="side-nav">
     <li><div class="userView">     
       <div class="background">
           <img src="<?=base_url()?>images/office2.jpg"  width="250">
@@ -438,15 +243,7 @@
       </p>
       
       
-      
 
-      
-  
-      
-
-      
-      
-      
     </li>
     <?php
                     }
@@ -456,8 +253,184 @@
   
   
   
-                       <?php   $this->user_model->call_page_main32("tb_main1",$this->limit,base_url()."index.php/welcome/page_main3");  ?>  
+               <?php   $this->user_model->call_page_main21("tb_main1",$this->limit,base_url()."index.php/welcome/page_main2");  ?>  
+      
+    
+    </div>
+ 
+    
+    <div id="test2" class="col s12">
+        
+                
+        <!--<a class="btn-floating btn-large waves-effect waves-light red"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"  >-->
+            <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php?type_record=2&type_document=2&select_date='  +  $('#date_table').val()    )"> 
+                 <i class="large material-icons">view_module</i>
+             
+        </a>
+        
+             <br/>
+             <br/>
+            <label >วันที่ส่งออก </label>
+            <input type="date"  id="date_table"  name="date_table"  class="datepicker">
+             
+          
+            
+        <a class="btn-floating btn-large waves-effect waves-light red" onclick=" reload2() ">
+                 <i class="large material-icons">forward_30</i>
+             
+        </a>
+        
+     
+        
+          <!--http://materializecss.com/collections.html -->
+  <ul class="collection">
+    <?php
+           foreach($query2->result() as $rows)
+                 {
+                          $id=$rows->id_main1;
+    ?>
+      
+      <li class="collection-item avatar">
+          
+         <!-- 
+       <i class="material-icons circle">folder</i>
+          -->
+          
+          <a href="#" data-activates="slide-out22" class="button-collapse"> 
+                    <i class="material-icons circle">swap_vertical_circle</i>
+          </a>
        
+      <span class="title">
+          เลขทะเบี่ยนรับ : <?php echo  $rows->registration; ?>
+      </span>
+      <p> 
+          ที่ : <?php  echo $rows->at; ?>
+               <br>
+          ลงวันที่ : <?php  echo $rows->date;  ?>
+               <br>
+          จาก : <?php  echo $rows->from;  ?>
+                  <br>
+          ถึง : <?php  echo $rows->to;  ?>
+                   <br>
+          เรื่อง : <?php  echo $rows->subject; ?>
+                     <br>
+                     
+                     
+                     <span class="title">
+                                 <a href="#!"   onclick="dia_delete(<?=$id?>,2)"  class="secondary-content"><i class="material-icons">power_settings_new</i></a> 
+                     </span>    
+                     
+                     
+                       <!-- update  form  -->
+                    
+                     <a class="modal-trigger waves-effect waves-light btn large" href="#" onclick="javascript:  window.location.href='<?=base_url()?>index.php/welcome/update_main/<?=$rows->id_main1?>'  " >
+                          <i class=" material-icons  ">picture_in_picture</i> Update Data
+                         
+                     </a>
+                   <!-- update  form  -->
+                   
+                      <!-- หนังสือเวียน -->
+                   <?=nbs(2)?>
+                   <a class="modal-trigger waves-effect waves-light btn large" onclick="javascript:  $('#modal_circular').modal('open');   ">
+                       <i class="large material-icons">picture_in_picture</i> หนังสือเวียน</a>  
+                   
+                   <script type="text/javascript">
+                      $(function(){
+                            $('#at_circle').val('<?=$rows->at?>');
+                            $('#id_main1').val('<?=$rows->id_main1?>');
+                      });
+                   </script>
+                   <!-- หนังสือเวียน -->
+                   
+                   <br>
+                   <br>
+
+                   <!--  download file -->
+                  <?php
+              if( strlen($rows->filename) >  0  )
+              {
+     ?>
+      <a href="<?=base_url()?>upload/<?php  echo  $rows->filename; ?>"  target="_blank">  
+            <i class="material-icons">system_update_alt</i>
+            </a>   
+                     
+       <?php
+              }
+            ?>
+
+           
+  <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->
+ <ul id="slide-out22" class="side-nav">
+    <li><div class="userView">     
+      <div class="background">
+          <img src="<?=base_url()?>images/office2.jpg"  width="250">
+      </div>
+      <a href="#"><span class="white-text name"></span></a>
+      <a href="#"><span class="white-text email"></span></a>
+    </div>
+    </li>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="registration" name="registration"  type="text"  placeholder="1.เลขทะเบียนส่ง"  value="<?=$rows->registration?>" />
+        </div>
+        <div class="input-field col s12">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="at" name="at"  type="text"  placeholder="2.ที่"  value="<?=$rows->at?>" />
+        </div> 
+          <div class="input-field col s12">  
+          <i class="material-icons prefix">today</i>
+          <input type="date"  id="date1"  name="date1"  class="datepicker"  value="<?=$rows->date?>"/>
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          <input  id="from"  name="from"   type="text" class="validate"  value="<?=$rows->from?>"   />
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">toll</i>
+          <input  id="to"  name="to"  type="text" class="validate"  value="<?=$rows->to?>" />
+        </div>
+          <div class="input-field col s12">
+          <i class="material-icons prefix">settings</i>
+          <input  id="subject"  name="subject"  type="text" class="validate"  value="<?=$rows->subject?>" />
+        </div>
+           <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          <input  id="practice" name="practice"  type="text" class="validate"  value="<?=$rows->practice?>"  />
+        </div>
+            <div class="input-field col s12">
+          <i class="material-icons prefix">perm_identity</i>
+          <input  id="note"  name="note"  type="text" class="validate" value="<?=$rows->note?>"   >
+        </div>
+            <input type="hidden"  id="type_record"  name="type_record"  value="<?=$rows->type_record?>"  /> 
+      </div>
+      
+ </ul>
+ <!---  update form  แก้ไขข้อมูล เอกสาร รับ ส่ง   -->                  
+                     
+                     
+      </p>
+
+      
+    </li>
+    
+    
+    
+    
+ 
+ 
+ 
+    <?php
+                    }
+    ?>
+  </ul>
+  <!--http://materializecss.com/collections.html -->    
+  
+  
+  
+     <?php    $this->user_model->call_page_main22("tb_main1",$this->limit,base_url()."index.php/welcome/page_main2");  ?> 
+        
+        
     
     </div>
     
@@ -516,4 +489,4 @@
   </ul>
   -->
   
-  <?=$this->user_model->call_page_main1("tb_main1",$this->limit)?>
+  

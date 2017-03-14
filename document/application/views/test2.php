@@ -539,7 +539,7 @@ $(document).ready(function(){
       <i class="large material-icons">mode_edit</i>
     </a>
     <ul>
-        <li><a class="btn-floating red"  onclick="table11()" ><i class="material-icons">insert_chart</i></a></li>
+        <li><a class="btn-floating red"  onclick=" javascript: $('#modal2').modal('open');  " ><i class="material-icons">insert_chart</i></a></li>
       <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
       <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
       <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
@@ -696,14 +696,17 @@ $(document).ready(function(){
           
          
               <!--<li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>หนังสือเวียน</a></li>-->
-           
+         
+               <li><a href="#"  onclick=" javascript: $('#modal2').modal('open');  "><i class="material-icons left">phonelink_lock</i> เข้าสู่ระบบ </a></li>
+               
+               
          <li>
              <a class="dropdown-button" href="#modal_sr"    ><i class="material-icons left">zoom_in</i> Search </a>
          </li>
          
          
            <li >
-             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And  Excellent <i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And  Excellence<i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
          
@@ -737,7 +740,9 @@ $(document).ready(function(){
              <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons left">offline_pin</i> ตารางงานผู้บริหาร </a>
          </li>
          
-         <li><a href="#"  onclick=" javascript: $('#modal2').modal('open');  "><i class="material-icons left">phonelink_lock</i> เข้าสู่ระบบ </a></li>
+      
+         
+         
             <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
             
             
@@ -793,7 +798,7 @@ $(document).ready(function(){
           
            <li  >
             
-            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลฯ And Excellence</a> 
         </li>
         
             <li>

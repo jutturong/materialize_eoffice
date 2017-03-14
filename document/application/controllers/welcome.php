@@ -783,18 +783,13 @@
                      if(    $this->user_model->authenlogin() == 1 )
                      {
                              $data["title"]=$this->title;
-                            // $this->load->view("sub11",$data);
+                         
                              $tb="tb_main1";
                                 
-                            $data["query"]=$this->user_model->tb_main1("2","1");
-                            //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
-                          //  $data["query"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>1));
-                            //   $data["query"]=$this->user_model->tb_main1("2","1");
-                         
-                       //     $data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
-                         //    $data["query2"]=$this->user_model->tb_main1("2","2");
-                             $data["query2"]=$this->user_model->tb_main1("2","2");
-                            
+                           // $data["query"]=$this->user_model->tb_main1("2","1");
+                             $data["query"]=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>1));
+                            // $data["query2"]=$this->user_model->tb_main1("2","2");
+                              $data["query2"]=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
                              ?>
                              
         <div class="row">
@@ -815,7 +810,7 @@
       </div>
                        <?php       
                              
-                            $this->load->view("table2",$data);
+                            $this->load->view("table3",$data);
                             
                      }
                 }
