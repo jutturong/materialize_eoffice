@@ -276,7 +276,7 @@ if(  $type_record >= 1  &&  $type_document >= 1 )
       // $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` = '$cur_date'      ";
         $str="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$select_date'   limit 0,14   ";
        $query=mysql_query($str) or die("mysql error ");
-       
+        $num_rows1 = mysql_num_rows($query);
        /*
        while($row=mysql_fetch_assoc($query))
                {
@@ -294,15 +294,24 @@ if(  $type_record >= 1  &&  $type_document >= 1 )
         */
        
        
-          $str2="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$select_date'   limit 15,28   ";
+          $str2="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$select_date'   limit 14,14   ";
          $query2=mysql_query($str2) or die("mysql error ");
          $num_rows2 = mysql_num_rows( $query2);
          
            
-         $str3="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$select_date'   limit 29,42   ";
+         $str3="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$select_date'   limit 28,14  ";
          $query3=mysql_query($str3) or die("mysql error ");
          $num_rows3 = mysql_num_rows( $query3);
+         
+         
+         $str4="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$select_date'   limit  42,14   ";
+         $query4=mysql_query($str4) or die("mysql error ");
+         $num_rows4 = mysql_num_rows( $query4);
        
+         
+         $str5="select  *  from  $tb  where  type_record=$type_record  and   type_document=$type_document     and   `date` >=  '$select_date'   limit  56,14   ";
+         $query5=mysql_query($str4) or die("mysql error ");
+         $num_rows5 = mysql_num_rows( $query5);
        
 }
  

@@ -536,13 +536,13 @@ $(document).ready(function(){
       <!-- mobile menu -->
       <div class="fixed-action-btn horizontal">
     <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
+      <i class="large material-icons">recent_actors</i>
     </a>
     <ul>
-        <li><a class="btn-floating red"  onclick=" javascript: $('#modal2').modal('open');  " ><i class="material-icons">insert_chart</i></a></li>
-      <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-      <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-      <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        <li><a class="btn-floating red"  onclick=" javascript: $('#modal2').modal('open');  " ><i class="material-icons">phonelink_lock</i></a>Login</li>
+      <li><a class="btn-floating yellow darken-1"  onclick=" javascript: $('#modal1').modal('open');  "  ><i class="material-icons">print</i></a>View</li>
+      <li><a class="btn-floating green"><i class="material-icons">offline_pin</i></a>Activity</li>
+      <li><a class="btn-floating blue"  onclick="javascript:  window.location.assign('<?=base_url()?>index.php/welcome/logout')  "><i class="material-icons">power_settings_new</i></a>Logout</li>
     </ul>
   </div>
         
