@@ -706,18 +706,18 @@ $(document).ready(function(){
          
          
            <li >
-             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And  Excellence<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left  red">perm_identity</i> ศูนย์การดูแล ฯ And  Excellence<i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
          
            <li>
-             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left">person_pin</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!" data-activates="dropdown3"><i class="material-icons left green">perm_identity</i>    ศูนย์วิจัย  ฯ    <i class="material-icons right">arrow_drop_down</i></a>
          </li>
          
          
          
          <li>
-             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
+             <a class="dropdown-button" href="#!"     data-activates="dropdown1"><i class="material-icons left blue">perm_identity</i> มูลนิธิตะวันฉาย  ฯ<i class="material-icons right">arrow_drop_down</i></a>
          </li>
           
          
@@ -798,18 +798,18 @@ $(document).ready(function(){
           
            <li  >
             
-            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left">perm_identity</i>ศูนย์การดูแลฯ And Excellence</a> 
+            <a href="javascript:void(0)"   onclick="table2()"    ><i class="material-icons left red">perm_identity</i>ศูนย์การดูแลฯ And Excellence</a> 
         </li>
         
             <li>
             
-              <a href="javascript:void(0)"    onclick="table3()"    ><i class="material-icons left">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
+              <a href="javascript:void(0)"    onclick="table3()"    ><i class="material-icons left green">perm_identity</i>ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ</a> 
         
         </li>
         
           <li >
               
-              <a href="javascript:void(0)"  onclick="table11()"       ><i class="material-icons left">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
+              <a href="javascript:void(0)"  onclick="table11()"       ><i class="material-icons left blue">perm_identity</i>มูลนิธิตะวันฉายฯ</a> 
           
           </li>
           
