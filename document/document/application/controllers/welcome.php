@@ -1,14 +1,25 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-  class Welcome extends CI_Controller
-    {
+class Welcome extends CI_Controller {
 
+	/**
+	 * Index Page for this controller.
+	 *
+	 * Maps to the following URL
+	 * 		http://example.com/index.php/welcome
+	 *	- or -  
+	 * 		http://example.com/index.php/welcome/index
+	 *	- or -
+	 * Since this controller is set as the default controller in 
+	 * config/routes.php, it's displayed at http://example.com/
+	 *
+	 * So any other public methods not prefixed with an underscore will
+	 * map to /index.php/welcome/<method_name>
+	 * @see http://codeigniter.com/user_guide/general/urls.html
+	 */
              var  $title="ระบบโปรแกรมงานธุรการ";
-             var  $limit=3;
              
-             
-                 
-             public function __construct() {
+                 public function __construct() {
                      
                          
                            parent::__construct();
@@ -34,7 +45,6 @@
                  public  function  homepage()
                  {
                                 $data["title"]=$this->title;
-                              
                                 $this->load->view("test2",$data);
                  }
         
@@ -136,43 +146,7 @@
                  
                  */
                          //    $data["number_add"]=$number_add;     
-                             
-                            // $data["number_add"]=$this->user_model->count_id(1,1);
-                             
-                           /*-------------1.เลขทะเบียนส่ง----------  */
-                             /*
-                               $tb="tb_main1";
-                               $q_n=$this->db->get_where($tb,array("type_record"=>1,"type_document"=>1));
-                               $row=$q_n->row();
-                              * 
-                              */
-                          //    $num_rows_ck= $q_n->num_rows();
-                               
-                             
-                               
-                              /*-------------1.เลขทะเบียนส่ง----------  */  
-                              $data["number_add"]=$this->user_model->count_id(1,1);
-                               
-                           ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย ฯ > หนังสือรับ 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php    
-                             
+                             $data["number_add"]=$this->user_model->count_id(1,1);
                              $this->load->view("receive11",$data);
                      }
                }
@@ -185,49 +159,7 @@
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
                             // echo "test";
-                             
-                             
-                            //  $data["number_add"]=$this->user_model->count_id(1,2);
-                              /*-------------1.เลขทะเบียนส่ง----------  */
-                               $tb="tb_main1";
-                               $this->db->order_by("id_main1","DESC");
-                               $q_n=$this->db->get_where($tb,array("type_record"=>1,"type_document"=>2));
-                               $row=$q_n->row();
-                               $num_row_ck=$q_n->num_rows();
-                               if(  $num_row_ck > 0 )
-                               {
-                               $registration_ck = $row->registration;
-                               $ex=explode("/",$registration_ck);
-                               $sum_regis=(int)$ex[1]+1;
-                                 $data["number_add"]="ตวฉ/".$sum_regis ;
-                               }
-                               else
-                               {
-                                  $data["number_add"]="ตวฉ/";
-                               }
-                              /*-------------1.เลขทะเบียนส่ง----------  */
-                               
-                                  ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> มูลนิธิตะวันฉาย ฯ > หนังสือส่ง 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php    
-                               
-                               
+                           //  $data["number_add"]=$this->user_model->count_id(1,2);
                              $this->load->view("send11",$data);
                      }
                      
@@ -241,8 +173,7 @@
                              $data["title"]=$this->title;
                              //($tb,array("type_document"=>$type_document,"type_record"=>$type_record));
                               
-                   //-----------------------------------------------------------      
-                             /*
+                   //-----------------------------------------------------------            
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>1));
                     $number = $q_n->num_rows()+1;
@@ -272,30 +203,7 @@
                      }
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------            
-                          */
-                             
-                             ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> ศูนย์การดูแล ฯ And Excellent > หนังสือรับ 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php
-                             
-                             $data["number_add"]=$this->user_model->count_id(3,1);
-                             
+                               
                              $this->load->view("receive21",$data);
                      }
                }
@@ -308,8 +216,7 @@
                              $data["title"]=$this->title;
                              
                              
-                  //-----------------------------------------------------------  
-                             /*
+                  //-----------------------------------------------------------            
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>1));
                     $number = $q_n->num_rows()+1;
@@ -337,33 +244,8 @@
                      {
                           $number_add;
                      }
-                     
-                     
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------   
-                             */
-                             
-                             $data["number_add"]=$this->user_model->count_id(2,1);
-                             
-      ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> ศูนย์วิจัย ฯ  > หนังสือรับ 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php                       
                              
                              
                              $this->load->view("receive31",$data);
@@ -382,8 +264,7 @@
                              
                              
                             
-                  //-----------------------------------------------------------     
-                             /*
+                  //-----------------------------------------------------------            
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>2));
                     $number = $q_n->num_rows()+1;
@@ -414,48 +295,7 @@
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------   
                        // $data["number_add"]=$this->user_model->count_id(3,2); 
-                     */
-                             
-                            //  $data["number_add"]=$this->user_model->count_id(3,2);
-                                    /*-------------1.เลขทะเบียนส่ง----------  */
-                               $tb="tb_main1";
-                               $this->db->order_by("id_main1","DESC");
-                               $q_n=$this->db->get_where($tb,array("type_record"=>3,"type_document"=>2),1);
-                               $row=$q_n->row();
-                               $num_rows_ck= $q_n->num_rows();
-                               if(  $num_rows_ck  > 0 )
-                               {
-                               $registration_ck = $row->registration;
-                               $ex=explode("/",$registration_ck);
-                               $sum_regis=$ex[1]+1;
-                                 $data["number_add"]="ศธ0514.7.1.2.3.4/".$sum_regis ;
-                               }
-                               else
-                               {
-                                  $data["number_add"]="ศธ0514.7.1.2.3.4/";
-                               }
-                               
-                              /*-------------1.เลขทะเบียนส่ง----------  */
-                             
-                               ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                              <i class="material-icons left">person_pin</i>ศูนย์การดูแล ฯ And Excellent > หนังสือส่ง
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php
+                     
                      
                                $this->load->view("send21",$data);
                      }
@@ -472,9 +312,7 @@
                             // $this->load->view("sub11",$data);
                              
                              //    $data["number_add"]=$this->user_model->count_id(2,2); 
-                             //-----------------------------------------------------------  
-                             
-                             /*
+                             //-----------------------------------------------------------            
                    $tb="tb_main1";        
                    $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
                     $number = $q_n->num_rows()+1;
@@ -504,55 +342,8 @@
                      }
                      $data["number_add"]=$number_add;
                      //-----------------------------------------------------------  
-                          */
                              
-                           //   $data["number_add"]=$this->user_model->count_id(2,2);
-                              
-                             /*-------------1.เลขทะเบียนส่ง----------  */
-                               $tb="tb_main1";
-                               $this->db->order_by("id_main1","DESC");
-                               $q_n=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2),1);
-                               $row=$q_n->row();
-                               $num_rows_ck= $q_n->num_rows();
-                               if(  $num_rows_ck  > 0 )
-                               {
-                               $registration_ck = $row->registration;
-                               $ex=explode("/",$registration_ck);
-                               
-                                  $sum_regis= (int)$ex[1];
-                                 //  echo br();
-                                   $sum_regis_int= $sum_regis+1;
-                               
-                                      $data["number_add"]="ศธ0514.7.1.2.3.4.1/". $sum_regis_int ;
-                               }
-                               else
-                               {
-                                  $data["number_add"]="ศธ0514.7.1.2.3.4.1/";
-                               }
-                               
-                              /*-------------1.เลขทะเบียนส่ง----------  */
-                               
-                               ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> ศูนย์วิจัย ฯ > หนังสือส่ง
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php
-                               
-                               $this->load->view("send31",$data);
+                             $this->load->view("send31",$data);
                      }
                      
                 }
@@ -609,32 +400,11 @@
                             // $this->load->view("sub11",$data);
                             $data["query"]=$this->user_model->tb_main1("1","1");
                             //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
-                         
+                          
                             
                             $tb="tb_main1";
                             //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
                              $data["query2"]=$this->user_model->tb_main1("1","2");
-                             
-                             
-                        ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> แสดงผลการบันทึก > มูลนิธิตะวันฉายฯ 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php 
                             
                             $this->load->view("table11",$data);
                             
@@ -647,89 +417,6 @@
                      }
                     
                 }
-                
-                public  function  page_main1()
-                {
-                    // http://10.87.196.170/document/index.php/welcome/homepage/page_main1/2
-                    if(    $this->user_model->authenlogin() == 1 )
-                     {
-                            $data["title"]=$this->title;
-                            $page=$this->uri->segment(3);
-                            $tb="tb_main1";
-                            
-                              if(  $page   > 1  )
-                                 {
-                                         $cal_limit=$page-1*$this->limit  + 2;
-                                      //   $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                 //  $data["query"]=$this->user_model->tb_main1("1","1");
-                                         $data["query"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>1),$this->limit,$cal_limit);
-                                       
-                                         $data["query2"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>2),$this->limit,$cal_limit);
-                                  }else
-                                  {
-                                       $data["query"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>1),$this->limit);
-                                        $data["query2"] = $this->db->get_where($tb,array("type_record"=>1,"type_document"=>2),$this->limit);
-                                  }
-                                  
-                           $this->load->view("table11",$data);      
-                      }                            
-                }
-                
-                  public  function  page_main2()
-                {
-                    // http://10.87.196.170/document/index.php/welcome/homepage/page_main1/2
-                    if(    $this->user_model->authenlogin() == 1 )
-                     {
-                            $data["title"]=$this->title;
-                            $page=$this->uri->segment(3);
-                            $tb="tb_main1";
-                            
-                              if(  $page   > 1  )
-                                 {
-                                         $cal_limit=$page-1*$this->limit  + 2;
-                                      //   $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                 //  $data["query"]=$this->user_model->tb_main1("1","1");
-                                         $data["query"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>1),$this->limit,$cal_limit);
-                                       
-                                         $data["query2"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>2),$this->limit,$cal_limit);
-                                  }else
-                                  {
-                                       $data["query"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>1),$this->limit);
-                                        $data["query2"] = $this->db->get_where($tb,array("type_record"=>2,"type_document"=>2),$this->limit);
-                                  }
-                                  
-                           $this->load->view("table11",$data);      
-                      }                            
-                }
-                
-                   public  function  page_main3()
-                {
-                    // http://10.87.196.170/document/index.php/welcome/homepage/page_main1/2
-                    if(    $this->user_model->authenlogin() == 1 )
-                     {
-                            $data["title"]=$this->title;
-                            $page=$this->uri->segment(3);
-                            $tb="tb_main1";
-                            
-                              if(  $page   > 1  )
-                                 {
-                                         $cal_limit=$page-1*$this->limit  + 2;
-                                      //   $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                 //  $data["query"]=$this->user_model->tb_main1("1","1");
-                                         $data["query"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>1),$this->limit,$cal_limit);
-                                       
-                                         $data["query2"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>2),$this->limit,$cal_limit);
-                                  }else
-                                  {
-                                       $data["query"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>1),$this->limit);
-                                        $data["query2"] = $this->db->get_where($tb,array("type_record"=>3,"type_document"=>2),$this->limit);
-                                  }
-                                  
-                           $this->load->view("table11",$data);      
-                      }                            
-                }
-                
-                
                 
                 public function table2() //ศูนย์การดูแล
                 {
@@ -746,27 +433,6 @@
                             //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
                              $data["query2"]=$this->user_model->tb_main1("3","2");
                             
-                             
-                                ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> แสดงผลการบันทึก > ศูนย์การดูแลผู้ป่วยปากแหว่งเพดานโหว่ฯ 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php    
-                             
                             $this->load->view("table2",$data);
                             
                             
@@ -783,34 +449,19 @@
                      if(    $this->user_model->authenlogin() == 1 )
                      {
                              $data["title"]=$this->title;
-                         
-                             $tb="tb_main1";
+                            // $this->load->view("sub11",$data);
+                         $tb="tb_main1";
                                 
-                           // $data["query"]=$this->user_model->tb_main1("2","1");
-                             $data["query"]=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>1));
+                          //  $data["query"]=$this->user_model->tb_main1("2","1");
+                            //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
+                          //  $data["query"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>1));
+                               $data["query"]=$this->user_model->tb_main1("2","1");
+                         
+                         //   $data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
                             // $data["query2"]=$this->user_model->tb_main1("2","2");
-                              $data["query2"]=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
-                             ?>
-                             
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">person_pin</i> แสดงผลการบันทึก > ศูนย์วิจัยผู้ป่วยปากแหว่งเพดานโหว่ฯ 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php       
-                             
-                            $this->load->view("table3",$data);
+                               $data["query2"]=$this->user_model->tb_main1("2","2");
+                            
+                            $this->load->view("table2",$data);
                             
                      }
                 }
@@ -847,11 +498,6 @@
                         $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
                         
                         
-                        //inserttable11
-                        
-                        $date1_receive11_time=trim($this->input->get_post("date1_receive11_time")); //วันที่ทำการบันทึก
-                        
-                        
                             // print_r($_POST);               
               //------------------------------- upload file-------------------------------------------
                       // print_r($_FILES)  
@@ -880,7 +526,6 @@
                                             "type_record"=> $type_record,
                                             "filename"=>$file1name, 
                                              "type_document"=>$type_document,
-                                             "date_record"=> $date1_receive11_time,  //วันที่ทำการบันทึกข้อมูล
                                          );
                                          
                                          
@@ -909,7 +554,6 @@
                                             "type_record"=> $type_record,
                                           //  "filename"=>$file1name, 
                                             "type_document"=>$type_document,
-                                            "date_record"=> $date1_receive11_time,  //วันที่ทำการบันทึกข้อมูล
                                          );
                              
                          }
@@ -969,8 +613,8 @@
                      header('Content-Type: text/html; charset=UTF-8');
                      if(    $this->user_model->authenlogin() == 1 )
                      {
-                              //print_r($_POST);
-                              //echo "<hr>";
+                              print_r($_POST);
+                              echo "<hr>";
                               /*
                                Array ( [id_main1] => 57
                                *  [registration] => 0002
@@ -984,40 +628,40 @@
                                *  [file] => 
                                * [type_record] => ) 
                                */
-                  $id_main1= trim($this->input->get_post("id_main1"));   //เลขทะเบียนส่ง   1      
-                   // echo "<br>";
-                      $registration=trim($this->input->get_post("registration"));   //เลขทะเบียนส่ง   1
-                  // echo "<br>";
-                 $at=trim($this->input->get_post("at"));  //ที่       2
-                 //  echo  "<br>";
-                       $date1=trim($this->input->get_post("date1")); //ลงวันที่           3
-                  // echo  "<br>";
-                     $from=trim($this->input->get_post("from")); //จาก       4
-                  // echo  "<br>";
-                     $to=trim($this->input->get_post("to"));  //ถึง        5
-                 //  echo  "<br>";
-                       $subject=trim($this->input->get_post("subject"));  //เรื่อง       6
-                  // echo  "<br>";
-                     $practice=trim($this->input->get_post("practice"));  //การปฏฺิบัติ       7
-                  // echo  "<br>";
-                      $note=trim($this->input->get_post("note")); //หมายเหตุ      8
-                   //echo  "<br>";     
+                   echo  $id_main1= trim($this->input->get_post("id_main1"));   //เลขทะเบียนส่ง   1      
+                    echo "<br>";
+                   echo   $registration=trim($this->input->get_post("registration"));   //เลขทะเบียนส่ง   1
+                   echo "<br>";
+                   echo     $at=trim($this->input->get_post("at"));  //ที่       2
+                   echo  "<br>";
+                   echo     $date1=trim($this->input->get_post("date1")); //ลงวันที่           3
+                   echo  "<br>";
+                   echo    $from=trim($this->input->get_post("from")); //จาก       4
+                   echo  "<br>";
+                   echo    $to=trim($this->input->get_post("to"));  //ถึง        5
+                   echo  "<br>";
+                   echo     $subject=trim($this->input->get_post("subject"));  //เรื่อง       6
+                   echo  "<br>";
+                   echo     $practice=trim($this->input->get_post("practice"));  //การปฏฺิบัติ       7
+                   echo  "<br>";
+                   echo      $note=trim($this->input->get_post("note")); //หมายเหตุ      8
+                   echo  "<br>";     
                    
            
-                 //  print_r($_FILES);
-                   //echo "<hr>";
+                   print_r($_FILES);
+                   echo "<hr>";
                     //------------------------------- upload file-------------------------------------------
                       // print_r($_FILES)  
-                       $file1name = $_FILES["file"]['name'];  // ชื่อของไฟล์      10
-                   // echo br();
-                   $file1tmp  =$_FILES['file']["tmp_name"]; // tmp folder
-                   // echo br();
-                    $file1Type= $_FILES['file']["type"]; //type of file
-                   // echo br();
-                       $file1Size= $_FILES['file']["size"]; //size
-                  //  echo br();
-                      $file1ErrorMsg = $_FILES['file']["error"]; // 0=false 1=true 
-                   // echo br();
+                    echo      $file1name = $_FILES["file"]['name'];  // ชื่อของไฟล์      10
+                    echo br();
+                    echo    $file1tmp  =$_FILES['file']["tmp_name"]; // tmp folder
+                    echo br();
+                    echo      $file1Type= $_FILES['file']["type"]; //type of file
+                    echo br();
+                    echo      $file1Size= $_FILES['file']["size"]; //size
+                    echo br();
+                    echo        $file1ErrorMsg = $_FILES['file']["error"]; // 0=false 1=true 
+                    echo br();
                    
                    if( strlen($file1name)   >  0  &&  $file1name != ""  )
                          {
@@ -1066,44 +710,14 @@
                              
                          }
 
-                     //echo br();    
-                      $page=trim($this->input->get_post("page"));
-                    // echo br();
                                            //FROM `tb_main1` 
                                          $tb="tb_main1";
-                                         $this->db->where("id_main1",$id_main1);
-                                         $ck=$this->db->update($tb,$data);
-                                         if( $ck )
-                                         {
-                                           //  echo 1;
-                                             
-                                       
-                                             
-                                             
-                                         }else
-                                         {
-                                             //echo 0;
-                                         }
+                                         //$this->db->where("id_main1",$id_main1);
+                                       //  $this->db->update($tb);
                                          
-
-                                              switch ($page)
-                                              {
-                                                  case 1:
-                                                  {
-                                                           redirect("welcome/homepage/page1",'refresh');  
-                                                           break;
-                                                  }
-                                                  case 2:
-                                                  {
-                                                       redirect("welcome/homepage/page2",'refresh');  
-                                                       break;
-                                                  }
-                                                  case 3:
-                                                  {
-                                                       redirect("welcome/homepage/page3",'refresh');  
-                                                       break;
-                                                  }
-                                              } 
+                                         
+                                         
+                                         
                                          
                                          
                          
@@ -1160,9 +774,6 @@
                                                                             $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
                                                                        // echo  "<br>";
                                                                         
-                                                                          $date1_send11_time=trim($this->input->get_post("date1_send11_time")); 
-                                                                          
-                                                                          
                                                                    
                                                                         
                                                                      
@@ -1196,7 +807,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
-                                                                                                          "date_record"=> $date1_send11_time, //วันที่ทำการบันทึกข้อมูล
                                                                                                       );
 
 
@@ -1225,7 +835,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
-                                                                                                         "date_record"=> $date1_send11_time, //วันที่ทำการบันทึกข้อมูล
                                                                                                       );
 
                                                                                       }
@@ -1275,8 +884,6 @@
                                                                           $type_record=trim($this->input->get_post("type_record21")); //ประเภทของตารางที่ทำการบันทึก    9
                                                                      //  echo  "<br>";
                                                                             $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
-                                                                      
-                                                                         $date1_receive21_time=trim($this->input->get_post("date1_receive21_time")); //ประเภทของตารางที่ทำการบันทึก    9    
                                                                             
                                                                             
                                                                       //  print_r($_FILES); 
@@ -1311,7 +918,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
-                                                                                                          "date_record"=> $date1_receive21_time,
                                                                                                       );
 
 
@@ -1340,7 +946,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
-                                                                                                        "date_record"=> $date1_receive21_time,
                                                                                                       );
 
                                                                                       }
@@ -1389,8 +994,6 @@
                                                 //    echo  "<br>";
                                                              $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
                                                 //     echo  "<br>";
-                                                             
-                                                                 $date1_record21_time=trim($this->input->get_post("date1_record21_time"));
                                                      
                                                                                          //------------------------------- upload file-------------------------------------------
                                                                                    // print_r($_FILES)  
@@ -1421,7 +1024,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
-                                                                                                          "date_record"=>  $date1_record21_time,
                                                                                                       );
 
 
@@ -1450,7 +1052,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
-                                                                                                           "date_record"=>  $date1_record21_time,
                                                                                                       );
 
                                                                                       }
@@ -1493,9 +1094,6 @@
                                           $type_document=1;  // 1=หนังสือรับ,2=หนังสือส่ง
                                        //  echo br();  
                                              
-                                          $date1_receive31_time=trim($this->input->get_post("date1_receive31_time"));
-                                          
-                                          
                                          
                                                                     //------------------------------- upload file-------------------------------------------
                                                                                    // print_r($_FILES)  
@@ -1525,9 +1123,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
-                                                                                                          
-                                                                                                          "date_record"=> $date1_receive31_time,  //วันที่ทำการบันทึกข้อมูล
-                                                                                                          
                                                                                                       );
 
 
@@ -1556,26 +1151,13 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
-                                                                                                
-                                                                                                         "date_record"=> $date1_receive31_time,  //วันที่ทำการบันทึกข้อมูล
-                                                                                                
-                                                                                                
                                                                                                       );
 
                                                                                       }
                                                                                       
                                                                $tb="tb_main1";
-                                                               $ck=$this->db->insert($tb,$data);                          
-                                                               if( $ck )
-                                                               {   
-                                                                    //echo 1; 
-                                                                     redirect("welcome/homepage/insert_success_receive31",'refresh');     
-                                                               }
-                                                               else
-                                                               {
-                                                                    // echo 0;
-                                                               }
-                                            redirect("welcome/homepage/insert_success_receive31",'refresh');                               
+                                                               $this->db->insert($tb,$data);                          
+                                                               redirect("welcome/homepage/insert_success_receive31",'refresh');                  
 
                                    }
       
@@ -1613,10 +1195,6 @@
                                             $type_document=2;  // 1=หนังสือรับ,2=หนังสือส่ง
                                          //echo br();  
                                          
-                                            
-                                           $date1_send31_time=trim($this->input->get_post("date1_send31_time")); //ประเภทของตารางที่ทำการบันทึก    9 
-                                            
-                                            
                                          //print_r($_FILES);
                                                                        //------------------------------- upload file-------------------------------------------
                                                                                    // print_r($_FILES)  
@@ -1647,8 +1225,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                          "filename"=>$file1name, 
                                                                                                           "type_document"=>$type_document,
-                                                                                                          "date_record"=>$date1_send31_time,
-                                                                                                          
                                                                                                       );
 
 
@@ -1677,7 +1253,6 @@
                                                                                                          "type_record"=> $type_record,
                                                                                                        //  "filename"=>$file1name, 
                                                                                                          "type_document"=>$type_document,
-                                                                                                          "date_record"=>$date1_send31_time,
                                                                                                       );
 
                                                                                       }
@@ -1703,673 +1278,17 @@
                          if(    $this->user_model->authenlogin() == 1 )
                           {
                                  $data["title"]=$this->title;
-                                 
-                                 
-                                            ?>                  
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > เพิ่มกิจกรรม 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php  
-                       
                                  $this->load->view("add_academic");
                            }
                 }
                 
-                 function  update_academic()
-                {
-                         if(    $this->user_model->authenlogin() == 1 )
-                          {
-                                $id=trim($this->uri->segment(3));     
-                                $data["id_main_academic"]=$id;
-                                 $tb="tb_main_academic";
-                                 $q=$this->db->get_where($tb,array("id_main_academic"=>$id));
-                                // $row=$q->rows();
-                                 $row=$q->row();
-                                 
-                                   $data["id_firstname_academic"]=$row->id_firstname_academic;   
-                                   
-                                   
-                                   
-                                    $data["id_activities"]=$row->id_activities;   
-                                 
-                                  $data["begin_date"]=$row->begin_date;
-                                  $data["end_date"]=$row->end_date;
-                                  $data["title"]=$row->title;
-                                  $data["place"]=$row->place;
-                                  $data["detail"]=$row->detail;
-                                  $data["expenses"]=$row->expenses;
-                                  
-                                  $data["note"]=$row->note;
-                                  $data["borrow"]=$row->borrow;
-                                  
-                                  $data["begin_time"]=$row->begin_time;
-                                  
-                                  $data["end_time"]=$row->end_time;
-                                  
-                                  
-                                                  
-                                 //$data["title"]=$this->title;
-                                 $this->load->view("update_academic",$data);
-                           }
-                }
-                
-                function  update_tb_main_academic()
+                function insert_academic()
                 {
                        if(    $this->user_model->authenlogin() == 1 )
                           {
-                            header('Content-Type: text/html; charset=UTF-8');
                                  //print_r($_FILES);
-                                // print_r($_POST);    
-                                 /*
-                                   Array ( 
-                                  * [firstname_academic] => 4 
-                                  * [activities] => 4 
-                                  * [begin_date] => 2017-01-01 
-                                  * [end_date] => 2017-01-27
-                                  *  [title] => à¸«à¸±à¸§à¸‚à¹‰à¸­ The 12 ht Khon kaen FESS course & The 5th Khon Kaen
-                                  *  [place] => à¸“ à¸«à¹‰à¸­à¸‡à¸›à¸£à¸°à¸Šà¸¸à¸¡à¸¡à¸´à¸•à¸£à¸ à¸²à¸ž à¸Šà¸±à¹‰à¸™ 3
-                                  *  [detail] => International course in advanced endoscopic sinus and skull base surgery: Handson dissection In fresh frozen cadavers 
-                                  * [expenses] => 1200 
-                                  * [borrow] => 1000 
-                                  * [note] => --
-                                  *  [btn_academic] => ) 
-                                  */
-                                //   echo "<hr>";
-                                           $id_main_academic=trim($this->input->get_post("id_main_academic"));
-                                             
-                                if(   $id_main_academic > 0  )       
-                                { 
-                                         $firstname_academic=trim($this->input->get_post("firstname_academic"));   
-
-                                                   $activities=trim($this->input->get_post("activities"));
-
-                                                  $begin_date=trim($this->input->get_post("begin_date"));
-                                                  //  echo "<br>";
-                                                     $end_date=trim($this->input->get_post("end_date"));
-                                                   // echo "<br>";
-                                                     $title=trim($this->input->get_post("title"));
-                                                    //echo "<br>";
-                                                    $place=trim($this->input->get_post("place"));
-                                                    //echo "<br>";
-                                                    $detail=trim($this->input->get_post("detail"));
-                                                    //echo "<br>";   
-                                                    $expenses=trim($this->input->get_post("expenses"));
-                                                   // echo "<br>";   
-                                                     $borrow=trim($this->input->get_post("borrow"));
-                                                   // echo "<br>";   
-                                                    $note=trim($this->input->get_post("note"));
-                                                  //  echo "<br>";   
-
-                                                    
-                                                    $begin_time=trim($this->input->get_post("begin_time"));
-                                                    
-                                                 //   $end_time=trim($this->input->get_post("end_time"));
-
-
-                                                    $data=array(
-                                                        "id_firstname_academic"=>$firstname_academic,  //1
-                                                       "id_activities"=>$activities,      //2
-                                                        "begin_date"=>$begin_date,   //3
-                                                        "end_date"=>$end_date,   //4
-                                                        "title"=>$title,   //5
-                                                        "place"=>$place,   //6
-                                                        "detail"=>$detail,    //7
-                                                        "expenses"=>$expenses,   //8
-                                                       "borrow"=>$borrow,   //9
-                                                       "note"=>$note,   //9
-                                                        "begin_time"=>$begin_time,
-                                                    //    "end_time"=>$end_time,
-                                                        
-                                                    );
-
-                                                       $tb="tb_main_academic";
-                                                       $this->db->where("id_main_academic",$id_main_academic);
-                                                       $ck=$this->db->update($tb,$data);       
-                                                       if( $ck )
-                                                       {
-                                                           //echo 1;
-                                                       }
-                                                       else if( !$ck )
-                                                       {
-                                                           //echo 0;
-                                                       }
-                                        redirect("welcome/homepage/insert_main_academic",'refresh');   
-                                }
-                         }
-                }
-                
-                function insert_academic()  //บันทึกกิจกรรมทางวิชาการ
-                {
-                       if(    $this->user_model->authenlogin() == 1 )
-                          {
-                               header('Content-Type: text/html; charset=UTF-8');
-                                 //print_r($_FILES);
-                                // print_r($_POST);    
-                                 /*
-                                   Array ( 
-                                  * [firstname_academic] => 4 
-                                  * [activities] => 4 
-                                  * [begin_date] => 2017-01-01 
-                                  * [end_date] => 2017-01-27
-                                  *  [title] => à¸«à¸±à¸§à¸‚à¹‰à¸­ The 12 ht Khon kaen FESS course & The 5th Khon Kaen
-                                  *  [place] => à¸“ à¸«à¹‰à¸­à¸‡à¸›à¸£à¸°à¸Šà¸¸à¸¡à¸¡à¸´à¸•à¸£à¸ à¸²à¸ž à¸Šà¸±à¹‰à¸™ 3
-                                  *  [detail] => International course in advanced endoscopic sinus and skull base surgery: Handson dissection In fresh frozen cadavers 
-                                  * [expenses] => 1200 
-                                  * [borrow] => 1000 
-                                  * [note] => --
-                                  *  [btn_academic] => ) 
-                                  */
-                                //   echo "<hr>";
-                                     $firstname_academic=trim($this->input->get_post("firstname_academic"));   
-                                 //  echo "<br>";
-                                    $activities=trim($this->input->get_post("activities"));
-                                  // echo "<br>";
-                                   $begin_date=trim($this->input->get_post("begin_date"));
-                                 //  echo "<br>";
-                                    $end_date=trim($this->input->get_post("end_date"));
-                                  // echo "<br>";
-                                    $title=trim($this->input->get_post("title"));
-                                   //echo "<br>";
-                                   $place=trim($this->input->get_post("place"));
-                                   //echo "<br>";
-                                   $detail=trim($this->input->get_post("detail"));
-                                   //echo "<br>";   
-                                   $expenses=trim($this->input->get_post("expenses"));
-                                  // echo "<br>";   
-                                    $borrow=trim($this->input->get_post("borrow"));
-                                  // echo "<br>";   
-                                   $note=trim($this->input->get_post("note"));
-                                 //  echo "<br>";  
-                                   
-                                   
-                                   $begin_time=trim($this->input->get_post("begin_time"));
-                                   
-                               //    $end_time=trim($this->input->get_post("end_time"));
-                                   
-                                   $tb="tb_main_academic";
-                                   
-                                   $data=array(
-                                       
-                                       "id_firstname_academic"=>$firstname_academic,  //1
-                                       "id_activities"=>$activities,      //2
-                                       "begin_date"=>$begin_date,   //3
-                                       "end_date"=>$end_date,   //4
-                                       "title"=>$title,   //5
-                                       "place"=>$place,   //6
-                                       "detail"=>$detail,    //7
-                                       "expenses"=>$expenses,   //8
-                                       "borrow"=>$borrow,   //9
-                                       "note"=>$note,   //9
-                                       "begin_time"=>$begin_time,
-                                   //   "end_time"=> $end_time,
-                                       
-                                   );
-                                   
-                                   $ck = $this->db->insert($tb,$data);
-                                  // $ck=true;
-                                   if( $ck )
-                                   {
-                                      // echo 1;
-                                   }
-                                   elseif( !$ck )
-                                   {
-                                       //echo 0;
-                                   }
-                                   
-                                   // index.php/welcome/index/man_calendar
-                                     //redirect("welcome/homepage/insert_main_academic",'refresh');   
-                                    redirect("welcome/index/man_calendar",'refresh');   
+                                 print_r($_POST);          
                           }
-                }
-                
-                
-                public  function  search_main_calendar()    #   http://localhost/document/index.php/welcome/search_main_calendar
-                {
-                    if(    $this->user_model->authenlogin() == 1    )
-                          {
-                                       // echo  $firstname_academic = trim($this->input->get_post("firstname_academic"));
-                                     //   echo br();
-                        
-                                     $firstname_academic =  $this->uri->segment(3);
-                                     //echo br();          
-                        
-                                                  $tb="tb_main_academic";
-                                          
-                                          
-                                                  //       $tbj1="tb_academic"; 
-                                                   //       $tbj2="tb_academic_activities";
-                                   
-                                                  
-                                          //        $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
-                                         //         $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
-                                                  
-                                           //         $this->db->order_by("id_main_academic","DESC");
-                                                  
-                                                  
-                                                  
-                                                         ?>                  
-                                                                <div class="row">
-                                                                            <div class="col s12 m12">
-                                                                              <div class="card blue-grey darken-1">
-                                                                                <div class="card-content white-text">
-
-                                                                                  <p>
-                                                                                     <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > ค้นหากิจกรรม 
-                                                                                  </p>
-
-                                                                                </div>
-
-
-
-                                                                              </div>
-                                                                            </div>
-                                                              </div>
-                                                        <?php  
-                                                        
-                                                  
-                                                  
-                                                    $data["q"]=$this->db->get_where($tb,array("id_firstname_academic"=> $firstname_academic  ));
-                                                     $this->load->view("calendar1",$data);          
-                                                     
-                                                     
-                          } 
-                    
-                    
-                    /*
-                       $firstname_academic = trim($this->input->get_post("firstname_academic"));
-                          // echo br();
-                                 
-                                  $begin_date=trim($this->input->get_post("begin_date"));
-                                // echo  "<br>";
-                                  $end_date=trim($this->input->get_post("end_date"));
-                               //  echo  "<br>";
-                                 
-                                               $tb="tb_main_academic";
-                           
-            
-                                 
-                                                          $tbj1="tb_academic"; 
-                                                          $tbj2="tb_academic_activities";
-                                   
-                                                  
-                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
-                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
-                                                  
-                                            
-                                                  
-                                                  
-                                                     $this->db->order_by("id_main_academic","DESC");
-                                                  
-                                                  if(  $firstname_academic > 0    &&    $begin_date == ""   &&  $end_date  ==  ""  )
-                                                  {
-                                                           //   $this->db->where($tb.".begin_date >= ", $begin_date);
-                                                           //    $this->db->where($tb.".end_date <= ", $end_date);
-                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
-                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
-   
-                                                               $data["query"]=$this->db->get($tb);
-                                                               $this->load->view("home_academic",$data);
-                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
-                                                  }
-                                                   else if(  $firstname_academic > 0    &&    $begin_date != ""   &&  $end_date  !=  ""  )
-                                                  {
-                                                               $this->db->where($tb.".begin_date >= ", $begin_date);
-                                                               $this->db->where($tb.".end_date <= ", $end_date);
-                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
-                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
-                                                              $data["query"]=$this->db->get($tb);
-                                                              // $data["query"]=$this->db->get_where($tb,array($tb.".id_firstname_academic"=>$firstname_academic));
-                                                               $this->load->view("home_academic",$data);
-                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
-                                                  }
-                                                  
-                                               else  if( $begin_date != ""   &&  $end_date != ""  &&    $firstname_academic == "" )
-                                                  { 
-                                                              $this->db->where($tb.".begin_date >= ", $begin_date);
-                                                               $this->db->where($tb.".end_date <= ", $end_date);
-                                                            //  $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
-                                                              
-                                                               $data["query"]=$this->db->get($tb);
-                                                               $this->load->view("home_academic",$data);
-                                                              // $data["query"]=$this->db->get($tb,$this->limit);
-                                                  }
-                     */
-                    
-                    
-                    
-                    
-                }
-                
-                public  function  search_main_academic()
-                {
-                     #   http://localhost/document/index.php/welcome/search_main_academic
-                      if(    $this->user_model->authenlogin() == 1 )
-                          {
-                          
-                              //  print_r($_POST);
-                             //    echo "<hr>";
-                                 /*
-                                  Array
-(
-    [firstname_academic] => 2
-    [activities] => 2
-    [begin_date] => 2017-01-02
-    [end_date] => 2017-01-13
-)
-                                  */
-                                 
-                          
-                         $firstname_academic = trim($this->input->get_post("firstname_academic"));
-                          // echo br();
-                                 
-                                  $begin_date=trim($this->input->get_post("begin_date"));
-                                // echo  "<br>";
-                                  $end_date=trim($this->input->get_post("end_date"));
-                               //  echo  "<br>";
-                                 
-                                               $tb="tb_main_academic";
-                           
-            
-                                 
-                                                          $tbj1="tb_academic"; 
-                                                          $tbj2="tb_academic_activities";
-                                   
-                                                  
-                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
-                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
-                                                  
-                                            
-                                                  
-                                                  
-                                                     $this->db->order_by("id_main_academic","DESC");
-                                                  
-                                                  if(  $firstname_academic > 0    &&    $begin_date == ""   &&  $end_date  ==  ""  )
-                                                  {
-                                                           //   $this->db->where($tb.".begin_date >= ", $begin_date);
-                                                           //    $this->db->where($tb.".end_date <= ", $end_date);
-                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
-                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
-   
-                                                               $data["query"]=$this->db->get($tb);
-                                                               $this->load->view("home_academic",$data);
-                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
-                                                  }
-                                                   else if(  $firstname_academic > 0    &&    $begin_date != ""   &&  $end_date  !=  ""  )
-                                                  {
-                                                               $this->db->where($tb.".begin_date >= ", $begin_date);
-                                                               $this->db->where($tb.".end_date <= ", $end_date);
-                                                               $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
-                                                             //  $this->db->where($tb.".id_firstname_academic = ", $firstname_academic );
-                                                              $data["query"]=$this->db->get($tb);
-                                                              // $data["query"]=$this->db->get_where($tb,array($tb.".id_firstname_academic"=>$firstname_academic));
-                                                               $this->load->view("home_academic",$data);
-                                                             //  $data["query"]=$this->db->get($tb,$this->limit);
-                                                  }
-                                                  
-                                               else  if( $begin_date != ""   &&  $end_date != ""  &&    $firstname_academic == "" )
-                                                  { 
-                                                              $this->db->where($tb.".begin_date >= ", $begin_date);
-                                                               $this->db->where($tb.".end_date <= ", $end_date);
-                                                            //  $this->db->where($tb.".id_firstname_academic = ",$firstname_academic);
-                                                              
-                                                               $data["query"]=$this->db->get($tb);
-                                                               $this->load->view("home_academic",$data);
-                                                              // $data["query"]=$this->db->get($tb,$this->limit);
-                                                  }
-                                                 
-                                                  
-               
-                          
-                         }
-                    
-                }
-                
-                public  function  search_tb_main1()
-                {
-                     #http://localhost/document/index.php/welcome/search_tb_main1
-                    if(    $this->user_model->authenlogin() == 1 )
-                          {
-                                   $data["title"]=$this->title;     
-                                   $tb="tb_main1";
-                                   $begin_date_main=trim($this->input->get_post("begin_date_main"));   
-                                   //echo br();
-                                   $end_date_main=trim($this->input->get_post("end_date_main"));   
-                                   //echo br();
-                                   $type_record=trim($this->input->get_post("type_record")); 
-                                 //  echo br();
-
-                                 
-                                switch($type_record)  
-                                {
-                                    case 1:  //subtable11()
-                                    {
-                                    $this->db->order_by("id_main1","DESC");
-                                    $this->db->where("date >=  ", $begin_date_main );
-                                    $this->db->where("date <=  ", $end_date_main );
-                                    $this->db->where("type_record", $type_record );
-                                    $this->db->where("type_document",1 );
-                                                   
-                                     //   $data["query"]=$this->user_model->tb_main1("1","1");
-                                     //   $data["query"] = $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>1));
-                                    //  $data["query"] =$this->db->get($tb,$this->limit);
-                                       $data["query"] =$this->db->get($tb);
-                                      
-                                    $this->db->order_by("id_main1","DESC");
-                                    $this->db->where("date >=  ", $begin_date_main );
-                                    $this->db->where("date <=  ", $end_date_main );
-                                    $this->db->where("type_record", $type_record );
-                                    $this->db->where("type_document",2 );
-                                 //  $data["query2"]=$this->db->get($tb,$this->limit);
-                                       $data["query2"]=$this->db->get($tb);
-                                    
-                                    
-                                   $this->load->view("table11",$data);
-                                     
-                                           break;
-                                    }
-                                    case 2: // table2()
-                                    {
-                                            $this->db->order_by("id_main1","DESC");
-                                             $this->db->where("date >=  ", $begin_date_main );
-                                             $this->db->where("date <=  ", $end_date_main );
-                                             $this->db->where("type_record", $type_record );
-                                             $this->db->where("type_document",1 );
-                                           //  $data["query"] =$this->db->get($tb,$this->limit);
-                                                   $data["query"] =$this->db->get($tb);
-                                             //$data["query"]=$this->user_model->tb_main1("3","1");
-
-                                               $this->db->order_by("id_main1","DESC");
-                                                $this->db->where("date >=  ", $begin_date_main );
-                                                $this->db->where("date <=  ", $end_date_main );
-                                                $this->db->where("type_record", $type_record );
-                                                $this->db->where("type_document",2 );
-                                              // $data["query2"]=$this->db->get($tb,$this->limit);
-                                                  $data["query2"]=$this->db->get($tb);
-                                               // $data["query2"]=$this->user_model->tb_main1("3","2");    
-                                               
-                                             $this->load->view("table11",$data);
-                                             break;
-                                    }
-                                    case 3:  //table3() 
-                                    {
-                                        
-                                    //  $data["query"]=$this->user_model->tb_main1("2","1");
-                                         $this->db->order_by("id_main1","DESC");
-                                             $this->db->where("date >=  ", $begin_date_main );
-                                             $this->db->where("date <=  ", $end_date_main );
-                                             $this->db->where("type_record", $type_record );
-                                             $this->db->where("type_document",1 );
-                                           //  $data["query"] =$this->db->get($tb,$this->limit);
-                                         $data["query"] =$this->db->get($tb);
-                                        
-                                        
-                                    //   $data["query2"]=$this->user_model->tb_main1("2","2");
-                                                       $this->db->order_by("id_main1","DESC");
-                                                $this->db->where("date >=  ", $begin_date_main );
-                                                $this->db->where("date <=  ", $end_date_main );
-                                                $this->db->where("type_record", $type_record );
-                                                $this->db->where("type_document",2 );
-                                           //    $data["query2"]=$this->db->get($tb,$this->limit);
-                                                $data["query2"]=$this->db->get($tb);
-                                        
-                                         $this->load->view("table11",$data);
-                                        break;  
-                                    }
-                                }   
-                                    
-                                     
-                                     
-                                    
-                                  
-                          }
-                    
-                }
-                
-                
-                public  function table_main_academic()
-                {
-                      #   http://localhost/document/index.php/welcome/table_main_academic
-                     //     $tb="tb_main_academic";
-                     if(    $this->user_model->authenlogin() == 1 )
-                          {
-                                   $tb="tb_main_academic";
-                                   $tbj1="tb_academic"; 
-                                   $tbj2="tb_academic_activities";
-                                   
-                                                  
-                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
-                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
-                                                  
-                                                  $this->db->order_by("id_main_academic","DESC");
-                                                  $data["query"]=$this->db->get($tb,$this->limit);
-                                                  $this->load->view("home_academic",$data);
-                                                  
-                           }
-                }
-                
-                
-                public  function page_table_main_academic()
-                {
-                     #http://localhost/document/index.php/welcome/page_table_main_academic/1
-                     //     $tb="tb_main_academic";
-                     if(    $this->user_model->authenlogin() == 1 )
-                          {
-                                   $tb="tb_main_academic";
-                                   $tbj1="tb_academic"; 
-                                   $tbj2="tb_academic_activities";
-                                   
-                                   
-                                                 $page=$this->uri->segment(3);
-                                              //   http://10.87.196.170/document/index.php/welcome/homepage/page_table_main_academic/1
-                                  
-                                          
-                                                  
-                                                  $this->db->join($tbj1,$tb.".id_firstname_academic=".$tbj1.".id_academic","left");
-                                                  $this->db->join($tbj2,$tb.".id_activities=".$tbj2.".id_academic_activities","left");
-                                                  
-                                                  $this->db->order_by("id_main_academic","DESC");
-                                                  
-                                                  
-                                                  
-                                                  
-                                                /*  
-                                                     //$query = $this->db->get('mytable', 10, 20);    
-                                                  if( $page == 1 )
-                                                  {
-                                                        $data["query"]=$this->db->get($tb,$this->limit,0);
-                                                        //redirect("welcome/homepage/insert_main_academic",'refresh');     
-                                                  }
-                                                  else  if( $page ==  2  )
-                                                  {
-                                                        //$data["query"]=$this->db->get($tb,$this->limit,6);
-                                                         $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                        
-                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');     
-                                                  }
-                                                  else  if( $page ==  3  )
-                                                  {
-                                                       // $data["query"]=$this->db->get($tb,$this->limit,11);
-                                                         $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');     
-                                                  }
-                                                   else  if( $page ==  4  )
-                                                  {
-                                                         // $data["query"]=$this->db->get($tb,$this->limit,16);
-                                                            $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                      //   redirect("welcome/homepage/insert_main_academic",'refresh');   
-                                                  }
-                                                  else  if( $page ==  5  )
-                                                  {
-                                                      //  $data["query"]=$this->db->get($tb,$this->limit,21);
-                                                          $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');   
-                                                  }
-                                                  else{
-                                                      
-                                                        $data["query"]=$this->db->get($tb,$this->limit); 
-                                                       //  redirect("welcome/homepage/insert_main_academic",'refresh');   
-                                                  }
-                                                  */
-                                                  
-                                                  
-                                                    if(  $page   > 1  )
-                                                    {
-                                                           $cal_limit=$page-1*$this->limit  + 2;
-                                                           $data["query"]=$this->db->get($tb,$this->limit,$cal_limit);
-                                                    }else{
-                                                            $data["query"]=$this->db->get($tb,$this->limit); 
-                                                    }
-
-                                    
-                                                  
-                                                    // $this->load->view("home_academic",$data);     
-                                                     //http://10.87.196.170/document/index.php/welcome/homepage/insert_main_academic
-                                                    //  redirect("welcome/homepage/insert_main_academic",'refresh');     
-                                                   $this->load->view("home_academic",$data);
-                           }
-                }
-                
-                
-   
-                
-                public function  del_main_academic()
-                {
-                     if(    $this->user_model->authenlogin() == 1 )
-                          {
-                                   $tb="tb_main_academic";
-                                   //$tbj1="tb_academic"; 
-                                $id=trim($this->uri->segment(3));    
-                             if( $id > 0)
-                             {
-                                            $this->db->where("id_main_academic",$id);
-                                            $ck = $this->db->delete($tb);
-                                            if( $ck )
-                                            {
-                                               // echo 1;
-                                            }
-                                            else
-                                            {
-                                               // echo 0;
-                                            }
-                             }    
-                                
-                                
-                               redirect("welcome/homepage/insert_main_academic",'refresh');     
-                                                  
-                           }
                 }
                 
                 public  function  export_excel()
@@ -2380,7 +1299,7 @@
                                 $type_record=trim($this->uri->segment(3));
                                 $type_document=trim($this->uri->segment(4));
                                 
-                                /*
+                                
                                 if(   $type_record  == 1  &&    $type_document == 1 )
                                 {
                                        $strExcelFileName="ทะเบียนหนังสือรับ.xls";
@@ -2393,25 +1312,14 @@
                                 {
                                        $strExcelFileName="ทะเบียนหนังสือ.xls";
                                 }
-                                */
                                 
-                                 $strExcelFileName="document".date("Y-m-d H:i:s O").".xls";
-                              //  header("Content-Type: application/vnd.ms-excel");
-                            //    header("Content-Type: application/x-msexcel; name=\"$strExcelFileName\"  ; content=\"text/html;charset=utf-8\"  ");
-                                
-                                
-                                header("Content-type: application/vnd.ms-excel ;  name=\"$strExcelFileName\"  ; content=\"text/html;charset=utf-8\" ");
-                                
+                             
+                                header("Content-Type: application/x-msexcel; name=\"$strExcelFileName\"");
                                 header("Content-Disposition: inline; filename=\"$strExcelFileName\"");
-                              //  header('Content-type: text/plain; charset=utf-8');
                                 header("Pragma:no-cache");
-                             //   header('Content-Type: text/html; charset=UTF-8');
+                                //header('Content-Type: text/html; charset=UTF-8');
                                 
-                               // echo "<meta http-equiv=\”Content-type\” content=\”text/html;charset=tis-620\″ />";
                                
-                               //<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-                                
-                                
                                 $tb="tb_main1";
                               //  $data["query_excel"]= $this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>$type_document));
                                  $query_excel = $this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>$type_document));
@@ -2420,14 +1328,8 @@
                                  $size1=3;
                                  $size2=2;
                                  
-
-                                 
-                   
-
-                                 
-                                echo "<table x:str  border='1'  >";
+                                echo "<table border='1'  >";
                                 echo "<tr>";
-                                //TH Saraban New
                                 echo "<td  align='center'   ><font face=\"TH Saraban New\" size='".$size1."'> เลข".br()
                                         . "ทะเบียนรับ  </font></td>";
                                 echo "<td  align='center' ><font face=\"TH Saraban New\"  size='".$size1."'> ที่  </font></td>";
@@ -2443,7 +1345,7 @@
                                     echo "<tr>";
                                    
                                       echo "<td align='center'>";
-                                     echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
+                                      echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
                                       
                                       echo  $registration=$row->registration;
                                      //echo  $this->user_model->count_id($type_record,$type_document);
@@ -2458,14 +1360,14 @@
                                      echo "</td>";
                                      
                                            echo "<td>";
-                                          echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
+                                           echo "<font face=\"TH Saraban New\"  size='".$size2."'  >";
                                            
                                            
                                     echo   $date=$row->date;
                                      
                                      
                                      
-                                     echo " </font>";
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                      
@@ -2481,9 +1383,9 @@
                           
                                      
                                      echo "<td>";
-                                    echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                     echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                      echo  $to=$row->to;
-                                    echo " </font>";
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                       echo "<td>";
@@ -2493,23 +1395,22 @@
                                      echo "</td>";
                                      
                                        echo "<td>";
-                                     //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                       echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                    //  echo  $practice=$row->practice;
                                        
-                                      //  echo " </font>";
+                                        echo " </font>";
                                      echo "</td>";
                                      
                                      echo "<td>";
-                                   //  echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
+                                     echo "<font face=\"TH Saraban New\" size='".$size2."'  >";
                                   //   echo  $note=$row->note;
-                                   //   echo " </font>";
+                                      echo " </font>";
                                      echo "</td>";
                                      
                                      echo "</tr>";
                                 }
                                 echo "</table>";
                                
-
                                        
                          }
                         
@@ -2586,333 +1487,6 @@
                       }
                 }
                 
-                
-                public function auto()
-                {
-                    //http://http://192.168.2.112/document/index.php/welcome/auto 
-                    // if(    $this->user_model->authenlogin() == 1 )
-                         // {
-                                    $tb="tb_main1";   
-                                    $q=$this->db->get($tb);
-                                    foreach($q->result() as $row)
-                                    {
-                                              $rows[]=$row;
-                                    }
-                                    echo  json_encode($rows);
-                         //  }
-                    
-                }
-                
-                
-                //---- ระบบปฏิทินกิจกรรม--------------------
-                 public function calendar()
-                {
-                     #http://10.87.196.170/document/index.php/welcome/calendar
-                      if(    $this->user_model->authenlogin() == 1 )
-                         {
-                          
-                                   $data["title"]=$this->title;   
-                                   $tb="tb_main_academic";
-                                   $data["q"]=$this->db->get($tb);
-                                   
-                                   
-                                    ?>                  
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > แสดงกิจกรรมหลัก 
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php  
-                       
-                       
-                                   $this->load->view("calendar1",$data);   
-                         }
-                }
-                
-                
-                
-                
-                public  function  detail_calendar()  #http://10.87.196.170/document/index.php/welcome/detail_calendar
-                {
-                     if(    $this->user_model->authenlogin() == 1 )
-                         {
-                                     $tb="tb_main_academic";         
-                                     $begin_date=trim($this->uri->segment(3));      
-                                    //echo br();
-                                     //id_academic
-                                     //id_firstname_academic
-                                     
-                                     $tbj1="tb_academic";
-                                              $this->db->join(  $tbj1  , $tb.".id_firstname_academic=".$tbj1.".id_academic"  ,  "left" );
-                                    $data["date_q"]=$this->db->get_where($tb,array("begin_date"=>$begin_date));
-                                    
-                                    
-                                    ?>                  
-        <div class="row">
-                    <div class="col s12 m12">
-                      <div class="card blue-grey darken-1">
-                        <div class="card-content white-text">
-
-                          <p>
-                             <i class="material-icons left">play_arrow</i> ตารางงานผู้บริหาร > แสดงกิจกรรม
-                          </p>
-
-                        </div>
-
-
-
-                      </div>
-                    </div>
-      </div>
-                       <?php    
-                       
-                                    
-                                    $this->load->view("calendar2",$data);
-                                    
-                          }
-                }
-                
-
-                public function testauto()
-                {
-                     //http://192.168.2.112/document/index.php/welcome/testauto
-                                              $this->load->view("testauto");
-                    
-                }
-                
-                
-                //------------------- กรอกลาพักผ่อนประจำปี ------      http://192.168.2.112/document/index.php/welcome/form_vacation
-                public function  form_vacation()
-                {
-                    if(    $this->user_model->authenlogin() == 1 )
-                         {
-                                              //echo "test vacation";
-                        
-                                              $this->load->view("form_vacation");
-                         }
-                    
-                }
-                
-                public  function insert_vacation()
-                        {
-                                 if(    $this->user_model->authenlogin() == 1 )
-                                 {
-                                              header('Content-Type: text/html; charset=UTF-8');
-                                              
-                                               $write=trim($this->input->get_post("write"));  //เขียนที่    1
-                                           //   echo br();
-                                               $date_write=trim($this->input->get_post("date_write"));  //วันเดือนปี ที่เขียน   2
-                                            //  echo br();
-                                              $subject=trim($this->input->get_post("subject"));  //เรื่อง   3
-                                          //    echo br();
-                                              $study=trim($this->input->get_post("study"));  //เรียน   4
-                                            //  echo br();
-                                               $prename=trim($this->input->get_post("prename")); //คำนำหน้าชื่อ   5
-                                             //  echo br();
-                                               $first_name=trim($this->input->get_post("first_name"));  //ชื่อ    6
-                                            //  echo br();
-                                               $last_name=trim($this->input->get_post("last_name")); //นามสกุล   7
-                                             // echo br();
-                                              $position=trim($this->input->get_post("position"));  //ตำแหน่ง   8
-                                            //  echo br(); 
-                                              $affiliation=trim($this->input->get_post("affiliation")); //สังกัด   9
-                                             // echo br();
-                                              $work=trim($this->input->get_post("work")); //งาน   10
-                                            //  echo br();
-                                              $tel=trim($this->input->get_post("tel")); //โทร    11
-                                           //   echo br();
-                                              $cumulative=trim($this->input->get_post("cumulative")); //วันลาสะสม   12
-                                             // echo br();
-                                               $rest=trim($this->input->get_post('rest')); //วันลาที่เหลืออยู่      13
-                                            //  echo  br();
-                                              $total=trim($this->input->get_post('total'));  //รวมวันลาเป็น      14
-                                           //   echo  br();
-                                               $current=trim($this->input->get_post("current"));  //ในปีนี้ลามาแล้ว     15
-                                              // echo  br();
-                                               $keep=trim($this->input->get_post("keep"));  //คงเหลือวันลาอีก      16
-                                             //  echo  br();
-                                               $wishes=trim($this->input->get_post("wishes"));  //มีความประสงค์จะขอลาพักผ่อนมีกำหนด    17
-                                              // echo  br(); 
-                                                $date_begin=trim($this->input->get_post("date_begin"));  //ขอลาพักผ่อนตั้งแต่วันที่        18
-                                            //  echo  br();
-                                               $end_date=trim($this->input->get_post("end_date"));  //ขอลาพักผ่อน ถึงวันที่        19
-                                           //   echo  br();
-                                              $house_number=trim($this->input->get_post("house_number"));  //บ้านเลขที่        20
-                                             // echo  br();
-                                              $road=trim($this->input->get_post("road"));  //ถนน        21
-                                             //  echo  br();
-                                                $district=trim($this->input->get_post("district")); //ตำบล        22
-                                              // echo  br();
-                                                $city=trim($this->input->get_post("city"));  //อำเภอ         23
-                                              // echo  br();
-                                               $province=trim($this->input->get_post("province"));  //จังหวัด        24
-                                              // echo  br();
-                                                $tel_address=trim($this->input->get_post("tel_address")); //โทรศํพท์  เบอร์โทรศํพท์หลังจากจังหวัด      25
-                                              // echo  br();
-                                                 $leave=trim($this->input->get_post("leave"));  //ลามาแล้ว       26
-                                               //echo  br();
-                                                 $leave_thistime=trim($this->input->get_post("leave_thistime"));  //ลาครั้งนี้ วันทำการ      27
-                                               //echo  br(); 
-                                                 $date_total_leave=trim($this->input->get_post("date_total_leave"));  //รวมเป็น วันทำการ       28
-                                              // echo  br(); 
-                                                 $sign=trim($this->input->get_post("sign"));  //ลงชื่อขอแสดงความนับถือ       29
-                                               //echo  br(); 
-                                                $presign=trim($this->input->get_post("presign"));  //คำนำหน้าชื่อ  ขอแสดงความนับถือ         30
-                                              // echo  br(); 
-                                                 $name_sign=trim($this->input->get_post("name_sign"));    //ชื่อ ขอแสดงความนับถือ       31
-                                               // echo  br(); 
-                                                $lastname_sign=trim($this->input->get_post("lastname_sign"));  //นามสกุล  ขอแสดงความนับถือ      32
-                                               // echo  br(); 
-                                                $allowed=trim($this->input->get_post("allowed"));  //เห็นควรอนุญาตหรือไม่        33
-                                               // echo  br(); 
-                                                 $name_inspector=trim($this->input->get_post("name_inspector"));  //ลงชื่อผู้ตรวจสอบ        34
-                                                // echo  br(); 
-                                                  $lastname_inspector=trim($this->input->get_post("lastname_inspector"));  //นามสกุลผู้ตรวจสอบ     35
-                                                // echo  br(); 
-                                                  $name_commander=trim($this->input->get_post("name_commander"));  //ชื่อผู้บังคับบั้ญชา     36
-                                                // echo br();
-                                                  $lastname_commander=trim($this->input->get_post("lastname_commander"));  //นามสกุลผู้บังคับบัญชา     37
-                                                // echo br();
-                                                  $position_inspector=trim($this->input->get_post("position_inspector")); //ตำแหน่งผู้ตรวจสอบ      38
-                                                // echo br();
-                                                  $position_commander=trim($this->input->get_post("position_commander"));  //ตำแหน่งของผู้บังคับบัญชา     39
-                                                //echo br();
-                                                 $date_inspector=trim($this->input->get_post("date_inspector"));  //วันที่ ผู้ตรวจสอบ     40
-                                               // echo br();
-                                                  $date_commander=trim($this->input->get_post("date_commander"));  //วันที่ผู้บังคับบัญชา     41
-                                                //echo br();
-                                                 $allow_manager=trim($this->input->get_post("allow_manager"));  //ผู้บริหาร อนุญาตหรือไม่      42
-                                               //echo br();
-                                                $first_name2=trim($this->input->get_post("first_name2"));  //ลงชื่อ     43
-                                               // echo br();
-                                                 $last_name2=trim($this->input->get_post("last_name2"));  //นามสกุล     44
-                                                //echo br();
-                                                $last_position=trim($this->input->get_post("last_position"));  //ตำแหน่ง      45
-                                               // echo br();
-                                                  $last_date=trim($this->input->get_post("last_date"));      //   46
-                                               // echo br();
-                                                
-                                                
-                                                
-                                                $data=array(
-                                                            "write"=>$write,   //1
-                                                            "date_write"=>$date_write,   //2
-                                                            "subject"=>$subject,    //3
-                                                            "study"=>$study,   //4
-                                                            "prename"=>$prename,   //5
-                                                            "first_name"=>$first_name,    //6
-                                                            "last_name"  =>$last_name,    //7
-                                                             "position"=> $position,     //8
-                                                             "affiliation"=> $affiliation,     //9
-                                                              "work"=>$work,    //10
-                                                              "tel"=>$tel,    //11
-                                                              "cumulative"=>$cumulative,
-                                                             "rest"=>$rest,    
-                                                             "total"=> $total,     
-                                                            "current"=>$current,
-                                                            "keep"=>$keep,
-                                                            "wishes"=>$wishes,
-                                                            "date_begin"=>$date_begin,
-                                                            "end_date"=>$end_date,
-                                                            "house_number"=>$house_number,
-                                                            "road"=>$road,
-                                                            "district"=>$district,
-                                                            "city"=>$city,
-                                                            "province"=>$province,
-                                                             "tel_address"=>$tel_address,
-                                                              "leave"=>$leave,    //12
-                                                             "leave_thistime"=>$leave_thistime,     //13
-                                                             "date_total_leave"=>$date_total_leave,     //14
-                                                             "sign"=> $sign,     //15
-                                                             "presign"=>$presign,    //16
-                                                            "name_sign"=>$name_sign,     //17
-                                                            "lastname_sign"=>$lastname_sign,     //18
-                                                            "allowed"=>$allowed,      //19
-                                                            "name_inspector"=>$name_inspector,     //20
-                                                            "lastname_inspector"=>$lastname_inspector,      //21
-                                                            "name_commander"=>$name_commander,        //22
-                                                           "lastname_commander"=>$lastname_commander,      //23
-                                                           "position_inspector"=>$position_inspector,       //24
-                                                           "position_commander"=>$position_commander,       //25
-                                                           "date_inspector"=>$date_inspector,       //26
-                                                           "date_commander"=>$date_commander,        //27
-                                                           "allow_manager"=>$allow_manager,        //28
-                                                          "first_name2"=>$first_name2,       //29
-                                                          "last_name2"=>$last_name2,       //30
-                                                         "last_position"=>$last_position,      //31
-                                                         "last_date"=>$last_date,       //32
-                                                );
-                                                
-                                              $tb="tb_vacation";
-                                              $ck_insert=$this->db->insert($tb,$data); //ตรวจสอบการ insert
-                                             //   $ck_insert=true;
-                                                if(  $ck_insert    )
-                                                {
-                                                     echo 1;  
-                                                }
-                                                else
-                                                {
-                                                    echo 0;
-                                                }
-                                                
-                                                       
-                                 }                  
-                        }
-
-
-                public function table_vacation()
-                {
-                     if(    $this->user_model->authenlogin() == 1 )
-                         {
-                                              //echo "test vacation";
-                         
-                                              $tb="tb_vacation";
-                                              $this->db->order_by("id_vacation","desc");
-                                               $data["query"]=$this->db->get($tb);
-                                              $this->load->view("table_vacation",$data);
-                                          //     $this->load->view("table_vacation");
-                                              
-                         }
-                }
-
-                public function del_vacation()
-                {
-                    if(    $this->user_model->authenlogin() == 1 )
-                    {
-                                              $id_vacation=trim($this->uri->segment(3));
-                                         if(  $id_vacation  > 0  )
-                                         {
-                                               $tb="tb_vacation";
-                                               $this->db->where("id_vacation",$id_vacation);
-                                                $ck = $this->db->delete($tb);
-                                                if( $ck )
-                                                {
-                                                    echo 1;
-                                                }
-                                                else
-                                                {
-                                                    echo 0;
-                                                }
-                                         }
-                                              
-                        
-                    }
-                    
-                }
-
-
-
                 public function  err_system()
                 {
                     //http://192.168.2.112/document/index.php/welcome/err_system
@@ -2927,9 +1501,6 @@
                          $this->user_model->err_model();
                          
                 }
-                
-                
-                
 }
 
 /* End of file welcome.php */
