@@ -542,8 +542,13 @@ $(document).ready(function(){
         <li><a class="btn-floating red"  onclick=" javascript: $('#modal2').modal('open');  " ><i class="material-icons">phonelink_lock</i></a>Login</li>
       <li><a class="btn-floating yellow darken-1"  onclick=" javascript: $('#modal1').modal('open');  "  ><i class="material-icons">print</i></a>View</li>
       <li><a class="btn-floating green"><i class="material-icons">offline_pin</i></a>Activity</li>
+      
+       
+       
       <li><a class="btn-floating blue"  onclick="javascript:  window.location.assign('<?=base_url()?>index.php/welcome/logout')  "><i class="material-icons">power_settings_new</i></a>Logout</li>
     </ul>
+          
+          
   </div>
         
       
@@ -650,6 +655,21 @@ $(document).ready(function(){
    </ul>
   
   
+     <ul id="dropdown5" class="dropdown-content">
+      
+         <li><a href="#"  onclick="  $('#sub11').load('<?=base_url()?>index.php/welcome/form_vacation');  ">    <i class="tiny material-icons left">redeem</i>แบบใบลาพักผ่อนประจำปี </a> </a></li>
+
+         <li><a href="#"  onclick=" $('#sub11').load('<?=base_url()?>index.php/welcome/form_sick');   "   >    <i class="tiny material-icons left">airplay</i>แบบใบลาป่วย/ลาคลอดบุตร/ลากิจส่วนตัว</a> </a></li>
+                
+  <li class="divider"></li>
+  
+  <!--
+  <li><a href="#" ><i class="tiny material-icons left">airplay</i>แบบใบลาป่วย</a></li>
+   -->
+  
+   </ul>
+  
+  
    
    
       <!--  mobile menu -->  
@@ -680,6 +700,7 @@ $(document).ready(function(){
     <div class="nav-wrapper">
       <!--  
       <a href="#!" class="brand-logo">Logo</a>
+      <a href="../../report_pdf/docdb/dbreport.php"></a>
       -->
       
       <!--
@@ -697,7 +718,9 @@ $(document).ready(function(){
          
               <!--<li><a href="#modal_circular"><i class="material-icons left">phonelink_lock</i>หนังสือเวียน</a></li>-->
          
-               <li><a href="#"  onclick=" javascript: $('#modal2').modal('open');  "><i class="material-icons left">phonelink_lock</i> เข้าสู่ระบบ </a></li>
+               <li><a href="#"  onclick=" javascript: $('#modal2').modal('open');  "><i class="material-icons left">phonelink_lock</i>  </a></li>
+               
+               <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i></a></li>
                
                
          <li>
@@ -740,10 +763,15 @@ $(document).ready(function(){
              <a class="dropdown-button" href="#" data-activates="dropdown4"><i class="material-icons left">offline_pin</i> ตารางงานผู้บริหาร </a>
          </li>
          
+         
+         
+           <li>
+             <a class="dropdown-button" href="#"   data-activates="dropdown5"><i class="material-icons left">supervisor_account</i> ใบลาพักผ่อน/ใบลาป่วย <i class="material-icons right">arrow_drop_down</i></a>
+         </li>
       
          
          
-            <li><a href="<?=base_url()?>index.php/welcome/logout/"><i class="material-icons left">settings_power</i>ออกจากระบบ</a></li>
+        
             
             
          <!--
@@ -766,9 +794,6 @@ $(document).ready(function(){
 
 <!-- load content -->
   <span id="sub11"></span>
-
-
-  
   <!-- Modal Trigger -->
 
 
@@ -813,22 +838,7 @@ $(document).ready(function(){
           
           </li>
           
-          
-          
-          
-         
-         
-        
-       
-          
-   
-         
-        
-        
-      
-        
-        
-        
+
       </ul>
         
         
@@ -1898,7 +1908,7 @@ $(document).ready(function(){
  
      
              
-      
+
      
      
  
