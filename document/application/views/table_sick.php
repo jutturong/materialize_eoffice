@@ -26,19 +26,23 @@
         var  cn=confirm('คุณแน่ใจว่าต้องการลบข้อมูลจริงหรือไม่');
         if( cn )
         {
-             $.post('<?=base_url()?>index.php/welcome/del_vacation/'  + id ,function(data)
+             $.post('<?=base_url()?>index.php/welcome/del_sick/'  + id ,function(data)
                 {
                       // alert(data);
+                      
+                   
                        if(  data == 1 )
                        {
                              Materialize.toast('ลบข้อมูลสำเร็จ', 3000, 'rounded')
-                            $('#sub11').load('<?=base_url()?>index.php/welcome/table_vacation');
+                            $('#sub11').load('<?=base_url()?>index.php/welcome/table_sick');
                        }
                    else
                       {
                              Materialize.toast('ไม่สามารถลบข้อมูลได้', 3000, 'rounded')
-                             $('#sub11').load('<?=base_url()?>index.php/welcome/table_vacation');
+                             $('#sub11').load('<?=base_url()?>index.php/welcome/table_sick');
                       }
+                    
+                      
                        
                 });
         }
@@ -167,7 +171,7 @@
         <a class="subheader">Subheader</a>
          -->
          
-         <a class="waves-effect waves-light btn-large"><i class="small  material-icons">settings_input_hdmi</i>Update</a>
+         <a class="waves-effect waves-light btn-large"   onclick="javascript  :   $('#sub11').load('<?=base_url()?>index.php/welcome/load_update_sick/'  +  <?=$id_sick?>  );  " ><i class="small  material-icons">settings_input_hdmi</i>Update</a>
     
     </li>
     

@@ -539,6 +539,11 @@ $(document).ready(function(){
       <i class="large material-icons">recent_actors</i>
     </a>
     <ul>
+        
+        <!--
+        <li><a href="#"  onclick=" window.location.assign('<?=base_url()?>index.php/welcome/export_data')  "  >test</a></li>
+        -->
+        
         <li><a class="btn-floating red"  onclick=" javascript: $('#modal2').modal('open');  " ><i class="material-icons">phonelink_lock</i></a>Login</li>
       <li><a class="btn-floating yellow darken-1"  onclick=" javascript: $('#modal1').modal('open');  "  ><i class="material-icons">print</i></a>View</li>
       <li><a class="btn-floating green"><i class="material-icons">offline_pin</i></a>Activity</li>

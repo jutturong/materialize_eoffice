@@ -175,7 +175,9 @@
         <a class="subheader">Subheader</a>
          -->
          
-         <a class="waves-effect waves-light btn-large"><i class="small  material-icons">settings_input_hdmi</i>Update</a>
+         <a   onclick="javascript  :   $('#sub11').load('<?=base_url()?>index.php/welcome/load_update_vacation/'  +  <?=$id_vacation?>  );  "  class="waves-effect waves-light btn" >
+               <i class="small  material-icons">settings_input_hdmi</i>Update
+         </a>
     
     </li>
     
@@ -242,8 +244,10 @@
                       
                   </td>
            </tr>
+          
            
            
+             
            
            
 
@@ -254,6 +258,18 @@
           
         </tbody>
       </table>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
             
 
 

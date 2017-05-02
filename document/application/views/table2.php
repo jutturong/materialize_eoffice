@@ -95,7 +95,18 @@
         
         
         <!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/1')">-->
-         <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=3&type_document=1')"> 
+        
+        <!--
+         <a class="btn-floating btn-large waves-effect waves-light red" 
+            onclick="
+                                  report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=3&type_document=1')
+                                  //http://10.87.196.170/document/index.php/welcome/export_data/3/1/2017-04-27
+                                  
+                          "> -->
+             
+         <a class="btn-floating btn-large waves-effect waves-light red" 
+            onclick="report('<?=base_url()?>index.php/welcome/export_data/3/1/')">
+             
                  <i class="large material-icons">view_module</i>
              
         </a>
@@ -262,9 +273,21 @@
     <div id="test2" class="col s12">
         
                 
-        <!--<a class="btn-floating btn-large waves-effect waves-light red"   onclick="report('<?=base_url()?>index.php/welcome/export_excel/3/2')"  >-->
+       <!--
             <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=3&type_document=2&select_date='  +  $('#date_table').val()    )"> 
-                 <i class="large material-icons">view_module</i>
+                                 $type_record=$this->uri->segment(3);
+                                 $type_document=$this->uri->segment(4); 
+                                 $date=$this->uri->segment(5); 
+       -->       
+                  
+       
+                 <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_data/3/2/'  +  $('#date_table').val()    )"> 
+       
+       
+     
+             
+                
+                <i class="large material-icons">view_module</i>
              
         </a>
         

@@ -108,11 +108,20 @@
              
         
        <!-- <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/1')"> -->
+   <!--
        <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=1&type_document=1')"> 
+   --> 
+   
+   
+   
+             <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_data/1/1/')" > 
+                         
+                 
+                 
            <!-- http://10.87.196.170/document/report_pdf/docdb/dbreport.php/?type_record=3&type_document=2 -->
                  <i class="large material-icons">view_module</i>
              
-        </a>
+           </a>
         
        
 
@@ -289,8 +298,11 @@
         
                 
         <!--<a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_excel/1/2')">-->
+        <!--
               <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>report_pdf/docdb/dbreport.php/?type_record=1&type_document=2&select_date='  +  $('#date_table').val()    )"> 
-                  
+         -->
+
+ <a class="btn-floating btn-large waves-effect waves-light red" onclick="report('<?=base_url()?>index.php/welcome/export_data/1/2/'  +  $('#date_table').val()    )">          
                        
                           
                           
