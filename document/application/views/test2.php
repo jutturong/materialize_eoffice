@@ -7,8 +7,43 @@
       
            <meta charset="UTF-8">
            <title><?=$title?></title>
-      
-   
+ 
+           
+           
+ <script type="text/javascript">
+      $(function()
+      {
+          
+            /*
+            $( "#birds" ).on("keydown",function(event)
+            { 
+                
+                    
+                    if ( event.keyCode === $.ui.keyCode.TAB &&
+                   $( this ).autocomplete( "instance" ).menu.active ) {
+                    event.preventDefault();
+                    
+                    
+             });
+            */
+    
+    
+        function log( message ) 
+        {
+                $( "<div>" ).text( message ).prependTo( "#log" );
+                $( "#log" ).scrollTop( 0 );
+        }
+    
+    
+    
+
+            
+            
+             
+            
+      });
+ </script>    
+           
         
            
  <!--  ลบข้อมูลในตาราง -->
@@ -990,13 +1025,18 @@ $(document).ready(function(){
               $('#main_from').submit(function(event)
               { 
                        //alert('t'); 
-                            var  url='<?=base_url()?>index.php/welcome/search_tb_main1';
-                            $('#sub11').load(url,  $('#main_from').serialize()   ,function(data)
+                       
+                       
+                          //  var  url='<?=base_url()?>index.php/welcome/search_tb_main1';
+                               var  url='<?=base_url()?>index.php/welcome/sarch_by_id';
+                               $('#sub11').load(url,  $('#main_from').serialize()   ,function(data)
                                 { 
                                       // alert(data);  
                                       Materialize.toast(' แสดงผลการค้นหา ', 4000 , 'rounded') // 4000 is the duration of the toast
                                       //$('#modal_sr').modal('close');
                                 });
+                                
+                                
                
                        return false;
                });
@@ -1181,7 +1221,7 @@ $(document).ready(function(){
    <!--  Modal   การค้นหาหลัก -->
   <div id="modal_sr" class="modal">
        <!--  #http://localhost/document/index.php/welcome/search_tb_main1 -->
-       <form    id="main_from"     action="<?=base_url()?>index.php/welcome/search_tb_main1"   >
+       <form    id="search_main"     >
           
     <div class="modal-content">
       
@@ -1199,28 +1239,53 @@ $(document).ready(function(){
       <p>A bunch of text</p>
       -->
       
+      <div class="row">
+          <div class="col s12">
+               <div class="row">
+                  
+                        <div class="input-field col s6">
+     <select  name="type_record"   id="type_record"   >
+      <option value="" disabled selected>  :: เลือกข้อมูล ::  </option>
+      <option value="1">มูลนิธิตะวันฉาย ฯ</option>
+      <option value="2">ศูนย์วิจัย ฯ</option>
+      <option value="3">ศูนย์การดูแล ฯ</option>
+    </select>
+    <label>เลือกข้อมูล</label>
+  </div>
+                  
+               </div>
+           </div>
+      </div>
+      
+      
+      
        <div class="row">
            
-                     <!--
-                    <div class="col s12">
-                      <div class="row">
-                        <div class="input-field col s12">
-                          <i class="material-icons prefix">settings_cell</i>
-                          <input type="text" id="autocomplete11" class="autocomplete">
-                          <label for="autocomplete11">Autocomplete</label>
-                                 <div id="tags" />
-                        </div>
-                      </div>
-                    </div>
-                     </div>
-                     -->
+                    
            
-                     <div class="col s6">
+           
+           
+                     <div class="col s4">
                       <div class="row">
                         <div class="input-field col s12">
+                            
+                            
                           <i class="material-icons prefix">today</i>
                           
-                          <input type="date" class="datepicker" id="begin_date_main"  name="begin_date_main"  />
+                          <input type="date" class="datepicker" id="begin_date_main"  name="begin_date_main"  onchange="
+                                 javascript:
+                                       var  begin_date_main =  $('#begin_date_main').val();
+                                       //alert(begin_date_main);
+                                       var  end_date_main=$('#end_date_main').val();
+                                       var  url='<?=base_url()?>index.php/welcome/search_by_date';
+                                        //  alert('กำลังประมวลผล');
+                                    $('#sub11').html('');
+                                        $('#sub11').load(url, {  'begin_date_main': $('#begin_date_main').val()  , 'end_date_main':$('#end_date_main').val()  ,'type_record':$('#type_record').val() ,  },function(data)
+                                        {
+                                            
+                                        }  );
+                                 
+                                 "  />
                                  
                                  
                         </div>
@@ -1228,40 +1293,273 @@ $(document).ready(function(){
                     </div>
                      
                      
-                      <div class="col s6">
+                      <div class="col s4">
                       <div class="row">
                         <div class="input-field col s12">
                           <i class="material-icons prefix">today</i>
                           
-                          <input type="date" class="datepicker" id="end_date_main"   name="end_date_main"  />
+                          <input type="date" class="datepicker" id="end_date_main"   name="end_date_main" onchange="
+                                 javascript:
+                                       var  begin_date_main =  $('#begin_date_main').val();
+                                       //alert(begin_date_main);
+                                       var  end_date_main=$('#end_date_main').val();
+                                       var  url='<?=base_url()?>index.php/welcome/search_by_date';
+                                       //   alert('กำลังประมวลผล');
+                                    $('#sub11').html('');
+                                      $('#sub11').load(url, {  'begin_date_main': $('#begin_date_main').val()  , 'end_date_main':$('#end_date_main').val()  ,'type_record':$('#type_record').val() ,  },function(data)
+                                        {
+                                            
+                                        }  );
+                                 
+                                 "   />
                                  
                                  
                         </div>
                       </div>
+                     
+                          
+                          
                     </div>
+           
+           
+            <div class="col s4">
+                      <div class="row">
+                        <div class="input-field col s12">
+                           <a class="waves-effect waves-light btn-large"  onclick=" 
+                           javascript:
+                                   var  url='<?=base_url()?>index.php/welcome/search_by_date';
+                                 //  alert(url);
+                                  //  alert('กำลังประมวลผล');
+                                    $('#sub11').html('');
+                                    $('#sub11').load(url, {  'begin_date_main': $('#begin_date_main').val()  , 'end_date_main':$('#end_date_main').val()  ,'type_record':$('#type_record').val() ,  },function(data)
+                                        {
+                                            
+                                        }  );
+                                        
+                             
+                             "    ><i class="material-icons left">zoom_in</i>Search</a>  
+                                 
+                                 
+                        </div>
+                      </div>
                      
+                          
+                          
+                    </div>
+           
+    
+                  
+       
+                     
+    
+                         <div class="col s5">
+                      <div class="row">
+                     
+                              <div class="ui-widget">
+                                  
+                                  <!--
+                                  <input  type="text"  readonly="readonly"  name="id_main1"  id="id_main1"  />
+                                  -->
+                                   
+  <label for="to">ถึง : </label>
+  
+  
+  <input id="to"  onkeypress=" ">
+
+  
+</div>
+                          
+
+ 
 
                      
-      <div class="col s6">               
-                     <p>
-                         <input name="type_record" type="radio" id="type_record1"    value="1"  />
-      <label for="type_record1">มูลนิธิตะวันฉาย ฯ</label>
-    </p>
-    <p>
-      <input name="type_record" type="radio" id="type_record2"   value="2"  />
-      <label for="type_record2">ศูนย์วิจัย ฯ</label>
-    </p>
-    <p>
-        <input class="with-gap" name="type_record" type="radio" id="type_record3"  value="3" />
-      <label for="type_record3">ศูนย์การดูแล ฯ</label>
-    </p>
-    
+           </div>
+                             
+                             
 
-    
-     </div> 
+                             
+                             
+                    </div>
+           
+           
+           
+           
+           
+           
+           
+           <div class="col s4">
+                      <div class="row">
+                        <div class="input-field col s12">
+                           <a class="waves-effect waves-light btn-large"  onclick=" 
+                        javascript:
+      $('#sub11').html('');
+      var   type_record=$('#type_record').val();
+ 
+               if(   type_record  >  0 )
+               {
+
+                              $('#sub11').load('<?=base_url()?>index.php/welcome/sarch_by_to' ,    {  'to':$('#from').val(), 'type_record' : $('#type_record').val() }      ,  function(data)
+                             {  
+                                 //alert(data); 
+                             }  );
+                             
+                             
+               }          
+                                        
+                             
+                             "    ><i class="material-icons left">zoom_in</i>Search</a>  
+                                 
+                                 
+                        </div>
+                      </div>
+                     
+                          
+                          
+                    </div>   
+           
+           
+           
+           
+                     
+                     
+                     
+         
+            
+             
+             
+
 
            
      </div>
+      
+      
+            <div class="row">
+                
+                
+          <div class="col s5">
+               <div class="row">
+                  
+          <label for="subject">เรื่อง : </label>
+  
+  
+  <input id="subject"  onkeypress=" ">
+                  
+               </div>
+           </div>
+                
+               <div class="col s5">
+               <div class="row">
+                  
+           <a class="waves-effect waves-light btn-large"  onclick=" 
+            
+              javascript:
+      $('#sub11').html('');
+      var   type_record=$('#type_record').val();
+        if(   type_record  >  0 )
+               {
+                     $('#sub11').load('<?=base_url()?>index.php/welcome/search_by_search' ,    {  'subject':$('#subject').val(), 'type_record' : $('#type_record').val() , 'fieldname':'subject'  }      ,  function(data)
+                             {  
+                                  //alert(data); 
+                             }  );
+                   
+               }
+      
+                                        
+                             
+                             "    ><i class="material-icons left">zoom_in</i>Search</a>  
+                                 
+                  
+               </div>
+           </div>   
+
+      </div>
+      
+      
+     
+            <div class="row">
+                
+                
+          <div class="col s5">
+               <div class="row">
+                  
+          <label for="from">จาก : </label>
+  
+  
+  <input id="from"  onkeypress=" ">
+                  
+               </div>
+           </div>
+                
+               <div class="col s5">
+               <div class="row">
+                  
+           <a class="waves-effect waves-light btn-large"  onclick=" 
+            
+              javascript:
+      $('#sub11').html('');
+      var   type_record=$('#type_record').val();
+        if(   type_record  >  0 )
+               {
+                     $('#sub11').load('<?=base_url()?>index.php/welcome/search_by_search' ,    {  'subject':$('#from').val(), 'type_record' : $('#type_record').val() , 'fieldname':'from'  }      ,  function(data)
+                             {  
+                                  //alert(data); 
+                             }  );
+                   
+               }
+      
+                                        
+                             
+                             "    ><i class="material-icons left">zoom_in</i>Search</a>  
+                                 
+                  
+               </div>
+           </div>   
+
+      </div> 
+      
+      
+      <div class="row">
+                
+                
+          <div class="col s5">
+               <div class="row">
+                  
+          <label for="at">ที่ : </label>
+  
+  
+  <input id="at"  onkeypress=" ">
+                  
+               </div>
+           </div>
+                
+               <div class="col s5">
+               <div class="row">
+                  
+           <a class="waves-effect waves-light btn-large"  onclick=" 
+            
+              javascript:
+      $('#sub11').html('');
+      var   type_record=$('#type_record').val();
+        if(   type_record  >  0 )
+               {
+                     $('#sub11').load('<?=base_url()?>index.php/welcome/search_by_search' ,    {  'subject':$('#at').val(), 'type_record' : $('#type_record').val() , 'fieldname':'at'  }      ,  function(data)
+                             {  
+                                  //alert(data); 
+                             }  );
+                   
+               }
+      
+                                        
+                             
+                             "    ><i class="material-icons left">zoom_in</i>Search</a>  
+                                 
+                  
+               </div>
+           </div>   
+
+      </div> 
+      
+      
       
       
       
@@ -1284,12 +1582,31 @@ $(document).ready(function(){
         <a class="waves-effect waves-light btn-large"   onclick="action_main1()"  ><i class="material-icons left">person_pin</i>Search</a>
         -->
         
+        <!--
         <button class="btn waves-effect waves-light btn-large" type="submit" name="action"   id="btn_sr_main1"   >Search
                      <i class="material-icons right">person_pin</i>
        </button>
+        -->
         
+        
+        <!--
+        <a class="waves-effect waves-light btn-large"  onclick=" 
+              javascript: 
+                  //  $('#birds').val('');   $('#log').val('');  
+              $('#sub11').load('<?=base_url()?>index.php/welcome/sarch_by_to' ,    {  'to':$('#to').val(), 'type_record' : $('#type_record').val() }      ,  function(data)
+                             {  
+                                 //alert(data); 
+                             }  );
+                             
+                             "    ><i class="material-icons left">mic_off</i>Search</a>  
+                             
+         -->                    
+       
        <a class="waves-effect waves-light btn-large"  onclick="javascript:  $(function(){ $('#modal_sr').modal('close');  } );  "  ><i class="material-icons left">mic_off</i>Close</a>
-    
+       
+      
+     
+  
     
     </div>
       

@@ -2173,6 +2173,134 @@
                     
                 }
                 
+                public function  search_by_date()
+                {
+                        $begin_date_main=trim($this->input->get_post("begin_date_main"));
+                      //echo br();
+                      
+                       $end_date_main=trim($this->input->get_post("end_date_main"));
+                    
+                       $type_record=trim($this->input->get_post("type_record"));
+                     
+                     
+                     
+                                   $tb="tb_main1";
+                            
+                                    $this->db->where("date >=  ", $begin_date_main );
+                                    $this->db->where("date <=  ", $end_date_main );
+                                    $this->db->where("type_record", $type_record );
+                                    
+                            
+                           $data["query"] =$this->db->get_where($tb,array("type_document"=>1));
+                           
+                           
+                                    $this->db->where("date >=  ", $begin_date_main );
+                                    $this->db->where("date <=  ", $end_date_main );
+                                    $this->db->where("type_record", $type_record );
+                           
+                           $data["query2"] =$this->db->get_where($tb,array("type_document"=>2));  
+                            
+                           /* 
+                            $data["query"] =$this->db->get_where($tb,array('begin_date'=>$begin_date_main,'end_date'=>$end_date_main,"type_document"=>1));
+                            
+                            
+                            $data["query2"] =$this->db->get_where($tb,array('begin_date'=>$begin_date_main,'end_date'=>$end_date_main,"type_document"=>2));
+                           */
+                            
+                            
+                            $this->load->view("table11",$data);   
+                      
+                      
+                }
+                
+                public function search_by_search()
+                {
+                           $subject=trim($this->input->get_post("subject"));
+                        //echo br();
+                           $type_record=trim($this->input->get_post("type_record"));
+                        //echo br();
+                        $fieldname=trim($this->input->get_post("fieldname"));
+                        //echo br();
+                        if( strlen($subject ) >  0  &&   strlen($type_record )  > 0  &&   strlen($fieldname )  )
+                        {
+                             $tb="tb_main1";
+                             $this->db->where("type_record", $type_record );
+                             $this->db->like($fieldname, $subject );
+                             $data["query"] =$this->db->get_where($tb,array("type_document"=>1));
+                             
+                                 $this->db->where("type_record", $type_record );
+                                 $this->db->like($fieldname, $subject );
+                                 $data["query2"] =$this->db->get_where($tb,array("type_document"=>2));
+                                 
+                                   $this->load->view("table11",$data);   
+                        }
+                }
+                
+                public  function  sarch_by_to()
+                {
+                    
+                    
+                         $to=trim($this->input->get_post("to"));  //ถึง
+                        // echo br();
+                         $type_record=trim($this->input->get_post("type_record"));
+                        // echo br();
+                         
+                            if(   $to != ""  &&  $type_record != ""   )
+                            {
+                                  $tb="tb_main1";
+                                  
+                                 
+                                  
+                                  
+                                 // $data["query"] =$this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>1),5);
+                                  
+                                    $this->db->like("to",$to);
+                                  //  $this->db->like('to', $to );
+                                //    $this->db->where("type_record",$type_record);
+                              //      $this->db->where("type_document",1);
+                                    $data["query"] =$this->db->get($tb);
+                                  
+                                 //  $data["query"]=$this->db->query(" select  *  from  $tb  where  to  like('%$to%');  ");
+                                 
+                                  
+                                //  $data["query2"]=$this->db->get_where($tb,array("type_record"=>$type_record,"type_document"=>2),5); 
+                                     $this->db->like("to",$to);
+                               //      $this->db->where("type_record",$type_record);
+                              //       $this->db->where("type_document",2);
+                                     $data["query2"]=$this->db->get($tb);
+                                 //  $data["query"]=$this->db->query(" select  *  from  $tb   where   to  like('%$to%');  ");
+                                   
+                                   
+                                  
+                                   $this->load->view("table11",$data);      
+                                  
+                            }
+                            
+                    
+                    //echo "T";
+                                                  
+                                                  
+                    /*
+                      echo   $id_main1=trim($this->input->get_post("id_main1"));                           
+                      echo br();
+                    
+                      
+                         
+                           //   $data["query"] =$this->db->get_where($tb,array("id_main1"=> $id_main1));
+                         
+                           //  $this->db->where("type_document",1 );
+                            
+                             
+                         //    $this->db->where("type_document",2 );
+                             $data["query2"]=$this->db->get($tb,array("id_main1"=> $id_main1));
+                             
+                        //  $this->load->view("table11",$data);      
+                       */   
+                   
+                    
+                }
+                
+                
                 public  function  search_tb_main1()
                 {
                      #http://localhost/document/index.php/welcome/search_tb_main1
@@ -4366,6 +4494,25 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
                                  $this->load->view("export",$data);
                     }           
                                 
+                }
+                
+                //   http://10.87.196.170/document/index.php/welcome/auto_main
+                public function auto_main() //ค้นหาแบบ autocomplete
+                {
+                                echo  header('Content-type: application/json');
+                                $tb="tb_main1";
+                                $to=trim($this->input->get_post("to"));
+                                $type_record=trim($this->input->get_post("type_record"));
+                                 $this->db->like("to",$to);
+                                $query=$this->db->get_where($tb,array("type_record"=>$type_record),5);
+                                foreach($query->result() as $row)
+                                {
+                                       $rows[]=$row;
+                                  //   $results[] = array('to' => $row->to );
+                                }
+                                echo json_encode($rows);
+                            //    echo json_encode($results);
+                              
                 }
 
 
