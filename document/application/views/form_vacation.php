@@ -138,7 +138,7 @@ http://materializecss.com/buttons.html
        <div class="row">
             
             <div class="input-field col s3">
-                <input placeholder="Placeholder" id="study" name="study" type="text" class="validate" value="ผู้อำนวยการศูนย์ตะวันฉายฯ" >
+                <input placeholder="Placeholder" id="study" name="study" type="text" class="validate" value="รองผู้อำนวยการฝ่ายบริหาร ศูนย์ตะวันฉาย" >
           <label for="study">เรียน</label>
              </div>
         
@@ -799,11 +799,11 @@ http://materializecss.com/buttons.html
                 
             </div>
              <div class="input-field col s2">
-                 <input placeholder="" id="first_name2"   name="first_name2"  type="text" class="validate"  >
+                 <input placeholder="" id="first_name2"   name="first_name2"  type="text" class="validate"  value="รศ.พญ.นิรมล">
                 <label for="first_name2">(ลงชื่อ)</label>
             </div>
                 <div class="input-field col s2">
-                    <input placeholder="" id="last_name2"  name="last_name2"  type="text" class="validate" >
+                    <input placeholder="" id="last_name2"  name="last_name2"  type="text" class="validate"  value="พัจนสุนทร">
                 <label for="last_name2">(นามสกุล)</label>
             </div>
         </div>
@@ -815,7 +815,7 @@ http://materializecss.com/buttons.html
             </div>
             
             <div class="input-field col s4">
-                <input placeholder="" id="last_position"  name="last_position"  type="text" class="validate"  >
+                <input placeholder="" id="last_position"  name="last_position"  type="text" class="validate"  value="รองผู้อำนวยการฝ่ายบริหาร"  >
                    <label for="last_position">ตำแหน่ง</label>
                </div>
             

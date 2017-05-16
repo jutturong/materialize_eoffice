@@ -154,7 +154,7 @@ http://materializecss.com/buttons.html
        <div class="row">
             
             <div class="input-field col s3">
-                <input placeholder="Placeholder" id="study" name="study" type="text" class="validate" value="ผู้อำนวยการศูนย์ตะวันฉายฯ" >
+                <input placeholder="Placeholder" id="study" name="study" type="text" class="validate" value="รองผู้อำนวยการฝ่ายบริหาร ศูนย์ตะวันฉาย" >
           <label for="study">เรียน</label>
              </div>
         
@@ -754,11 +754,11 @@ http://materializecss.com/buttons.html
                            <td>
                                
                                <div class="input-field col s6">
-                                     <input placeholder="" id="first_name2"   name="first_name2"   type="text" class="validate">
+                                   <input placeholder="" id="first_name2"   name="first_name2"   type="text" class="validate"  >
                                </div> 
                            
                                <div class="input-field col s6">
-                                     <input placeholder="" id="last_name2"    name="last_name2"   type="text" class="validate">
+                                   <input placeholder="" id="last_name2"    name="last_name2"   type="text" class="validate" >
                                </div> 
                              
                              
@@ -770,7 +770,7 @@ http://materializecss.com/buttons.html
                            <tr>
                                <td>ตำแหน่ง</td>
                                <td>
-                                   <input placeholder="" id="postion2"  name="postion2" type="text" class="validate">
+                                   <input placeholder="" id="postion2"  name="postion2" type="text" class="validate" value="">
                                </td>
                            </tr>
                            
@@ -809,11 +809,11 @@ http://materializecss.com/buttons.html
                                
                                  
                                <div class="input-field col s6">
-                                   <input placeholder="" id="first_name3"  name="first_name3"   type="text" class="validate">
+                                   <input placeholder="" id="first_name3"  name="first_name3"   type="text" class="validate"  value="รศ.พญ.นิรมล" >
                                </div>
                                       
                                <div class="input-field col s6">
-                                   <input placeholder="" id="last_name3"  name="last_name3"  type="text" class="validate">
+                                   <input placeholder="" id="last_name3"  name="last_name3"  type="text" class="validate"  value="พัจนสุนทร"  >
                                </div>
                                
                                
@@ -824,7 +824,7 @@ http://materializecss.com/buttons.html
                            <tr>
                                <td>ตำแหน่ง</td>
                                <td>
-                                   <input placeholder="" id="manager_position"  name="manager_position"  type="text" class="validate">
+                                   <input placeholder="" id="manager_position"  name="manager_position"  type="text" class="validate"  value="รองผู้อำนวยการฝ่ายบริหาร">
                                </td>
                            </tr>
                            
