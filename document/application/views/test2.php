@@ -8,6 +8,9 @@
            <meta charset="UTF-8">
            <title><?=$title?></title>
  
+   
+           
+           
            
            
  <script type="text/javascript">
@@ -701,8 +704,14 @@ $(document).ready(function(){
 
          <li><a href="#"  onclick=" $('#sub11').load('<?=base_url()?>index.php/welcome/form_sick');   "   >    <i class="tiny material-icons left">airplay</i>แบบใบลาป่วย/ลาคลอดบุตร/ลากิจส่วนตัว</a> </a></li>
                 
-  <li class="divider"></li>
   
+         <li class="divider"></li>
+         
+         
+         <li><a href="#modal_sum_vacation"     >    <i class="tiny material-icons left">today</i>สรุปการลาพักผ่อน/ลาป่วย ภายในหน่วยงาน</a> </a></li>
+                
+  
+    
   <!--
   <li><a href="#" ><i class="tiny material-icons left">airplay</i>แบบใบลาป่วย</a></li>
    -->
@@ -2229,8 +2238,129 @@ $(document).ready(function(){
  
  
      
-             
+          
+     
+     
+     <!--  วันลาพักผ่อน ประจำปี -->
+     
+     
+     
+     <script type="text/javascript">
+   
+   
+   $(function()
+   {
+       
+                $('#date_begin_sr_vacation').pickadate({
+                  selectMonths: true, // Creates a dropdown to control month
+                  selectYears: 15, // Creates a dropdown of 15 years to control year
+                  format:'yyyy-mm-dd',
+                  
+                });
+                
+                
+                 $('#end_date_sr_vacation').pickadate({
+                  selectMonths: true, // Creates a dropdown to control month
+                  selectYears: 15, // Creates a dropdown of 15 years to control year
+                  format:'yyyy-mm-dd',
+                  
+                });
+                
+                
+  
+   });
 
+  
+        
+     </script>
+
+      <!-- Modal Structure -->
+  <div id="modal_sum_vacation" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <!--
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+        -->
+        <h6>
+              <i class=" material-icons">person_pin</i>    สรุปการลาพักผ่อน/ลาป่วยภายในหน่วยงาน
+        </h6>
+        
+        
+        <div class="input-field col s3">
+            
+                     
+             <!--  <i class="tiny material-icons prefix">account_circle</i> -->
+            <!--
+            <input  type="text" class="validate"   id="first_name_vacation_sr"  name="first_name_vacation_sr"  >
+                    
+            
+                      
+            <input  type="text" class="validate" id="last_name_vacation_sr"   name="last_name_vacation_sr">
+                     
+              -->      
+              
+              <select class="browser-default"  id="id_staff_sr"  name="id_staff_sr"   onchange="" >
+                    <option value="" disabled selected>ชื่อ-นามสกุล</option>
+                    <?=$this->user_model->tb_staff()?>
+              </select> 
+                      
+        </div>
+        
+        
+        <!--
+        <div class="input-field col s3">
+            <input type="date"  id="date_begin_sr_vacation"    name="date_begin_sr_vacation"  class="datepicker">
+        </div>
+        -->
+        
+        <!--
+        <div class="input-field col s3">
+            <input type="date" class="datepicker"  id="end_date_sr_vacation"  name="end_date_sr_vacation" >
+        </div>
+        -->
+        
+        
+        <!--
+         <div class="input-field col s12">
+             <select   id="sr_tb_name"  name="sr_tb_name" >
+      <option value="" disabled selected>เลือกประเภทของการสรุปการลา</option>
+      <option value="1">แบบใบลาพักผ่อนประจำปี</option>
+      <option value="2">แบบใบลาป่วย/ลาคลอดบุตร/ลากิจส่วนตัว</option>
+
+    </select>
+    <label>เลือกประเภทของการสรุปการลา</label>
+  </div>
+        -->
+        
+        
+        <!--
+              $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+        -->
+        
+        <div class="input-field col s12">   
+            <a class="waves-effect waves-light btn-large"  onclick="javascript:
+               //alert('t');
+              //$.post('<?=base_url()?>index.php/welcome/sr_tb_vacation',{},function(data){    });
+               $('#sub11').load('<?=base_url()?>index.php/welcome/sr_tb_vacation',
+                   {  
+                        'id_staff_sr':$('#id_staff_sr').val(),
+                      //  'sr_tb_name':$('#sr_tb_name').val(), 
+                    },
+                   function(){  });
+               "   ><i class="material-icons right">perm_identity</i>ค้นหา</a>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">
+                     <i class="material-icons">loyalty</i>
+                        Close ( ปิด )
+      </a>
+    </div>
+
+  </div>
+      
+     <!--  วันลาพักผ่อน ประจำปี -->
      
      
  

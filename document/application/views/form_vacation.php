@@ -91,7 +91,7 @@ http://materializecss.com/buttons.html
             
         <div class="input-field col s4">
             <input placeholder="ศูนย์ตะวันฉายฯ" id="write" name="write"  type="text"  value="ศูนย์ตะวันฉายฯ"  class="validate">
-          <label for="write">เขียนที่</label>
+               <!--<label for="write">เขียนที่</label>-->
         </div>
             
 
@@ -139,7 +139,7 @@ http://materializecss.com/buttons.html
             
             <div class="input-field col s3">
                 <input placeholder="Placeholder" id="study" name="study" type="text" class="validate" value="รองผู้อำนวยการฝ่ายบริหาร ศูนย์ตะวันฉาย" >
-          <label for="study">เรียน</label>
+                  <!--<label for="study">เรียน</label>-->
              </div>
         
        </div>
@@ -149,11 +149,19 @@ http://materializecss.com/buttons.html
            
        <div class="row">
             
-            <div class="input-field col s1">
-            </div>  
-                
            
+           
+           <div class="input-field col s1">
+                
+                
+            </div> 
+           
+                
+           <!--
             <div class="input-field col s2">
+                
+                
+               
            
                 <input  type="radio" id="prename1"  value="1"  name="prename"    />
       <label for="prename1">นาย</label>
@@ -167,23 +175,126 @@ http://materializecss.com/buttons.html
       
    
             </div>  
+           -->
            
            
             <div class="input-field col s3">
-                <input placeholder="ชื่อ" id="first_name"  name="first_name" type="text" class="validate"    >
-                     <label for="first_name">ชื่อ</label>
+                
+                
+                 <!--    index.php/welcome/call_tbstaff  -->
+
+                <select class="browser-default"  id="id_staff"  name="id_staff"   onchange="
+                             javascript:    
+                             $.post('<?=base_url()?>index.php/welcome/call_tbstaff',{ 'id_staff':$('#id_staff').val()  },function(data)
+                             {
+                                     $('#position').val(data);  
+                             });
+                             
+                              $.post('<?=base_url()?>index.php/welcome/call_staff_name',{ 'id_staff':$('#id_staff').val()  },function(data)
+                             {
+                                   //  $('#position').val(data);  
+                                   $('#sign').val(data);
+                             });
+                             
+                             
+                              $.post('<?=base_url()?>index.php/welcome/call_field_name',{ 'id_staff':$('#id_staff').val() ,'field':'name'  },function(data)
+                             {
+                                   //  $('#position').val(data);  
+                                 //  $('#sign').val(data);
+                                     //  alert(data);
+                                       $('#name_sign').val(data);
+                                       $('#first_name').val(data);
+                                       
+                             });
+                             
+                             
+                                 $.post('<?=base_url()?>index.php/welcome/call_field_name',{ 'id_staff':$('#id_staff').val() ,'field':'lastname'  },function(data)
+                             {
+                                   //  $('#position').val(data);  
+                                 //  $('#sign').val(data);
+                                     //  alert(data);
+                                       $('#lastname_sign').val(data);
+                                       $('#last_name').val(data);
+                             });
+                             
+                             
+                               $.post('<?=base_url()?>index.php/welcome/call_field_name',{ 'id_staff':$('#id_staff').val() ,'field':'prename'  },function(data)
+                             {
+
+                                     //alert(data);
+                                     if( data == 'นาย' )
+                                     {
+                                           $('#prename1').attr('checked',true);
+                                           $('#presign1').attr('checked',true);
+                                     }
+                                     else if( data == 'นาง' )
+                                     {
+                                           $('#prename2').attr('checked',true);
+                                           $('#presign2').attr('checked',true);
+                                     }
+                                     else if( data == 'นางสาว' )
+                                     {
+                                           $('#prename3').attr('checked',true);
+                                           $('#presign3').attr('checked',true);
+                                     }
+                                     
+                             }); 
+                             
+                             
+                            
+                            
+                                   
+                                                             " >
+                            <option value="" disabled selected>ชื่อ-นามสกุล</option>
+                            <!--
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            -->
+                            <?=$this->user_model->tb_staff()?>
+                </select>
+                
+
              </div>
            
            
-              <div class="input-field col s3">
-                  <input placeholder="นามสกุล" id="last_name"  name="last_name" type="text" class="validate"  >
-                     <label for="last_name">นามสกุล</label>
+           
+           <div class="input-field col s2">
+               <input  type="radio" id="prename1"  value="1"  name="prename"    />
+      <label for="prename1">นาย</label>
+  
+      <input  type="radio" id="prename2"   value="2"  name="prename"   />
+      <label for="prename2">นาง</label>
+ 
+      <input class="with-gap"  type="radio" id="prename3"  value="3"   name="prename"  />
+<label for="prename3">นางสาว</label>
+           </div>
+           
+           
+              <div class="input-field col s2">
+
+                  <input placeholder="ชื่อ" id="first_name"  name="first_name" type="text" class="validate"    >
+                          <!-- <label for="first_name">ชื่อ</label> -->
+
              </div>
            
            
-              <div class="input-field col s3">
-                  <input placeholder="ตำแหน่ง" id="position"  name="position"    type="text" class="validate"   >
-                     <label for="position">ตำแหน่ง</label>
+           <div class="input-field col s2">
+                 <input placeholder="นามสกุล" id="last_name"  name="last_name" type="text" class="validate"  >
+                          <!-- <label for="last_name">นามสกุล</label> -->
+           </div>
+           
+           
+
+             
+            
+            <div class="input-field col s2">
+                
+                
+                <input placeholder="ตำแหน่ง" id="position"  name="position"    type="text" class="validate"  readonly="true"  >
+                   <!--  <label for="position">ตำแหน่ง</label>  -->
+                     
+                     
              </div>
            
            
@@ -198,7 +309,7 @@ http://materializecss.com/buttons.html
             
             
                     <div class="input-field col s3">
-                        <input placeholder="Placeholder" id="affiliation"   name="affiliation"  type="text" class="validate" >
+                        <input placeholder="สังกัดหน่วย" id="affiliation"   name="affiliation"  type="text" class="validate" >
                      <label for="affiliation">สังกัดหน่วย</label>
              </div>
             
@@ -218,7 +329,7 @@ http://materializecss.com/buttons.html
              <div class="input-field col s3">
                   <i class="material-icons prefix">phone</i>
                   <input placeholder="Placeholder" id="tel" name="tel"  type="tel" class="validate" value="043363123" >
-                     <label for="tel">โทร.</label>
+                       <!-- <label for="tel">โทร.</label> -->
              </div>
 
         </div>
@@ -483,7 +594,7 @@ http://materializecss.com/buttons.html
               
                <div class="input-field col s2">
                   <i class="material-icons prefix">phone</i>
-                  <input placeholder="Placeholder" id="tel_address"  name="tel_address"  type="tel" class="validate"  >
+                  <input placeholder="โทรศัพท์" id="tel_address"  name="tel_address"  type="tel" class="validate"  >
                      <label for="tel_address">โทรศัพท์</label>
              </div>
               
@@ -586,8 +697,8 @@ http://materializecss.com/buttons.html
             </div> 
             
             <div class="input-field col s6">
-                <input  id="sign"  name="sign" type="text" class="validate"   >
-                <label>(ลงชื่อ)</label>
+                <input  id="sign"  name="sign" type="text" class="validate"  readonly="true"  >
+               <!-- <label>(ลงชื่อ)</label>-->
             </div>
             
         </div>
@@ -621,14 +732,14 @@ http://materializecss.com/buttons.html
     
     <div class="input-field col s2">
              
-        <input type="text" id="autocomplete-input"  id="name_sign"  name="name_sign"  class="autocomplete"  >
-          <label for="name_sign">ชื่อ</label>
+        <input type="text"   id="name_sign"  name="name_sign"  class="autocomplete"   readonly="true"  >
+          <!--<label for="name_sign">ชื่อ</label>-->
           
     </div>
     <div class="input-field col s2">
          
-        <input type="text" id="autocomplete-input" class="autocomplete"  id="lastname_sign"  name="lastname_sign"   >
-          <label for="lastname_sign">นามสกุล</label>
+        <input type="text"  class="autocomplete"  id="lastname_sign"  name="lastname_sign"   readonly="true"  >
+          <!--<label for="lastname_sign">นามสกุล</label>-->
     </div>
 
 </div>
@@ -800,11 +911,11 @@ http://materializecss.com/buttons.html
             </div>
              <div class="input-field col s2">
                  <input placeholder="" id="first_name2"   name="first_name2"  type="text" class="validate"  value="รศ.พญ.นิรมล">
-                <label for="first_name2">(ลงชื่อ)</label>
+                   <!-- <label for="first_name2">(ลงชื่อ)</label> -->
             </div>
                 <div class="input-field col s2">
                     <input placeholder="" id="last_name2"  name="last_name2"  type="text" class="validate"  value="พัจนสุนทร">
-                <label for="last_name2">(นามสกุล)</label>
+                     <!--<label for="last_name2">(นามสกุล)</label>-->
             </div>
         </div>
         
@@ -816,7 +927,7 @@ http://materializecss.com/buttons.html
             
             <div class="input-field col s4">
                 <input placeholder="" id="last_position"  name="last_position"  type="text" class="validate"  value="รองผู้อำนวยการฝ่ายบริหาร"  >
-                   <label for="last_position">ตำแหน่ง</label>
+                     <!--<label for="last_position">ตำแหน่ง</label>-->
                </div>
             
                    

@@ -12,7 +12,7 @@
                      
                          
                            parent::__construct();
-                          // $this->load->model("user_model");
+                           $this->load->model("user_model");
                           // $this->user_model->test();
                         //  $this->load->helper(array('form', 'url'));
                            $this->load->helper(array('form', 'url'));
@@ -4303,6 +4303,9 @@
                                                // echo br();
                                                 
                                                  $type_person=trim($this->input->get_post("type_person"));
+
+                                                 $id_staff=trim($this->input->get_post("id_staff"));
+                                                 
                                                  
                                                  
                                                 
@@ -4354,7 +4357,7 @@
                                                          "last_position"=>$last_position,      //31
                                                          "last_date"=>$last_date,       //32
                                                         "type_person"=>$type_person,
-                                                    
+                                                       "id_staff"=>$id_staff,
                                                 );
                                                 
                                               $tb="tb_vacation";
@@ -4515,8 +4518,105 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
                               
                 }
 
+                //http://10.87.196.170/document/index.php/welcome/sr_tb_vacation
+                public function sr_tb_vacation()  //สำหรับการค้นหาวันหยุด วันลา
+                {
+          
+                    
+                             $id_staff_sr=trim($this->input->get_post("id_staff_sr"));
+                             //echo br();
+                          //  $sr_tb_name=trim($this->input->get_post("sr_tb_name"));
+                             //echo br();
+                                              
+                                /*
+                                    <option value="1">แบบใบลาพักผ่อนประจำปี</option>
+                                    <option value="2">แบบใบลาป่วย/ลาคลอดบุตร/ลากิจส่วนตัว</option>
+                                 */
+
+                     
+                                  $tb="tb_vacation";
+                                  $data["query"]=$this->db->get_where($tb,array("id_staff"=>$id_staff_sr));
+                                  $query= $data["query"];
+                                   $row= $data["query"]->num_rows();
+                                  if( $row > 0 )
+                                  {
+                                      //  $this->load->view("table_vacation",$data);
+                                          $tb2="tb_staff";
+                                          $data["q_staff"]=$this->db->get_where($tb2,array("id_staff"=> $id_staff_sr));
+                                          $row= $data["q_staff"]->row();
+                                          $data["name"]=$row->name;
+                                          $data["lastname"]=$row->lastname;
+                                          
+                                              
+                                           $count_leave=0;
+                                            foreach($query->result() as $row )
+                                            {
+                                                   $leave_row = $row->leave;
+                                                   $data["count_leave"]  =+ $leave_row ;
+                                                   $date_total_leave_row=$row->date_total_leave;
+                                              
+                                                   $data["count_date_total_leave"]=$row->date_total_leave;  //วันลาทั้งหมด
+                                                   
+                                                   $leave_thistime_row = $row->leave_thistime;  //ลาครั้งนี้
+                                                   $data["count_leave_thistime_row"] =+  $leave_thistime_row;
+                                                  
+                                            }
+                                            
+                                            $data["total_count_date_total_leave"]  =  10  -  $data["count_date_total_leave"];
+                                            
+                                            $data["total_leave_thistime_row"]  =     10 -  $data["count_leave_thistime_row"];  //รวมวันลาที่เหลือ ลาครั้งนี้      
+                                          
+                                            $this->load->view("tb_leave",$data);
+                                  }
+          
+                              
+                              //sick2
+                                
+                               $tbsick="tb_sick";
+                               
+                              
+                        
+                         
+                              
+                }
 
 
+                public  function  call_tbstaff()
+                {
+                         $id_staff=trim($this->input->get_post("id_staff"));
+                       //echo br();
+                             $tb="tb_staff";
+                             $q=$this->db->get_where($tb,array("id_staff"=>$id_staff));
+                             $row=$q->row();
+                             echo $row->position;
+                             
+                }
+                public  function call_staff_name()
+                {
+                      $id_staff=trim($this->input->get_post("id_staff"));
+                       //echo br();
+                             $tb="tb_staff";
+                             $q=$this->db->get_where($tb,array("id_staff"=>$id_staff));
+                             $row=$q->row();
+                             $name=$row->name;
+                             $lastname=$row->lastname;
+                             $prename=$row->prename;
+                             echo      $prename.$name."        ".$lastname;
+                }
+                public  function  call_field_name()
+                {
+                       $tb="tb_staff";
+                       $id_staff=trim($this->input->get_post("id_staff"));
+                       //echo br();
+                       $field=trim($this->input->get_post("field"));
+                        // echo br();
+                       $q=$this->db->get_where($tb,array("id_staff"=>$id_staff));
+                        $row=$q->row();
+                       echo $row->$field;
+                      
+                }
+                
+                
                 public function  err_system()
                 {
                     //http://192.168.2.112/document/index.php/welcome/err_system
@@ -4531,6 +4631,8 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
                          $this->user_model->err_model();
                          
                 }
+                
+                
                 
                 
                 

@@ -62,6 +62,42 @@ class User_model extends CI_Model {
                  // redirect("welcome/index/");
         }
         
+        public function tb_staff()
+        {
+               $tb="tb_staff";
+               
+               /*
+   <select>
+      <option value="" disabled selected>Choose your option</option>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </select>
+    <label>Materialize Select</label>
+                */
+               
+            //   echo " <select> ";
+          //     echo " <option value=\"\" disabled selected>Choose your option</option> ";
+              
+               $query = $this->db->get($tb);
+               foreach($query->result() as $row)
+               {
+                   
+                   $id_staff=$row->id_staff;
+                   $name=$row->name;
+                   $lastname=$row->lastname;
+                   $position=$row->position;
+                   $prename=$row->prename;
+                   
+                   
+                  echo " <option value=\"".$id_staff."\">".$prename.$name.nbs(3).$lastname."</option> ";
+                   
+               }
+                
+                
+             //  echo "  </select> ";
+        }
+        
         public  function tb_main1($id,$doc)  // query ตารางหลัก
         {
             

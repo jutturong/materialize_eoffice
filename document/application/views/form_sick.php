@@ -107,7 +107,7 @@ http://materializecss.com/buttons.html
             
         <div class="input-field col s4">
             <input placeholder="ศูนย์ตะวันฉายฯ" id="write" name="write"  type="text"  value="ศูนย์ตะวันฉายฯ"  class="validate">
-          <label for="write">เขียนที่</label>
+                 <!--<label for="write">เขียนที่</label>-->
         </div>
             
 
@@ -165,7 +165,73 @@ http://materializecss.com/buttons.html
            
        <div class="row">
             
-            <div class="input-field col s1">
+            <div class="input-field col s2">
+                
+                <select class="browser-default"  id="id_staff_sick"  name="id_staff_sick" onchange=" 
+                        javascript:  
+                                
+                             $.post('<?=base_url()?>index.php/welcome/call_tbstaff',{ 'id_staff':$('#id_staff_sick').val()  },function(data)
+                             {
+                                     $('#position').val(data);  
+                             });
+                             
+                             $.post('<?=base_url()?>index.php/welcome/call_field_name',{ 'id_staff':$('#id_staff_sick').val() ,'field':'name'  },function(data)
+                             {
+                                   //  $('#position').val(data);  
+                                 //  $('#sign').val(data);
+                                     //  alert(data);
+                                     //  $('#name_sign').val(data);
+                                       $('#first_name').val(data);
+                                       $('#sign_name').val(data);
+                                       $('#firstname3').val(data);
+                                       
+                             });
+                             
+                              $.post('<?=base_url()?>index.php/welcome/call_field_name',{  'id_staff':$('#id_staff_sick').val() ,'field':'lastname'  },function(data)
+                             {
+                                   //  $('#position').val(data);  
+                                 //  $('#sign').val(data);
+                                     //  alert(data);
+                                    //   $('#lastname_sign').val(data);
+                                       $('#last_name').val(data);
+                                       $('#sign_lastname').val(data);
+                                       $('#lastname3').val(data);
+                             });
+                             
+                             
+                             
+                               $.post('<?=base_url()?>index.php/welcome/call_field_name',{  'id_staff':$('#id_staff_sick').val() ,'field':'prename'  },function(data)
+                             {
+
+                                     //alert(data);
+                                     if( data == 'นาย' )
+                                     {
+                                           $('#prename1').attr('checked',true);
+                                           $('#sign_prename1').attr('checked',true);
+                                     }
+                                     else if( data == 'นาง' )
+                                     {
+                                           $('#prename2').attr('checked',true);
+                                          $('#sign_prename2').attr('checked',true);
+                                     }
+                                     else if( data == 'นางสาว' )
+                                     {
+                                           $('#prename3').attr('checked',true);
+                                           $('#sign_prename3').attr('checked',true);
+                                     }
+                                     
+                             }); 
+                             
+                             
+                        " >
+                     <option value="" disabled selected>ชื่อ-นามสกุล</option>
+                            <!--
+                            <option value="1">Option 1</option>
+                            <option value="2">Option 2</option>
+                            <option value="3">Option 3</option>
+                            -->
+                            <?=$this->user_model->tb_staff()?>
+                </select>
             </div>  
                 
            
@@ -185,21 +251,21 @@ http://materializecss.com/buttons.html
             </div>  
            
            
-            <div class="input-field col s3">
-                <input placeholder="ชื่อ" id="first_name"  name="first_name" type="text" class="validate"    >
-                     <label for="first_name">ชื่อ</label>
+            <div class="input-field col s2">
+                <input placeholder="ชื่อ" id="first_name"  name="first_name" type="text" class="validate"  readonly="true"   >
+                     <!--<label for="first_name">ชื่อ</label>-->
              </div>
            
            
-              <div class="input-field col s3">
-                  <input placeholder="นามสกุล" id="last_name"  name="last_name" type="text" class="validate"  >
-                     <label for="last_name">นามสกุล</label>
+              <div class="input-field col s2">
+                  <input placeholder="นามสกุล" id="last_name"  name="last_name" type="text" class="validate"  readonly="true"  >
+                     <!--<label for="last_name">นามสกุล</label>-->
              </div>
            
            
-              <div class="input-field col s3">
-                  <input placeholder="ตำแหน่ง" id="position"  name="position"    type="text" class="validate"   >
-                     <label for="position">ตำแหน่ง</label>
+              <div class="input-field col s2">
+                  <input placeholder="ตำแหน่ง" id="position"  name="position"    type="text" class="validate"  readonly="true"  >
+                    <!-- <label for="position">ตำแหน่ง</label> -->
              </div>
            
            
