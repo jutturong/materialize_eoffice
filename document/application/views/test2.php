@@ -9,7 +9,9 @@
            <title><?=$title?></title>
  
    
-           
+           <?php
+                $cur_year = date("Y");  //วัน เดือน ปี  ในปัจจุบัน
+           ?>
            
            
            
@@ -2285,6 +2287,24 @@ $(document).ready(function(){
               <i class=" material-icons">person_pin</i>    สรุปการลาพักผ่อน/ลาป่วยภายในหน่วยงาน
         </h6>
         
+        <div class="input-field col s3">
+            <select class="browser-default"  id="work_year"  name="work_year"   onchange="" >
+                <option value="" disabled selected>เลือกปี</option>
+                <!--  $cur_year   -->
+                <?php
+                    $max_year =  $cur_year + 1;
+                    $nagative=$cur_year-1;
+                    for($min= $nagative;$min<=$max_year;$min++)
+                    {
+                          ?>
+                                  <option value="<?=$min?>" ><?=$min?></option>
+                          <?php
+                    }
+                ?>
+                
+            </select>
+        </div>
+        
         
         <div class="input-field col s3">
             
@@ -2307,35 +2327,9 @@ $(document).ready(function(){
         </div>
         
         
-        <!--
-        <div class="input-field col s3">
-            <input type="date"  id="date_begin_sr_vacation"    name="date_begin_sr_vacation"  class="datepicker">
-        </div>
-        -->
         
-        <!--
-        <div class="input-field col s3">
-            <input type="date" class="datepicker"  id="end_date_sr_vacation"  name="end_date_sr_vacation" >
-        </div>
-        -->
-        
-        
-        <!--
-         <div class="input-field col s12">
-             <select   id="sr_tb_name"  name="sr_tb_name" >
-      <option value="" disabled selected>เลือกประเภทของการสรุปการลา</option>
-      <option value="1">แบบใบลาพักผ่อนประจำปี</option>
-      <option value="2">แบบใบลาป่วย/ลาคลอดบุตร/ลากิจส่วนตัว</option>
+       
 
-    </select>
-    <label>เลือกประเภทของการสรุปการลา</label>
-  </div>
-        -->
-        
-        
-        <!--
-              $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
-        -->
         
         <div class="input-field col s12">   
             <a class="waves-effect waves-light btn-large"  onclick="javascript:
@@ -2344,6 +2338,8 @@ $(document).ready(function(){
                $('#sub11').load('<?=base_url()?>index.php/welcome/sr_tb_vacation',
                    {  
                         'id_staff_sr':$('#id_staff_sr').val(),
+                        'work_year':$('#work_year').val(),
+                        
                       //  'sr_tb_name':$('#sr_tb_name').val(), 
                     },
                    function(){  });

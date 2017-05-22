@@ -975,9 +975,9 @@ http://materializecss.com/buttons.html
                                       $.post('<?=base_url()?>index.php/welcome/insert_sick', $('#fr_sick').serialize(),
                                                     function(data)
                                                     {
-                                                              alert(data);
+                                                            //  alert(data);
                                                               
-                                                              /*
+                                                              
                                                               if( data == 1 )
                                                               {
                                                                        Materialize.toast('บันทึกข้อมูลสำเร็จ', 3000, 'rounded');
@@ -991,7 +991,7 @@ http://materializecss.com/buttons.html
                                                                {
                                                                         Materialize.toast('บันทึกข้อมูลล้มเหลว', 3000, 'rounded');
                                                                }
-                                                               */
+                                                               
                                                                
                                                                
                                                        });

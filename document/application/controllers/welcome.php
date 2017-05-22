@@ -27,6 +27,7 @@
 		//$this->load->view('welcome_message');
                             //    $this->user_model->logout();
                                 $data["title"]=$this->title;
+                             //   date_default_timezone_set("Asia/Bangkok");   
                                 $this->load->view("test2",$data);
                                 
 	}
@@ -4115,6 +4116,8 @@
                                             $date_manager=trim($this->input->get_post("date_manager"));  //วัน เดือน ปี คำสั่งผู้บริหาร
                                           // echo  br();
 
+                                            
+                                            $id_staff_sick=trim($this->input->get_post("id_staff_sick"));  
                                            
                                               //  id_sick    1
                                            $data=array(
@@ -4181,8 +4184,9 @@
                                                     "manager_position"=> $manager_position,   //ตำแหน่ง
                                                     "date_manager"=>$date_manager,  //วัน เดือน ปี คำสั่งผู้บริหาร
                                                
-                                                    "sick_disease"=>$sick_disease        //   $sick_disease=trim($this->input->get_post("sick_disease"));  // ป่วย  1=จากการทำงาน  2=ไม่ใช่จากการทำงาน
-                                               
+                                                    "sick_disease"=>$sick_disease,        //   $sick_disease=trim($this->input->get_post("sick_disease"));  // ป่วย  1=จากการทำงาน  2=ไม่ใช่จากการทำงาน
+                                              
+                                                   "id_staff"=>$id_staff_sick,
                                            );
                                            
                                            
@@ -4524,6 +4528,12 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
           
                     
                              $id_staff_sr=trim($this->input->get_post("id_staff_sr"));
+                             $work_year=trim($this->input->get_post("work_year"));
+                            
+                            $make_year_begin=$work_year."-01-01";
+                            $make_year_end=$work_year."-12-01";
+                          
+                             
                              //echo br();
                           //  $sr_tb_name=trim($this->input->get_post("sr_tb_name"));
                              //echo br();
@@ -4535,9 +4545,11 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
 
                      
                                   $tb="tb_vacation";
-                                  $data["query"]=$this->db->get_where($tb,array("id_staff"=>$id_staff_sr));
+                                  $data["query"]=$this->db->get_where($tb,array("id_staff"=>$id_staff_sr,"date_begin >="=>$make_year_begin,"end_date <="=>$make_year_end));
                                   $query= $data["query"];
                                    $row= $data["query"]->num_rows();
+                                   
+                                   
                                   if( $row > 0 )
                                   {
                                       //  $this->load->view("table_vacation",$data);
@@ -4559,6 +4571,9 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
                                                    
                                                    $leave_thistime_row = $row->leave_thistime;  //ลาครั้งนี้
                                                    $data["count_leave_thistime_row"] =+  $leave_thistime_row;
+                                                   
+                                                   
+                                                
                                                   
                                             }
                                             
@@ -4566,13 +4581,89 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
                                             
                                             $data["total_leave_thistime_row"]  =     10 -  $data["count_leave_thistime_row"];  //รวมวันลาที่เหลือ ลาครั้งนี้      
                                           
-                                            $this->load->view("tb_leave",$data);
+                                          //  $this->load->view("tb_leave",$data);
                                   }
-          
-                              
-                              //sick2
-                                
+                                  
+                                  
+                             
+                                  
+                                  
                                $tbsick="tb_sick";
+                            //   $data["q_sick"]=$this->db->get_where( $tbsick,array("id_staff"=> $id_staff_sr));
+                            //    $row=  $data["q_sick"]->row();
+                               
+                               /*
+                                 $make_year_begin=$work_year."-01-01";
+                            $make_year_end=$work_year."-12-01";
+                                */
+                                
+                                  $data["query_sick"]=$this->db->get_where($tbsick,array("id_staff"=>$id_staff_sr,"begin_date1 >= "=>$make_year_begin,"end_date1 <= "=>$make_year_end));
+                                  $query2=  $data["query_sick"];
+                                  $row2= $query2->num_rows();
+                                  $count_sick_person2 = 0;
+                                  $count_confined2=0;
+                                  $count_sick2_row=0;
+                                  if( $row2 > 0 ) 
+                                    {
+                                             foreach(  $query2->result() as $row)
+                                             {
+                                                    $sick2_row  = $row->sick2;
+                                                   // $data["count_sick2_row"]  +=   $sick2_row;
+                                                 // $count_sick2_row    +=$sick2_row;
+                                                    
+                                                    //----- ลาป่วย
+                                                    if( $sick2_row > 1 )
+                                                    {
+                                                        $count_sick2_row +=$sick2_row;
+                                                       // $data["count_sick2_row"]  +=$sick2_row;
+                                                    }
+                                                    elseif(  $sick2_row <= 1  )
+                                                    {
+                                                         $data["count_sick2_row"]  = $sick2_row;
+                                                    }
+                                                   
+                                                    
+                                                  //---- กิจส่วนตัว-----  
+                                                  $sick_person2=$row->sick_person2;
+                                                    if( $sick_person2 > 1 )
+                                                    {
+                                                        $count_sick_person2  += $sick_person2;
+                                                    }
+                                                     elseif(  $sick_person2 <= 1  )
+                                                    {
+                                                         $count_sick_person2 = $sick_person2;
+                                                    }
+                                                    
+                                                    
+                                                    //------คลอดบุตร------
+                                                    $confined2=$row->confined2;
+                                                    $count_confined2 =+   $confined2;
+                                                       
+                                                    
+                                             }
+                                        
+                                             // $count_sick2_row +=$sick2_row;
+                                             $data["count_sick2_row"]  =$count_sick2_row;
+                                             
+                                             $data["total_count_sick2_row"]  =  10  -  $data["count_sick2_row"];
+                                             
+                                             //---------- กิจส่วนตัว-------
+                                             $data["count_sick_person2"] = $count_sick_person2;
+                                            $data["total_count_sick_person2"] = 10 - $count_sick_person2;
+                                            
+                                            //-----------คลอดบุตร---------
+                                             $data["count_confined2"] =  $count_confined2;
+                                             $data["total_count_confined2"]=10-$count_confined2;
+                                            
+                                       
+                                    }
+                                    
+                                    
+                                    
+                                   
+                                   
+                                $this->load->view("tb_leave",$data);
+                               
                                
                               
                         
