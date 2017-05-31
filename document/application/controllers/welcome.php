@@ -4619,7 +4619,8 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
                                                     }
                                                     elseif(  $sick2_row <= 1  )
                                                     {
-                                                         $data["count_sick2_row"]  = $sick2_row;
+                                                         $count_sick2_row +=$sick2_row;
+                                                       //  $data["count_sick2_row"]  = $sick2_row;
                                                     }
                                                    
                                                     
