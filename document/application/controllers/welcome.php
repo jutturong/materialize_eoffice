@@ -644,6 +644,7 @@
                      {
                              $data["title"]=$this->title;
                             // $this->load->view("sub11",$data);
+                             
                             $data["query"]=$this->user_model->tb_main1("1","1");
                             //   return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc));
                          
@@ -782,7 +783,8 @@
                             $tb="tb_main1";
                             //$data["query2"]=$this->db->get_where($tb,array("type_document"=>2,"type_record"=>2));
                              $data["query2"]=$this->user_model->tb_main1("3","2");
-                            
+                             $this->db->order_by("id_main1","DESC");
+                             
                              
                                 ?>
                              
@@ -824,9 +826,14 @@
                              $tb="tb_main1";
                                 
                            // $data["query"]=$this->user_model->tb_main1("2","1");
+                             $this->db->order_by("id_main1","DESC");
                              $data["query"]=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>1));
+                             
+                             
                             // $data["query2"]=$this->user_model->tb_main1("2","2");
+                              $this->db->order_by("id_main1","DESC");
                               $data["query2"]=$this->db->get_where($tb,array("type_record"=>2,"type_document"=>2));
+                              
                              ?>
                              
         <div class="row">
