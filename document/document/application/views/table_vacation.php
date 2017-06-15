@@ -83,11 +83,13 @@
               -->
               
               <th>
-                    <i class="small  material-icons">person_pin</i>
+                    <i class="small  material-icons">class</i>
                   ชื่อ-นามสกุล</th>
               
               <th>
-                  <i class="small  material-icons">play_circle_filled</i>
+                  <!--
+                  <i class="small  material-icons">payment</i>
+                  -->
                   ออกรายงาน </th>
               
           </tr>
@@ -173,7 +175,9 @@
         <a class="subheader">Subheader</a>
          -->
          
-         <a class="waves-effect waves-light btn-large"><i class="small  material-icons">settings_input_hdmi</i>Update</a>
+         <a   onclick="javascript  :   $('#sub11').load('<?=base_url()?>index.php/welcome/load_update_vacation/'  +  <?=$id_vacation?>  );  "  class="waves-effect waves-light btn" >
+               <i class="small  material-icons">settings_input_hdmi</i>Update
+         </a>
     
     </li>
     
@@ -182,7 +186,7 @@
         <!--
         <a class="waves-effect" href="#!">Third Link With Waves</a>
         -->
-         <a class="waves-effect waves-light btn-large"><i class="small  material-icons">person_pin</i>Report</a>
+        <a class="waves-effect waves-light btn-large" onclick="  window.open('<?=base_url()?>report_pdf/docdb/report_vacation.php?id_vacation=<?=$row->id_vacation?>');   " ><i class="small  material-icons">person_pin</i>Report</a>
         
     </li>
     
@@ -204,11 +208,11 @@
                   
                   
                   <td>
-                      <i class="tiny  material-icons">play_arrow</i>
+                      <i class="tiny  material-icons">room</i>
                            <!--  http://materializecss.com/side-nav.html  -->
                         <a  class="button-collapse"   data-activates="slide-out<?=$id_vacation?>"   >
                         
-                                    <?=$row->id_vacation?>
+                                  
 
                                      <?=nbs(3)?>
 
@@ -228,7 +232,7 @@
 
                   <td>
                       
-                      <i class="small  material-icons">queue</i>
+                      <i class="small  material-icons" onclick=" window.open('<?=base_url()?>report_pdf/docdb/report_vacation.php?id_vacation=<?=$row->id_vacation?>');  " >pause_circle_outline</i>
                       
                       
                       <!--
@@ -240,8 +244,10 @@
                       
                   </td>
            </tr>
+          
            
            
+             
            
            
 
@@ -252,6 +258,18 @@
           
         </tbody>
       </table>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+
             
 
 
