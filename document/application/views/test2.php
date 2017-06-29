@@ -183,6 +183,7 @@ $(document).ready(function(){
            <script type="text/javascript">
               $(function(){
                   var send1='<?php echo $this->uri->segment(3);?>';
+                  var ID='<?php echo $this->uri->segment(4);?>';
                   //alert( send1 );
                   //insert_success
                   if(  send1 == "insert_success"  )
@@ -205,6 +206,8 @@ $(document).ready(function(){
                                 $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
  
                   }
+                  
+                  
                   //insert_success_receive21  //insert_success_send21
                       else  if(  send1 == "insert_success_receive21"   ||  send1 ==  "insert_success_send21"  ||  send1 =='page2'   )
                   {
@@ -244,6 +247,22 @@ $(document).ready(function(){
 */
                   
                   // $('#sub11').load("<?=base_url()?>index.php/welcome/table_main_academic");
+                  
+                 
+                
+                 //ปรับปรุงการ update  ข้อมูลเป็นราย
+                 //updateid
+                   else  if( send1 == "updateid"    ) //หน้าปฏิทินหลัก
+                  {
+                          //http://10.87.196.170/document/index.php/welcome/calendar
+                          //http://10.87.196.170/document/index.php/welcome/homepage/updateid/906
+                         // alert(ID);
+                         
+                           // $('#sub11').load("<?=base_url()?>index.php/welcome/subtable11");
+                            
+                           $('#sub11').load("<?=base_url()?>index.php/welcome/loadformID/" + ID );
+                  }
+                  
                   
               });    
            </script>

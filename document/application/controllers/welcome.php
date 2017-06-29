@@ -637,6 +637,75 @@
                      
                 }
                 
+                // http://10.87.196.170/document/index.php/welcome/loadformID/906
+                public  function loadformID() //โหลด จากการ update
+                {
+                    
+                    
+                    
+                       $id_main1=trim($this->uri->segment(3));
+                     $data["title"]=$this->title;
+                    
+                      if(  $id_main1 > 0 )  
+                      {
+                          
+                          //echo   $id_main1;
+                          //echo br();
+                          
+                          /*
+                            $data["title"]=$this->title;
+                            $tb="tb_main1";
+                            
+                            $data["query"]=$this->db->get_where($tb,array("id_main1"=>$id_main1));
+                            
+                            
+                             $data["query2"]=$this->db->get_where($tb,array("id_main1"=>$id_main1));
+                             */
+                             
+                                $tb="tb_main1";
+                                
+                               
+                                //  return  $this->db->get_where($tb,array("type_record"=>$id,"type_document"=>$doc),$this->limit);
+                              //   $this->db->get_where($tb,array("id_main1"=>$id_main1));
+                                
+                                 $data["query"]=$this->db->get_where($tb,array("id_main1"=>$id_main1));
+                             //  echo   $data["query"]->num_rows();
+                                $data["query2"]=$this->db->get_where($tb,array("id_main1"=>$id_main1));
+                               
+                               // $data["query"]=$this->user_model->tb_main1("1","1");
+                                
+                               //  $data["query2"]=$this->user_model->tb_main1("1","2");
+                                
+                                
+                                  ?>
+                             
+        <div class="row">
+                    <div class="col s12 m12">
+                      <div class="card blue-grey darken-1">
+                        <div class="card-content white-text">
+
+                          <p>
+                             <i class="material-icons left">person_pin</i> แสดงผลการบันทึก > มูลนิธิตะวันฉายฯ 
+                          </p>
+
+                        </div>
+
+
+
+                      </div>
+                    </div>
+      </div>
+                       <?php 
+                            
+                            $this->load->view("table11",$data);
+                            
+                             
+                      }
+                     
+                    
+                }
+                
+                
                 public function  subtable11()//table หนังสือ รับ หนังสือ ส่ง มูลนิธิตะวันฉายฯ
                 {
                     #    index.php/welcome/subtable11/
@@ -1120,37 +1189,40 @@
                                          if( $ck )
                                          {
                                            //  echo 1;
-                                             
-                                       
-                                             
-                                             
+                                               
                                          }else
                                          {
-                                             //echo 0;
+                                                 //echo 0;
                                          }
                                          
+                                              // $id_main1
 
                                               switch ($page)
                                               {
                                                   case 1:
                                                   {
-                                                           redirect("welcome/homepage/page1",'refresh');  
-                                                           break;
+                                                           //redirect("welcome/homepage/page1",'refresh');  
+                                                            redirect("welcome/homepage/updateid/".$id_main1,'refresh');  
+                                                            break;
                                                   }
                                                   case 2:
                                                   {
-                                                       redirect("welcome/homepage/page2",'refresh');  
-                                                       break;
+                                                      // redirect("welcome/homepage/page2",'refresh');  
+                                                            redirect("welcome/homepage/updateid/".$id_main1,'refresh');  
+                                                            break;
                                                   }
                                                   case 3:
                                                   {
-                                                       redirect("welcome/homepage/page3",'refresh');  
-                                                       break;
+                                                       // redirect("welcome/homepage/page3",'refresh');  
+                                                           redirect("welcome/homepage/updateid/".$id_main1,'refresh');  
+                                                           break;
                                                   }
                                               } 
-                                         
-                                         
-                         
+                                                 
+                                 //  redirect("welcome/homepage/updateid/".$id_main1,'refresh'); 
+                                // http://10.87.196.170/document/index.php/welcome/homepage/updateid/906  
+                                              // redirect("welcome/homepage/updateid/".$id_main1,'refresh');          
+ 
                      }
                 }
                 
@@ -4737,5 +4809,5 @@ $select_date=$_REQUEST["select_date"];   //เลือกวันที่ใ�
                 
 }
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+?>
+
