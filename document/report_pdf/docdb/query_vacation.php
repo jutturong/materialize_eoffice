@@ -156,11 +156,19 @@
      {
              $ex=explode("-",$dmy);
             
+             
+             if(  $ex[0]  > 0  )
+             {
               $y=$ex[0]+543; //ปี
              $m= date_thai_cut( $ex[1] );
            //  $d=$ex[2];
              $d=number_format($ex[2]);
              return  $d." ".$m." ".$y;
+             }
+             else
+             {
+                  return  "";
+             }
                 
      }
  }
@@ -394,12 +402,19 @@ $cur_date=date("Y-m-d");
                          $position_commander=$row["position_commander"]; //ตำแหน่งผู้บังคับบัญชาชั้นต้น
                          
                         $date_commander=$row["date_commander"];  //วัน เดือน ปี อนุมัติผู้บังคับบัญชา
+                        
+                        
                         $ex4=explode("-", $date_commander );
+                        
+                        
                         $ex4[0]; //ปี
                         $year4=$ex4[0]+543;
                         $ex4[1];  //เดือน
                         $month4=date_thai_cut($ex4[1]);
                         $ex4[2];  //วัน
+                     
+                      
+                        $date_commander_conv=split_dmy_thai($date_commander );
                         
                         
                        
@@ -423,6 +438,8 @@ $cur_date=date("Y-m-d");
                         $month5=date_thai_cut($ex5[1]);
                         $ex5[2];  //วัน
                          
+                        
+                        $last_date_conv=split_dmy_thai($last_date);
                          
                         
                      }

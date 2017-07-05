@@ -35,7 +35,7 @@ http://materializecss.com/buttons.html
 <nav>
     <div class="nav-wrapper">
       <div class="col s12">
-        <a href="#!" class="breadcrumb"> <i class="material-icons">room</i> ใบลาพักผ่อน</a>
+        <a href="#!" class="breadcrumb"> <i class="material-icons">room</i> ใบลาป่วย/ลาคลอดบุตร/ลากิจส่วนตัว</a>
         <a href="#" class="breadcrumb"  onclick="javascript:  $('#sub11').load('<?=base_url()?>index.php/welcome/form_sick');  " >      กรอกแบบฟอร์ม </a>
         <a href="#!" onclick="javascript:  $('#sub11').load('<?=base_url()?>index.php/welcome/table_sick');   "  class="breadcrumb"> ข้อมูลทั้งหมด </a>
       </div>
@@ -435,7 +435,7 @@ http://materializecss.com/buttons.html
                    </div>
                    <div class="col s2">
                                     <i class="material-icons prefix">today'll</i>
-                          <input type="date"  id="begin_date2"  name="begin_date2"  class="datepicker"  >
+                                    <input type="date"  id="begin_date2"  name="begin_date2"  class="datepicker"  required >
                    </div>
 
                    <div class="col s1">
@@ -444,7 +444,7 @@ http://materializecss.com/buttons.html
 
                    <div class="col s2">
                          <i class="material-icons prefix">today'll</i>
-                       <input    type="date"    id="end_date2"  name="end_date2"   class="datepicker"  >
+                       <input    type="date"    id="end_date2"  name="end_date2"   class="datepicker" required  >
                    </div>
 
 
@@ -453,7 +453,7 @@ http://materializecss.com/buttons.html
                      </div>
 
                    <div class="col s1">
-                        <input    id="count_date2"  name="count_date2"    type="text" data-length="10">
+                        <input    id="count_date2"  name="count_date2"    type="text" data-length="10" required  >
                    </div>
 
                    <div class="col s1">

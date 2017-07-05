@@ -292,7 +292,7 @@ if( $type_person  == 5 )
           */
 
             $pdf->setXY( $x1 + 130 , $y1 + 3 );
-            $pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' , " [ / ] ลูกจ้างศูนย์ตะวันฉาย "  ),'C',false);
+            $pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' , " [ / ] เจ้าหน้าที่ศูนย์ตะวันฉาย "  ),'C',false);
 }
 
 
@@ -384,7 +384,7 @@ if( $type_person  == 5 )
    //   $first_name
       $pdf->SetFont('angsana','',14);
      $pdf->setXY( $x1 + 53 , $y1 + 35 );
-      $pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' , "...............".$first_name."....".$last_name."..................ตำแหน่ง..........".$position.".........."   ),'C',false);
+      $pdf->Cell(  40  ,  10 , iconv( 'UTF-8','cp874' , "...............".$first_name."....".$last_name."..................ตำแหน่ง.........".$position.".........."   ),'C',false);
 
 
 
@@ -733,11 +733,13 @@ if( $type_person  == 5 )
                        //ชื่อ ผู้ตรวจสอบ
                        $pdf->setXY( $x1  , $y1 + 140 +10 +5 + 5+30 );
                        $pdf->SetFont('angsana','',14);
-                       $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"(ลงชื่อ)..........".$inspector_name."....".$inspector_lastname."...........ผู้ตรวจสอบ" ),0,0,'L',false);
+                      // $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"(ลงชื่อ)..........".$inspector_name.".............".$inspector_lastname."...........ผู้ตรวจสอบ" ),0,0,'L',false);
+                        $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"(ลงชื่อ)..........".$inspector_name."............."."..................."."...........ผู้ตรวจสอบ" ),0,0,'L',false); //แก้ไข 5-7-60
 
                        $pdf->setXY( $x1  , $y1 + 140 +10 +5 + 5+30+7 );
                        $pdf->SetFont('angsana','',14);
-                       $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"ตำแหน่ง.........".$inspector_position."........................" ),0,0,'L',false);
+                      // $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"ตำแหน่ง....222.....".$inspector_position."........................" ),0,0,'L',false);
+                       $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"ตำแหน่ง........."."ผู้่ช่วยวิจัยและธุรการ"."................." ),0,0,'L',false);  //แก้ไข 5-7-60
 
                        $pdf->setXY( $x1  , $y1 + 140 +10 +5 + 5+30+7+7 );
                        $pdf->SetFont('angsana','',14);
@@ -745,19 +747,19 @@ if( $type_person  == 5 )
 
 
                         //ชื่อ ผู้ตรวจสอบ
-                       $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10 );
+                       $pdf->setXY( $x1 +110 , $y1 + 115 +10 +5 +20 +10+10 );
                        $pdf->SetFont('angsana','',14);
                        $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"(ลงชื่อ)..........".$first_name2."....".$last_name2."...........ผู้บังคับบัญชา" ),0,0,'L',false);
 
-                       $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6 );
+                       $pdf->setXY( $x1 +110 , $y1 + 115 +10 +5 +20 +10+10+6 );
                        $pdf->SetFont('angsana','',14);
                        $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"ตำแหน่ง............".$postion2."............" ),0,0,'L',false);
 
-                        $pdf->setXY( $x1 +110+5 , $y1 + 140 +10 +5 +20 +10+10+6+6 );
+                        $pdf->setXY( $x1 +110+5 , $y1 + 115 +10 +5 +20 +10+10+6+6 );
                        $pdf->SetFont('angsana','',14);
                        $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"วันที่...........".$commander_date_conv."..........." ),0,0,'L',false);
 
-                       $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7);
+                       $pdf->setXY( $x1 +110 , $y1 + 125 +10 +5 +20 +10+10+6+6+7);
                        $pdf->SetFont('angsana','U',14);
                        $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"คำสั่งผู้บริหาร" ),0,0,'L',false);
 
@@ -765,36 +767,36 @@ if( $type_person  == 5 )
                        //$manager_allow='';
                        if(  $manager_allow == 1 )
                        {
-                       $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7+7);
+                       $pdf->setXY( $x1 +110 , $y1 + 130 +10 +5 +20 +10+10+6+6+7);
                        $pdf->SetFont('angsana','',14);
                        $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"( / ) อนุญาต    (   ) ไม่อนุญาต " ),0,0,'L',false);
                        }
                        elseif(  $manager_allow==2 )
                         {
-                       $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7+7);
+                       $pdf->setXY( $x1 +110 , $y1 + 130 +10 +5 +20 +10+10+6+6+7);
                        $pdf->SetFont('angsana','',14);
                        $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"(   ) อนุญาต    ( / ) ไม่อนุญาต " ),0,0,'L',false);
                        }
                        else
                        {
-                             $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7+7);
+                             $pdf->setXY( $x1 +110 , $y1 + 130 +10 +5 +20 +10+10+6+6+7);
                             $pdf->SetFont('angsana','',14);
                             $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"(   ) อนุญาต    (   ) ไม่อนุญาต " ),0,0,'L',false);
                        }
 
 
-                            $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7+7+10);
+                            $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7);
                             $pdf->SetFont('angsana','',14);
                             $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"(ลงชื่อ)  (..........".$first_name3.".......".$last_name3."............)" ),0,0,'L',false);
 
-                            $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7+7+10+7);
+                            $pdf->setXY( $x1 +110 , $y1 + 150 +10 +5 +20 +10+10+6+6+7);
                             $pdf->SetFont('angsana','',14);
                             $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"ตำแหน่ง..............".$manager_position."..............." ),0,0,'L',false);
 
 
-                            $pdf->setXY( $x1 +110 , $y1 + 140 +10 +5 +20 +10+10+6+6+7+7+10+7+7);
+                            $pdf->setXY( $x1 +110 , + 160 +10 +5 +20 +10+10+6+6+7);
                             $pdf->SetFont('angsana','',14);
-                            $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"วันที่.............".$date_manager_conv.".................." ),0,0,'L',false);
+                            $pdf->Cell(  23  ,  10 , iconv( 'UTF-8','cp874' ,"วันที่...................".$date_manager_conv."....................." ),0,0,'L',false);
 
 
                             /*
