@@ -77,7 +77,7 @@ http://materializecss.com/buttons.html
 
 
       <input name="type_person" type="radio"  id="type_person5"   value="5"  checked="checked"  />
-      <label for="type_person5">ลูกจ้างศูนย์ตะวันฉาย</label>
+      <label for="type_person5">เจ้าหน้าที่ศูนย์ตะวันฉาย</label>
 
                    </div>
                </div>
@@ -474,7 +474,7 @@ http://materializecss.com/buttons.html
              </div>
 
             <div class="input-field col s3">
-                <input  id="wishes" name="wishes"  id="wishes"     type="tel" class="validate" >
+                <input  id="wishes" name="wishes"  id="wishes"     type="tel" class="validate"   required   />
             </div>
 
 
@@ -500,7 +500,7 @@ http://materializecss.com/buttons.html
 
           <div class="input-field col s2">
                           <i class="material-icons prefix">today'll</i>
-                          <input type="date" id="date_begin"  name="date_begin"  class="datepicker">
+                          <input type="date" id="date_begin"  name="date_begin"  class="datepicker"  required />
 
                       </div>
 
@@ -514,7 +514,7 @@ http://materializecss.com/buttons.html
 
              <div class="input-field col s2">
                           <i class="material-icons prefix">today'll</i>
-                          <input type="date"  id="end_date"  name="end_date"    class="datepicker">
+                          <input type="date"  id="end_date"  name="end_date"    class="datepicker"  required >
 
                       </div>
 
@@ -784,12 +784,12 @@ http://materializecss.com/buttons.html
 
 
             <div class="input-field col s2">
-                <input placeholder="" id="name_inspector"  name="name_inspector"  type="text" class="validate">
-                <label for="name_inspector">(ลงชื่อ)</label>
+                <input placeholder="" id="name_inspector"  name="name_inspector"  type="text" class="validate" value="นงลักษณ์" >
+                <!--<label for="name_inspector">(ลงชื่อ)</label>-->
             </div>
             <div class="input-field col s2">
-                <input placeholder=""id="lastname_inspector"   name="lastname_inspector"    type="text" class="validate">
-                <label for="lastname_inspector">(นามสกุล)</label>
+                <input placeholder=""id="lastname_inspector"   name="lastname_inspector"    type="text" class="validate" value="พรมขอนยาง">
+                <!--<label for="lastname_inspector">(นามสกุล)</label>-->
             </div>
 
             <div class="input-field col s1">
@@ -819,8 +819,8 @@ http://materializecss.com/buttons.html
             </div>
 
             <div class="input-field col s4">
-                <input placeholder="" id="position_inspector"  name="position_inspector"  type="text" class="validate" >
-                   <label for="position_inspector">ตำแหน่ง</label>
+                <input placeholder="" id="position_inspector"  name="position_inspector"  type="text" class="validate"  value="เจ้าหน้าที่ผู้ช่วยวิัจัยและธุรการ">
+                  <!-- <label for="position_inspector">ตำแหน่ง</label>-->
             </div>
 
             <div class="input-field col s1">
@@ -850,10 +850,15 @@ http://materializecss.com/buttons.html
 
             </div>
 
+            
+                <!--
                  <div class="input-field col s2">
                 <i class="material-icons prefix">today</i>
-                <input type="date"  id="date_commander"  name="date_commander"   class="datepicker">
-            </div>
+               
+                <input type="date"  id="date_commander"  name="date_commander"   class="datepicker" readonly="true">
+                
+                </div>
+                -->
 
 
         </div>
@@ -944,11 +949,14 @@ http://materializecss.com/buttons.html
 
             </div>
 
+            
+            <!--
                  <div class="input-field col s2">
                 <i class="material-icons prefix">today</i>
                 <input type="date"  id="last_date"   name="last_date"  class="datepicker"  >
             </div>
-
+               -->
+               
 
         </div>
 

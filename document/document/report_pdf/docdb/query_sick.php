@@ -72,7 +72,10 @@
          }
      }
      
-     
+      
+ 
+ 
+ 
       //--- เดือนไทย----
      function  date_thai_cut($m)
      {
@@ -155,12 +158,31 @@
      if( strlen($dmy) > 0 &&  $dmy != "" )
      {
              $ex=explode("-",$dmy);
-            
+             
+             if( $ex[0]  > 0  )
+             {
               $y=$ex[0]+543; //ปี
+              
+              if(   $ex[0]  >  0  )
+              {
              $m= date_thai_cut( $ex[1] );
            //  $d=$ex[2];
              $d=number_format($ex[2]);
-             return  $d." ".$m." ".$y;
+                return  $d." ".$m." ".$y;
+              }
+              else
+              {
+                  return "";
+              }
+                
+                
+             }
+             else
+             {
+                 //return $dmy;
+                 return "";
+             }
+           
                 
      }
  }
@@ -466,6 +488,8 @@ $cur_date=date("Y-m-d");
                          $lastname_commander=$row["lastname_commander"]; //นามสกุลผู้บังคับบัญชาชั้นต้น
                          
                          $position_commander=$row["position_commander"]; //ตำแหน่งผู้บังคับบัญชาชั้นต้น
+                        
+                         
                          
                         $date_commander=$row["date_commander"];  //วัน เดือน ปี อนุมัติผู้บังคับบัญชา
                         $ex4=explode("-", $date_commander );
@@ -474,6 +498,9 @@ $cur_date=date("Y-m-d");
                         $ex4[1];  //เดือน
                         $month4=date_thai_cut($ex4[1]);
                         $ex4[2];  //วัน
+                        
+                        
+                        $date_commander_conv=split_dmy_thai($date_commander);
                         
                         
                        
